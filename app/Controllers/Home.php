@@ -7,7 +7,8 @@ class Home extends BaseController
     public function index()
     {
         $data = array(
-            'main' => 'homepage'
+            'main' => 'homepage',
+            'title' => 'Controltask'
         );
         return view('template', $data);
     }
