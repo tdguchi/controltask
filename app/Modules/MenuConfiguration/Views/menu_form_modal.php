@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="parent">Parent</label>
+                        <label for="parent">Padre</label>
                         <select class="form-control" name="parent" id="parent">
                             <option value=''>Seleccionar Parent</option><? foreach ($s_parent as $c) {
                                                                         ?>
