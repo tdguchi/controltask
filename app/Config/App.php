@@ -460,6 +460,6 @@ class App extends BaseConfig
      *
      * @var bool
      */
-    public $CSPEnabled = true;
+    public $CSPEnabled = false;
     public $authEnabled = true;
 }
