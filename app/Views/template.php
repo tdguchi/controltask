@@ -52,7 +52,7 @@
     <div class="app-menu navbar-menu">
         <div style="height:61px;text-align:center;border-bottom:1px solid #dee2e6;display:flex;justify-content:center;align-items:center;">
             <a href="<?= base_url() ?>">
-                <img src="<?= base_url() ?>/assets/images/logo-dark.png" alt="" height="22">
+                <img src="<?= base_url() ?>/assets/images/logo-light.png" alt="" height="22">
             </a>
         </div>
         <?= view('partials/menu'); ?>
