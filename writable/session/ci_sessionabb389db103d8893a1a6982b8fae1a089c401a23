@@ -1,0 +1,9 @@
+__ci_last_regenerate|i:1668797345;_ci_previous_url|s:24:"https://controltask.net/";identity|s:5:"pablo";username|s:5:"pablo";email|s:20:"pablob@teconsite.com";user_id|s:1:"2";old_last_login|s:10:"1668787753";last_check|i:1668797345;message|s:273:"<!-- DEBUG-VIEW START 1 APPPATH/ThirdParty/ion-auth/Views/Messages/list.php -->
+	<div class="alert alert-info" role="alert">
+		<ul>
+					<li>Sesión iniciada con éxito</li>
+				</ul>
+	</div>
+
+<!-- DEBUG-VIEW ENDED 1 APPPATH/ThirdParty/ion-auth/Views/Messages/list.php -->
+";__ci_vars|a:1:{s:7:"message";s:3:"old";}
