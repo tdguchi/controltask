@@ -140,7 +140,6 @@ class Users extends BaseController
         );
         $data['titulo'] = 'users';
         $data['element'] = $title;
-        $data['title'] = 'Usuarios';
         if (session()->get('message')) {
             $data['message'] = session()->get('message');
             session()->remove('message');
