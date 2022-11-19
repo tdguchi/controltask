@@ -65,6 +65,7 @@ class Users extends BaseController
         $title = urldecode($this->request->getGet('title'));
         if ($title == '') {
             $title = urldecode($this->request->getPost('title'));
+            $title = "Usuarios";
         }
         if ($title != '') {
             $custom_title = '&title=' . $title;
