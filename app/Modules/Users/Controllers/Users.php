@@ -69,7 +69,7 @@ class Users extends BaseController
         if ($title != '') {
             $custom_title = '&title=' . $title;
         } else {
-            $custom_title = '';
+            $custom_title = 'Usuarios';
         }
 
         $ob = urldecode($this->request->getGet('ob'));
