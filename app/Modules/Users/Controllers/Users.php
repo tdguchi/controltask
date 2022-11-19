@@ -65,7 +65,6 @@ class Users extends BaseController
         $title = urldecode($this->request->getGet('title'));
         if ($title == '') {
             $title = urldecode($this->request->getPost('title'));
-            $title = "Usuarios";
         }
         if ($title != '') {
             $custom_title = '&title=' . $title;
@@ -139,7 +138,7 @@ class Users extends BaseController
             'orden_campo' => isset($ordencampo) ? $ordencampo : '',
             'orden_dir' => isset($ordendir) ? $ordendir : '',
         );
-        $data['titulo'] = 'users';
+        $data['title'] = 'users';
         $data['element'] = $title;
         if (session()->get('message')) {
             $data['message'] = session()->get('message');
