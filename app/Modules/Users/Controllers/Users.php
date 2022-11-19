@@ -138,8 +138,9 @@ class Users extends BaseController
             'orden_campo' => isset($ordencampo) ? $ordencampo : '',
             'orden_dir' => isset($ordendir) ? $ordendir : '',
         );
-        $data['title'] = 'users';
+        $data['titulo'] = 'users';
         $data['element'] = $title;
+        $data['title'] = $title;
         if (session()->get('message')) {
             $data['message'] = session()->get('message');
             session()->remove('message');
