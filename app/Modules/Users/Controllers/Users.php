@@ -205,7 +205,7 @@ class Users extends BaseController
 
     public function create_action()
     {
-        $rules = $this->_rulescreation('create');
+        $rules = $this->_rules('create');
 
         if ($this->validate($rules) == FALSE) {
             session()->set('message', $this->validator->listErrors());
