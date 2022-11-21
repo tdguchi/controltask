@@ -214,11 +214,11 @@ class Tareas extends BaseController
         } else {
             $data = array();
             $data['proyecto_id'] = $this->request->getPost('proyecto_id');
+            $data['fechahoracreacion'] = date('Y-m-d H:i:s');
             $data['usuario_id'] = $this->request->getPost('usuario_id');
             $data['usuariosadicionales'] = $this->request->getPost('usuariosadicionales');
             $data['titulo'] = $this->request->getPost('titulo');
             $data['descripcion'] = $this->request->getPost('descripcion');
-            $data['fechahoracreacion'] = date('Y-m-d H:i:s');
             $data['fechaobjetivo'] = $this->request->getPost('fechaobjetivo');
             $data['fechaestimada'] = $this->request->getPost('fechaestimada');
             $data['horasestimadas'] = $this->request->getPost('horasestimadas');
