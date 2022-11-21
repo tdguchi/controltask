@@ -207,7 +207,6 @@ class Tareas extends BaseController
 
     public function create_action($from = false)
     {
-        log_message('error', date('Y-m-d H:i:s'));
         $rules = $this->_rules('create');
 
         if ($this->validate($rules) == FALSE) {
@@ -215,7 +214,7 @@ class Tareas extends BaseController
         } else {
             $data = array();
             $data['proyecto_id'] = $this->request->getPost('proyecto_id');
-            $data['fechahoracreacion'] = date('Y-m-d H:i:s');
+            $data['fechahoracreacion'] = date_create()->format('Y-m-d H:i:s');
             $data['usuario_id'] = $this->request->getPost('usuario_id');
             $data['usuariosadicionales'] = $this->request->getPost('usuariosadicionales');
             $data['titulo'] = $this->request->getPost('titulo');
