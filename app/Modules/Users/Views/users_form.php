@@ -90,6 +90,13 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="mb-3">
+                                                            <label for="email">Email</label>
+                                                            <input type="text" class="form-control" name="<?= 'email' ?>" id="<?= 'email' ?>" value="<?= $data_fields['email'] ?>" required />
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
                                                             <label for="company">Compañía</label>
                                                             <?= daFormatoEdit($data_fields['company'], 'company', 'Compañía', 'varchar', 'varchar', 0, 0); ?>
 
