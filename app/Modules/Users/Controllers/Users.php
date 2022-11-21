@@ -353,6 +353,17 @@ class Users extends BaseController
                 'last_name'  => $this->request->getPost('last_name'),
                 'company'    => $this->request->getPost('company'),
                 'phone'      => $this->request->getPost('phone'),
+                'dni' => $this->request->getPost('dni'),
+                'email' => $this->request->getPost('email'),
+                'password' => $this->request->getPost('password'),
+                'entrada_manana' => $this->request->getPost('entrada_manana'),
+                'salida_manana' => $this->request->getPost('salida_manana'),
+                'entrada_tarde' => $this->request->getPost('entrada_tarde'),
+                'salida_tarde' => $this->request->getPost('salida_tarde'),
+                'entrada_verano_manana' => $this->request->getPost('entrada_verano_manana'),
+                'salida_verano_manana' => $this->request->getPost('salida_verano_manana'),
+                'entrada_verano_tarde' => $this->request->getPost('entrada_verano_tarde'),
+                'salida_verano_tarde' => $this->request->getPost('salida_verano_tarde')
             ];
 
             if ($this->request->getPost('password')) {
