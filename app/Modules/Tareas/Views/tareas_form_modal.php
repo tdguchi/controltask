@@ -79,27 +79,6 @@
 
                     </div>
                 </div>
-                <div class="col-12">
-                    <div class="mb-3">
-                        <label for="fechacomienzo">Fecha Comienzo</label>
-                        <input type="text" class="form-control" name="<?= 'fechacomienzo' ?>" id="<?= 'fechacomienzo' ?>" value="<?= $data_fields['fechacomienzo'] ?>" />
-
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mb-3">
-                        <label for="fecharealcierre">Fecha Real Cierre</label>
-                        <input type="text" class="form-control" name="<?= 'fecharealcierre' ?>" id="<?= 'fecharealcierre' ?>" value="<?= $data_fields['fecharealcierre'] ?>" />
-
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mb-3">
-                        <label for="horasreales">Horas Reales</label>
-                        <input type="number" class="form-control" name="<?= 'horasreales' ?>" id="<?= 'horasreales' ?>" value="<?= $data_fields['horasreales'] ?>" />
-
-                    </div>
-                </div>
                 <input type="hidden" name="tarea_id" value="<?php echo $data_fields['tarea_id']; ?>" />
             </div>
         </div>
