@@ -39,6 +39,36 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="mb-3">
+                                                            <label for="password">Contraseña</label>
+                                                            <?= daFormatoEdit($data_fields['password'], 'password', 'Contraseña', 'varchar', 'password', 0, 0); ?>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label for="repeat_password">Repetir Contraseña</label>
+                                                            <?= daFormatoEdit($data_fields['password'], 'repeat_password', 'Repetir Contraseña', 'varchar', 'password', 0, 0); ?>
+
+                                                        </div>
+                                                        <?php if (($fun == "update")) : ?>
+                                                            <div class="col-12">
+                                                                <div class="mb-3">
+                                                                    <label>Miembro de grupos</label>
+                                                                </div>
+                                                            </div>
+                                                            <?php foreach ($groups as $g) : ?>
+                                                                <div class="col-12">
+                                                                    <div class="mb-3">
+                                                                        <input type="checkbox" id="group_<?= $g->id ?>" name="groups[]" value="<?= $g->id ?>" <?= in_array($g->id, $active_groups) ? "checked" : "" ?>>
+                                                                        <label for="group_<?= $g->id ?>"><?= $g->name ?></label>
+                                                                    </div>
+                                                                </div>
+                                                            <?php endforeach; ?>
+                                                        <?php endif; ?>
+                                                        <input type="hidden" name="id" value="<?php echo $data_fields['id']; ?>" />
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
                                                             <label for="first_name">Nombre</label>
                                                             <?= daFormatoEdit($data_fields['first_name'], 'first_name', 'Nombre', 'varchar', 'varchar', 1, 0); ?>
 
@@ -83,33 +113,59 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="password">Contraseña</label>
-                                                            <?= daFormatoEdit($data_fields['password'], 'password', 'Contraseña', 'varchar', 'password', 0, 0); ?>
+                                                            <label for="entrada_manana">Entrada Mañana</label>
+                                                            <input type="time" min="08:00" max="15:00" class="form-control" name="<?= 'entrada_manana' ?>" id="<?= 'entrada_manana' ?>" value="<?= $data_fields['entrada_manana'] ?>" required />
 
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="repeat_password">Repetir Contraseña</label>
-                                                            <?= daFormatoEdit($data_fields['password'], 'repeat_password', 'Repetir Contraseña', 'varchar', 'password', 0, 0); ?>
+                                                            <label for="salida_manana">Salida Mañana</label>
+                                                            <input type="time" min="08:00" max="15:00" class="form-control" name="<?= 'salida_manana' ?>" id="<?= 'salida_manana' ?>" value="<?= $data_fields['salida_manana'] ?>" required />
 
                                                         </div>
-                                                        <?php if (($fun == "update")) : ?>
-                                                            <div class="col-12">
-                                                                <div class="mb-3">
-                                                                    <label>Miembro de grupos</label>
-                                                                </div>
-                                                            </div>
-                                                            <?php foreach ($groups as $g) : ?>
-                                                                <div class="col-12">
-                                                                    <div class="mb-3">
-                                                                        <input type="checkbox" id="group_<?= $g->id ?>" name="groups[]" value="<?= $g->id ?>" <?= in_array($g->id, $active_groups) ? "checked" : "" ?>>
-                                                                        <label for="group_<?= $g->id ?>"><?= $g->name ?></label>
-                                                                    </div>
-                                                                </div>
-                                                            <?php endforeach; ?>
-                                                        <?php endif; ?>
-                                                        <input type="hidden" name="id" value="<?php echo $data_fields['id']; ?>" />
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label for="entrada_tarde">Entrada Tarde</label>
+                                                            <input type="time" min="14:00" max="18:00" class="form-control" name="<?= 'entrada_tarde' ?>" id="<?= 'entrada_tarde' ?>" value="<?= $data_fields['entrada_tarde'] ?>" required />
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label for="salida_tarde">Salida Tarde</label>
+                                                            <input type="time" min="14:00" max="18:00" class="form-control" name="<?= 'salida_tarde' ?>" id="<?= 'salida_tarde' ?>" value="<?= $data_fields['salida_tarde'] ?>" required />
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label for="entrada_verano_manana">Entrada Verano Mañana</label>
+                                                            <input type="text" class="form-control" name="<?= 'entrada_verano_manana' ?>" id="<?= 'entrada_verano_manana' ?>" value="<?= $data_fields['entrada_verano_manana'] ?>" />
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label for="salida_verano_manana">Salida Verano Mañana</label>
+                                                            <input type="text" class="form-control" name="<?= 'salida_verano_manana' ?>" id="<?= 'salida_verano_manana' ?>" value="<?= $data_fields['salida_verano_manana'] ?>" />
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label for="entrada_verano_tarde">Entrada Verano Tarde</label>
+                                                            <input type="text" class="form-control" name="<?= 'entrada_verano_tarde' ?>" id="<?= 'entrada_verano_tarde' ?>" value="<?= $data_fields['entrada_verano_tarde'] ?>" />
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label for="salida_verano_tarde">Salida Verano Tarde</label>
+                                                            <input type="text" class="form-control" name="<?= 'salida_verano_tarde' ?>" id="<?= 'salida_verano_tarde' ?>" value="<?= $data_fields['salida_verano_tarde'] ?>" />
+
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

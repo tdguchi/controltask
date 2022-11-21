@@ -177,7 +177,15 @@ class Users extends BaseController
                 'company' => set_value('company'),
                 'phone' => set_value('phone'),
                 'id' => set_value('id'),
-                'dni' => set_value('dni')
+                'dni' => set_value('dni'),
+                'entrada_manana' => set_value('entrada_manana'),
+                'salida_manana' => set_value('salida_manana'),
+                'entrada_tarde' => set_value('entrada_tarde'),
+                'salida_tarde' => set_value('salida_tarde'),
+                'entrada_verano_manana' => set_value('entrada_verano_manana'),
+                'salida_verano_manana' => set_value('salida_verano_manana'),
+                'entrada_verano_tarde' => set_value('entrada_verano_tarde'),
+                'salida_verano_tarde' => set_value('salida_verano_tarde')
             )
         );
 
@@ -211,7 +219,16 @@ class Users extends BaseController
                 'last_name'  => $this->request->getPost('last_name'),
                 'company'    => $this->request->getPost('company'),
                 'phone'      => $this->request->getPost('phone'),
-                'dni'        => $this->request->getPost('dni')
+                'dni'        => $this->request->getPost('dni'),
+                'entrada_manana'   => $this->request->getPost('entrada_manana'),
+                'salida_manana' => $this->request->getPost('salida_manana'),
+                'entrada_tarde' => $this->request->getPost('entrada_tarde'),
+                'salida_tarde' => $this->request->getPost('salida_tarde'),
+                'entrada_verano_manana' => $this->request->getPost('entrada_verano_manana'),
+                'salida_verano_manana' => $this->request->getPost('salida_verano_manana'),
+                'entrada_verano_tarde' => $this->request->getPost('entrada_verano_tarde'),
+                'salida_verano_tarde'  => $this->request->getPost('salida_verano_tarde')
+
             ];
             $user_id = $this->ionAuth->register($identity, $password, $email, $additionalData);
             if ($user_id) {
