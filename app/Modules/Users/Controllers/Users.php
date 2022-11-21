@@ -391,7 +391,7 @@ class Users extends BaseController
         }
     }
 
-    function check_equal_less($second_field, $first_field)
+    public function check_equal_less($second_field, $first_field)
     {
         if (strtotoime($second_field) <= strtotime($first_field)) {
             $this->form_validation->set_message('check_equal_less', 'The First &amp;/or Second fields have errors.');
