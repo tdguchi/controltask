@@ -62,7 +62,6 @@
                                                     </th>
 
                                                     <td class="text-left "><?= $row->tarea_id ?></td>
-                                                    <td class=" text-right "><?= $row->proyecto_titulo ?></td>
                                                     <td class=" text-left ">
                                                         <div class>
                                                             <div class="flex-grow-1 tasks_name">
@@ -83,6 +82,7 @@
                                                             </div>
                                                             <div>
                                                     </td>
+                                                    <td class=" text-right "><?= $row->proyecto_titulo ?></td>
                                                     <td class=" text-left "><a href="#" onClick="$('#t1997831608').toggle()"><?= substr($row->descripcion, 0, 50) ?>...</a>
                                                         <div id="t1997831608" style="display:none"><?= $row->descripcion ?></div>
                                                     </td>
