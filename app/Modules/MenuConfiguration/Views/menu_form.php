@@ -1,6 +1,8 @@
 <div class="main-content">
     <div class="page-content">
         <form id="edit-form" class="container-fluid" action="<?php echo $action; ?>" method="post">
+        <?= csrf_field() ?>
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">

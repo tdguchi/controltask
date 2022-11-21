@@ -15,6 +15,8 @@
                                     <button type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('menuconfiguration/view'); ?>" method="post">
+                                        <?= csrf_field() ?>
+
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
                                             <input type="hidden" name="title" value="<?= $custom_title == "" ? "" : explode("=", $custom_title)[1] ?>">
                                             <input type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
@@ -109,6 +111,12 @@
         </div>
     </div>
 </div>
+
+<?php 
+$token_name = csrf_token();
+$token_hash = csrf_hash();
+?>
+
 <script>
     function resetSearch() {
         $("#q").val("");
@@ -132,7 +140,7 @@
 
 <script>
     function loadModalContent(url) {
-        $.post(url, {}, function(result) {
+        $.post(url, {'<?= $token_name; ?>':'<?= $token_hash; ?>'}, function(result) {
             $("#ajax .modal-content").html(result);
         });
         $('#ajax').on('hidden.bs.modal', function(e) {

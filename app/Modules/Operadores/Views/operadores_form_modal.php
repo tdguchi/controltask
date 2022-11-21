@@ -1,4 +1,5 @@
 <form id="edit-form" action="<?php echo $action; ?>" method="post" onSubmit="document.getElementById('submit').disabled=true;">
+<?= csrf_field() ?>
     <div class="modal-header">
         <h5 class="h5-title"><?= isset($subtitulo) ? $subtitulo : '' ?><span style="color:#ffffff"><?= isset($data_fields['nombre']) ? $data_fields['nombre'] : "" ?></span></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
