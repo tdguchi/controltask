@@ -22,25 +22,14 @@
                         <input type="number" class="form-control" name="<?= 'proyecto_id' ?>" id="<?= 'proyecto_id' ?>" value="<?= $data_fields['proyecto_id'] ?>" required />
 
                     </div> -->
-                    <?php //write select input type
-                    $options = $proyectos;
-                    $field = array(
-                        'name' => 'proyecto_id',
-                        'id' => 'proyecto_id',
-                        'label' => 'Proyecto',
-                        'required' => true,
-                        'options' => $options,
-                        'selected' => $data_fields['proyecto_id'],
-                        'disabled' => false,
-                        'readonly' => false,
-                        'class' => 'form-control',
-                        'style' => '',
-                        'data' => '',
-                        'help' => '',
-                    );
-                    echo write_select($field);
-                    
-                    ?>
+                    <div class="mb-3">
+                        <label for="proyecto_id">Proyecto</label>
+                        <select class="form-select" name="<?= 'proyecto_id' ?>" id="<?= 'proyecto_id' ?>" required>
+                            <option value="">Seleccione</option>
+                            <?php foreach ($proyectos as $proyecto) : ?>
+                                <option value="<?= $proyecto->proyecto_id ?>" <?= ($proyecto->proyecto_id == $data_fields['proyecto_id']) ? "selected" : "" ?>><?= $proyecto->titulo ?></option>
+                            <?php endforeach; ?>
+                        </select>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
