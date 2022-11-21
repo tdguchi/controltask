@@ -169,9 +169,7 @@ class Tareas extends BaseController
 
     public function create($modal = false)
     {
-        //call model to get all proyects
         $proyectos = $this->Proyectos_model->get_all();
-        //call model to get all users
         $usuarios = $this->Users_model->get_all();
         $data = array(
             'button' => 'Añadir',
@@ -237,6 +235,8 @@ class Tareas extends BaseController
     public function update($id, $modal = false)
     {
         $row = $this->Tareas_model->get_by_id($id);
+        $proyectos = $this->Proyectos_model->get_all();
+        $usuarios = $this->Users_model->get_all();
         if ($row) {
             $data = array(
                 'button' => 'Modificar',
@@ -256,7 +256,9 @@ class Tareas extends BaseController
                     'fecharealcierre' => set_value('fecharealcierre', $row->fecharealcierre),
                     'horasreales' => set_value('horasreales', $row->horasreales),
                     'tarea_id' => set_value('tarea_id', $row->tarea_id),
-                )
+                ),
+                'listado_proyectos' => $proyectos,
+                'listado_usuarios' => $usuarios
             );
 
             $data['main'] = 'App\Modules\Tareas\Views\tareas_form';
