@@ -67,7 +67,7 @@
                                                             <div class="flex-shrink-0">
                                                                 <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
                                                                     <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a>
+                                                                        <a href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a>
                                                                     </li>
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="#" onclick="loadModalContent('<?= site_url('tareas/update/' . $row->tarea_id) ?>')" data-bs-toggle="modal" data-bs-target="#ajax">Editar</a>
