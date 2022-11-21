@@ -113,6 +113,11 @@
         </div>
     </div>
 </div>
+
+<?php 
+$token_name = csrf_token();
+$token_hash = csrf_hash();
+?>
 <script>
     function resetSearch() {
         $("#q").val("");
@@ -136,7 +141,7 @@
 
 <script>
     function loadModalContent(url) {
-        $.post(url, {}, function(result) {
+        $.post(url, {<?= $token_name; ?>':'<?= $token_hash; ?>}, function(result) {
             $("#ajax .modal-content").html(result);
         });
         $('#ajax').on('hidden.bs.modal', function(e) {
