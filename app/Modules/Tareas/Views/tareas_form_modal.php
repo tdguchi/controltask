@@ -26,8 +26,8 @@
                         <label for="proyecto_id">Proyecto</label>
                         <select class="form-select" name="<?= 'proyecto_id' ?>" id="<?= 'proyecto_id' ?>" required>
                             <option value="">Seleccione</option>
-                            <?php foreach ($proyectos as $proyecto) : ?>
-                                <option value="<?= $proyecto->proyecto_id ?>" <?= ($proyecto->proyecto_id == $data_fields['proyecto_id']) ? "selected" : "" ?>><?= $proyecto->titulo ?></option>
+                            <?php foreach ($listado_proyectos as $proyecto) : ?>
+                                <option value="<?= $proyecto->proyecto_id ?>"><?= $proyecto->titulo ?></option>
                             <?php endforeach; ?>
                         </select>
                 </div>
