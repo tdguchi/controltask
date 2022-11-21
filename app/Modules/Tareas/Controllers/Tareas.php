@@ -207,6 +207,7 @@ class Tareas extends BaseController
 
     public function create_action($from = false)
     {
+        log_message('error', date('Y-m-d H:i:s'));
         $rules = $this->_rules('create');
 
         if ($this->validate($rules) == FALSE) {
