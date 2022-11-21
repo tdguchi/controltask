@@ -165,6 +165,10 @@ class Tareas extends BaseController
 
     public function create($modal = false)
     {
+        //call model to get all proyects
+        $proyectos = $this->Proyectos_model->get_all();
+        //call model to get all users
+        $usuarios = $this->Usuarios_model->get_all();
         $data = array(
             'button' => 'Añadir',
             'fun' => 'create',
@@ -183,7 +187,9 @@ class Tareas extends BaseController
                 'fecharealcierre' => set_value('fecharealcierre'),
                 'horasreales' => set_value('horasreales'),
                 'tarea_id' => set_value('tarea_id'),
-            )
+            ),
+            'listado_proyectos' => $proyectos,
+            'listado_usuarios' => $usuarios
         );
         $data['main'] = 'App\Modules\Tareas\Views\tareas_form';
         $modal_view = 'App\Modules\Tareas\Views\tareas_form_modal';
