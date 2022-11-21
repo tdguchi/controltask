@@ -20,7 +20,7 @@
                     <div class="mb-3">
                         <label for="proyecto_id">Proyecto</label>
                         <select class="form-select" name="<?= 'proyecto_id' ?>" id="<?= 'proyecto_id' ?>" required>
-                            <option value="<?= isset($data_fields['proyecto_id']) ? $data_fields['proyecto_id']: "" ?>"><?isset($data_fields['proyecto_titulo'])?$data_fields['proyecto_titulo']:"Seleccione"?></option>
+                            <option value="<?= isset($data_fields['proyecto_id']) ? $data_fields['proyecto_id']: "" ?>"><?= isset($data_fields['proyecto_titulo'])?$data_fields['proyecto_titulo']:"Seleccione"?></option>
                             <?php foreach ($listado_proyectos as $proyecto) : ?>
                                 <option value="<?= $proyecto->proyecto_id ?>"><?= $proyecto->titulo ?></option>
                             <?php endforeach; ?>
