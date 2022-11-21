@@ -62,7 +62,7 @@
                                                     </th>
 
                                                     <td class="text-left "><?= $row->tarea_id ?></td>
-                                                    <td class=" text-right "><?= $row->proyecto_id ?></td>
+                                                    <td class=" text-right "><?= $row->proyecto_titulo ?></td>
                                                     <td class=" text-left ">
                                                         <div class>
                                                             <div class="flex-grow-1 tasks_name">
