@@ -141,7 +141,6 @@ class Tareas extends BaseController
                     'proyecto_id' => $row->proyecto_id,
                     'proyecto_titulo' => $row->proyecto_titulo,
                     'usuario_nombre' => $row->operador,
-                    'fechahoracreacion' => $row->fechahoracreacion,
                     'usuario_id' => $row->usuario_id,
                     'usuariosadicionales' => $row->usuariosadicionales,
                     'titulo' => $row->titulo,
