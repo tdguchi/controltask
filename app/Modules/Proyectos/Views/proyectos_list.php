@@ -54,8 +54,6 @@
                                                             <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->proyecto_id ?>">
                                                         </div>
                                                     </th>
-
-                                                    <td class="text-left "><?= $row->proyecto_id ?></td>
                                                     <td class=" text-left ">
                                                         <div class>
                                                             <div class="flex-grow-1 tasks_name">
