@@ -21,7 +21,7 @@ class Tareas_model extends Model
     // get all
     function get_all()
     {
-        $builder = $this->db->table($this->table)->select('proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.titulo,tareas.descripcion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
+        $builder = $this->db->table($this->table)->select('proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.titulo,tareas.descripcion,tareas.fechahoracreacion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
         $builder->orderBy($this->id, $this->order);
         $builder->join('proyectos', 'proyectos.proyecto_id = tareas.proyecto_id', 'left');
         return $builder->get()->getResult();
@@ -30,7 +30,7 @@ class Tareas_model extends Model
     // get data by id
     function get_by_id($id)
     {
-        $builder = $this->db->table($this->table)->select('proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.titulo,tareas.descripcion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
+        $builder = $this->db->table($this->table)->select('proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.titulo,tareas.descripcion,tareas.fechahoracreacion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
         $builder->join('proyectos', 'proyectos.proyecto_id = tareas.proyecto_id', 'left');
         $builder->where($this->id, $id);
         return $builder->get()->getRow();
