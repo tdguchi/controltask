@@ -220,6 +220,7 @@ class Users extends BaseController
                 'company'    => $this->request->getPost('company'),
                 'phone'      => $this->request->getPost('phone'),
                 'dni'        => $this->request->getPost('dni'),
+                'email'      => $this->request->getPost('email'),
                 'entrada_manana'   => $this->request->getPost('entrada_manana'),
                 'salida_manana' => $this->request->getPost('salida_manana'),
                 'entrada_tarde' => $this->request->getPost('entrada_tarde'),
@@ -401,6 +402,15 @@ class Users extends BaseController
             'last_name' => 'trim|required',
             'company' => 'trim',
             'phone' => 'trim',
+            'dni' => 'trim|required',
+            'entrada_manana' => 'trim|required',
+            'salida_manana' => 'trim|required',
+            'entrada_tarde' => 'trim|required',
+            'salida_tarde' => 'trim|required',
+            'entrada_verano_manana' => 'trim',
+            'salida_verano_manana' => 'trim',
+            'entrada_verano_tarde' => 'trim',
+            'salida_verano_tarde' => 'trim',
 
             'id' => 'trim',
         );
