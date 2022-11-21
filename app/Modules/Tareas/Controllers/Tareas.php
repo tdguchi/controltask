@@ -210,7 +210,7 @@ class Tareas extends BaseController
         $rules = $this->_rules('create');
 
         if ($this->validate($rules) == FALSE) {
-            return redirect()->to(site_url('tareas/create'));
+            return redirect()->to(site_url('tareas/create/1'));
         } else {
             $data = array();
             $data['proyecto_id'] = $this->request->getPost('proyecto_id');
