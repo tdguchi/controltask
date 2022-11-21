@@ -158,7 +158,15 @@ class FormatRules
         // @see https://regex101.com/r/bb9wtr/2
         return (bool) preg_match('/\A[\-+]?\d*\.?\d+\z/', $str ?? '');
     }
-
+    public function check_equal_less($second_field, $first_field)
+    {
+        if (strtotoime($second_field) <= strtotime($first_field)) {
+            $this->form_validation->set_message('check_equal_less', 'The First &amp;/or Second fields have errors.');
+            return false;
+        } else {
+            return true;
+        }
+    }
     /**
      * Compares value against a regular expression pattern.
      */

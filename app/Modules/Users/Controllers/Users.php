@@ -391,16 +391,6 @@ class Users extends BaseController
         }
     }
 
-    public function check_equal_less($second_field, $first_field)
-    {
-        if (strtotoime($second_field) <= strtotime($first_field)) {
-            $this->form_validation->set_message('check_equal_less', 'The First &amp;/or Second fields have errors.');
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     public function _rules($raction)
     {
         return array(
@@ -414,9 +404,9 @@ class Users extends BaseController
             'phone' => 'trim',
             'dni' => 'trim|required',
             'entrada_manana' => 'trim',
-            'salida_manana' => 'trim|callback_check_equal_less[' . $this->request->getPost("entrada_manana") . ']',
-            'entrada_tarde' => 'trim|callback_check_equal_less[' . $this->request->getPost("salida_manana") . ']',
-            'salida_tarde' => 'trim|callback_check_equal_less[' . $this->request->getPost("entrada_tarde") . ']',
+            'salida_manana' => 'trim|callback_check_equal_less[' . $this->request->getPost('entrada_manana') . ']',
+            'entrada_tarde' => 'trim|callback_check_equal_less[' . $this->request->getPost('salida_manana') . ']',
+            'salida_tarde' => 'trim|callback_check_equal_less[' . $this->request->getPost('entrada_tarde') . ']',
             'entrada_verano_manana' => 'trim',
             'salida_verano_manana' => 'trim',
             'entrada_verano_tarde' => 'trim',
