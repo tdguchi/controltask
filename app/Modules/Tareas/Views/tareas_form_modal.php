@@ -30,7 +30,7 @@
                     <div class="mb-3">
                         <label for="usuario_id">Operador</label>
                         <select class="form-select" name="<?= 'usuario_id' ?>" id="<?= 'usuario_id' ?>" required>
-                            <option value="<?= $data_fields->usuario_id?>"><?=($data_fields->usuario_nombre)?$data_fields->usuario_nombre:"Seleccione"?></option>
+                            <option value="<?= $data_fields['usuario_id']?>"><?=($data_fields['usuario_nombre'])?$data_fields['usuario_nombre']:"Seleccione"?></option>
                             <?php foreach ($listado_usuarios as $usuario) : ?>
                                 <option value="<?= $usuario->id ?>"><?= $usuario->first_name ?></option>
                             <?php endforeach; ?>
