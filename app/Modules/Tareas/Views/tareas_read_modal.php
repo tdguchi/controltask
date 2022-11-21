@@ -16,7 +16,7 @@
 
 			<tr>
 				<th scope="row" class="font-weight-bold">Operador</th>
-				<td><?= $data_fields['usuario_id'] ?></td>
+				<td><?= $data_fields['usuario_nombre'] ?></td>
 			</tr>
 
 			<tr>

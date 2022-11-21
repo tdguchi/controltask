@@ -65,8 +65,10 @@ class Tareas_model extends Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array())
     {
-        $builder = $this->db->table($this->table)->select('proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.titulo,tareas.descripcion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
+        $builder = $this->db->table($this->table)->select('ion_users.first_name AS operador,proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.titulo,tareas.descripcion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
         $builder->join('proyectos', 'proyectos.proyecto_id = tareas.proyecto_id', 'left');
+        $builder->join('ion_users', 'ion_users.id = tareas.usuario_id', 'left');
+
 
         if (count($filter) == 2) {
             $builder->where('tareas.' . $filter[0], $filter[1]);
