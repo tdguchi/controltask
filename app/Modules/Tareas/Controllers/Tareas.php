@@ -226,7 +226,6 @@ class Tareas extends BaseController
             $data['fechacomienzo'] = $this->request->getPost('fechacomienzo');
             $data['fecharealcierre'] = $this->request->getPost('fecharealcierre');
             $data['horasreales'] = $this->request->getPost('horasreales');
-            log_message('error', 'create_action: ' . var_dump($data['fechahoracreacion'],true));
             $this->eventBeforeCreate();
             $this->Tareas_model->insert($data);
             $this->eventAfterCreate($this->Tareas_model->insertID());
