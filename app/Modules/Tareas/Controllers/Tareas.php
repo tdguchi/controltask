@@ -3,6 +3,8 @@
 namespace App\Modules\Tareas\Controllers;
 
 use App\Controllers\BaseController;
+use App\Modules\Proyectos\Controllers\Proyectos;
+use App\Modules\Proyectos\Controllers\Users;
 use App\Modules\Tareas\Models\Tareas_model;
 use CodeIgniter\Files\File;
 
@@ -11,6 +13,8 @@ class Tareas extends BaseController
     function __construct()
     {
         $this->Tareas_model = model('App\Modules\Tareas\Models\Tareas_model');
+        $this->Proyectos_model = model('App\Modules\Proyectos\Models\Proyectos_model');
+        $this->Users_model = model('App\Modules\Users\Models\Users_model');
         helper(['formatos', 'form']);
         $this->validation =  \Config\Services::validation();
     }
@@ -168,7 +172,7 @@ class Tareas extends BaseController
         //call model to get all proyects
         $proyectos = $this->Proyectos_model->get_all();
         //call model to get all users
-        $usuarios = $this->Usuarios_model->get_all();
+        $usuarios = $this->Users_model->get_all();
         $data = array(
             'button' => 'Añadir',
             'fun' => 'create',
