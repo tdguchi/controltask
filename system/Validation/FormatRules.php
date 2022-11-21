@@ -161,7 +161,6 @@ class FormatRules
     public function check_equal_less($second_field, $first_field)
     {
         if (strtotime($second_field) <= strtotime($first_field)) {
-            $this->form_validation->set_message('check_equal_less', 'The First &amp;/or Second fields have errors.');
             return false;
         } else {
             return true;
