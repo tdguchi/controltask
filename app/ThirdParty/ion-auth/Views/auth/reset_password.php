@@ -56,6 +56,7 @@
 								</div>
 								<div class="p-2 mt-4">
 									<form action="<?= base_url('auth/reset_password/' . $code) ?>" method="post" accept-charset="utf-8" class="form-soaga">
+									<?= csrf_field() ?>
 
 										<div class="mb-3">
 											<label class="form-label" for="password-input">Nueva contraseña</label>

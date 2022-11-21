@@ -57,7 +57,7 @@
 								</div>
 								<div class="p-2 mt-4">
 									<form action="<?= base_url('auth/forgot_password') ?>" method="post" accept-charset="utf-8" class="form-soaga">
-
+									<?= csrf_field() ?>
 										<div class="mb-3">
 											<label for="identity" class="form-label">Nombre</label>
 											<input type="text" class="form-control" id="identity" name="identity" placeholder="Introducir Nombre de Usuario">

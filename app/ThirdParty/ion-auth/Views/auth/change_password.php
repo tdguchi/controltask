@@ -57,6 +57,7 @@
 								<div class="p-2 mt-4">
 
 									<form action="<?= base_url('auth/change_password') ?>" method="post" accept-charset="utf-8" class="form-soaga">
+									<?= csrf_field() ?>
 										<div class="mb-3">
 											<label for="old" class="form-label"><?= lang('Auth.change_password_old_password_label') ?></label>
 											<input type="password" id="old" name="old" class="form-control" value="" tabindex="1">
