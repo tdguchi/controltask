@@ -136,7 +136,7 @@
 
 <script>
     function loadModalContent(url) {
-        $.post(url, {[csrfName]:csrfHash}, function(result) {
+        $.post(url, {[csrf_token]:csrf_hash}, function(result) {
             $("#ajax .modal-content").html(result);
         });
         $('#ajax').on('hidden.bs.modal', function(e) {
