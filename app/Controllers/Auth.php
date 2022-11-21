@@ -361,25 +361,17 @@ class Auth extends \CodeIgniter\Controller
 				return $this->renderPage($this->viewsFolder . DIRECTORY_SEPARATOR . 'reset_password', $this->data);
 			} else {
 				$identity = $user->{$this->configIonAuth->identity};
+				// finally change the password
+				$change = $this->ionAuth->resetPassword($identity, $this->request->getPost('new'));
 
-				// do we have a valid request?
-				/* if ($user->id != $this->request->getPost('user_id')) {
-					// something fishy might be up
-					$this->ionAuth->clearForgottenPasswordCode($identity);
-					throw new \Exception(lang('Auth.error_security'));
-				} else { */
-					// finally change the password
-					$change = $this->ionAuth->resetPassword($identity, $this->request->getPost('new'));
-
-					if ($change) {
-						// if the password was successfully changed
-						$this->session->setFlashdata('message', $this->ionAuth->messages());
-						return redirect()->to('/auth/login');
-					} else {
-						$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));
-						return redirect()->to('/auth/reset_password/' . $code);
-					}
-				/* } */
+				if ($change) {
+					// if the password was successfully changed
+					$this->session->setFlashdata('message', $this->ionAuth->messages());
+					return redirect()->to('/auth/login');
+				} else {
+					$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));
+					return redirect()->to('/auth/reset_password/' . $code);
+				}
 			}
 		} else {
 			// if the code is invalid then send them back to the forgot password page
