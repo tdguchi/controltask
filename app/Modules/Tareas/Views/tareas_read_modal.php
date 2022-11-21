@@ -5,15 +5,6 @@
 <div class="modal-body">
 	<table class="table align-middle table-nowrap table-vista mb-0">
 		<tbody>
-
-			<tr>
-				<th scope="row">Tarea ID</th>
-				<td><?= $data_fields['tarea_id'] ?>
-			<tr>
-				<th scope="row" class="font-weight-bold">Estado</th>
-				<td><?= $data_fields['estado'] ?></td>
-			</tr>
-
 			<tr>
 				<th scope="row" class="font-weight-bold">Operador</th>
 				<td><?= $data_fields['usuario_nombre'] ?></td>
@@ -23,7 +14,10 @@
 				<th scope="row" class="font-weight-bold">Usuarios Adicionales</th>
 				<td><?= $data_fields['usuariosadicionales'] ?></td>
 			</tr>
-
+			<tr>
+				<th scope="row" class="font-weight-bold">Estado</th>
+				<td><?= $data_fields['estado'] ?></td>
+			</tr>
 			<tr>
 				<th scope="row" class="font-weight-bold">Titulo</th>
 				<td><?= $data_fields['titulo'] ?></td>
