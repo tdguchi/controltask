@@ -1,4 +1,4 @@
-<form id="edit-form" action="<?php echo $action; ?>" method="post">
+<form id="edit-form" action="<?php echo $action; ?>" method="post" onSubmit="document.getElementById('submit').disabled=true;">
     <div class="modal-header">
         <h5 class="h5-title"><?= isset($subtitulo) ? $subtitulo : '' ?><span style="color:#ffffff"><?= isset($data_fields['nombre']) ? $data_fields['nombre'] : "" ?></span></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -126,7 +126,7 @@
     </div>
     <div class="modal-footer">
         <a href="#" data-bs-dismiss="modal" class="btn btn-outline-black waves-effect waves-light me-3">Cancelar</a>
-        <button type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
+        <button type="submit" id="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
     </div>
 </form>
 
