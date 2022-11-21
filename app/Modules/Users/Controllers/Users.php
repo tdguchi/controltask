@@ -177,6 +177,7 @@ class Users extends BaseController
                 'company' => set_value('company'),
                 'phone' => set_value('phone'),
                 'id' => set_value('id'),
+                'dni' => set_value('dni')
             )
         );
 
@@ -210,6 +211,7 @@ class Users extends BaseController
                 'last_name'  => $this->request->getPost('last_name'),
                 'company'    => $this->request->getPost('company'),
                 'phone'      => $this->request->getPost('phone'),
+                'dni'        => $this->request->getPost('dni')
             ];
             $user_id = $this->ionAuth->register($identity, $password, $email, $additionalData);
             if ($user_id) {
