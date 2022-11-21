@@ -180,6 +180,7 @@ class Tareas extends BaseController
             'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
             'data_fields' => array(
                 'proyecto_id' => set_value('proyecto_id'),
+                'fechahoracreacion' => set_value('fechahoracreacion'),
                 'usuario_id' => set_value('usuario_id'),
                 'usuariosadicionales' => set_value('usuariosadicionales'),
                 'titulo' => set_value('titulo'),
@@ -225,7 +226,7 @@ class Tareas extends BaseController
             $data['fechacomienzo'] = $this->request->getPost('fechacomienzo');
             $data['fecharealcierre'] = $this->request->getPost('fecharealcierre');
             $data['horasreales'] = $this->request->getPost('horasreales');
-            var_dump($data['fechahoracreacion']);
+            log_message('error', 'create_action: ' . print_r($data, true));
             $this->eventBeforeCreate();
             $this->Tareas_model->insert($data);
             $this->eventAfterCreate($this->Tareas_model->insertID());
