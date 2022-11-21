@@ -363,12 +363,11 @@ class Auth extends \CodeIgniter\Controller
 				$identity = $user->{$this->configIonAuth->identity};
 
 				// do we have a valid request?
-				if ($user->id != $this->request->getPost('user_id')) {
+				/* if ($user->id != $this->request->getPost('user_id')) {
 					// something fishy might be up
 					$this->ionAuth->clearForgottenPasswordCode($identity);
-					log_message("critical", "entré aqui");
 					throw new \Exception(lang('Auth.error_security'));
-				} else {
+				} else { */
 					// finally change the password
 					$change = $this->ionAuth->resetPassword($identity, $this->request->getPost('new'));
 
@@ -380,7 +379,7 @@ class Auth extends \CodeIgniter\Controller
 						$this->session->setFlashdata('message', $this->ionAuth->errors($this->validationListTemplate));
 						return redirect()->to('/auth/reset_password/' . $code);
 					}
-				}
+				/* } */
 			}
 		} else {
 			// if the code is invalid then send them back to the forgot password page
