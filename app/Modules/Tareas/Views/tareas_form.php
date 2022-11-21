@@ -90,6 +90,7 @@
 
                                                         </div>
                                                     </div>
+                                                    <?php if (!($fun == "create")) : ?>
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label for="fechacomienzo">Fecha Comienzo</label>
@@ -108,7 +109,7 @@
                                                         <div class="mb-3">
                                                             <label for="horasreales">Horas Reales</label>
                                                             <input type="number" class="form-control" name="<?= 'horasreales' ?>" id="<?= 'horasreales' ?>" value="<?= $data_fields['horasreales'] ?>" />
-
+                                                    <?php endif; ?>
                                                         </div>
                                                     </div>
                                                     <input type="hidden" name="tarea_id" value="<?php echo $data_fields['tarea_id']; ?>" />
