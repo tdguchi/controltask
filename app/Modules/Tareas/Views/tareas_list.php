@@ -70,7 +70,7 @@
                                                                         <a href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a>
                                                                     </li>
                                                                     <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="loadModalContent('<?= site_url('tareas/update/' . $row->tarea_id) ?>')" data-bs-toggle="modal" data-bs-target="#ajax">Editar</a>
+                                                                        <a href="<?= site_url('tareas/update/' . $row->tarea_id) ?>')">Editar</a>
                                                                     </li>
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="#" onclick="deleteItem('<?= $row->tarea_id ?>')" class="color-red">Eliminar</a>
