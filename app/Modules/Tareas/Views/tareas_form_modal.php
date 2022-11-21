@@ -20,7 +20,7 @@
                     <div class="mb-3">
                         <label for="proyecto_id">Proyecto</label>
                         <select class="form-select" name="<?= 'proyecto_id' ?>" id="<?= 'proyecto_id' ?>" required>
-                            <option value="">Seleccione</option>
+                            <option value="<?= $data_fields->proyecto_id?>"><?=($data_fields->proyecto_titulo)?$data_fields->proyecto_titulo:"Seleccione"?></option>
                             <?php foreach ($listado_proyectos as $proyecto) : ?>
                                 <option value="<?= $proyecto->proyecto_id ?>"><?= $proyecto->titulo ?></option>
                             <?php endforeach; ?>
@@ -30,7 +30,7 @@
                     <div class="mb-3">
                         <label for="usuario_id">Operador</label>
                         <select class="form-select" name="<?= 'usuario_id' ?>" id="<?= 'usuario_id' ?>" required>
-                            <option value="">Seleccione</option>
+                            <option value="<?= $data_fields->usuario_id?>"><?=($data_fields->usuario_nombre)?$data_fields->usuario_nombre:"Seleccione"?></option>
                             <?php foreach ($listado_usuarios as $usuario) : ?>
                                 <option value="<?= $usuario->id ?>"><?= $usuario->first_name ?></option>
                             <?php endforeach; ?>
