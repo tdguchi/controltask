@@ -22,7 +22,7 @@
                         <select class="form-select" name="<?= 'proyecto_id' ?>" id="<?= 'proyecto_id' ?>" required>
                             <option value="">Seleccione</option>
                             <?php foreach ($listado_proyectos as $proyecto) : ?>
-                                <option value="<?= $proyecto->proyecto_id ?>"<?= $proyecto->titulo ?></option>
+                                <option value="<?= $proyecto->proyecto_id ?>"><?= $proyecto->titulo ?></option>
                             <?php endforeach; ?>
                         </select>
                 </div>
@@ -32,7 +32,7 @@
                         <select class="form-select" name="<?= 'usuario_id' ?>" id="<?= 'usuario_id' ?>" required>
                             <option value="">Seleccione</option>
                             <?php foreach ($listado_usuarios as $usuario) : ?>
-                                <option value="<?= $usuario->id ?>"<?= $usuario->first_name ?></option>
+                                <option value="<?= $usuario->id ?>"><?= $usuario->first_name ?></option>
                             <?php endforeach; ?>
                         </select>
                 </div>
