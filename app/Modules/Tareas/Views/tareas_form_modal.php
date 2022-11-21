@@ -32,7 +32,7 @@
                         <select class="form-select" name="<?= 'usuario_id' ?>" id="<?= 'usuario_id' ?>" required>
                             <option value="">Seleccione</option>
                             <?php foreach ($listado_usuarios as $usuario) : ?>
-                                <option value="<?= $usuario->id ?>"<?= $usuario->nombre ?></option>
+                                <option value="<?= $usuario->id ?>"<?= $usuario->first_name ?></option>
                             <?php endforeach; ?>
                         </select>
                 </div>
