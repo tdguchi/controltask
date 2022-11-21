@@ -244,6 +244,7 @@ class Tareas extends BaseController
                 'action' => site_url('tareas/update_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : ''),
                 'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
                 'data_fields' => array(
+                    'proyecto_id' => set_value('proyecto_id', $row->proyecto_id),
                     'proyecto_titulo' => set_value('proyecto_titulo', $row->proyecto_titulo),
                     'usuario_id' => set_value('usuario_id', $row->usuario_id),
                     'usuario_nombre' => set_value('usuario_nombre', $row->operador),
