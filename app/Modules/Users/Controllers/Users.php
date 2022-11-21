@@ -205,7 +205,7 @@ class Users extends BaseController
 
     public function create_action()
     {
-        $rules = $this->_rules('create');
+        $rules = $this->_rulescreation('create');
 
         if ($this->validate($rules) == FALSE) {
             session()->set('message', $this->validator->listErrors());
@@ -404,24 +404,24 @@ class Users extends BaseController
             'phone' => 'trim',
             'dni' => 'trim|required',
             'entrada_manana' => 'trim',
-            'salida_manana' => [
+            'salida_manana' =>  $raction == "update" ? [
                 'rules'  => 'trim|check_equal_less[' . $this->request->getPost('entrada_manana') . ']',
                 'errors' => [
                     'check_equal_less' => 'El campo salida mañana debe ser mayor que el campo entrada mañana',
                 ],
-            ],
-            'entrada_tarde' => [
+            ] : 'trim',
+            'entrada_tarde' => $raction == "update" ? [
                 'rules'  => 'trim|check_equal_less[' . $this->request->getPost('salida_manana') . ']',
                 'errors' => [
                     'check_equal_less' => 'El campo entrada tarde debe ser mayor que el campo salida mañana',
                 ],
-            ],
-            'salida_tarde' => [
+            ] : 'trim',
+            'salida_tarde' => $raction == "update" ? [
                 'rules'  => 'trim|check_equal_less[' . $this->request->getPost('entrada_tarde') . ']',
                 'errors' => [
                     'check_equal_less' => 'El campo salida tarde debe ser mayor que el campo entrada tarde',
                 ],
-            ],
+            ] : 'trim',
             'entrada_verano_manana' => 'trim',
             'salida_verano_manana' => 'trim',
             'entrada_verano_tarde' => 'trim',
