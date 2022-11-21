@@ -210,7 +210,7 @@ class Tareas extends BaseController
         $rules = $this->_rules('create');
 
         if ($this->validate($rules) == FALSE) {
-            return redirect()->to(site_url('tareas/create/1'));
+            return redirect()->to(site_url('tareas/create'));
         } else {
             $data = array();
             $data['proyecto_id'] = $this->request->getPost('proyecto_id');
@@ -351,18 +351,8 @@ class Tareas extends BaseController
             'usuariosadicionales' => 'trim',
             'titulo' => 'trim|required',
             'descripcion' => 'trim|required',
-            'fechaobjetivo' => [
-                'rules' => 'trim|required|check_equal_less[' . date_create()->format('Y-m-d')  . ']',
-                'errors' => [
-                    'check_equal_less' => 'La fecha objetivo debe ser mayor que la fecha actual',
-                ],
-            ],
-            'fechaestimada' => [
-                'rules' =>  'trim|required|check_equal_less[' . date_create()->format('Y-m-d')  . ']',
-                'errors' => [
-                    'check_equal_less' => 'La fecha objetivo debe ser mayor que la fecha actual',
-                ],
-            ],
+            'fechaobjetivo' => 'trim|required',
+            'fechaestimada' => 'trim|required',
             'horasestimadas' => 'trim|required',
             'fechacomienzo' => 'trim',
             'fecharealcierre' => 'trim',
