@@ -96,7 +96,6 @@
 
                                                         </div>
                                                     </div>
-                                                    <?php if (($fun == "create")) : ?>
                                                         <div class="col-12">
                                                             <div class="mb-3">
                                                                 <label for="email">Email</label>
@@ -104,7 +103,6 @@
 
                                                             </div>
                                                         </div>
-                                                    <?php endif; ?>
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label for="phone">Teléfono</label>
