@@ -218,6 +218,7 @@ class Tareas extends BaseController
             $data['usuariosadicionales'] = $this->request->getPost('usuariosadicionales');
             $data['titulo'] = $this->request->getPost('titulo');
             $data['descripcion'] = $this->request->getPost('descripcion');
+            $data['fechahoracreacion'] = date('Y-m-d H:i:s');
             $data['fechaobjetivo'] = $this->request->getPost('fechaobjetivo');
             $data['fechaestimada'] = $this->request->getPost('fechaestimada');
             $data['horasestimadas'] = $this->request->getPost('horasestimadas');
