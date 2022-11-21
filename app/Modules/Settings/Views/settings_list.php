@@ -14,6 +14,7 @@
                                     <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('settings/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('settings/view'); ?>" method="post">
+                                        <?php csrf_field() ?>
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
                                             <input type="hidden" name="title" value="<?= $custom_title == "" ? "" : explode("=", $custom_title)[1] ?>">
                                             <input type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
@@ -84,6 +85,10 @@
         </div>
     </div>
 </div>
+<?php 
+$token_name = csrf_token();
+$token_hash = csrf_hash();
+?>
 <script>
     function resetSearch() {
         $("#q").val("");
@@ -107,7 +112,7 @@
 
 <script>
     function loadModalContent(url) {
-        $.post(url, {}, function(result) {
+        $.post(url, {'<?= $token_name; ?>':'<?= $token_hash; ?>'}, function(result) {
             $("#ajax .modal-content").html(result);
         });
         $('#ajax').on('hidden.bs.modal', function(e) {
