@@ -37,9 +37,6 @@
                                                         <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>
-                                                <th class="sort text-capitalize ">
-                                                    <a href="<?php echo site_url('tareas/view?ob=' . sentidobusquedacrd('tarea_id', 'tareas.')) . $filter . $custom_title; ?>" style="color:inherit;">Tarea ID <span class="block-sort"><i class="bx <?= $orden_campo == "tarea_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a>
-                                                </th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('tareas/view?ob=' . sentidobusquedacrd('titulo', 'tareas.')) . $filter . $custom_title; ?>" style="color:inherit;">Titulo <span class="block-sort"><i class="bx <?= $orden_campo == "titulo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('tareas/view?ob=' . sentidobusquedacrd('proyecto_id', 'tareas.')) . $filter . $custom_title; ?>" style="color:inherit;">Proyecto <span class="block-sort"><i class="bx <?= $orden_campo == "proyecto_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('tareas/view?ob=' . sentidobusquedacrd('descripcion', 'tareas.')) . $filter . $custom_title; ?>" style="color:inherit;">Descripción <span class="block-sort"><i class="bx <?= $orden_campo == "descripcion" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
@@ -60,8 +57,6 @@
                                                             <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->tarea_id ?>">
                                                         </div>
                                                     </th>
-
-                                                    <td class="text-left "><?= $row->tarea_id ?></td>
                                                     <td class=" text-left ">
                                                         <div class>
                                                             <div class="flex-grow-1 tasks_name">
