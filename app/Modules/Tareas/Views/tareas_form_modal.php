@@ -17,26 +17,25 @@
                     </div>
                 <?php endif; ?>
                 <div class="col-12">
-                    <!-- <div class="mb-3">
-                        <label for="proyecto_id">Proyecto</label>
-                        <input type="number" class="form-control" name="<?= 'proyecto_id' ?>" id="<?= 'proyecto_id' ?>" value="<?= $data_fields['proyecto_id'] ?>" required />
-
-                    </div> -->
                     <div class="mb-3">
                         <label for="proyecto_id">Proyecto</label>
                         <select class="form-select" name="<?= 'proyecto_id' ?>" id="<?= 'proyecto_id' ?>" required>
                             <option value="">Seleccione</option>
                             <?php foreach ($listado_proyectos as $proyecto) : ?>
-                                <option value="<?= $proyecto->proyecto_id ?>"><?= $proyecto->titulo ?></option>
+                                <option value="<?= $proyecto->proyecto_id ?>"<?= $proyecto->titulo ?></option>
                             <?php endforeach; ?>
                         </select>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="usuario_id">Operador</label>
-                        <input type="number" class="form-control" name="<?= 'usuario_id' ?>" id="<?= 'usuario_id' ?>" value="<?= $data_fields['usuario_id'] ?>" required />
-
-                    </div>
+                        <select class="form-select" name="<?= 'usuario_id' ?>" id="<?= 'usuario_id' ?>" required>
+                            <option value="">Seleccione</option>
+                            <?php foreach ($listado_usuarios as $usuario) : ?>
+                                <option value="<?= $usuario->id ?>"<?= $usuario->nombre ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
