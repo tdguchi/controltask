@@ -6,6 +6,17 @@
 	<table class="table align-middle table-nowrap table-vista mb-0">
 		<tbody>
 			<tr>
+				<th scope="row" class="font-weight-bold">Titulo</th>
+				<td><?= $data_fields['titulo'] ?></td>
+			</tr>
+
+			<tr>
+				<th scope="row" class="font-weight-bold">Descripción</th>
+				<td><a href="#" onClick="$('#t225686307').toggle()"><?= substr($data_fields['descripcion'], 0, 50) ?>...</a>
+					<div id="t225686307" style="display:none"><?= $data_fields['descripcion'] ?></div>
+				</td>
+			</tr>
+			<tr>
 				<th scope="row" class="font-weight-bold">Operador</th>
 				<td><?= $data_fields['usuario_nombre'] ?></td>
 			</tr>
@@ -18,18 +29,6 @@
 				<th scope="row" class="font-weight-bold">Estado</th>
 				<td><?= $data_fields['estado'] ?></td>
 			</tr>
-			<tr>
-				<th scope="row" class="font-weight-bold">Titulo</th>
-				<td><?= $data_fields['titulo'] ?></td>
-			</tr>
-
-			<tr>
-				<th scope="row" class="font-weight-bold">Descripción</th>
-				<td><a href="#" onClick="$('#t225686307').toggle()"><?= substr($data_fields['descripcion'], 0, 50) ?>...</a>
-					<div id="t225686307" style="display:none"><?= $data_fields['descripcion'] ?></div>
-				</td>
-			</tr>
-
 			<tr>
 				<th scope="row" class="font-weight-bold">Fecha Objetivo</th>
 				<td><?= date("d/m/Y", strtotime($data_fields['fechaobjetivo'])) ?></td>
