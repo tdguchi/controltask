@@ -53,6 +53,13 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="mb-3">
+                                                            <label for="dni">Dni</label>
+                                                            <input type="text" class="form-control" name="<?= 'dni' ?>" id="<?= 'dni' ?>" value="<?= $data_fields['dni'] ?>" required />
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
                                                             <label for="company">Compañía</label>
                                                             <?= daFormatoEdit($data_fields['company'], 'company', 'Compañía', 'varchar', 'varchar', 0, 0); ?>
 
