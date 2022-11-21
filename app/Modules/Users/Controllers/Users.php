@@ -299,6 +299,15 @@ class Users extends BaseController
                     'company' => set_value('company', $row->company),
                     'phone' => set_value('phone', $row->phone),
                     'id' => set_value('id', $id),
+                    'dni' => set_value('dni', $row->dni),
+                    'entrada_manana' => set_value('entrada_manana', $row->entrada_manana),
+                    'salida_manana' => set_value('salida_manana', $row->salida_manana),
+                    'entrada_tarde' => set_value('entrada_tarde', $row->entrada_tarde),
+                    'salida_tarde' => set_value('salida_tarde', $row->salida_tarde),
+                    'entrada_verano_manana' => set_value('entrada_verano_manana', $row->entrada_verano_manana),
+                    'salida_verano_manana' => set_value('salida_verano_manana', $row->salida_verano_manana),
+                    'entrada_verano_tarde' => set_value('entrada_verano_tarde', $row->entrada_verano_tarde),
+                    'salida_verano_tarde' => set_value('salida_verano_tarde', $row->salida_verano_tarde),
                 )
             );
 
