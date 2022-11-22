@@ -14,7 +14,7 @@ class Home extends BaseController
     {
         $user_id = $this->ionAuth->user()->row()->id;
         $data['asistencias'] = $this->Asistencias_model->get_last_asistencia($user_id);
-        if ($data['asistencias'] == null || $data['asistencias']->asistenciatipo_id != 1) {
+        if ($data['asistencias'] == null || $data['asistencias']->asistenciatipo_id != 2) {
             $data = array(
                 'main' => 'homepage',
                 'texto_fichar' => 'Fichar entrada'
