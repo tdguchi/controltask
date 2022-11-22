@@ -14,7 +14,7 @@ function in_url($link_url)
 <div id="scrollbar">
     <div class="container-fluid">
         <ul class="navbar-nav lateral-menu" id="navbar-nav">
-        <a href="#" onclick="loadModalContent('<?= site_url('tareas/fichar') ?>');" class="btn btn-warning nav-link text-dark" data-bs-toggle="modal" data-bs-target="#ajax">Fichar</a><br>
+        <a href="#" onclick="loadModalContent('<?= site_url('tareas/fichar') ?>');" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target="#ajax">Fichar</a><br>
 
             <?php foreach ($menuItems as $item) : ?>
                 <?
