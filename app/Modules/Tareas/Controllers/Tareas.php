@@ -195,6 +195,10 @@ class Tareas extends BaseController
             'listado_proyectos' => $proyectos,
             'listado_usuarios' => $usuarios
         );
+        if (session()->get('message')) {
+            $data['message'] = session()->get('message');
+            session()->remove('message');
+        }
         $data['main'] = 'App\Modules\Tareas\Views\tareas_form';
         $modal_view = 'App\Modules\Tareas\Views\tareas_form_modal';
 
