@@ -177,11 +177,18 @@ class Tareas extends BaseController
 
     public function create($modal = false)
     {
+        $user_id = $this->ionAuth->user()->row()->id;
+        $group_id = $this->Tareas_model->get_group_id($user_id);
         $proyectos = $this->Proyectos_model->get_all();
-        $usuarios = $this->Users_model->get_all();
+        if (count($group_id) == 1) {
+            $usuarios = $this->Users_model->get_all($user_id);
+        } else {
+            $usuarios = $this->Users_model->get_all();
+        }
         $data = array(
             'button' => 'Añadir',
             'fun' => 'create',
+            'miembros' => $group_id,
             'action' => site_url('tareas/create_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : ''),
             'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
             'data_fields' => array(
