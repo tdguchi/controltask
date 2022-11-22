@@ -57,6 +57,7 @@ function in_url($link_url)
 </div>
 <script>
     function loadModalContent(url) {
+        $.post(url, {}, function(result) {
             $("#ajax .modal-content").html(result);
         });
         $('#ajax').on('hidden.bs.modal', function(e) {
