@@ -25,10 +25,6 @@ class Home extends BaseController
                 'texto_fichar' => 'Fichar salida'
             );
         }
-        $data = array(
-            'main' => 'homepage',
-            'texto_fichar' => 'Ficharno'
-        );
         return view('template', $data);
     }
 
