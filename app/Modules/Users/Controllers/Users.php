@@ -379,7 +379,6 @@ class Users extends BaseController
                     $this->ionAuth->addToGroup($grp, $user_id);
                 }
             }
-
             if ($this->ionAuth->update($user_id, $data)) {
                 session()->set('message', 'Usuario modificado correctamente');
             } else {
