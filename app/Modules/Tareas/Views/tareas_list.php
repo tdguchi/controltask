@@ -62,7 +62,7 @@
                                                     <td class=" text-left ">
                                                         <div class>
                                                             <div class="flex-grow-1 tasks_name">
-                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->titulo ?></a>
+                                                                <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('tareas/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
                                                             </div>
                                                             <div class="flex-shrink-0">
                                                                 <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
