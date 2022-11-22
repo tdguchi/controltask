@@ -255,9 +255,16 @@ class Tareas extends BaseController
 
     public function update($id, $modal = false)
     {
+        $user_id = $this->ionAuth->user()->row()->id;
+        $group_id = $this->Tareas_model->get_group_id($user_id);
+        $proyectos = $this->Proyectos_model->get_all();
+        if (count($group_id) == 1) {
+            $usuarios = $this->Users_model->get_all($user_id);
+        } else {
+            $usuarios = $this->Users_model->get_all();
+        }
         $row = $this->Tareas_model->get_by_id($id);
         $proyectos = $this->Proyectos_model->get_all();
-        $usuarios = $this->Users_model->get_all();
         if ($row) {
             $data = array(
                 'button' => 'Modificar',
