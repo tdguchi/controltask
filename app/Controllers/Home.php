@@ -13,7 +13,7 @@ class Home extends BaseController
     public function index()
     {
         $user_id = $this->ionAuth->user()->row()->id;
-        $data['asistencias'] = $this->Asistencias_model->get_last_asistencias($user_id);
+        $data['asistencias'] = $this->Asistencias_model->get_last_asistencia($user_id);
         if (count($data['asistencias']) == 0 || $data['asistencias']->asistenciatipo_id != 0) {
             $data = array(
                 'main' => 'homepage',
