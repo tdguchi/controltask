@@ -8,7 +8,7 @@ class Home extends BaseController
     {
         $data = array(
             'main' => 'homepage',
-            'texto_fichar' => 'Fichar'
+            'texto_fichar' => 'Ficharno'
         );
         return view('template', $data);
     }
