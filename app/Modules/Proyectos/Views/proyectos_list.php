@@ -38,7 +38,7 @@
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                     </div>
-                                                </th>
+                                                </th>   
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('proyectos/view?ob=' . sentidobusquedacrd('titulo', 'proyectos.')) . $filter . $custom_title; ?>" style="color:inherit;">Titulo <span class="block-sort"><i class="bx <?= $orden_campo == "titulo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('proyectos/view?ob=' . sentidobusquedacrd('descripcion', 'proyectos.')) . $filter . $custom_title; ?>" style="color:inherit;">Descripcion <span class="block-sort"><i class="bx <?= $orden_campo == "descripcion" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                             </tr>
