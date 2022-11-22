@@ -19,10 +19,13 @@ class Users_model extends Model
     }
 
     // get all
-    function get_all()
+    function get_all($usuario_id=null)
     {
         $builder = $this->db->table($this->table)->select('ion_users.email,ion_users.active,ion_users.first_name,ion_users.last_name,id');
         $builder->orderBy($this->id, $this->order);
+        if ($usuario_id != null) {
+            $builder->where('ion_users.id', $usuario_id);
+        }
         return $builder->get()->getResult();
     }
 

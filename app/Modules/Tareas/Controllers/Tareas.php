@@ -188,7 +188,6 @@ class Tareas extends BaseController
         $data = array(
             'button' => 'Añadir',
             'fun' => 'create',
-            'miembros' => $group_id,
             'action' => site_url('tareas/create_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : ''),
             'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
             'data_fields' => array(
