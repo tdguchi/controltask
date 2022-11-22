@@ -53,7 +53,7 @@ function in_url($link_url)
         </ul>
     </div>
 </div>
-<div class="modal" id="ajax" tabindex="-1">
+<div class="modal" id="ajax" tabindex="0">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content" style="min-height:50vh;">
             <div class="modal-header">
