@@ -17,7 +17,16 @@ class Asistencias_model extends Model
     {
         parent::__construct();
     }
-
+    function get_last_asistencia($usuario_id)
+    {
+        $this->db->select('asistencias.*');
+        $this->db->from('asistencias');
+        $this->db->where('usuario_id', $usuario_id);
+        $this->db->order_by('fechahora', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->row();
+    }
     // get all
     function get_all()
     {
