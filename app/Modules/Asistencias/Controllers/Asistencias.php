@@ -163,6 +163,34 @@ class Asistencias extends BaseController
         }
     }
 
+    public function fichar($modal = null)
+    {
+        $row = $this->Asistencias_model->get_by_id($id);
+        if ($row) {
+            $data = array(
+                'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
+                'data_fields' => array(
+                    'asistencia_id' => $row->asistencia_id,
+                    'fechahora' => $row->fechahora,
+                    'fechahora_timestamp' => $row->fechahora_timestamp,
+                    'asistenciatipo_id' => $row->asistenciatipo_id,
+                    'usuario_id' => $row->usuario_id,
+                    'comentario' => $row->comentario,
+                )
+            );
+            $data['main'] = 'App\Modules\Asistencias\Views\asistencias_read';
+            $modal_view = 'App\Modules\Asistencias\Views\asistencias_read_modal';
+            $data['titulo'] = 'asistencias';
+            $data['subtitulo'] = 'Ver Asistencias';
+            $data['modal'] = $modal;
+            return view(($modal) ? $modal_view : 'template', $data);
+        } else {
+            session()->set('message', 'Record Not Found');
+            return redirect()->to(site_url('asistencias'));
+        }
+    }
+
+
     public function _rules($raction)
     {
         return array(
