@@ -114,7 +114,7 @@ class Tareas extends BaseController
         $pager = \Config\Services::pager();
 
         $data = array(
-            'fichado' => true,
+            'fichado' =>false,
             'tareas_data' => $tareas,
             'q' => $q,
             'tab' => $tab,
