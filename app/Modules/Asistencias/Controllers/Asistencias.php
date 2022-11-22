@@ -165,23 +165,26 @@ class Asistencias extends BaseController
 
     public function fichar($modal = null)
     {
-            $data = array(
-                'from' => "",
-                'data_fields' => array(
-                    'asistencia_id' => "",
-                    'fechahora' => "",
-                    'fechahora_timestamp' => "",
-                    'asistenciatipo_id' => "",
-                    'usuario_id' => "",
-                    'comentario' => "",
-                )
-            );
-            $data['main'] = 'App\Modules\Asistencias\Views\asistencias_form';
-            $modal_view = 'App\Modules\Asistencias\Views\asistencias_read_modal';
-            $data['titulo'] = 'asistencias';
-            $data['subtitulo'] = 'Fichar';
-            $data['modal'] = $modal;
-            return view(($modal) ? $modal_view : 'template', $data);
+        $data = array(
+            'button' => 'Añadir',
+            'fun' => 'create',
+            'action' => site_url('tareas/fichar_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : ''),
+            'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
+            'data_fields' => array(
+                'asistencia_id' => "",
+                'fechahora' => "",
+                'fechahora_timestamp' => "",
+                'asistenciatipo_id' => "",
+                'usuario_id' => "",
+                'comentario' => "",
+            )
+        );
+        $data['main'] = 'App\Modules\Asistencias\Views\asistencias_form';
+        $modal_view = 'App\Modules\Asistencias\Views\asistencias_read_modal';
+        $data['titulo'] = 'asistencias';
+        $data['subtitulo'] = 'Fichar';
+        $data['modal'] = $modal;
+        return view(($modal) ? $modal_view : 'template', $data);
     }
 
 
