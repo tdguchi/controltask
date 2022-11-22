@@ -61,7 +61,13 @@ class Tareas_model extends Model
         }
         return $builder->countAllResults();
     }
-
+    // get froup id based on user id
+    function get_group_id($id)
+    {
+        $builder = $this->db->table('ion_users_groups')->select('group_id');
+        $builder->where('user_id', $id);
+        return $builder->get()->getResult();
+    }
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array(), $usuario_id = null)
     {
