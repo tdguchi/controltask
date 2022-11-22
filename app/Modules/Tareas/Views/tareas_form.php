@@ -1,5 +1,8 @@
 <div class="main-content">
     <div class="page-content">
+    <?php if (isset($message)) : ?>
+            <div class="form-group mb-3 alert alert-warning"><?= $message ?></div>
+        <?php endif; ?>
         <form id="edit-form" class="container-fluid" action="<?php echo $action; ?>" method="post">
             <?= csrf_field() ?>
             <div class="row">
