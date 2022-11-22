@@ -38,11 +38,14 @@ class Tareas_model extends Model
     }
 
     // get total rows
-    function total_rows($q = NULL, $tab = NULL, $filter = array())
+    function total_rows($q = NULL, $tab = NULL, $filter = array(), $usuario_id = null)
     {
         $builder = $this->db->table($this->table)->select('tareas.proyecto_id,tareas.titulo,tareas.descripcion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
         if (count($filter) == 2) {
             $builder->where('tareas.' . $filter[0], $filter[1]);
+        }
+        if ($usuario_id != null) {
+            $builder->where('tareas.usuario_id', $usuario_id);
         }
         if (!empty($q)) {
             $builder->groupStart();

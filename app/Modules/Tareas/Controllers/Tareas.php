@@ -99,14 +99,15 @@ class Tareas extends BaseController
             session()->set(array('tareas.nr' => $pagelength));
         }
 
-        $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter);
 
         $start = $config['per_page'] * ($page - 1);
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
         if (count($group_id) == 1) {
+            $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter,$user_id);
             $tareas = $this->Tareas_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, $user_id);
         } else {
+            $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter,null);
             $tareas = $this->Tareas_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, null);
         }
 
