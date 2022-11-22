@@ -7,14 +7,6 @@
                         <div class="card-header">
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title"><?= isset($subtitulo) ? $subtitulo : '' ?><span style="color:#ffffff"><?= isset($data_fields['nombre']) ? $data_fields['nombre'] : "" ?></span></h5>
-                                <div class="flex-shrink-0">
-                                    <!-- Botón para cancelar -->
-                                    <a href="<?= $from ? site_url($from) : site_url('asistencias') ?>" class="btn btn-outline-black waves-effect waves-light me-3">
-                                        Cancelar
-                                    </a>
-                                    <!-- Botón para guardar -->
-                                    <button type="submit" onclick="javascript: $('.add-btn').prop('disabled', true);$('#edit-form').submit();" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
-                                </div>
                             </div>
                         </div>
                         <div class="card-body">
