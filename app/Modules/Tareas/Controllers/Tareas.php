@@ -351,8 +351,18 @@ class Tareas extends BaseController
             'usuariosadicionales' => 'trim',
             'titulo' => 'trim|required',
             'descripcion' => 'trim|required',
-            'fechaobjetivo' => 'trim|required',
-            'fechaestimada' => 'trim|required',
+            'fechaobjetivo' => [
+                'rules'  => 'trim|required|check_equal_less[' . date_create()->format('Y-m-d H:i:s.u') . ']',
+                'errors' => [
+                    'check_equal_less' => 'El campo fecha objetivo debe ser mayor que la fecha actual',
+                ],
+            ],
+            'fechaestimada' => [
+                'rules'  => 'trim|required|check_equal_less[' . date_create()->format('Y-m-d H:i:s.u') . ']',
+                'errors' => [
+                    'check_equal_less' => 'El campo fecha estimada debe ser mayor que la fecha actual',
+                ],
+            ],
             'horasestimadas' => 'trim|required',
             'fechacomienzo' => 'trim',
             'fecharealcierre' => 'trim',
