@@ -7,8 +7,10 @@ class Home extends BaseController
     public function index()
     {
         $data = array(
-            'main' => 'homepage'
+            'main' => 'homepage',
+            'texto_fichar' => 'Fichar'
         );
         return view('template', $data);
     }
+
 }
