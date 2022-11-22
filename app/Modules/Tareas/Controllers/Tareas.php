@@ -211,6 +211,7 @@ class Tareas extends BaseController
 
         if ($this->validate($rules) == FALSE) {
             session()->set('message', $this->validator->listErrors());
+            log_message("error", "Error al crear tarea: " . $this->validator->listErrors());"):
             return redirect()->back()->withInput();
         } else {
             $data = array();
