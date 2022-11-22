@@ -14,7 +14,7 @@ function in_url($link_url)
 <div id="scrollbar">
     <div class="container-fluid">
         <ul class="navbar-nav lateral-menu" id="navbar-nav">
-        <a href="#" onclick="loadModalContent('<?= site_url('tareas/fichar') ?>');" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target="#ajax"><h4>Fichar</h4
+        <a href="#" onclick="loadModalContent('<?= site_url('/fichar') ?>');" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target="#ajax"><h4>Fichar</h4
         ></a><br>
 
             <?php foreach ($menuItems as $item) : ?>
@@ -55,3 +55,14 @@ function in_url($link_url)
         </ul>
     </div>
 </div>
+<script>
+    function loadModalContent(url) {
+            $("#ajax .modal-content").html(result);
+        });
+        $('#ajax').on('hidden.bs.modal', function(e) {
+            $("#ajax .modal-header").html('<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>');
+            $("#ajax .modal-body").html('<div style="margin:0;position:absolute;left:50%;top:50%;-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);"><div class="spinner-border" style="width: 5rem; height: 5rem;" role="status"><span class="visually-hidden">Cargando...</span></div></div>');
+            $("#ajax .modal-footer").html("");
+        });
+    }
+</script>
