@@ -101,8 +101,7 @@ class Tareas extends BaseController
 
         $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter);
 
-        $start = $config['per_p
-        age'] * ($page - 1);
+        $start = $config['per_page'] * ($page - 1);
         $user_id = $this->ionAuth->user()->row()->id;
         $id_grupo = $this->ionAuth->user()->row()->id_grupo;
         log_message('error', 'id_grupo: ' . $id_grupo);
