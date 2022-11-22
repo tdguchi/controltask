@@ -102,8 +102,8 @@ class Tareas extends BaseController
         $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter);
 
         $start = $config['per_page'] * ($page - 1);
-        $user_id = $this->ionAuth->user()->row()->id;
-        log_message('error', 'id: ' . $user_id);
+        $user_id = $this->ionAuth->user()->row();
+        log_message('error', 'id: ' . print_r($user_id,true));
         $tareas = $this->Tareas_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter);
 
         $pager = \Config\Services::pager();
