@@ -104,21 +104,21 @@
                                                             <div class="col-12">
                                                                 <div class="mb-3">
                                                                     <label for="fechacomienzo">Fecha Comienzo</label>
-                                                                    <input type="text" class="form-control" name="<?= 'fechacomienzo' ?>" id="<?= 'fechacomienzo' ?>" value="<?= $data_fields['fechacomienzo'] ?>" />
+                                                                    <input type="text" class="form-control" name="<?= 'fechacomienzo' ?>" id="<?= 'fechacomienzo' ?>" value="<?= $data_fields['fechacomienzo'] ?>" readonly />
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
                                                                 <div class="mb-3">
                                                                     <label for="fecharealcierre">Fecha Real Cierre</label>
-                                                                    <input type="text" class="form-control" name="<?= 'fecharealcierre' ?>" id="<?= 'fecharealcierre' ?>" value="<?= $data_fields['fecharealcierre'] ?>" />
+                                                                    <input type="text" class="form-control" name="<?= 'fecharealcierre' ?>" id="<?= 'fecharealcierre' ?>" value="<?= $data_fields['fecharealcierre'] ?>" readonly />
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
                                                                 <div class="mb-3">
                                                                     <label for="horasreales">Horas Reales</label>
-                                                                    <input type="number" class="form-control" name="<?= 'horasreales' ?>" id="<?= 'horasreales' ?>" value="<?= $data_fields['horasreales'] ?>" />
+                                                                    <input type="number" class="form-control" name="<?= 'horasreales' ?>" id="<?= 'horasreales' ?>" value="<?= $data_fields['horasreales'] ?>" readonly/>
                                                                 <?php endif; ?>
                                                                 </div>
                                                             </div>
