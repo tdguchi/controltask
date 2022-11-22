@@ -14,7 +14,7 @@ function in_url($link_url)
 <div id="scrollbar">
     <div class="container-fluid">
         <ul class="navbar-nav lateral-menu" id="navbar-nav">
-        <button class="btn btn-warning">Fichar</button><br>
+        <button class="btn btn-warning text-dark">Fichar</button><br>
             <?php foreach ($menuItems as $item) : ?>
                 <?
                 $collapse = 'collapse';
