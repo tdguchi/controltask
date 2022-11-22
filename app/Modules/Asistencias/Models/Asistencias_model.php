@@ -19,13 +19,11 @@ class Asistencias_model extends Model
     }
     function get_last_asistencia($usuario_id)
     {
-        $this->db->select('asistencias.*');
-        $this->db->from('asistencias');
-        $this->db->where('usuario_id', $usuario_id);
-        $this->db->order_by('fechahora', 'DESC');
-        $this->db->limit(1);
-        $query = $this->db->get();
-        return $query->row();
+        $builder = $this->db->table($this->table)->select('asistencias.*');
+        $builder->where('usuario_id', $usuario_id);
+        $builder->orderBy('fechahora', 'DESC');
+        $builder->limit(1);
+        return $builder->get()->GetRow();
     }
     // get all
     function get_all()
