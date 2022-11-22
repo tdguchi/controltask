@@ -11,9 +11,11 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
+                                    <?php if ($fichado === true) { ?>
                                     <span class="text-capitalize"><a href=" <?= site_url('tareas/create') ?>" class="btn btn-green add-btn"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
                                     <span class="text-capitalize"><?php echo anchor(site_url('tareas/excel'), 'Exportar Excel', 'class="btn btn-green add-btn"'); ?></span>
                                     <button type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
+                                    <?php } ?>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('tareas/view'); ?>" method="post">
                                         <?= csrf_field() ?>
@@ -69,12 +71,14 @@
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a>
                                                                     </li>
+                                                                    <?php if ($fichado === true) { ?>
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="<?= site_url('tareas/update/' . $row->tarea_id) ?>">Editar</a>
                                                                     </li>
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="#" onclick="deleteItem('<?= $row->tarea_id ?>')" class="color-red">Eliminar</a>
                                                                     </li>
+                                                                    <?php } ?>
                                                                 </ul>
                                                             </div>
                                                             <div>
