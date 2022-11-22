@@ -176,7 +176,7 @@ class Asistencias extends BaseController
                     'comentario' => "",
                 )
             );
-            $data['main'] = 'App\Modules\Asistencias\Views\asistencias_read';
+            $data['main'] = 'App\Modules\Asistencias\Views\asistencias_fichar';
             $modal_view = 'App\Modules\Asistencias\Views\asistencias_read_modal';
             $data['titulo'] = 'asistencias';
             $data['subtitulo'] = 'Fichar';
