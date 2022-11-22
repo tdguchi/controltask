@@ -1,17 +1,14 @@
+name: Deploy via git-ftp
 on: push
-name: 🚀 Deploy website on push
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.2
+    - uses: actions/checkout@v1
+    - name: git-ftp push
+      uses: sebastianpopp/git-ftp-action@releases/v3
       with:
-        server: ftp.controltask.net
-        username: ${{ secrets.ftp_user }}
+        url: "ftp.controltask.net/public_html/"
+        user: ${{ secrets.ftp_user }}
         password: ${{ secrets.ftp_password }}
-        server-dir: /public_html/
