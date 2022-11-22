@@ -165,7 +165,23 @@ class Asistencias extends BaseController
 
     public function fichar($modal = null)
     {
-            return view('template');
+            $data = array(
+                'from' => "",
+                'data_fields' => array(
+                    'asistencia_id' => "",
+                    'fechahora' => "",
+                    'fechahora_timestamp' => "",
+                    'asistenciatipo_id' => "",
+                    'usuario_id' => "",
+                    'comentario' => "",
+                )
+            );
+            $data['main'] = 'App\Modules\Asistencias\Views\asistencias_read';
+            $modal_view = 'App\Modules\Asistencias\Views\asistencias_read_modal';
+            $data['titulo'] = 'asistencias';
+            $data['subtitulo'] = 'Fichar';
+            $data['modal'] = $modal;
+            return view(($modal) ? $modal_view : 'template', $data);
     }
 
 
