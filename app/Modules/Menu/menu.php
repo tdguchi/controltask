@@ -66,3 +66,16 @@ function in_url($link_url)
         </div>
     </div>
 </div>
+
+<script>
+    function loadModalContent(url) {
+        $.post(url, {}, function(result) {
+            $("#ajax .modal-content").html(result);
+        });
+        $('#ajax').on('hidden.bs.modal', function(e) {
+            $("#ajax .modal-header").html('<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>');
+            $("#ajax .modal-body").html('<div style="margin:0;position:absolute;left:50%;top:50%;-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);"><div class="spinner-border" style="width: 5rem; height: 5rem;" role="status"><span class="visually-hidden">Cargando...</span></div></div>');
+            $("#ajax .modal-footer").html("");
+        });
+    }
+</script>
