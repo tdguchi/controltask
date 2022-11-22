@@ -210,7 +210,8 @@ class Tareas extends BaseController
         $rules = $this->_rules('create');
 
         if ($this->validate($rules) == FALSE) {
-            return redirect()->to(site_url('tareas/create'));
+            session()->set('message', $this->validator->listErrors());
+            return redirect()->back()->withInput();
         } else {
             $data = array();
             $data['proyecto_id'] = $this->request->getPost('proyecto_id');
@@ -224,7 +225,7 @@ class Tareas extends BaseController
             $data['horasestimadas'] = $this->request->getPost('horasestimadas');
             $data['fechacomienzo'] = $this->request->getPost('fechacomienzo');
             $data['fecharealcierre'] = $this->request->getPost('fecharealcierre');
-            $data['horasreales'] = $this->request->getPost('horasreales');
+            $data['horasreales'] = 0;
             $this->eventBeforeCreate();
             $this->Tareas_model->insert($data);
             $this->eventAfterCreate($this->Tareas_model->insertID());
