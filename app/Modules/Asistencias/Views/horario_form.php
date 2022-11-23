@@ -34,6 +34,8 @@
 </head>
 
     <body>
+        <h1>Bienvenido a teconsite</h1>
+        <h3>Necesitamos que configures tus horas de entrara y salida</h3>
     <div class="main-content">
     <div class="page-content">
     <?php if (isset($message)) : ?>
