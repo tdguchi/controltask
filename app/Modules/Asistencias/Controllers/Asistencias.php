@@ -25,7 +25,9 @@ class Asistencias extends BaseController
 
     public function horas() {
         $user = $this->ionAuth->user()->row();
-        log_message("error", print_r($user,true));
+        if ($user->entrada_manana == '00:00:00') {
+            log_message("error", "le falta la hora de entrada");
+        };
         return redirect()->to(base_url('/'));
     }
 
