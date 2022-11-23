@@ -10,7 +10,7 @@ $dashboardItems = $menuModel->get_dashboard_items();
         <div class="container-fluid">
         <div class="row">
             <div class="col text-center">
-            <button class="btn btn-warning btn-lg text-dark">Fichar</button>
+            <button href="<?= site_url("asistencias/fichar")?>" class="btn btn-warning btn-lg text-dark">Fichar</button>
             </div>
         </div><br>
             <div class="row">
