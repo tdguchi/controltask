@@ -8,6 +8,11 @@ $dashboardItems = $menuModel->get_dashboard_items();
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+            <button class="btn btn-warning btn-lg text-dark">Fichar</button>
+            </div>
+        </div><br>
             <div class="row">
                 <?php foreach ($dashboardItems as $item) : ?>
                     <?php if (count($item['children']) > 0) : ?>
