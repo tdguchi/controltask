@@ -190,10 +190,14 @@ class Asistencias extends BaseController
     public function fichar_action($from = null)
     {
         $user_id = $this->ionAuth->user()->row()->id;
-        $ultima_asistencia_id = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'))->asistenciatipo_id;
-        $asistencia_nueva_id = $ultima_asistencia_id +1;
-        if ($asistencia_nueva_id == 4) {
+        $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
+        if (count($ultima_asistencia) == 0) {
             $asistencia_nueva_id = 0;
+        } else {
+            $asistencia_nueva_id = $ultima_asistencia->asistenciatipo_id +1;
+            if ($asistencia_nueva_id == 4) {
+                $asistencia_nueva_id = 0;
+            }
         }
             $data = array(
                 'fechahora' => date('Y-m-d H:i:s'),
