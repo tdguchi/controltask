@@ -10,6 +10,8 @@ class Settings extends BaseController
 {
     function __construct()
     {
+        $this->ionAuth    = new \IonAuth\Libraries\IonAuth();
+        $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
         $this->Settings_model = model('App\Modules\Settings\Models\Settings_model');
         helper(['formatos', 'form']);
         $this->validation =  \Config\Services::validation();
@@ -110,8 +112,15 @@ class Settings extends BaseController
         $settings = $this->Settings_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter);
 
         $pager = \Config\Services::pager();
-
+        $user_id = $this->ionAuth->user()->row()->id;
+        $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
+        if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
+            $fichado = false;
+        } else {
+            $fichado = true;
+        }
         $data = array(
+            'fichado' => $fichado,
             'settings_data' => $settings,
             'q' => $q,
             'tab' => $tab,

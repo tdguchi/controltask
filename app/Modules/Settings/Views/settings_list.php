@@ -16,7 +16,9 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
+                                <?php if ($fichado === true) { ?>
                                     <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('settings/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
+                                    <?php } ?>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('settings/view'); ?>" method="post">
                                         <?php csrf_field() ?>
@@ -58,11 +60,13 @@
                                                     </th>
 
                                                     <td class="text-left "><?= $row->key ?> <div class="flex-shrink-0">
+                                                    <?php if ($fichado === true) { ?>
                                                             <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
                                                                 <li class="list-inline-item fs-12">
                                                                     <a href="#" onclick="loadModalContent('<?= site_url('settings/update/' . $row->key) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Editar</a>
                                                                 </li>
                                                             </ul>
+                                                        <?php } ?>
                                                         </div>
                                                     </td>
                                                     <td class=" text-left "><?= $row->value ?></td>
