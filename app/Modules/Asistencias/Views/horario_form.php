@@ -34,11 +34,9 @@
 </head>
 
     <body>
-    <header id="page-topbar">
-        <div class="layout-width text-center">
+    <header class="text-center">
         <h1>Bienvenido a teconsite</h1>
         <h3>Necesitamos que configures tus horas de entrara y salida</h3>
-        </div>
     </header>
     <div class="main-content">
     <div class="page-content">
