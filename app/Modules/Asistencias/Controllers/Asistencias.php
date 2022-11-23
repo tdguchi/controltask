@@ -59,7 +59,7 @@ class Asistencias extends BaseController
 
     public function horario_action($from = null)
     {
-        $rules = $this->_rules('horario');
+        $rules = $this->_ruleshorario();
 
         if ($this->validate($rules) == FALSE) {
             session()->set('message', $this->validator->listErrors());
@@ -85,7 +85,31 @@ class Asistencias extends BaseController
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('/'));
         }
     }
-
+    public function _ruleshorario()
+    {
+        return array(
+            'entrada_manana' => 'trim',
+            'salida_manana' =>  [
+                'rules'  => 'trim|check_equal_less[' . $this->request->getPost('entrada_manana') . ']',
+                'errors' => [
+                    'check_equal_less' => 'El campo salida mañana debe ser mayor que el campo entrada mañana',
+                ],
+            'entrada_tarde' => [
+                'rules'  => 'trim|check_equal_less[' . $this->request->getPost('salida_manana') . ']',
+                'errors' => [
+                    'check_equal_less' => 'El campo entrada tarde debe ser mayor que el campo salida mañana',
+                ],
+            'salida_tarde' => [
+                'rules'  => 'trim|check_equal_less[' . $this->request->getPost('entrada_tarde') . ']',
+                'errors' => [
+                    'check_equal_less' => 'El campo salida tarde debe ser mayor que el campo entrada tarde',
+                ],
+            'entrada_verano_manana' => 'trim',
+            'salida_verano_manana' => 'trim',
+            'entrada_verano_tarde' => 'trim',
+            'salida_verano_tarde' => 'trim',
+        );
+    }
     public function view($modal = false, $quien = null)
     {
 
