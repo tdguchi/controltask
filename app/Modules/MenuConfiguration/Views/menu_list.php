@@ -16,8 +16,10 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
+                                <?php if ($fichado === true) { ?>
                                     <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('menuconfiguration/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
                                     <button type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
+                                    <?php } ?>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('menuconfiguration/view'); ?>" method="post">
                                         <?= csrf_field() ?>
@@ -72,6 +74,7 @@
                                                             <div class="flex-grow-1 tasks_name">
                                                                 <?= $row->text ?></div>
                                                             <div class="flex-shrink-0">
+                                                            <?php if ($fichado === true) { ?>
                                                                 <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="#" onclick="loadModalContent('<?= site_url('menuconfiguration/update/' . $row->menu_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Editar</a>
@@ -80,6 +83,7 @@
                                                                         <a href="#" onclick="deleteItem('<?= $row->menu_id ?>')" class="color-red">Eliminar</a>
                                                                     </li>
                                                                 </ul>
+                                                            <?php } ?>
                                                             </div>
                                                             <div>
                                                     </td>
