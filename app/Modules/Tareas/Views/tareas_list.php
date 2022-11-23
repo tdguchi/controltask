@@ -1,6 +1,7 @@
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
+            <button class="btn btn-warning">Fichar</button>
             <?php if (isset($message)) : ?>
                 <div class="form-group mb-3 alert alert-success"><?= $message ?></div>
             <?php endif; ?>
