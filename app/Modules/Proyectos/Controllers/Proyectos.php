@@ -98,8 +98,8 @@ class Proyectos extends BaseController
         }
 
         $config['total_rows'] = $this->Proyectos_model->total_rows($q, $tab, $filter);
-        $proyectos = $this->Proyectos_model->get_limit_data($config['per_page'], $page, $q, $tab, $filter, $oc, $od);
         $start = $config['per_page'] * ($page - 1);
+        $proyectos = $this->Proyectos_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter);
         $pager = \Config\Services::pager();
         $user_id = $this->ionAuth->user()->row()->id;
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
