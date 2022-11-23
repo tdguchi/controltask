@@ -104,8 +104,8 @@ class Asistencias extends BaseController
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
         if (count($group_id) == 1) {
-            $config['total_rows'] = $this->Asistencias_model->total_rows($q, $tab, $filter);
-            $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter);
+            $config['total_rows'] = $this->Asistencias_model->total_rows($q, $tab, $filter,$user_id);
+            $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, $user_id);
         } else {
             $config['total_rows'] = $this->Asistencias_model->total_rows($q, $tab, $filter, null);
             $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter,null);
