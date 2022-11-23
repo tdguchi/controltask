@@ -85,11 +85,7 @@
                         <div class="card-footer">
                             <div class="d-flex justify-content-end">
                                 <div class="flex-shrink-0">
-                                    <!-- Botón para cancelar -->
-                                    <a href="<?= $from ? site_url($from) : site_url('asistencias') ?>" class="btn btn-outline-black waves-effect waves-light me-3">
-                                        Cancelar
-                                    </a>
-                                    <!-- Botón para guardar -->
+                                     <!-- Botón para guardar -->
                                     <button type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
                                 </div>
                             </div>
