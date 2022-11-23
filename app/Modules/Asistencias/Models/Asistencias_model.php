@@ -19,8 +19,7 @@ class Asistencias_model extends Model
     }
     function get_last_asistencia($usuario_id, $dia = null)
     {
-        $builder = $this->db->table($this->table)->select('asistencias.*,asistenciasnombre.nombre AS tipo');
-        $builder->join('asistenciasnombre', 'asistenciasnombre.asistenciatipo_id = asistencias.asistenciatipo_id', 'left');
+        $builder = $this->db->table($this->table)->select('asistencias.*');
         $builder->where('usuario_id', $usuario_id);
         if ($dia != null) {
             $builder->like('fechahora', $dia);
@@ -72,7 +71,7 @@ class Asistencias_model extends Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array(), $usuario_id = null)
     {
-        $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id');
+        $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id,asistenciasnombre.nombre AS tipo');
 
 
         if (count($filter) == 2) {
@@ -83,6 +82,7 @@ class Asistencias_model extends Model
             $builder->like('asistencias.fechahora', date('Y-m-d'));
 
         }
+        $builder->join('asistenciasnombre', 'asistenciasnombre.asistenciatipo_id = asistencias.asistenciatipo_id', 'left');
         if (!empty($q)) {
             $builder->groupStart();
 
