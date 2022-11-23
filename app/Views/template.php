@@ -57,7 +57,7 @@
         </div>
         <?= view('partials/menu'); ?>
     </div>
-    <div id="layout-wrapper">
+    <div id="layout-wrapper2">
         <?= view('partials/fichar'); ?>
     </div>
     <div id="layout-wrapper">
