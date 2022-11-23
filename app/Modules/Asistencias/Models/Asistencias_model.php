@@ -90,6 +90,7 @@ class Asistencias_model extends Model
 
             $builder->like('asistencias.asistencia_id', $q);
             $builder->orLike('asistencias.fechahora', $q);
+            $builder->orLike('ion_users.first_name', $q);
             $builder->orLike('asistencias.asistenciatipo_id', $q);
             $builder->orLike('asistencias.usuario_id', $q);
             $builder->orLike('asistencias.comentario', $q);
