@@ -77,8 +77,11 @@ class Asistencias extends BaseController
                 'entrada_verano_tarde' => $this->request->getPost('entrada_verano_tarde'),
                 'salida_verano_tarde' => $this->request->getPost('salida_verano_tarde'),
             );
-            $this->Asistencias_model->where('ion_user.id', $user->id)->set($data)->update();
-            session()->set('message', 'Horario modificado correctamente');
+            if ($this->ionAuth->update($user->id, $data)) {
+                session()->set('message', 'Usuario modificado correctamente');
+            } else {
+                session()->set('message', 'No se ha podido modificar el usuario');
+            }
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('/'));
         }
     }
