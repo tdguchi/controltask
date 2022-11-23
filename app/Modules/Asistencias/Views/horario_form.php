@@ -34,11 +34,12 @@
 </head>
 
     <body>
-    <div class="row">
-                <div class="col-lg-10">
+    <header id="page-topbar">
+        <div class="layout-width">
         <h1>Bienvenido a teconsite</h1>
         <h3>Necesitamos que configures tus horas de entrara y salida</h3>
-</div>
+        </div>
+    </header>
     <div class="main-content">
     <div class="page-content">
     <?php if (isset($message)) : ?>
