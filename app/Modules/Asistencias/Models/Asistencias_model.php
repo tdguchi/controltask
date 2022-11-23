@@ -77,7 +77,6 @@ class Asistencias_model extends Model
         if (count($filter) == 2) {
             $builder->where('asistencias.' . $filter[0], $filter[1]);
         }
-        $builder->orderBy('asistencias.fechahora','ASC');
         if ($usuario_id != null) {
             $builder->where('asistencias.usuario_id', $usuario_id);
             $builder->like('asistencias.fechahora', date('Y-m-d'));
