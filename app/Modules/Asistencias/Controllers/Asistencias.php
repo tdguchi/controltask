@@ -117,6 +117,7 @@ class Asistencias extends BaseController
             $fichado = true;
         }
         $data = array(
+            'group_id' => $group_id,
             'fichado'=> $fichado,
             'asistencias_data' => $asistencias,
             'q' => $q,
