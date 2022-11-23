@@ -42,12 +42,15 @@ class Asistencias_model extends Model
     }
 
     // get total rows
-    function total_rows($q = NULL, $tab = NULL, $filter = array())
+    function total_rows($q = NULL, $tab = NULL, $filter = array(), $usuario_id = null)
     {
         $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id');
 
         if (count($filter) == 2) {
             $builder->where('asistencias.' . $filter[0], $filter[1]);
+        }
+        if ($usuario_id) {
+            $builder->where('asistencias.usuario_id', $usuario_id);
         }
         if (!empty($q)) {
             $builder->groupStart();
