@@ -1,11 +1,11 @@
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-            <a href="<?= site_url("asistencias/fichar")?>" class="btn btn-warning btn-lg text-dark">Fichar</a>
-            </div>
-        </div><br>
+            <div class="row">
+                <div class="col text-center">
+                    <a href="<?= site_url("asistencias/fichar") ?>" class="btn btn-warning btn-lg text-dark">Fichar</a>
+                </div>
+            </div><br>
             <?php if (isset($message)) : ?>
                 <div class="form-group mb-3 alert alert-success"><?= $message ?></div>
             <?php endif; ?>
@@ -16,16 +16,18 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
-                                <span class="text-capitalize"><?php echo anchor(site_url('tareas/view/0/1'), 'Propias', 'class="btn btn-green add-btn"'); ?></span>
-                                <span class="text-capitalize"><?php echo anchor(site_url('tareas/view/0/2'), 'Todas', 'class="btn btn-green add-btn"'); ?></span>
+                                    <?php if ($group_id == 1) { ?>
+                                        <span class="text-capitalize"><?php echo anchor(site_url('tareas/view/0/1'), 'Propias', 'class="btn btn-green add-btn"'); ?></span>
+                                        <span class="text-capitalize"><?php echo anchor(site_url('tareas/view/0/2'), 'Todas', 'class="btn btn-green add-btn"'); ?></span>
+                                    <?php } ?>
                                     <?php if ($fichado === true) { ?>
-                                    <span class="text-capitalize"><a href=" <?= site_url('tareas/create') ?>" class="btn btn-green add-btn"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
-                                    <span class="text-capitalize"><?php echo anchor(site_url('tareas/excel'), 'Exportar Excel', 'class="btn btn-green add-btn"'); ?></span>
-                                    <button type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
+                                        <span class="text-capitalize"><a href=" <?= site_url('tareas/create') ?>" class="btn btn-green add-btn"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
+                                        <span class="text-capitalize"><?php echo anchor(site_url('tareas/excel'), 'Exportar Excel', 'class="btn btn-green add-btn"'); ?></span>
+                                        <button type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
                                     <?php } ?>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('tareas/view'); ?>" method="post">
-                                        <?= csrf_field() ?>
+                                            <?= csrf_field() ?>
 
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
                                             <input type="hidden" name="title" value="<?= $custom_title == "" ? "" : explode("=", $custom_title)[1] ?>">
@@ -79,12 +81,12 @@
                                                                         <a href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a>
                                                                     </li>
                                                                     <?php if ($fichado === true) { ?>
-                                                                    <li class="list-inline-item fs-12">
-                                                                        <a href="<?= site_url('tareas/update/' . $row->tarea_id) ?>">Editar</a>
-                                                                    </li>
-                                                                    <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="deleteItem('<?= $row->tarea_id ?>')" class="color-red">Eliminar</a>
-                                                                    </li>
+                                                                        <li class="list-inline-item fs-12">
+                                                                            <a href="<?= site_url('tareas/update/' . $row->tarea_id) ?>">Editar</a>
+                                                                        </li>
+                                                                        <li class="list-inline-item fs-12">
+                                                                            <a href="#" onclick="deleteItem('<?= $row->tarea_id ?>')" class="color-red">Eliminar</a>
+                                                                        </li>
                                                                     <?php } ?>
                                                                 </ul>
                                                             </div>
@@ -125,7 +127,7 @@
     </div>
 </div>
 
-<?php 
+<?php
 $token_name = csrf_token();
 $token_hash = csrf_hash();
 ?>
@@ -152,7 +154,9 @@ $token_hash = csrf_hash();
 
 <script>
     function loadModalContent(url) {
-        $.post(url, {'<?= $token_name; ?>':'<?= $token_hash; ?>'}, function(result) {
+        $.post(url, {
+            '<?= $token_name; ?>': '<?= $token_hash; ?>'
+        }, function(result) {
             $("#ajax .modal-content").html(result);
         });
         $('#ajax').on('hidden.bs.modal', function(e) {

@@ -120,6 +120,7 @@ class Tareas extends BaseController
             $fichado = true;
         }
         $data = array(
+            'group_id' => $group_id,
             'fichado' =>$fichado,
             'tareas_data' => $tareas,
             'q' => $q,
