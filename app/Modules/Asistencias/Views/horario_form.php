@@ -1,4 +1,14 @@
-<div class="main-content">
+<!DOCTYPE HTML>
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title></title>
+    </head>
+
+    <body>
+    <div class="main-content">
     <div class="page-content">
     <?php if (isset($message)) : ?>
             <div class="form-group mb-3 alert alert-warning"><?= $message ?></div>
@@ -102,3 +112,7 @@
         $("select").select2();
     })
 </script>
+
+    </body>
+
+</html>
