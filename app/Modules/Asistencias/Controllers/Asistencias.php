@@ -23,12 +23,64 @@ class Asistencias extends BaseController
         return redirect()->to(current_url() . '/view');
     }
 
-    public function horas() {
+    public function horas()
+    {
         $user = $this->ionAuth->user()->row();
-        if ($user->entrada_manana == '00:00:00') {
-            log_message("error", "le falta la hora de entrada");
+        if ($user->entrada_manana == '00:00:00' || $user->salida_manana == '00:00:00' || $user->entrada_tarde == '00:00:00' || $user->salida_tarde == '00:00:00' || $user->entrada_verano_manana == '00:00:00' || $user->salida_verano_manana == '00:00:00' || $user->entrada_verano_tarde == '00:00:00' || $user->salida_verano_tarde == '00:00:00') {
+
+            $data = array(
+                'button' => 'Añadir',
+                'fun' => 'create',
+                'action' => site_url('asistencias/horario_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : ''),
+                'from' => null,
+                'data_fields' => array(
+                    'entrada_manana' => $user->entrada_manana,
+                    'salida_manana' => $user->salida_manana,
+                    'entrada_tarde' => $user->entrada_tarde,
+                    'salida_tarde' => $user->salida_tarde,
+                    'entrada_verano_manana' => $user->entrada_verano_manana,
+                    'salida_verano_manana' => $user->salida_verano_manana,
+                    'entrada_verano_tarde' => $user->entrada_verano_tarde,
+                    'salida_verano_tarde' => $user->salida_verano_tarde,
+                )
+            );
+            $data['titulo'] = 'Mi horario';
+            $data['element'] = 'Mi horario';
+            if (session()->get('message')) {
+                $data['message'] = session()->get('message');
+                session()->remove('message');
+            }
+
+            $data['main'] = 'App\Modules\Asistencias\Views\horario_form';
+            return view('template', $data);
         };
         return redirect()->to(base_url('/'));
+    }
+
+    public function horario_action($from = null)
+    {
+        $rules = $this->_rules('horario');
+
+        if ($this->validate($rules) == FALSE) {
+            session()->set('message', $this->validator->listErrors());
+            log_message("error", "Error al crear tarea: " . $this->validator->listErrors());
+            return redirect()->back()->withInput();
+        } else {
+            $user = $this->ionAuth->user()->row();
+            $data = array(
+                'entrada_manana' => $this->request->getPost('entrada_manana'),
+                'salida_manana' => $this->request->getPost('salida_manana'),
+                'entrada_tarde' => $this->request->getPost('entrada_tarde'),
+                'salida_tarde' => $this->request->getPost('salida_tarde'),
+                'entrada_verano_manana' => $this->request->getPost('entrada_verano_manana'),
+                'salida_verano_manana' => $this->request->getPost('salida_verano_manana'),
+                'entrada_verano_tarde' => $this->request->getPost('entrada_verano_tarde'),
+                'salida_verano_tarde' => $this->request->getPost('salida_verano_tarde'),
+            );
+            $this->Asistencias_model->where('ion_user.id', $user->id)->set($data)->update();
+            session()->set('message', 'Horario modificado correctamente');
+            return redirect()->to($from ? site_url(urldecode($from)) : site_url('/'));
+        }
     }
 
     public function view($modal = false, $quien = null)
@@ -110,12 +162,12 @@ class Asistencias extends BaseController
 
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
-        if (count($group_id) == 1 || $quien==1) {
-            $config['total_rows'] = $this->Asistencias_model->total_rows($q, $tab, $filter,$user_id);
+        if (count($group_id) == 1 || $quien == 1) {
+            $config['total_rows'] = $this->Asistencias_model->total_rows($q, $tab, $filter, $user_id);
             $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, $user_id);
         } else {
             $config['total_rows'] = $this->Asistencias_model->total_rows($q, $tab, $filter, null);
-            $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter,null);
+            $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, null);
         }
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
         if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
@@ -125,7 +177,7 @@ class Asistencias extends BaseController
         }
         $data = array(
             'group_id' => $group_id,
-            'fichado'=> $fichado,
+            'fichado' => $fichado,
             'asistencias_data' => $asistencias,
             'q' => $q,
             'tab' => $tab,
@@ -146,7 +198,7 @@ class Asistencias extends BaseController
 
         $data['main'] = 'App\Modules\Asistencias\Views\asistencias_list';
         $modal_view = 'App\Modules\Asistencias\Views\asistencias_list_modal';
-        return view(($modal) ? $modal_view : 'template', $data);;
+        return view(($modal) ? $modal_view : 'template', $data);
     }
 
     public function read($id, $modal = false)
@@ -208,21 +260,21 @@ class Asistencias extends BaseController
         if ($ultima_asistencia == null) {
             $asistencia_nueva_id = 0;
         } else {
-            $asistencia_nueva_id = $ultima_asistencia->asistenciatipo_id +1;
+            $asistencia_nueva_id = $ultima_asistencia->asistenciatipo_id + 1;
             if ($asistencia_nueva_id == 4) {
                 $asistencia_nueva_id = 0;
             }
         }
-            $data = array(
-                'fechahora' => date('Y-m-d H:i:s'),
-                'fechahora_timestamp' => time(),
-                'asistenciatipo_id' => $asistencia_nueva_id,
-                'usuario_id' => $user_id,
-                'comentario' => $this->request->getPost('comentario'),
-            );
-            $this->Asistencias_model->insert($data);
-            session()->set('message', 'Create Record Success');
-            return redirect()->to(site_url('asistencias'));
+        $data = array(
+            'fechahora' => date('Y-m-d H:i:s'),
+            'fechahora_timestamp' => time(),
+            'asistenciatipo_id' => $asistencia_nueva_id,
+            'usuario_id' => $user_id,
+            'comentario' => $this->request->getPost('comentario'),
+        );
+        $this->Asistencias_model->insert($data);
+        session()->set('message', 'Create Record Success');
+        return redirect()->to(site_url('asistencias'));
     }
 
 

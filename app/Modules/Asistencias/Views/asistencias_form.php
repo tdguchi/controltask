@@ -20,7 +20,6 @@
                                                         <div class="mb-3">
                                                             <label for="comentario">Comentario</label>
                                                             <input type="text" class="form-control" name="<?= 'comentario' ?>" id="<?= 'comentario' ?>" value="<?= $data_fields['comentario'] ?>" />
-
                                                         </div>
                                                     </div>
                                                     <input type="hidden" name="asistencia_id" value="<?php echo $data_fields['asistencia_id']; ?>" />
