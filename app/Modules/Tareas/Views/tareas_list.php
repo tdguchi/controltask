@@ -2,7 +2,9 @@
     <div class="page-content">
         <div class="container-fluid">
         <div class="row">
-            <button class="col align-self-center btn btn-warning">Fichar</button>
+            <div class="col align-self-center">
+            <button class="btn btn-warning">Fichar</button>
+            </div>
         </div>
             <?php if (isset($message)) : ?>
                 <div class="form-group mb-3 alert alert-success"><?= $message ?></div>
