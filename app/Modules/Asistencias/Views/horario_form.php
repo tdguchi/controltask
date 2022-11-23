@@ -35,7 +35,7 @@
 
     <body>
     <header id="page-topbar">
-        <div class="layout-width">
+        <div class="layout-width text-center">
         <h1>Bienvenido a teconsite</h1>
         <h3>Necesitamos que configures tus horas de entrara y salida</h3>
         </div>
