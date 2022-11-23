@@ -10,6 +10,9 @@ class Users extends BaseController
 {
     function __construct()
     {
+        $this->ionAuth    = new \IonAuth\Libraries\IonAuth();
+        $this->Tareas_model = model('App\Modules\Tareas\Models\Tareas_model');
+        $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
         $this->Users_model = model('App\Modules\Users\Models\Users_model');
         helper(['formatos', 'form']);
         $this->validation =  \Config\Services::validation();
@@ -126,8 +129,15 @@ class Users extends BaseController
         // die(json_encode($users));
 
         $pager = \Config\Services::pager();
-
+        $user_id = $this->ionAuth->user()->row()->id;
+        $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
+        if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
+            $fichado = false;
+        } else {
+            $fichado = true;
+        }
         $data = array(
+            'fichado' => $fichado,
             'users_data' => $users,
             'q' => $q,
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),

@@ -16,8 +16,10 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize">Usuarios</h5>
                                 <div class="flex-shrink-0">
+                                <?php if ($fichado === true) { ?>
                                     <span class="text-capitalize"><?php echo anchor(site_url('users/create'), '<i class="ri-add-line align-bottom me-1"></i> Añadir Nuevo Usuario', 'class="btn btn-green add-btn"'); ?></span>
                                     <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('users/create_group') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir Nuevo Grupo</a></span>
+                                <?php } ?>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('users/view'); ?>" method="post">
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
@@ -63,9 +65,12 @@
                                                                 <?php echo daFormato($row->username, 'varchar', '0-0', '', '', '') ?></div>
                                                             <div class="flex-shrink-0">
                                                                 <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
+                                                                <?php if ($fichado === true) { ?>
+
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="<?= site_url('users/update/' . $row->id) ?>">Editar</a>
                                                                     </li>
+                                                                <?php } ?>
                                                                 </ul>
                                                             </div>
                                                             <div>
@@ -81,9 +86,11 @@
                                                             </div>
                                                             <div class="flex-shrink-0">
                                                                 <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
+                                                                <?php if ($fichado === true) { ?>
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="<?= site_url('users/' . ($row->active ? 'deactivate/' : 'activate/') . $row->id) ?>" <?= $row->active ? 'class="color-red"' : '' ?>><?= $row->active ? "Desactivar" : "Activar" ?></a>
                                                                     </li>
+                                                                <?php } ?>
                                                                 </ul>
                                                             </div>
                                                             <div>
