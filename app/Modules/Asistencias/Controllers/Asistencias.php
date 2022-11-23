@@ -115,7 +115,8 @@ class Asistencias extends BaseController
             $fichado = false;
         } else {
             $fichado = true;
-        }        
+        }
+        log_message("error", print_r($ultima_asistencia,true));        
         $data = array(
             'fichado'=> $fichado,
             'asistencias_data' => $asistencias,
