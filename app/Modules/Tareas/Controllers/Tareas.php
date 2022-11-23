@@ -28,7 +28,7 @@ class Tareas extends BaseController
     }
 
 
-    public function view($modal = false)
+    public function view($modal = false, $quien = null)
     {
 
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
@@ -104,7 +104,7 @@ class Tareas extends BaseController
         $start = $config['per_page'] * ($page - 1);
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
-        if (count($group_id) == 1) {
+        if (count($group_id) == 1 || $quien == 1) {
             $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter,$user_id);
             $tareas = $this->Tareas_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, $user_id);
         } else {
