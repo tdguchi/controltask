@@ -26,7 +26,7 @@ class Asistencias extends BaseController
     public function horas() {
         $user = $this->ionAuth->user()->row();
         log_message("error", print_r($user,true));
-        redirect()->to(base_url('/'));
+        return redirect()->to(base_url('/'));
     }
 
     public function view($modal = false, $quien = null)
