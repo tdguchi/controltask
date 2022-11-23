@@ -40,7 +40,7 @@
             <?php endif; ?>
             <form id="edit-form" class="container-fluid" action="<?php echo $action; ?>" method="post">
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-10">
                         <div class="card">
                             <div class="card-header">
                                 <div class="d-flex align-items-center">
