@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col text-center">
             <button class="btn btn-warning">Fichar</button>
-            </div><br>
-        </div>
+            </div>
+        </div><br>
             <?php if (isset($message)) : ?>
                 <div class="form-group mb-3 alert alert-success"><?= $message ?></div>
             <?php endif; ?>
