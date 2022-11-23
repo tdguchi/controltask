@@ -18,27 +18,6 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="fechahora">Fecha Hora</label>
-                                                            <input type="text" class="form-control" name="<?= 'fechahora' ?>" id="<?= 'fechahora' ?>" value="<?= $data_fields['fechahora'] ?>" />
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label for="asistenciatipo_id">Tipo De Asistencia</label>
-                                                            <input type="number" class="form-control" name="<?= 'asistenciatipo_id' ?>" id="<?= 'asistenciatipo_id' ?>" value="<?= $data_fields['asistenciatipo_id'] ?>" />
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label for="usuario_id">Operador</label>
-                                                            <input type="number" class="form-control" name="<?= 'usuario_id' ?>" id="<?= 'usuario_id' ?>" value="<?= $data_fields['usuario_id'] ?>" />
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
                                                             <label for="comentario">Comentario</label>
                                                             <input type="text" class="form-control" name="<?= 'comentario' ?>" id="<?= 'comentario' ?>" value="<?= $data_fields['comentario'] ?>" />
 
