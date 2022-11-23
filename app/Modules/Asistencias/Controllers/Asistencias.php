@@ -46,6 +46,7 @@ class Asistencias extends BaseController
             );
             $data['titulo'] = 'Mi horario';
             $data['element'] = 'Mi horario';
+            $data['subtitulo'] = 'Configurar mi horario';
             if (session()->get('message')) {
                 $data['message'] = session()->get('message');
                 session()->remove('message');
