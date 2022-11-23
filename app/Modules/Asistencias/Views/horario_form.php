@@ -62,49 +62,49 @@
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-12">
                                                         <div class="mb-1">
                                                             <label for="salida_manana">Salida manaña</label>
                                                             <input type="time" min="08:00" max="15:00" class="form-control" name="<?= 'salida_manana' ?>" id="<?= 'salida_manana' ?>" value="<?= $data_fields['salida_manana'] ?>" required/>
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-12">
                                                         <div class="mb-1">
                                                             <label for="entrada_tarde">Entrada tarde</label>
                                                             <input type="time" min="14:00" max="18:00"  class="form-control" name="<?= 'entrada_tarde' ?>" id="<?= 'entrada_tarde' ?>" value="<?= $data_fields['entrada_tarde'] ?>" required/>
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-12">
                                                         <div class="mb-1">
                                                             <label for="salida_tarde">Salida tarde</label>
                                                             <input type="time" min="14:00" max="18:00" class="form-control" name="<?= 'salida_tarde' ?>" id="<?= 'salida_tarde' ?>" value="<?= $data_fields['salida_tarde'] ?>" required/>
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-12">
                                                         <div class="mb-1">
                                                             <label for="entrada_verano_manana">Entrada verano mañana</label>
                                                             <input type="time"  class="form-control" name="<?= 'entrada_verano_manana' ?>" id="<?= 'entrada_verano_manana' ?>" value="<?= $data_fields['entrada_verano_manana'] ?>" required/>
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-12">
                                                         <div class="mb-1">
                                                             <label for="salida_verano_manana">Salida verano manana</label>
                                                             <input type="time" min="14:00" max="18:00" class="form-control" name="<?= 'salida_verano_manana' ?>" id="<?= 'salida_verano_manana' ?>" value="<?= $data_fields['salida_verano_manana'] ?>" required/>
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-12">
                                                         <div class="mb-1">
                                                             <label for="entrada_verano_tarde">Entrada verano tarde</label>
                                                             <input type="time"  class="form-control" name="<?= 'entrada_verano_tarde' ?>" id="<?= 'entrada_verano_tarde' ?>" value="<?= $data_fields['entrada_verano_tarde'] ?>" required/>
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-12">
                                                         <div class="mb-1">
                                                             <label for="salida_verano_tarde">Salida verano tarde</label>
                                                             <input type="time"  class="form-control" name="<?= 'salida_verano_tarde' ?>" id="<?= 'salida_verano_tarde' ?>" value="<?= $data_fields['salida_verano_tarde'] ?>" required/>
