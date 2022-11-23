@@ -17,10 +17,13 @@ class Asistencias_model extends Model
     {
         parent::__construct();
     }
-    function get_last_asistencia($usuario_id)
+    function get_last_asistencia($usuario_id, $dia = null)
     {
         $builder = $this->db->table($this->table)->select('asistencias.*');
         $builder->where('usuario_id', $usuario_id);
+        if ($dia != null) {
+            $builder->like('fechahora', $dia);
+        }
         $builder->orderBy('fechahora', 'DESC');
         $builder->limit(1);
         return $builder->get()->GetRow();

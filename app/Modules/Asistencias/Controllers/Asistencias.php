@@ -187,6 +187,26 @@ class Asistencias extends BaseController
         return view(($modal) ? $modal_view : 'template', $data);
     }
 
+    public function fichar_action($from = null)
+    {
+        $user_id = $this->ionAuth->user()->row()->id;
+        $ultima_asistencia_id = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
+        $asistencia_nueva_id = $ultima_asistencia_id +1;
+        if ($ultima_asistencia_id == 4) {
+            $asistencia_nueva_id = 0;
+        }
+            $data = array(
+                'fechahora' => date('Y-m-d H:i:s'),
+                'fechahora_timestamp' => time(),
+                'asistenciatipo_id' => $asistencia_nueva_id,
+                'usuario_id' => $user_id,
+                'comentario' => $this->request->getPost('comentario'),
+            );
+            $this->Asistencias_model->insert($data);
+            session()->set('message', 'Create Record Success');
+            return redirect()->to(site_url('asistencias'));
+    }
+
 
     public function _rules($raction)
     {
