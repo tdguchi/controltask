@@ -3,7 +3,7 @@
         <div class="container-fluid">
         <div class="row">
             <div class="col text-center">
-            <button class="btn btn-warning">Fichar</button>
+            <button class="btn btn-warning btn-lg text-dark">Fichar</button>
             </div>
         </div><br>
             <?php if (isset($message)) : ?>
