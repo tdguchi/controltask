@@ -14,6 +14,7 @@ class Tareas extends BaseController
     {
         $this->ionAuth    = new \IonAuth\Libraries\IonAuth();
         $this->Tareas_model = model('App\Modules\Tareas\Models\Tareas_model');
+        $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
         $this->Proyectos_model = model('App\Modules\Proyectos\Models\Proyectos_model');
         $this->Users_model = model('App\Modules\Users\Models\Users_model');
         helper(['formatos', 'form']);
@@ -112,9 +113,14 @@ class Tareas extends BaseController
         }
 
         $pager = \Config\Services::pager();
-
+        $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
+        if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
+            $fichado = false;
+        } else {
+            $fichado = true;
+        }
         $data = array(
-            'fichado' =>false,
+            'fichado' =>$fichado,
             'tareas_data' => $tareas,
             'q' => $q,
             'tab' => $tab,
