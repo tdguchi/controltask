@@ -38,7 +38,7 @@
         <h1>Bienvenido a teconsite</h1>
         <h4>Necesitamos que configures tus horas de entrara y salida</h4>
     </div>
-    <div class="main-content" style="line-height: 0px;">
+    <div class="main-content>
         <div class="page-content">
             <?php if (isset($message)) : ?>
                 <div class="form-group mb-3 alert alert-warning"><?= $message ?></div>
@@ -68,7 +68,7 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="mb-1">
-                                                                <label for="salida_manana">Salida manaña</label>
+                                                                <label for="salida_manana">Salida mañana</label>
                                                                 <input type="time" min="08:00" max="15:00" class="form-control" name="<?= 'salida_manana' ?>" id="<?= 'salida_manana' ?>" value="<?= $data_fields['salida_manana'] ?>" required />
 
                                                             </div>
@@ -96,7 +96,7 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="mb-1">
-                                                                <label for="salida_verano_manana">Salida verano manana</label>
+                                                                <label for="salida_verano_manana">Salida verano mañana</label>
                                                                 <input type="time" min="14:00" max="18:00" class="form-control" name="<?= 'salida_verano_manana' ?>" id="<?= 'salida_verano_manana' ?>" value="<?= $data_fields['salida_verano_manana'] ?>" required />
 
                                                             </div>
