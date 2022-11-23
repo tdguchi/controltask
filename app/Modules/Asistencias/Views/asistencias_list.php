@@ -57,7 +57,7 @@
                                                         </div>
                                                     </th>
                                                     <td class=" text-right "><?= $row->usuario_id ?></td>
-                                                    <td class=" text-right "><?= $row->asistenciatipo_id ?></td>
+                                                    <td class=" text-right "><?= $row->asistenciatipo_nombre?></td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->comentario ?></td>
                                                 </tr>
