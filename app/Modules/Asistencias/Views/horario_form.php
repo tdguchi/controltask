@@ -11,23 +11,8 @@
     <meta name="description" content="<?= isset($description) ? $description : '' ?>">
 
     <script src="<?= base_url() ?>/assets/js/jquery-3.6.0.min.js"></script>
-    <!-- Layout config Js -->
-    <script src="<?= base_url() ?>/assets/js/layout.js"></script>
-    <!-- Bootstrap Css -->
     <link href="<?= base_url() ?>/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="<?= base_url() ?>/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="<?= base_url() ?>/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-    <!-- custom Css-->
-    <link href="<?= base_url() ?>/assets/css/custom.css" id="app-style" rel="stylesheet" type="text/css" />
-    <!-- JAVASCRIPT -->
     <script src="<?= base_url() ?>/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url() ?>/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="<?= base_url() ?>/assets/libs/node-waves/waves.min.js"></script>
-    <script src="<?= base_url() ?>/assets/libs/feather-icons/feather.min.js"></script>
-    <script src="<?= base_url() ?>/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <script src="<?= base_url() ?>/assets/js/plugins.js"></script>
 
     <script src="<?= base_url() ?>/assets/libs/select2/select2.min.js"></script>
     <link href="<?= base_url() ?>/assets/libs/select2/select2.min.css" id="app-style" rel="stylesheet" type="text/css" />
