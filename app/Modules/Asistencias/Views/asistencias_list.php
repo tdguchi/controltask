@@ -56,7 +56,7 @@
                                                             <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->asistencia_id ?>">
                                                         </div>
                                                     </th>
-                                                    <td class=" text-right "><?= $row->usuario_id ?></td>
+                                                    <td class=" text-right "><?= $row->nombre ?></td>
                                                     <td class=" text-right "><?= $row->tipo?></td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->comentario ?></td>

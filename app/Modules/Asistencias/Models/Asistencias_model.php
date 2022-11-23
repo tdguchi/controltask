@@ -71,7 +71,7 @@ class Asistencias_model extends Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array(), $usuario_id = null)
     {
-        $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id,asistenciasnombre.nombre AS tipo');
+        $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id,asistenciasnombre.nombre AS tipo,ion_users.first_name AS nombre');
 
 
         if (count($filter) == 2) {
@@ -84,6 +84,7 @@ class Asistencias_model extends Model
 
         }
         $builder->join('asistenciasnombre', 'asistenciasnombre.asistenciatipo_id = asistencias.asistenciatipo_id', 'left');
+        $builder->join('ion_users', 'ion_users.id = asistencias.usuario_id', 'left');
         if (!empty($q)) {
             $builder->groupStart();
 
