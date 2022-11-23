@@ -16,7 +16,7 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
-                                    <?php if ($group_id == 1) { ?>
+                                <?php  if (count($group_id) == 2) {?>
                                         <span class="text-capitalize"><?php echo anchor(site_url('tareas/view/0/1'), 'Propias', 'class="btn btn-green add-btn"'); ?></span>
                                         <span class="text-capitalize"><?php echo anchor(site_url('tareas/view/0/2'), 'Todas', 'class="btn btn-green add-btn"'); ?></span>
                                     <?php } ?>
