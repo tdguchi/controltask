@@ -116,6 +116,7 @@ class Asistencias extends BaseController
         } else {
             $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter);
         }
+        log_message("error", "asistencias: " . print_r($asistencias, true));
         $data = array(
             'asistencias_data' => $asistencias,
             'q' => $q,
