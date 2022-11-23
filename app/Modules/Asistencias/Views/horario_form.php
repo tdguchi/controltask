@@ -56,21 +56,21 @@
                                             <div class="form-soaga">
                                                 <div class="row">
                                                 <div class="col-4">
-                                                        <div class="mb-3">
+                                                        <div class="mb-1">
                                                             <label for="entrada_manana">Entrada manaña</label>
                                                             <input type="time" min="08:00" max="15:00" class="form-control" name="<?= 'entrada_manana' ?>" id="<?= 'entrada_manana' ?>" value="<?= $data_fields['entrada_manana'] ?>" required/>
 
                                                         </div>
                                                     </div>
                                                     <div class="col-4">
-                                                        <div class="mb-3">
+                                                        <div class="mb-1">
                                                             <label for="salida_manana">Salida manaña</label>
                                                             <input type="time" min="08:00" max="15:00" class="form-control" name="<?= 'salida_manana' ?>" id="<?= 'salida_manana' ?>" value="<?= $data_fields['salida_manana'] ?>" required/>
 
                                                         </div>
                                                     </div>
                                                     <div class="col-4">
-                                                        <div class="mb-3">
+                                                        <div class="mb-1">
                                                             <label for="entrada_tarde">Entrada tarde</label>
                                                             <input type="time" min="14:00" max="18:00"  class="form-control" name="<?= 'entrada_tarde' ?>" id="<?= 'entrada_tarde' ?>" value="<?= $data_fields['entrada_tarde'] ?>" required/>
 
