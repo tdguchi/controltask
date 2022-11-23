@@ -34,14 +34,14 @@ class Asistencias extends BaseController
                 'action' => site_url('asistencias/horario_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : ''),
                 'from' => null,
                 'data_fields' => array(
-                    'entrada_manana' => $user->entrada_manana,
-                    'salida_manana' => $user->salida_manana,
-                    'entrada_tarde' => $user->entrada_tarde,
-                    'salida_tarde' => $user->salida_tarde,
-                    'entrada_verano_manana' => $user->entrada_verano_manana,
-                    'salida_verano_manana' => $user->salida_verano_manana,
-                    'entrada_verano_tarde' => $user->entrada_verano_tarde,
-                    'salida_verano_tarde' => $user->salida_verano_tarde,
+                    'entrada_manana' => set_value('entrada_manana', $user->entrada_manana),
+                    'salida_manana' => set_value('salida_manana', $user->salida_manana),
+                    'entrada_tarde' => set_value('entrada_tarde', $user->entrada_tarde),
+                    'salida_tarde' => set_value('salida_tarde', $user->salida_tarde),
+                    'entrada_verano_manana' => set_value('entrada_verano_manana', $user->entrada_verano_manana),
+                    'salida_verano_manana' => set_value('salida_verano_tarde', $user->salida_verano_manana),
+                    'entrada_verano_tarde' => set_value('entrada_verano_tarde', $user->entrada_verano_tarde),
+                    'salida_verano_tarde' => set_value('salida_verano_tarde', $user->salida_verano_tarde),
                 )
             );
             $data['titulo'] = 'Mi horario';
