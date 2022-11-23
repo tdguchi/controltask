@@ -110,8 +110,14 @@ class Asistencias extends BaseController
             $config['total_rows'] = $this->Asistencias_model->total_rows($q, $tab, $filter, null);
             $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter,null);
         }
-        
+        $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
+        if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
+            $fichado = false;
+        } else {
+            $fichado = true;
+        }        
         $data = array(
+            'fichado'=> $fichado,
             'asistencias_data' => $asistencias,
             'q' => $q,
             'tab' => $tab,
