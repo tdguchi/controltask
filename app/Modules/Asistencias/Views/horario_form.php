@@ -50,7 +50,7 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-12">
                                     <div class="card mb-0 border-0">
                                         <div class="card-body p-0">
                                             <div class="form-soaga">
