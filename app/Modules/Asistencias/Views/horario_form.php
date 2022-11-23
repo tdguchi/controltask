@@ -38,7 +38,7 @@
         <h1>Bienvenido a teconsite</h1>
         <h4>Necesitamos que configures tus horas de entrara y salida</h4>
     </div>
-    <div class="main-content">
+    <div class="main-content" style="line-height: 0px;">
         <div class="page-content">
             <?php if (isset($message)) : ?>
                 <div class="form-group mb-3 alert alert-warning"><?= $message ?></div>
