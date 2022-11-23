@@ -10,8 +10,6 @@ class Asistencias extends BaseController
 {
     function __construct()
     {
-        $this->ionAuth    = new \IonAuth\Libraries\IonAuth();
-        $this->Tareas_model = model('App\Modules\Tareas\Models\Tareas_model');
         $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
         helper(['formatos', 'form']);
         $this->validation =  \Config\Services::validation();
@@ -109,15 +107,7 @@ class Asistencias extends BaseController
 
         $start = $config['per_page'] * ($page - 1);
         $pager = \Config\Services::pager();
-        $user_id = $this->ionAuth->user()->row()->id;
-        log_message('error', 'Asistencias::view() - $user_id: ' . $user_id);
-        /* $group_id = $this->Tareas_model->get_group_id($user_id);
-        if (count($group_id) == 1) {
-            $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter,$user_id);
-        } else { */
-            $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter);
-        /* }
-        log_message("error", "asistencias: " . print_r($asistencias, true)); */
+            $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter,null);
         $data = array(
             'asistencias_data' => $asistencias,
             'q' => $q,
