@@ -76,6 +76,8 @@ class Asistencias_model extends Model
         }
         if ($usuario_id != null) {
             $builder->where('asistencias.usuario_id', $usuario_id);
+            $builder->like('asistencias.fechahora', date('Y-m-d'));
+
         }
         if (!empty($q)) {
             $builder->groupStart();
