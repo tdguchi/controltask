@@ -51,7 +51,7 @@ class Asistencias_model extends Model
         }
         if ($usuario_id) {
             $builder->where('asistencias.usuario_id', $usuario_id);
-            $builder->where('asistencias.fechahora >=', date('Y-m-d 00:00:00'));
+            $builder->like('asistencias.fechahora', date('Y-m-d'));
         }
         if (!empty($q)) {
             $builder->groupStart();
