@@ -2,7 +2,7 @@
     <div class="page-content">
         <div class="container-fluid">
         <div class="row">
-            <div class="col align-self-center">
+            <div class="col text-center">
             <button class="btn btn-warning">Fichar</button>
             </div>
         </div>
