@@ -110,13 +110,13 @@ class Asistencias extends BaseController
         $start = $config['per_page'] * ($page - 1);
         $pager = \Config\Services::pager();
         $user_id = $this->ionAuth->user()->row()->id;
-        $group_id = $this->Tareas_model->get_group_id($user_id);
+        /* $group_id = $this->Tareas_model->get_group_id($user_id);
         if (count($group_id) == 1) {
             $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter,$user_id);
-        } else {
+        } else { */
             $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter);
-        }
-        log_message("error", "asistencias: " . print_r($asistencias, true));
+        /* }
+        log_message("error", "asistencias: " . print_r($asistencias, true)); */
         $data = array(
             'asistencias_data' => $asistencias,
             'q' => $q,
