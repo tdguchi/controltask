@@ -133,7 +133,7 @@ class Auth extends \CodeIgniter\Controller
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->setFlashdata('message', $this->ionAuth->messages());
-				return redirect()->to('/')->withCookies();
+				return redirect()->to('/asistencias/view')->withCookies();
 			} else {
 				// if the login was un-successful
 				// redirect them back to the login page
@@ -566,9 +566,9 @@ class Auth extends \CodeIgniter\Controller
 	public function redirectUser()
 	{
 		if ($this->ionAuth->isAdmin()) {
-			return redirect()->to('/worklogs/view');
+			return redirect()->to('/auth');
 		}
-		return redirect()->to('/asistencias/view');
+		return redirect()->to('/');
 	}
 
 	/**
