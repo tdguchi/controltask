@@ -13,15 +13,6 @@ class Asistencias extends BaseController
         $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
         helper(['formatos', 'form']);
         $this->validation =  \Config\Services::validation();
-
-        $config = config('App');
-        if (isset($config->authEnabled) && $config->authEnabled) {
-            $ionAuth = new \IonAuth\Libraries\IonAuth();
-            if (!$ionAuth->isAdmin()) {
-                header("Location: " . base_url());
-                die();
-            }
-        }
     }
 
     public function index()
@@ -107,7 +98,7 @@ class Asistencias extends BaseController
 
         $start = $config['per_page'] * ($page - 1);
         $pager = \Config\Services::pager();
-            $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter,null);
+        $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter,null);
         $data = array(
             'asistencias_data' => $asistencias,
             'q' => $q,
