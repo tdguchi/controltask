@@ -58,6 +58,9 @@
         <?= view('partials/menu'); ?>
     </div>
     <div id="layout-wrapper">
+        <?= view('partials/fichar'); ?>
+    </div>
+    <div id="layout-wrapper">
         <?= view($main); ?>
     </div>
 
