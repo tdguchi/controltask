@@ -192,7 +192,7 @@ class Asistencias extends BaseController
         $user_id = $this->ionAuth->user()->row()->id;
         $ultima_asistencia_id = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'))->asistencia_id;
         $asistencia_nueva_id = $ultima_asistencia_id +1;
-        if ($ultima_asistencia_id == 4) {
+        if ($asistencia_nueva_id == 4) {
             $asistencia_nueva_id = 0;
         }
             $data = array(
