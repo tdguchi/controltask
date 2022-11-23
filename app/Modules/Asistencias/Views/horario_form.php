@@ -55,7 +55,7 @@
                                         <div class="card-body p-0">
                                             <div class="form-soaga">
                                                 <div class="row">
-                                                <div class="col-4">
+                                                <div class="col-12">
                                                         <div class="mb-1">
                                                             <label for="entrada_manana">Entrada manaña</label>
                                                             <input type="time" min="08:00" max="15:00" class="form-control" name="<?= 'entrada_manana' ?>" id="<?= 'entrada_manana' ?>" value="<?= $data_fields['entrada_manana'] ?>" required/>
