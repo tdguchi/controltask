@@ -566,9 +566,9 @@ class Auth extends \CodeIgniter\Controller
 	public function redirectUser()
 	{
 		if ($this->ionAuth->isAdmin()) {
-			return redirect()->to('/auth');
+			return redirect()->to('/worklogs/view');
 		}
-		return redirect()->to('/');
+		return redirect()->to('/asistencias/view');
 	}
 
 	/**
