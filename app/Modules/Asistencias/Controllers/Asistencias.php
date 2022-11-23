@@ -52,7 +52,7 @@ class Asistencias extends BaseController
             }
 
             $data['main'] = 'App\Modules\Asistencias\Views\horario_form';
-            return view($data['main'], $data);
+            return view('template', $data);
         };
         return redirect()->to(base_url('/'));
     }
