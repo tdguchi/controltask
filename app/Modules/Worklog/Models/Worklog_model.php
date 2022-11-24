@@ -10,7 +10,7 @@ class Worklog_model extends Model
 
     public $table = 'worklog';
     public $id = 'worklog_id';
-    public $allowedFields = array('tarea_id', 'usuario_id', 'fechainicio', 'fechacierre', 'comentario');
+    public $allowedFields = array('ion_user.first_name','tareas.titulo','tarea_id', 'usuario_id', 'fechainicio', 'fechacierre', 'comentario');
     public $order = 'DESC';
 
     function __construct()
@@ -58,8 +58,9 @@ class Worklog_model extends Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array())
     {
-        $builder = $this->db->table($this->table)->select('worklog.tarea_id,worklog.usuario_id,worklog.fechainicio,worklog.fechacierre,worklog.comentario,worklog.worklog_id');
-
+        $builder = $this->db->table($this->table)->select('ion_user.first_name AS nombre','tareas.titulo AS titulo','worklog.tarea_id,worklog.usuario_id,worklog.fechainicio,worklog.fechacierre,worklog.comentario,worklog.worklog_id');
+        $builder->join('ion_user', 'ion_user.id = worklog.usuario_id');
+        $builder->join('tareas', 'tareas.tarea_id = worklog.tarea_id');
 
         if (count($filter) == 2) {
             $builder->where('worklog.' . $filter[0], $filter[1]);
