@@ -105,9 +105,9 @@
                                                     <td class=" text-right "><?= $row->horasreales ?></td>
                                                     <td class=" text-right "><?= $row->estado ?></td>
                                                     <td class=" text-right ">
-                                                        <button>Iniciar</button>
-                                                        <button>Pausar</button>
-                                                        <button>Cerrar</button>
+                                                        <button class="btn"><i class="bx bx-play"></i></button>
+                                                        <button class="btn"><i class="bx bx-pause"></i></button>
+                                                        <button class="btn"><i class="bx bx-stop"></i></button>  
                                                     </td>
                                                 </tr>
                                             <? } ?>
