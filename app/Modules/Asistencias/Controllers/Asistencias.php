@@ -118,6 +118,8 @@ class Asistencias extends BaseController
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
         $pagelength = $modal ? 10 : 50;
+        $p = $this->request->getPost('p');
+        log_message("error", "asistencias.p: " . $p);
 
         if (intval($page) <= 0) {
             $page = 1;
@@ -169,8 +171,7 @@ class Asistencias extends BaseController
 
         $oc = session()->get('asistencias.oc');
         $od = session()->get('asistencias.od');
-        $p = $this->request->getPost('p');
-        log_message("error", "asistencias.p: " . $p);
+
 
         if ($nr != '') {
             $config['per_page'] = $nr;
