@@ -106,7 +106,7 @@
                                                     <td class=" text-right "><?= $row->texto_estado ?></td>
                                                     <td class=" text-right ">
                                                        <? var_dump($quien) ?>
-                                                        <? if ($quien == 1 or gettype($quien) != "string") { ?>
+                                                        <? if ($quien == 1 or gettype($quien) != "NULL") { ?>
                                                             <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                             <? if ($row->estado == 0) { ?>
                                                                 <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn" value="0"><i class="bx bx-play fs-22"></i></button>
