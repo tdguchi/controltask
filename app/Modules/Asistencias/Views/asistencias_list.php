@@ -1,11 +1,11 @@
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-            <a href="<?= site_url("asistencias/fichar")?>" class="btn btn-warning btn-lg text-dark">Fichar</a>
-            </div>
-        </div><br>
+            <div class="row">
+                <div class="col text-center">
+                    <a href="<?= site_url("asistencias/fichar") ?>" class="btn btn-warning btn-lg text-dark">Fichar</a>
+                </div>
+            </div><br>
             <?php if (isset($message)) : ?>
                 <div class="form-group mb-3 alert alert-success"><?= $message ?></div>
             <?php endif; ?>
@@ -16,11 +16,10 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
-                                <?php  if (count($group_id) == 2) {?>
-                                <span class="text-capitalize"><?php echo anchor(site_url('asistencias/view/0/1'), 'Propias', 'class="btn btn-green add-btn"'); ?></span>
-                                <span class="text-capitalize"><?php echo anchor(site_url('asistencias/view/0/2'), 'Todas', 'class="btn btn-green add-btn"'); ?></span>
-                                <?php } ?>
-                                    <label for="startDate">Start</label>
+                                    <?php if (count($group_id) == 2) { ?>
+                                        <span class="text-capitalize"><?php echo anchor(site_url('asistencias/view/0/1'), 'Propias', 'class="btn btn-green add-btn"'); ?></span>
+                                        <span class="text-capitalize"><?php echo anchor(site_url('asistencias/view/0/2'), 'Todas', 'class="btn btn-green add-btn"'); ?></span>
+                                    <?php } ?>
                                     <input id="startDate" class="form-control" type="date" />
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('asistencias/view'); ?>" method="post">
@@ -61,12 +60,12 @@
                                                     </th>
                                                     <td class=" text-right "><?= $row->nombre ?></td>
                                                     <td class=" text-right ">
-                                                    <? if ($row->asistenciatipo_id == 0) { ?>
-                                                        <span style="color:green" ><i class='bx bx-exit bx-rotate-180' ></i> <?= $row->tipo?> </span>
-                                                    <? } else { ?>
-                                                        <span style="color:red" ><i  class='bx bx-exit' ></i> <?= $row->tipo?> </span>
-                                                    <? } ?>
-                                                </td>
+                                                        <? if ($row->asistenciatipo_id == 0) { ?>
+                                                            <span style="color:green"><i class='bx bx-exit bx-rotate-180'></i> <?= $row->tipo ?> </span>
+                                                        <? } else { ?>
+                                                            <span style="color:red"><i class='bx bx-exit'></i> <?= $row->tipo ?> </span>
+                                                        <? } ?>
+                                                    </td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->comentario ?></td>
                                                 </tr>
