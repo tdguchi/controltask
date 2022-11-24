@@ -17,7 +17,7 @@
                                             <div class="form-soaga">
                                             <div class="row">
                                                     <div class="col-12">
-                                                        <div class="mb-3">
+                                                        <div class="mb-12">
                                                             <h1 class="h1-title">Necesitas registrar una entrada para poder usar la aplicación</h1>
                                                         </div>
                                                     </div>
