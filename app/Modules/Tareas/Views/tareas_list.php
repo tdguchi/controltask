@@ -105,6 +105,7 @@
                                                     <td class=" text-right "><?= $row->horasreales ?></td>
                                                     <td class=" text-right "><?= $row->texto_estado ?></td>
                                                     <td class=" text-right ">
+                                                       <? var_dump($quien) ?>
                                                         <? if ($quien == 1 or gettype($quien) != "string") { ?>
                                                             <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                             <? if ($row->estado == 0) { ?>
