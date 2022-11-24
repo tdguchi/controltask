@@ -169,7 +169,7 @@ class Asistencias extends BaseController
 
         $oc = session()->get('asistencias.oc');
         $od = session()->get('asistencias.od');
-        $p = session()->get('asistencias.p');
+        $p = $this->request->getPost('p');
         log_message("error", "asistencias.p: " . $p);
 
         if ($nr != '') {
