@@ -27,16 +27,20 @@ class Tareas_model extends Model
         return $builder->get()->getResult();
     }
 
-    // get data by id
-    function get_by_id($id, $estado = null)
+    function get_all_activas($user_id)
+    {
+        $builder = $this->db->table($this->table)->select('tareas.proyecto_id,tareas.usuario_id,tareas.usuariosadicionales,tareas.titulo,tareas.descripcion,tareas.fechahoracreacion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
+        $builder->where('tareas.estado', 1);
+        $builder->where('tareas.usuario_id', $user_id);
+        return $builder->get()->getResult();
+    }
+
+    function get_by_id($id)
     {
         $builder = $this->db->table($this->table)->select('ion_users.first_name AS operador,proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.usuario_id,tareas.usuariosadicionales,tareas.titulo,tareas.descripcion,tareas.fechahoracreacion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
         $builder->join('proyectos', 'proyectos.proyecto_id = tareas.proyecto_id', 'left');
         $builder->join('ion_users', 'ion_users.id = tareas.usuario_id', 'left');
         $builder->where($this->id, $id);
-        if ($estado != null) {
-            $builder->where('estado', $estado);
-        }
         return $builder->get()->getRow();
     }
 

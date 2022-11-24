@@ -30,7 +30,7 @@ class Tareas extends BaseController
     public function acciones($tarea_id)
     {
         $user_id = $this->ionAuth->user()->row()->id;
-        $row = $this->Tareas_model->get_by_id($user_id,1);
+        $row = $this->Tareas_model->get_all_activas($user_id);
         if ($_POST['accion'] == 0 && $row == null) {
             $data = array(
                 'estado' => 1,
