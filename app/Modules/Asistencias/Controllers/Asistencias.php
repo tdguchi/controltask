@@ -121,7 +121,7 @@ class Asistencias extends BaseController
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
         $pagelength = $modal ? 10 : 50;
         $p = $this->request->getPost('p');
-
+        log_message("error", "p: " . print_r($p, true));
         if (intval($page) <= 0) {
             $page = 1;
         }
