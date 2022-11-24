@@ -64,7 +64,7 @@
                                                     <? } else { ?>
                                                         <i style="color:red" class='bx bx-exit fs-22' ></i>
                                                     <? } ?>
-                                                    <?= $row->tipo?>
+                                                    <p><?= $row->tipo?></p>
                                                 </td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->comentario ?></td>
