@@ -14,7 +14,7 @@
                     <div class="card card-list-soaga">
                         <div class="card-header border-0">
                             <div class="d-flex align-items-center">
-                                <h5 class="card-title mb-0 flex-grow-1 h5-title"><?= $titulo ?> <?= $element . ' del dia ' ?> <?= $p != null ? gmdate('d-m-Y',strtotime($p)) : date('d-m-Y') ?></h5>
+                                <h5 class="card-title mb-0 flex-grow-1 h5-title"><?= $titulo ?> <?= $element . ' del dia ' ?> <?= $p != null ? date('d-m-Y',strtotime($p)) : date('d-m-Y') ?></h5>
                                 <div class="flex-shrink-0">
                                     <form id="search-box" class="input-group" action="<?php echo site_url('asistencias/view'); ?>" method="post">
                                         <input id="Date" class="form-control" id="p" name="p" type="date" value="<?= $p != null ? $p : date('Y-m-d') ?>" />
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="mb-0 flex-grow-1">
-                                        <?= $total_rows > count($asistencias_data) ? (count($asistencias_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : ""?> . <?='Tu jornada para este dia ha sido de: ' .  gmdate("H:i:s", $totalhoras) ?>
+                                        <?= $total_rows > count($asistencias_data) ? (count($asistencias_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : ""?> . <?='Tu jornada para este dia ha sido de: ' .  date("H:i:s", $totalhoras) ?>
                                     </div>
                                     <?php if ($total_rows > count($asistencias_data)) : ?>
                                         <div class="flex-shrink-0 pagination-wrap hstack gap-2">
