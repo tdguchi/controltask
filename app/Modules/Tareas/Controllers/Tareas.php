@@ -27,14 +27,14 @@ class Tareas extends BaseController
         return redirect()->to(current_url() . '/view');
     }
 
-    public function acciones($id)
+    public function acciones($tarea_id)
     {
         if ($_POST['accion'] == 0) {
-            $this->Tareas_model->update($id, ['estado' => 1]);
+            $this->Tareas_model->update($tarea_id, ['estado' => 1]);
         } else if ($_POST['accion'] == 1) {
-            $this->Tareas_model->update($id, ['estado' => 0]);
+            $this->Tareas_model->update($tarea_id, ['estado' => 0]);
         } else if ($_POST['accion'] == 2) {
-            $this->Tareas_model->update($id, ['estado' => 2]);
+            $this->Tareas_model->update($tarea_id, ['estado' => 2]);
         }
         return redirect()->to(current_url() . '/view');
     }
