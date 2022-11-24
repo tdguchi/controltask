@@ -15,6 +15,14 @@
                                     <div class="card mb-0 border-0">
                                         <div class="card-body p-0">
                                             <div class="form-soaga">
+                                            <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <h1 class="h1-title">Necesitas registrar una entrada para poder usar la aplicación</h1>
+                                                        </div>
+                                                    </div>
+                                                    <input type="hidden" name="asistencia_id" value="<?php echo $data_fields['asistencia_id']; ?>" />
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
