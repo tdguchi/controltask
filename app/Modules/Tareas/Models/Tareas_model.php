@@ -10,7 +10,7 @@ class Tareas_model extends Model
 
     public $table = 'tareas';
     public $id = 'tarea_id';
-    public $allowedFields = array('proyecto_titulo','proyecto_id', 'usuario_id','fechahoracreacion', 'usuariosadicionales', 'titulo', 'descripcion', 'fechaobjetivo', 'fechaestimada', 'horasestimadas', 'fechacomienzo', 'fecharealcierre', 'horasreales','estado');
+    public $allowedFields = array('estados_nombre.nombre','proyecto_titulo','proyecto_id', 'usuario_id','fechahoracreacion', 'usuariosadicionales', 'titulo', 'descripcion', 'fechaobjetivo', 'fechaestimada', 'horasestimadas', 'fechacomienzo', 'fecharealcierre', 'horasreales','estado');
     public $order = 'DESC';
 
     function __construct()
@@ -74,8 +74,9 @@ class Tareas_model extends Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array(), $usuario_id = null)
     {
-        $builder = $this->db->table($this->table)->select('ion_users.first_name AS operador,proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.titulo,tareas.descripcion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
+        $builder = $this->db->table($this->table)->select('ion_users.first_name AS operador,proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.titulo,tareas.descripcion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id,estados_nombre.nombre AS texto_estado');
         $builder->join('proyectos', 'proyectos.proyecto_id = tareas.proyecto_id', 'left');
+        $builder->join('estados_nombre', 'tareas.estado = estados_nombre.id', 'left');
         $builder->join('ion_users', 'ion_users.id = tareas.usuario_id', 'left');
 
 

@@ -103,7 +103,7 @@
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechacomienzo)) ?></td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fecharealcierre)) ?></td>
                                                     <td class=" text-right "><?= $row->horasreales ?></td>
-                                                    <td class=" text-right "><?= $row->estado ?></td>
+                                                    <td class=" text-right "><?= $row->texto_estado ?></td>
                                                     <td class=" text-right ">
                                                         <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                         <? if ($row->estado == 0) { ?>
