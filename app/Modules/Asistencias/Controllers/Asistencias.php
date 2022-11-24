@@ -216,7 +216,7 @@ class Asistencias extends BaseController
         if ($config['total_rows'] % 2 != 0) {
             $fecha = date('Y-m-d H:i:s');
             $time = Time::parse($fecha);
-            $totalhoras = $totalhoras - $time->timestamp;
+            $totalhoras = $totalhoras + $time->timestamp;
         }
         $data = array(
             'group_id' => $group_id,
