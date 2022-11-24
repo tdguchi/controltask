@@ -105,8 +105,11 @@
                                                     <td class=" text-right "><?= $row->horasreales ?></td>
                                                     <td class=" text-right "><?= $row->estado ?></td>
                                                     <td class=" text-right ">
-                                                        <button class="btn"><i class="bx bx-play fs-22"></i></button>
-                                                        <button class="btn"><i class="bx bx-pause fs-22"></i></button>
+                                                        <? if ($row->estado == 0) { ?>
+                                                            <button class="btn"><i class="bx bx-play fs-22"></i></button>
+                                                        <? } else if ($row->estado == 1) { ?>
+                                                            <button class="btn"><i class="bx bx-pause fs-22"></i></button>
+                                                        <? } ?>
                                                         <button class="btn"><i class="bx bx-stop fs-22"></i></button>  
                                                     </td>
                                                 </tr>
