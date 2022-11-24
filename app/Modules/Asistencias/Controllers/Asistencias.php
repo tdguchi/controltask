@@ -293,7 +293,7 @@ class Asistencias extends BaseController
             $asistencia_nueva_id = 0;
         } else {
             $asistencia_nueva_id = $ultima_asistencia->asistenciatipo_id + 1;
-            if ($asistencia_nueva_id == 1) {
+            if ($asistencia_nueva_id == 2) {
                 $asistencia_nueva_id = 0;
             }
         }
