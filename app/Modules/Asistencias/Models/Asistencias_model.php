@@ -45,7 +45,7 @@ class Asistencias_model extends Model
     }
 
     // get total rows
-    function total_rows($q = NULL, $tab = NULL, $filter = array(), $usuario_id = null)
+    function total_rows($p = NULL, $q = NULL, $tab = NULL, $filter = array(), $usuario_id = null)
     {
         $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id');
 
