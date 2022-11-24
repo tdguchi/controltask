@@ -10,7 +10,7 @@ class Asistencias_model extends Model
 
     public $table = 'asistencias';
     public $id = 'asistencia_id';
-    public $allowedFields = array('fechahora', 'asistenciatipo_id', 'usuario_id', 'comentario');
+    public $allowedFields = array('fechahora','fechahora_timestamp', 'asistenciatipo_id', 'usuario_id', 'comentario');
     public $order = 'DESC';
 
     function __construct()
