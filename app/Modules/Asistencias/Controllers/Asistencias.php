@@ -234,7 +234,7 @@ class Asistencias extends BaseController
             'orden_campo' => isset($oc) ? $oc : '',
             'orden_dir' => isset($oc) ? $od : '',
         );
-        $data['titulo'] = 'asistencias';
+        $data['titulo'] = 'Asistencias';
         $data['element'] = $title;
         if (session()->get('message')) {
             $data['message'] = session()->get('message');
