@@ -30,11 +30,20 @@ class Tareas extends BaseController
     public function acciones($tarea_id)
     {
         if ($_POST['accion'] == 0) {
-            $this->Tareas_model->update($tarea_id, ['estado' => 1]);
-        } else if ($_POST['accion'] == 1) {
-            $this->Tareas_model->update($tarea_id, ['estado' => 0]);
+            $data = array(
+                'estado' => 1,
+            );
+            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();        } 
+        else if ($_POST['accion'] == 1) {
+            $data = array(
+                'estado' => 0,
+            );
+            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
         } else if ($_POST['accion'] == 2) {
-            $this->Tareas_model->update($tarea_id, ['estado' => 2]);
+            $data = array(
+                'estado' => 2,
+            );
+            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
         }
         return redirect()->to(current_url() . '/view');
     }
