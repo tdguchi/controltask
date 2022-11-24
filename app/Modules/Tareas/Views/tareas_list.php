@@ -105,8 +105,8 @@
                                                     <td class=" text-right "><?= $row->horasreales ?></td>
                                                     <td class=" text-right "><?= $row->texto_estado ?></td>
                                                     <td class=" text-right ">
-                                                        <? log_message("error", $quien); ?>
-                                                        <? if ($quien == 1 or $quien == null) { ?>
+                                                        <? log_message("error", "valor de quien: " .  $quien); ?>
+                                                        <? if ($quien == 1 or $quien === null) { ?>
                                                             <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                             <? if ($row->estado == 0) { ?>
                                                                 <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn" value="0"><i class="bx bx-play fs-22"></i></button>
