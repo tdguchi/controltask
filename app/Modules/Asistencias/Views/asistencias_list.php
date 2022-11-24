@@ -16,9 +16,10 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
-                                <form id="search-box" class="input-group" action="<?php echo site_url('asistencias/view'); ?>" method="post">
-                                    <input id="startDate" class="form-control" type="date" />
-                                    <button type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
+                                    <form id="search-box" class="input-group" action="<?php echo site_url('asistencias/view'); ?>" method="post">
+                                        <input id="startDate" class="form-control" type="date" />
+                                        <button type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
+                                    </form>
                                 </div>
                                 <div class="flex-shrink-0">
                                     <?php if (count($group_id) == 2) { ?>
