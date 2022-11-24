@@ -36,8 +36,6 @@ class Asistencias_model extends Model
         if ($p != null) {
             $builder->like('fechahora', $p);
         }
-
-
         return $builder->get()->GetResult();
     }
     // get all
@@ -72,10 +70,6 @@ class Asistencias_model extends Model
         }
         if (!empty($q)) {
             $builder->groupStart();
-            $builder->like('asistencia_id', $q);
-            $builder->orLike('asistencias.fechahora', $q);
-            $builder->orLike('asistencias.asistenciatipo_id', $q);
-            $builder->orLike('asistencias.usuario_id', $q);
             $builder->orLike('asistencias.comentario', $q);
             $builder->groupEnd();
         }
@@ -104,12 +98,6 @@ class Asistencias_model extends Model
 
         if (!empty($q)) {
             $builder->groupStart();
-
-            $builder->like('asistencias.asistencia_id', $q);
-            $builder->orLike('asistencias.fechahora', $q);
-            $builder->orLike('ion_users.first_name', $q);
-            $builder->orLike('asistencias.asistenciatipo_id', $q);
-            $builder->orLike('asistencias.usuario_id', $q);
             $builder->orLike('asistencias.comentario', $q);
             $builder->groupEnd();
         }
