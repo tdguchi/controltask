@@ -58,7 +58,13 @@
                                                         </div>
                                                     </th>
                                                     <td class=" text-right "><?= $row->nombre ?></td>
-                                                    <td class=" text-right "><?= $row->tipo?></td>
+                                                    <td class=" text-right "><?= $row->tipo?>
+                                                    <? if ($row->asistenciatipo_id == 0) { ?>
+                                                        <i class='bx bx-door-open'></i>
+                                                    <? } else { ?>
+                                                        <i class='bx bx-exit' ></i>
+                                                    <? } ?>
+                                                </td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->comentario ?></td>
                                                 </tr>
