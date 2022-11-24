@@ -48,7 +48,9 @@ class Asistencias_model extends Model
     function total_rows($p = NULL, $q = NULL, $tab = NULL, $filter = array(), $usuario_id = null)
     {
         $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id');
-
+        if (!empty($p)) {
+            $builder->like('asistencias.fechahora', $p);
+        }
         if (count($filter) == 2) {
             $builder->where('asistencias.' . $filter[0], $filter[1]);
         }
