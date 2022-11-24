@@ -170,7 +170,7 @@ class Asistencias extends BaseController
         $oc = session()->get('asistencias.oc');
         $od = session()->get('asistencias.od');
         $p = session()->get('asistencias.p');
-        var_dump($p);
+        log_message("error", "asistencias.p: " . $p);
 
         if ($nr != '') {
             $config['per_page'] = $nr;
