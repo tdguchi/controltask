@@ -29,7 +29,7 @@ class Home extends BaseController
             'main' => 'App\Modules\Asistencias\Views\asistencias_form'
             );
             $data['titulo'] = 'Registrar asistencia';
-            $data['subtitulo'] = 'Hola ' . $user_id->first_name . ' ' . $user_id->last_name . ', hoy dia ' . date('d/m/Y') . '  las ' . date('H:i') . '. ';
+            $data['subtitulo'] = 'Hola ' . $user_id->first_name . ', hoy es dia ' . date('d/m/Y') . 'y son las ' . date('H:i') . '. ';
         return view('template', $data);
     }
 
