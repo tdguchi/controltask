@@ -15,7 +15,7 @@
                         <div class="card-header border-0">
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
-                                <div class="flex-shrink-2">
+                                <div class="flex-shrink-6">
                                     <input id="startDate" class="form-control" type="date" />
 
                                     <?php if (count($group_id) == 2) { ?>
