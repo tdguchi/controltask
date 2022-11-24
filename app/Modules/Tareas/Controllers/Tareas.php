@@ -64,7 +64,7 @@ class Tareas extends BaseController
         }
         return redirect()->to(site_url('tareas/view'));
     }
-    public function view($modal = false, $quien = null)
+    public function view($modal = false, $quien = '1')
     {
 
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
