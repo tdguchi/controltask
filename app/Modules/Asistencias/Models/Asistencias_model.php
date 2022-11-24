@@ -64,8 +64,10 @@ class Asistencias_model extends Model
         if (count($filter) == 2) {
             $builder->where('asistencias.' . $filter[0], $filter[1]);
         }
-        if ($usuario_id) {
+        if ($usuario_id != null) {
             $builder->where('asistencias.usuario_id', $usuario_id);
+        }
+        if (empty($p)) {
             $builder->like('asistencias.fechahora', date('Y-m-d'));
         }
         if (!empty($q)) {
