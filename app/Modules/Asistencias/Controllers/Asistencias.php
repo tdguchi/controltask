@@ -115,7 +115,6 @@ class Asistencias extends BaseController
     }
     public function view($modal = false, $quien = null)
     {
-
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
         $pagelength = $modal ? 10 : 50;
@@ -170,7 +169,8 @@ class Asistencias extends BaseController
 
         $oc = session()->get('asistencias.oc');
         $od = session()->get('asistencias.od');
-
+        $p = session()->get('asistencias.p');
+        
         if ($nr != '') {
             $config['per_page'] = $nr;
             session()->set(array('asistencias.nr' => $nr));
@@ -193,11 +193,11 @@ class Asistencias extends BaseController
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
         if (count($group_id) == 1 || $quien == 1) {
-            $config['total_rows'] = $this->Asistencias_model->total_rows($q, $tab, $filter, $user_id);
-            $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, $user_id);
+            $config['total_rows'] = $this->Asistencias_model->total_rows($p, $q, $tab, $filter, $user_id);
+            $asistencias = $this->Asistencias_model->get_limit_data($p, $config['per_page'], $start, $q, $tab, $oc, $od, $filter, $user_id);
         } else {
-            $config['total_rows'] = $this->Asistencias_model->total_rows($q, $tab, $filter, null);
-            $asistencias = $this->Asistencias_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, null);
+            $config['total_rows'] = $this->Asistencias_model->total_rows($p, $q, $tab, $filter, null);
+            $asistencias = $this->Asistencias_model->get_limit_data($p, $config['per_page'], $start, $q, $tab, $oc, $od, $filter, null);
         }
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
         if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
