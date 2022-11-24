@@ -60,9 +60,9 @@
                                                     <td class=" text-right "><?= $row->nombre ?></td>
                                                     <td class=" text-right ">
                                                     <? if ($row->asistenciatipo_id == 0) { ?>
-                                                        <i style="color:green" class='bx bx-door-open'></i>
+                                                        <i style="color:green" class='bx bx-exit bx-rotate-180 fs-22' ></i>
                                                     <? } else { ?>
-                                                        <i style="color:red" class='bx bx-exit' ></i>
+                                                        <i style="color:red" class='bx bx-exit fs-22' ></i>
                                                     <? } ?>
                                                     <?= $row->tipo?>
                                                 </td>
