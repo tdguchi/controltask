@@ -28,6 +28,18 @@ class Asistencias_model extends Model
         $builder->limit(1);
         return $builder->get()->GetRow();
     }
+
+    function get_jornada($p = null, $q = null,  $usuario_id = null) {
+        $builder = $this->db->table($this->table)->select('SUM(asistencias.fechahora_timestamp) as total');
+        $builder->where('usuario_id', $usuario_id);
+        $builder->groupBy('asistencias.asistenciatipo_id');
+        if ($p != null) {
+            $builder->like('fechahora', $p);
+        }
+
+
+        return $builder->get()->GetRow();
+    }
     // get all
     function get_all()
     {
