@@ -31,7 +31,6 @@ class Tareas extends BaseController
     {
         $user_id = $this->ionAuth->user()->row()->id;
         $row = $this->Tareas_model->get_all_activas($user_id);
-        log_message("error", "tareas: " . count($row));
         if ($_POST['accion'] == 0 && count($row) == 0) {
             $data = array(
                 'estado' => 1,
