@@ -50,6 +50,11 @@
                                         <tbody class="list form-check-all">
                                             <? foreach ($worklog_data as $row) { ?>
                                                 <tr>
+                                                    <th scope="row">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->worklog_id ?>">
+                                                        </div>
+                                                    </th>
                                                     <td class=" text-right "><?= $row->titulo ?></td>
                                                     <td class=" text-right "><?= $row->nombre ?></td>
                                                     <td class=" text-left "><?= date("H:i:s", strtotime($row->fechainicio)) ?></td>
