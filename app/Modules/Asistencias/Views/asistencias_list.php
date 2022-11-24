@@ -17,7 +17,7 @@
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
                                     <form id="search-box" class="input-group" action="<?php echo site_url('asistencias/view'); ?>" method="post">
-                                        <input id="Date" class="form-control" id="p" name="p" type="date" value="<?= date('Y-m-d') ?>" />
+                                        <input id="Date" class="form-control" id="p" name="p" type="date" value="<?= $p != null ? $p : date('Y-m-d') ?>" />
                                         <button type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
                                     </form>
                                 </div>
