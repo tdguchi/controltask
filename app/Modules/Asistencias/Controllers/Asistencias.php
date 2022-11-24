@@ -224,7 +224,7 @@ class Asistencias extends BaseController
             'asistencias_data' => $asistencias,
             'totalhoras' => $totalhoras,
             'q' => $q,
-            'p' => $p,
+            'p' => gmdate('d-m-Y',$p),
             'tab' => $tab,
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
             'total_rows' => $config['total_rows'],
