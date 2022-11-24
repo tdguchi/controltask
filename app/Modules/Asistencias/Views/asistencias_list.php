@@ -62,7 +62,7 @@
                                                     <? if ($row->asistenciatipo_id == 0) { ?>
                                                         <span style="color:green" ><i class='bx bx-exit bx-rotate-180' ></i> <?= $row->tipo?> </span>
                                                     <? } else { ?>
-                                                        <span style="color:green" ><i style="color:red" class='bx bx-exit' ></i> <?= $row->tipo?> </span>
+                                                        <span style="color:red" ><i  class='bx bx-exit' ></i> <?= $row->tipo?> </span>
                                                     <? } ?>
                                                 </td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechahora)) ?></td>
