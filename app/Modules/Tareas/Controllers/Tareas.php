@@ -48,7 +48,7 @@ class Tareas extends BaseController
                 'estado' => 0,
             );
             $data2 = array(
-                'fechacierre' => time(),
+                'fechacierre' => date('Y-m-d H:i:s'),
             );
             $this->Worklog_model->where('tarea_id', $tarea_id)->set($data2)->update(); 
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
@@ -57,7 +57,7 @@ class Tareas extends BaseController
                 'estado' => 2,
             );
             $data2 = array(
-                'fechacierre' => time(),
+                'fechacierre' => date('Y-m-d H:i:s'),
             );
             $this->Worklog_model->where('tarea_id', $tarea_id)->set($data2)->update();
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
