@@ -216,6 +216,7 @@ class Asistencias extends BaseController
             'fichado' => $fichado,
             'asistencias_data' => $asistencias,
             'q' => $q,
+            'p' => $p,
             'tab' => $tab,
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
             'total_rows' => $config['total_rows'],
