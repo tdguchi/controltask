@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Modules\Asistencias\Controllers;
-
+ 
 use App\Controllers\BaseController;
 use App\Modules\Asistencias\Models\Asistencias_model;
 use CodeIgniter\Files\File;
+use CodeIgniter\I18n\Time;
+
 
 class Asistencias extends BaseController
 {
@@ -296,9 +298,11 @@ class Asistencias extends BaseController
                 $asistencia_nueva_id = 0;
             }
         }
+        $fecha = date('Y-m-d H:i:s');
+        $time = Time::parse($fecha);
         $data = array(
-            'fechahora' => date('Y-m-d H:i:s'),
-            'fechahora_timestamp' => time(),
+            'fechahora' => $fecha,
+            'fechahora_timestamp' => $time->timestamp,
             'asistenciatipo_id' => $asistencia_nueva_id,
             'usuario_id' => $user_id,
             'comentario' => $this->request->getPost('comentario'),
