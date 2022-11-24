@@ -45,7 +45,7 @@ class Tareas extends BaseController
             );
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
         }
-        return redirect()->to(current_url() . '/view');
+        return redirect()->to(site_url('tareas/view'));
     }
     public function view($modal = false, $quien = null)
     {
