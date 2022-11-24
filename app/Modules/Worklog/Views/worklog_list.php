@@ -40,9 +40,6 @@
                                                         <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>
-                                                <th class="sort text-capitalize ">
-                                                    <a href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('worklog_id', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Worklog ID <span class="block-sort"><i class="bx <?= $orden_campo == "worklog_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a>
-                                                </th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('tarea_id', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Tarea <span class="block-sort"><i class="bx <?= $orden_campo == "tarea_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('usuario_id', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Operador <span class="block-sort"><i class="bx <?= $orden_campo == "usuario_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('fechainicio', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Fecha Inicio <span class="block-sort"><i class="bx <?= $orden_campo == "fechainicio" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
@@ -53,17 +50,6 @@
                                         <tbody class="list form-check-all">
                                             <? foreach ($worklog_data as $row) { ?>
                                                 <tr>
-                                                    <th scope="row">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->worklog_id ?>">
-                                                        </div>
-                                                    </th>
-
-                                                    <td class="text-left "><?= $row->worklog_id ?> <div class="flex-shrink-0">
-                                                            <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
-                                                            </ul>
-                                                        </div>
-                                                    </td>
                                                     <td class=" text-right "><?= $row->titulo ?></td>
                                                     <td class=" text-right "><?= $row->nombre ?></td>
                                                     <td class=" text-left "><?= date("H:i:s", strtotime($row->fechainicio)) ?></td>
