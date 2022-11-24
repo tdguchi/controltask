@@ -59,7 +59,7 @@ class Worklog_model extends Model
     function get_limit_data($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array())
     {
         $builder = $this->db->table($this->table)->select('ion_users.first_name AS nombre','tareas.titulo AS titulo','worklog.tarea_id,worklog.usuario_id,worklog.fechainicio,worklog.fechacierre,worklog.comentario,worklog.worklog_id');
-        $builder->join('ion_users', 'ion_user.id = worklog.usuario_id');
+        $builder->join('ion_users', 'ion_users.id = worklog.usuario_id');
         $builder->join('tareas', 'tareas.tarea_id = worklog.tarea_id');
 
         if (count($filter) == 2) {
