@@ -14,13 +14,12 @@
                     <div class="card card-list-soaga">
                         <div class="card-header border-0">
                             <div class="d-flex align-items-center">
-                                <h5 class="card-title mb-12 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
+                                <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
                                     <?php if (count($group_id) == 2) { ?>
                                         <span class="text-capitalize"><?php echo anchor(site_url('asistencias/view/0/1'), 'Propias', 'class="btn btn-green add-btn"'); ?></span>
                                         <span class="text-capitalize"><?php echo anchor(site_url('asistencias/view/0/2'), 'Todas', 'class="btn btn-green add-btn"'); ?></span>
                                     <?php } ?>
-                                    <input id="startDate" class="form-control" type="date" />
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('asistencias/view'); ?>" method="post">
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
