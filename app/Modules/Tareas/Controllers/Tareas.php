@@ -16,6 +16,7 @@ class Tareas extends BaseController
         $this->Tareas_model = model('App\Modules\Tareas\Models\Tareas_model');
         $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
         $this->Proyectos_model = model('App\Modules\Proyectos\Models\Proyectos_model');
+        $this->Worklog_model = model('App\Modules\Worklog\Models\Worklog_model');
         $this->Users_model = model('App\Modules\Users\Models\Users_model');
         helper(['formatos', 'form']);
         $this->validation =  \Config\Services::validation();
@@ -35,16 +36,30 @@ class Tareas extends BaseController
             $data = array(
                 'estado' => 1,
             );
+            $data2 = array(
+                'tarea_id' => $tarea_id,
+                'usuario_id' => $user_id,
+                'fechainicio' => time(),
+            );
+            $this->Worklog_model->insert($data2);
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();
         } else if ($_POST['accion'] == 1) {
             $data = array(
                 'estado' => 0,
             );
+            $data2 = array(
+                'fechacierre' => time(),
+            );
+            $this->Worklog_model->where('tarea_id', $tarea_id)->set($data2)->update(); 
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
         } else if ($_POST['accion'] == 2) {
             $data = array(
                 'estado' => 2,
             );
+            $data2 = array(
+                'fechacierre' => time(),
+            );
+            $this->Worklog_model->where('tarea_id', $tarea_id)->set($data2)->update();
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
         }
         return redirect()->to(site_url('tareas/view'));
