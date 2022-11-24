@@ -60,6 +60,7 @@
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('tareas/view?ob=' . sentidobusquedacrd('fecharealcierre', 'tareas.')) . $filter . $custom_title; ?>" style="color:inherit;">Fecha Real Cierre <span class="block-sort"><i class="bx <?= $orden_campo == "fecharealcierre" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('tareas/view?ob=' . sentidobusquedacrd('horasreales', 'tareas.')) . $filter . $custom_title; ?>" style="color:inherit;">Horas Reales <span class="block-sort"><i class="bx <?= $orden_campo == "horasreales" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('tareas/view?ob=' . sentidobusquedacrd('estado', 'tareas.')) . $filter . $custom_title; ?>" style="color:inherit;">Estado <span class="block-sort"><i class="bx <?= $orden_campo == "estado" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo site_url('tareas/view?ob=' . sentidobusquedacrd('acciones', 'tareas.')) . $filter . $custom_title; ?>" style="color:inherit;">Acciones <span class="block-sort"><i class="bx <?= $orden_campo == "acciones" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
@@ -103,6 +104,7 @@
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fecharealcierre)) ?></td>
                                                     <td class=" text-right "><?= $row->horasreales ?></td>
                                                     <td class=" text-right "><?= $row->estado ?></td>
+                                                    <td class=" text-right "><button>iniciar</button><button>pausar</button><button>cerrar</button></td>
                                                 </tr>
                                             <? } ?>
                                         </tbody>
