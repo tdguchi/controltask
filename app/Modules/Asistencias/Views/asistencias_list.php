@@ -59,14 +59,12 @@
                                                     </th>
                                                     <td class=" text-right "><?= $row->nombre ?></td>
                                                     <td class=" text-right ">
-                                                        <div>
                                                     <? if ($row->asistenciatipo_id == 0) { ?>
                                                         <i style="color:green" class='bx bx-exit bx-rotate-180 fs-22' ></i>
                                                     <? } else { ?>
                                                         <i style="color:red" class='bx bx-exit fs-22' ></i>
                                                     <? } ?>
-                                                    <p><?= $row->tipo?></p>
-                                                    </div
+                                                    <?= $row->tipo?>
                                                 </td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->comentario ?></td>
