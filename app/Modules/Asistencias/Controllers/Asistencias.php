@@ -208,7 +208,8 @@ class Asistencias extends BaseController
         } else {
             $fichado = true;
         }
-        $jornada = $this->Asistencias_model->get_jornada($p, $q, $user_id);
+        $jornada = $this->Asistencias_model->get_jornada($p, $user_id);
+        log_message("error", "JORNADA
         $data = array(
             'group_id' => $group_id,
             'fichado' => $fichado,
