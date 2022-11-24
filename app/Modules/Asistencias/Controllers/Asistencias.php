@@ -202,7 +202,7 @@ class Asistencias extends BaseController
             $asistencias = $this->Asistencias_model->get_limit_data($p, $config['per_page'], $start, $q, $tab, $oc, $od, $filter, null);
         }
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
-        if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
+        if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1) {
             $fichado = false;
         } else {
             $fichado = true;
@@ -293,7 +293,7 @@ class Asistencias extends BaseController
             $asistencia_nueva_id = 0;
         } else {
             $asistencia_nueva_id = $ultima_asistencia->asistenciatipo_id + 1;
-            if ($asistencia_nueva_id == 4) {
+            if ($asistencia_nueva_id == 1) {
                 $asistencia_nueva_id = 0;
             }
         }
