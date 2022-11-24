@@ -170,7 +170,7 @@ class Asistencias extends BaseController
         $oc = session()->get('asistencias.oc');
         $od = session()->get('asistencias.od');
         $p = session()->get('asistencias.p');
-        
+
         if ($nr != '') {
             $config['per_page'] = $nr;
             session()->set(array('asistencias.nr' => $nr));
@@ -185,7 +185,7 @@ class Asistencias extends BaseController
             session()->set(array('asistencias.nr' => $pagelength));
         }
 
-        $config['total_rows'] = $this->Asistencias_model->total_rows($q, $tab, $filter);
+        $config['total_rows'] = $this->Asistencias_model->total_rows($p, $q, $tab, $filter);
 
         $start = $config['per_page'] * ($page - 1);
         $pager = \Config\Services::pager();
