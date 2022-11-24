@@ -110,7 +110,7 @@
                                                         <? } else if ($row->estado == 1) { ?>
                                                             <button class="btn"><i class="bx bx-pause fs-22"></i></button>
                                                         <? } ?>
-                                                        <button class="btn"><i class="bx bx-stop fs-22"></i></button>  
+                                                        <button class="btn"><i class="ri-calendar-check-line"></i></button>  
                                                     </td>
                                                 </tr>
                                             <? } ?>
