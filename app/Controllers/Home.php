@@ -21,6 +21,8 @@ class Home extends BaseController
             ),
             'main' => 'App\Modules\Asistencias\Views\asistencias_form'
             );
+            $data['titulo'] = 'Registrar asistencia';
+            $data['subtitulo'] = 'Hola ' . $this->session->get('nombre') . ', ';
         return view('template', $data);
     }
 
