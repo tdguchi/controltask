@@ -20,6 +20,8 @@
                                 <span class="text-capitalize"><?php echo anchor(site_url('asistencias/view/0/1'), 'Propias', 'class="btn btn-green add-btn"'); ?></span>
                                 <span class="text-capitalize"><?php echo anchor(site_url('asistencias/view/0/2'), 'Todas', 'class="btn btn-green add-btn"'); ?></span>
                                 <?php } ?>
+                                    <label for="startDate">Start</label>
+                                    <input id="startDate" class="form-control" type="date" />
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('asistencias/view'); ?>" method="post">
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
