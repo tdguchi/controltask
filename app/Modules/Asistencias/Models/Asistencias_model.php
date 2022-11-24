@@ -29,7 +29,7 @@ class Asistencias_model extends Model
         return $builder->get()->GetRow();
     }
 
-    function get_jornada($p = null, $q = null,  $usuario_id = null) {
+    function get_jornada($p = null,  $usuario_id = null) {
         $builder = $this->db->table($this->table)->select('SUM(asistencias.fechahora_timestamp) as total');
         $builder->where('usuario_id', $usuario_id);
         $builder->groupBy('asistencias.asistenciatipo_id');
@@ -38,7 +38,7 @@ class Asistencias_model extends Model
         }
 
 
-        return $builder->get()->GetRow();
+        return $builder->get()->GetResult();
     }
     // get all
     function get_all()
