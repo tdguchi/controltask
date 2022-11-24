@@ -33,8 +33,8 @@ class Tareas extends BaseController
             $data = array(
                 'estado' => 1,
             );
-            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();        } 
-        else if ($_POST['accion'] == 1) {
+            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();
+        } else if ($_POST['accion'] == 1) {
             $data = array(
                 'estado' => 0,
             );
