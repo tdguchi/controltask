@@ -300,6 +300,8 @@ class Asistencias extends BaseController
         }
         $fecha = date('Y-m-d H:i:s');
         $time = Time::parse($fecha);
+        log_message("error", "Fichando: " . $fecha);
+        log_message("error", "Fichando: " . $time->timestamp);
         $data = array(
             'fechahora' => $fecha,
             'fechahora_timestamp' => $time->timestamp,
