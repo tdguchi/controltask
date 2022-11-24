@@ -11,18 +11,18 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-12">
+                                        <h2 class="h1-title">Necesitas registrar una entrada para poder usar la aplicación</h2>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="asistencia_id" value="<?php echo $data_fields['asistencia_id']; ?>" />
+                            </div>
+                            <div class="row">
                                 <div class="col-lg-4">
                                     <div class="card mb-0 border-0">
                                         <div class="card-body p-0">
                                             <div class="form-soaga">
-                                            <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="mb-12">
-                                                            <h2 class="h1-title">Necesitas registrar una entrada para poder usar la aplicación</h2>
-                                                        </div>
-                                                    </div>
-                                                    <input type="hidden" name="asistencia_id" value="<?php echo $data_fields['asistencia_id']; ?>" />
-                                                </div>
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
