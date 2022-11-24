@@ -106,11 +106,11 @@
                                                     <td class=" text-right "><?= $row->estado ?></td>
                                                     <td class=" text-right ">
                                                         <? if ($row->estado == 0) { ?>
-                                                            <button title="Iniciar tarea" class="btn"><i class="bx bx-play fs-22"></i></button>
+                                                            <button id="<?=$row->tarea_id?>" title="Iniciar tarea" class="btn" value="0"><i class="bx bx-play fs-22"></i></button>
                                                         <? } else if ($row->estado == 1) { ?>
-                                                            <button title="Pausar tarea" class="btn"><i class="bx bx-pause fs-22"></i></button>
+                                                            <button id="<?=$row->tarea_id?>" title="Pausar tarea" class="btn" value="1"><i class="bx bx-pause fs-22"></i></button>
                                                         <? } ?>
-                                                        <button title="Tarea acabada" class="btn"><i class="ri-calendar-check-line"></i></button>  
+                                                        <button id="<?=$row->tarea_id?>" title="Tarea acabada" class="btn" value="2"><i class="ri-calendar-check-line"></i></button>  
                                                     </td>
                                                 </tr>
                                             <? } ?>
