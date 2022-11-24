@@ -27,7 +27,17 @@ class Tareas extends BaseController
         return redirect()->to(current_url() . '/view');
     }
 
-
+    public function acciones($id)
+    {
+        if ($_POST['action'] == 0) {
+            $this->Tareas_model->update($id, ['estado' => 1]);
+        } else if ($_POST['action'] == 1) {
+            $this->Tareas_model->update($id, ['estado' => 0]);
+        } else if ($_POST['action'] == 2) {
+            $this->Tareas_model->update($id, ['estado' => 2]);
+        }
+        return redirect()->to(current_url() . '/view');
+    }
     public function view($modal = false, $quien = null)
     {
 
@@ -105,10 +115,10 @@ class Tareas extends BaseController
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
         if (count($group_id) == 1 || $quien == 1) {
-            $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter,$user_id);
+            $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter, $user_id);
             $tareas = $this->Tareas_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, $user_id);
         } else {
-            $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter,null);
+            $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter, null);
             $tareas = $this->Tareas_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, null);
         }
 
@@ -121,7 +131,7 @@ class Tareas extends BaseController
         }
         $data = array(
             'group_id' => $group_id,
-            'fichado' =>$fichado,
+            'fichado' => $fichado,
             'tareas_data' => $tareas,
             'q' => $q,
             'tab' => $tab,

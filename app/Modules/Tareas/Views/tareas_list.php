@@ -107,11 +107,12 @@
                                                     <td class=" text-right ">
                                                         <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                         <? if ($row->estado == 0) { ?>
-                                                            <button type="submit" id="0" title="Iniciar tarea" class="btn" value="0"><i class="bx bx-play fs-22"></i></button>
+                                                            <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn" value="0"><i class="bx bx-play fs-22"></i></button>
                                                         <? } else if ($row->estado == 1) { ?>
-                                                            <button type="submit" id="1" title="Pausar tarea" class="btn" value="1"><i class="bx bx-pause fs-22"></i></button>
-                                                        <? } ?>
-                                                        <button type="submit" id="2" title="Tarea acabada" class="btn"><i class="ri-calendar-check-line"></i></button>  
+                                                            <button type="submit" id="1" name="accion" title="Pausar tarea" class="btn" value="1"><i class="bx bx-pause fs-22"></i></button>
+                                                        <? } else if ($row->estado != 2) { ?>
+                                                            <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn"><i class="ri-calendar-check-line"></i></button> 
+                                                        <? } ?> 
                                                         <?= form_close() ?>
                                                     </td>
                                                 </tr>
