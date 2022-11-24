@@ -88,6 +88,9 @@ class Asistencias_model extends Model
         if ($usuario_id != null) {
             $builder->where('asistencias.usuario_id', $usuario_id);
         }
+        if (empty($p)) {
+            $builder->like('asistencias.fechahora', date('Y-m-d'));
+        }
         $builder->join('asistenciasnombre', 'asistenciasnombre.asistenciatipo_id = asistencias.asistenciatipo_id', 'left');
         $builder->join('ion_users', 'ion_users.id = asistencias.usuario_id', 'left');
         if (!empty($p)) {
