@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="mb-0 flex-grow-1">
-                                        <?= $total_rows > count($asistencias_data) ? (count($asistencias_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : ""?> . <?= gmdate("H:i:s", $totalhoras) ?>
+                                        <?= $total_rows > count($asistencias_data) ? (count($asistencias_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : ""?> . <?='Tu jornada para este dia ha sido de: ' .  gmdate("H:i:s", $totalhoras) ?>
                                     </div>
                                     <?php if ($total_rows > count($asistencias_data)) : ?>
                                         <div class="flex-shrink-0 pagination-wrap hstack gap-2">
