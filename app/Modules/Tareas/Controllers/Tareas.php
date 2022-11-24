@@ -39,7 +39,7 @@ class Tareas extends BaseController
             $data2 = array(
                 'tarea_id' => $tarea_id,
                 'usuario_id' => $user_id,
-                'fechainicio' => time(),
+                'fechainicio' => date('Y-m-d H:i:s'),
             );
             $this->Worklog_model->insert($data2);
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();
