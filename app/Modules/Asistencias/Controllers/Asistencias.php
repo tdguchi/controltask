@@ -209,12 +209,17 @@ class Asistencias extends BaseController
             $fichado = true;
         }
         $jornada = $this->Asistencias_model->get_jornada($p, $user_id);
-        $totalhoras = $jornada[1]->total - $jornada[0]->total;
+        if ($jornada != null) {
+            $totalhoras = $jornada[1]->total - $jornada[0]->total;
+        } else {
+            $totalhoras = 0;
+        }
         log_message("error", "JORNADA: " . $totalhoras);
         $data = array(
             'group_id' => $group_id,
             'fichado' => $fichado,
             'asistencias_data' => $asistencias,
+            'totalhoras' => $totalhoras,
             'q' => $q,
             'p' => $p,
             'tab' => $tab,
