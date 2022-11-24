@@ -28,7 +28,7 @@ class Tareas_model extends Model
     }
 
     // get data by id
-    function get_by_id($id)
+    function get_by_id($id, $estado = null)
     {
         $builder = $this->db->table($this->table)->select('ion_users.first_name AS operador,proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.usuario_id,tareas.usuariosadicionales,tareas.titulo,tareas.descripcion,tareas.fechahoracreacion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
         $builder->join('proyectos', 'proyectos.proyecto_id = tareas.proyecto_id', 'left');
