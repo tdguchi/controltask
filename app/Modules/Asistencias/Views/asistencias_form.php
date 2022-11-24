@@ -38,7 +38,7 @@
                                         Cancelar
                                     </a>
                                     <!-- Botón para guardar -->
-                                    <button type="submit" onclick="javascript: $('.add-btn').prop('disabled', true);$('#edit-form').submit();" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
+                                    <button type="submit" onclick="javascript: $('.add-btn').prop('disabled', true);$('#edit-form').submit();" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Registrar</button>
                                 </div>
                             </div>
                         </div>
