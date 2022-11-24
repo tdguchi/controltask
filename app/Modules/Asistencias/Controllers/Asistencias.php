@@ -213,7 +213,7 @@ class Asistencias extends BaseController
         } else {
             $totalhoras = 0;
         }
-        if (!($config['total_rows'] % 2)) {
+        if ($config['total_rows'] % 2 != 0) {
             $fecha = date('Y-m-d H:i:s');
             $time = Time::parse($fecha);
             $totalhoras = $totalhoras - $time->timestamp;
