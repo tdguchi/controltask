@@ -105,7 +105,7 @@
                                                     <td class=" text-right "><?= $row->horasreales ?></td>
                                                     <td class=" text-right "><?= $row->texto_estado ?></td>
                                                     <td class=" text-right ">
-                                                        <? log_message("error", "valor de quien: " .  $quien); ?>
+                                                        <? log_message("error", "valor de quien: " .  var_dump($quien,true)); ?>
                                                         <? if ($quien == 1 or $quien === null) { ?>
                                                             <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                             <? if ($row->estado == 0) { ?>
