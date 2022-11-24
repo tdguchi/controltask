@@ -4,8 +4,15 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+    function __construct()
+    {
+        $this->ionAuth    = new \IonAuth\Libraries\IonAuth();
+        $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
+    }
+
     public function index()
     {
+        $user_id = $this->ionAuth->user()->row();
         $data = array(
             'button' => 'Añadir',
             'fun' => 'create',
@@ -22,7 +29,7 @@ class Home extends BaseController
             'main' => 'App\Modules\Asistencias\Views\asistencias_form'
             );
             $data['titulo'] = 'Registrar asistencia';
-            $data['subtitulo'] = 'Hola ' . $this->session->get('nombre') . ', ';
+            $data['subtitulo'] = 'Hola ' . $user_id->first_name . ' ' . $user_id->last_name . ', ';
         return view('template', $data);
     }
 
