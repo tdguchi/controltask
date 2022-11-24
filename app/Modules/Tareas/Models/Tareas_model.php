@@ -34,6 +34,9 @@ class Tareas_model extends Model
         $builder->join('proyectos', 'proyectos.proyecto_id = tareas.proyecto_id', 'left');
         $builder->join('ion_users', 'ion_users.id = tareas.usuario_id', 'left');
         $builder->where($this->id, $id);
+        if ($estado != null) {
+            $builder->where('estado', $estado);
+        }
         return $builder->get()->getRow();
     }
 
