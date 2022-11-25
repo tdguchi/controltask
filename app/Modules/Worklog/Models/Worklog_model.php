@@ -20,7 +20,7 @@ class Worklog_model extends Model
     // get diference between fechacierre and fechainicio for a worklog by tarea_id
     function calculahoras($tarea_id)
     {
-        $builder = $this->db->table($this->table)->select('SEC_TO_TIME(SUM(TIME_TO_SEC(fechacierre) - TIME_TO_SEC(fechainicio))) AS diferencia');
+        $builder = $this->db->table($this->table)->select('SUM(TIME_TO_SEC(fechacierre) - TIME_TO_SEC(fechainicio)) AS diferencia');
         $builder->where('tarea_id', $tarea_id);
         return $builder->get()->getRow();
     } 
