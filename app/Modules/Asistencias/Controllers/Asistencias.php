@@ -132,6 +132,7 @@ class Asistencias extends BaseController
             session()->set(array('asistencias.p' => $this->request->getPost('p')));
         }
         $q = session()->get('asistencias.q');
+        session()->set(array('asistencias.q' => null));
         $p = session()->get('asistencias.p');
         log_message("error", "p: " . $p);
         $filter_get = urldecode($this->request->getGet('filter'));
@@ -190,9 +191,6 @@ class Asistencias extends BaseController
         } else {
             $config['per_page'] = $pagelength;
             session()->set(array('asistencias.nr' => $pagelength));
-        }
-        if ($quien != 2 && $quien != null) {
-            $q = null;
         }
         if ($p == null) {
             $p = $fechabuscar;
