@@ -208,7 +208,7 @@ class Asistencias extends BaseController
             $fichado = true;
         }
         $jornada = $this->Asistencias_model->get_jornada($p, $user_id);
-        log_message("error", "JORNADA: " . print_r($jornada,true));
+        log_message("error", "JORNADA: " . count($jornada));
         if ($jornada != null || count($jornada) == 2) {
             $totalhoras = $jornada[1]->total - $jornada[0]->total;
         } else {
