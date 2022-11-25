@@ -132,7 +132,7 @@ class Asistencias extends BaseController
         }
         session()->set(array('asistencias.p' => $this->request->getPost('p')));
         $q = session()->get('asistencias.q');
-        $p = session()->get('asistencias.p');
+        $p = $this->request->getPost('p');
         log_message("error", "p: " . $p);
         if ($p == null) {
             $p = $fechabuscar;
