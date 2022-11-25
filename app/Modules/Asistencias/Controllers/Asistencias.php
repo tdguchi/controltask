@@ -222,7 +222,7 @@ class Asistencias extends BaseController
         if (count($jornada) == 1) {
             $fecha = date('Y-m-d H:i:s');
             $time = Time::parse($fecha);
-            $totalhoras = $jornada[0]->total - $time->timestamp;;
+            $totalhoras = $time->timestamp - $jornada[0]->total;
         }
 
         $data = array(
