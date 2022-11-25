@@ -242,7 +242,7 @@ class Asistencias extends BaseController
             $accion = site_url('asistencias/view/0/1');
         } else if ($modal != false && $quien != null && $q == null) {
             $accion = site_url('asistencias/view/' . $modal . '/' . $quien);
-        } else if ($q != null) {
+        } else if ($q == null) {
             $accion = site_url('asistencias/view');
         }
         $data = array(
