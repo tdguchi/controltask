@@ -14,6 +14,11 @@ class Home extends BaseController
     {
         $user_id = $this->ionAuth->user()->row();
         $ultima = $this->Asistencias_model->get_last_asistencia($user_id->id, date('Y-m-d'));
+        if ($ultima == null) {
+            $ultima = new \stdClass();
+            $ultima->nombre = 'Ninguna';
+            $ultima->asistenciatipo_id = 0;
+        }
         $data = array(
             'button' => 'Añadir',
             'fun' => 'create',
