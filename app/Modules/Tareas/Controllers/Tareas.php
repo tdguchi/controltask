@@ -54,7 +54,7 @@ class Tareas extends BaseController
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
             $horas = $this->Worklog_model->calculahoras($tarea_id);
             $time  = date('i', strtotime($horas->diferencia));
-            log_message("error", "horas: " . $time);
+            log_message("error", "horas: " . print_r($horas,true));
             $data3 = array(
                 'horasreales' => $time,
             );
