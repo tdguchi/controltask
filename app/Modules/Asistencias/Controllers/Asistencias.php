@@ -117,7 +117,7 @@ class Asistencias extends BaseController
     }
     public function view($modal = false, $quien = null, $fechabuscar = null)
     {
-        if ($fechabuscar == '') {
+        if ($fechabuscar == null) {
             $fechabuscar = date('Y-m-d');
         }
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
