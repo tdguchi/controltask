@@ -134,9 +134,6 @@ class Asistencias extends BaseController
         $q = session()->get('asistencias.q');
         $p = session()->get('asistencias.p');
         log_message("error", "p: " . $p);
-        if ($p == '') {
-            $p = $fechabuscar;
-        }
         $filter_get = urldecode($this->request->getGet('filter'));
         if ($filter_get == '') {
             $filter_get = urldecode($this->request->getPost('filter'));
