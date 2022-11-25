@@ -10,7 +10,7 @@
                     <div class="card card-list-soaga">
                         <div class="card-header border-0">
                             <div class="d-flex align-items-center">
-                                <h5 class="card-title mb-0 flex-grow-1 h5-title"><?= $titulo ?> <?= $element ?> <?= $q ? lang('asistencias.filtradopor') . $q : (' del ' . $p != null ? date('d-m-Y', strtotime($p)) : date('d-m-Y')) ?></h5>
+                                <h5 class="card-title mb-0 flex-grow-1 h5-title"><?= $titulo ?> <?= $element ?> <?= $q ? ' filtradas por: ' . $q : (' del ' . $p != null ? date('d-m-Y', strtotime($p)) : date('d-m-Y')) ?></h5>
                                 <div class="flex-shrink-0">
                                     <form id="date-box" class="input-group" action="<?= $accion ?>" method="post">
                                         <input class="form-control" id="p" name="p" type="date" value="<?= $p != null ? $p : date('Y-m-d') ?>" />
