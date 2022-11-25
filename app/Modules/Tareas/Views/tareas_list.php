@@ -51,12 +51,12 @@
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('descripcion', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Descripción <span class="block-sort"><i class="bx <?= $orden_campo == "descripcion" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechaobjetivo', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Fecha Objetivo <span class="block-sort"><i class="bx <?= $orden_campo == "fechaobjetivo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechaestimada', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Fecha Estimada <span class="block-sort"><i class="bx <?= $orden_campo == "fechaestimada" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('horasestimadas', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Horas Estimadas <span class="block-sort"><i class="bx <?= $orden_campo == "horasestimadas" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('horasestimadas', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Horas Estimadas (minutos) <span class="block-sort"><i class="bx <?= $orden_campo == "horasestimadas" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <? if (count($group_id) == 2) { ?>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechacomienzo', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Fecha Comienzo <span class="block-sort"><i class="bx <?= $orden_campo == "fechacomienzo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fecharealcierre', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Fecha Real Cierre <span class="block-sort"><i class="bx <?= $orden_campo == "fecharealcierre" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <? } ?>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('horasreales', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Horas Reales <span class="block-sort"><i class="bx <?= $orden_campo == "horasreales" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('horasreales', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Horas Reales (minutos) <span class="block-sort"><i class="bx <?= $orden_campo == "horasreales" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('estado', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Estado <span class="block-sort"><i class="bx <?= $orden_campo == "estado" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th> Acciones </th>
                                             </tr>
@@ -95,13 +95,13 @@
                                                     <td class=" text-left "><a href="#" onClick="$('#t1997831608').toggle()"><?= substr($row->descripcion, 0, 50) ?>...</a>
                                                         <div id="t1997831608" style="display:none"><?= $row->descripcion ?></div>
                                                     </td>
-                                                    <? if (count($group_id) == 2) { ?>
                                                     <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechaobjetivo)) ?></td>
                                                     <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechaestimada)) ?></td>
-                                                    <? } ?>
                                                     <td class=" text-right "><?= $row->horasestimadas ?></td>
+                                                    <? if (count($group_id) == 2) { ?>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechacomienzo)) ?></td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fecharealcierre)) ?></td>
+                                                    <? } ?>
                                                     <td class=" text-right "><?= $row->horasreales ?></td>
                                                     <td class=" text-right "><?= $row->texto_estado ?></td>
                                                     <td class=" text-right ">
