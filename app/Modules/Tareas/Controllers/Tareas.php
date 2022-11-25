@@ -43,7 +43,7 @@ class Tareas extends BaseController
             );
             $this->Worklog_model->insert($data2);
             $tarea = $this->Tareas_model->get_by_id($tarea_id);
-            if ($tarea->fechacomienzo == null) {
+            if ($tarea->fechacomienzo == 0) {
                 $data3 = array(
                     'fechacomienzo' => date('Y-m-d H:i:s'),
                 );
