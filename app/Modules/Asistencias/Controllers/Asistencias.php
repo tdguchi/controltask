@@ -128,6 +128,7 @@ class Asistencias extends BaseController
             session()->set(array('asistencias.q' => $this->request->getPost('q')));
             session()->set(array('asistencias.p' => $this->request->getPost('p')));
             $p = session()->get('asistencias.p');
+            log_message("error", "p: " . $p);
             $q = session()->get('asistencias.q');
 
         $filter_get = urldecode($this->request->getGet('filter'));
