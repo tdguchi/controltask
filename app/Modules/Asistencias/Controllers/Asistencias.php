@@ -234,10 +234,10 @@ class Asistencias extends BaseController
         } else { 
             $totalhoras = 0;
         }
-        if ($modal == false && $quien == null && $q == null) {
-            $accion = site_url('asistencias/view/0/3');
+        if (($modal == false && $quien == null && $q == null) || $ob != '') {
+            $accion = site_url('asistencias/view/0/1');
         } else if ($modal != false && $quien == null && $q == null) {
-            $accion = site_url('asistencias/view/0/2');
+            $accion = site_url('asistencias/view/0/1');
         } else if (($modal != false && $quien != null && $q == null)) {
             $accion = site_url('asistencias/view/' . $modal . '/' . $quien);
         } else {
