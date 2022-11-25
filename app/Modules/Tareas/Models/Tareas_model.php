@@ -56,17 +56,7 @@ class Tareas_model extends Model
         }
         if (!empty($q)) {
             $builder->groupStart();
-            $builder->like('tarea_id', $q);
-            $builder->orLike('tareas.proyecto_id', $q);
-            $builder->orLike('tareas.titulo', $q);
-            $builder->orLike('tareas.descripcion', $q);
-            $builder->orLike('tareas.fechaobjetivo', $q);
-            $builder->orLike('tareas.fechaestimada', $q);
-            $builder->orLike('tareas.horasestimadas', $q);
-            $builder->orLike('tareas.fechacomienzo', $q);
-            $builder->orLike('tareas.fecharealcierre', $q);
-            $builder->orLike('tareas.horasreales', $q);
-            $builder->orLike('tareas.estado', $q);
+            $builder->Like('tareas.titulo', $q);
             $builder->groupEnd();
         }
         return $builder->countAllResults();
@@ -95,18 +85,7 @@ class Tareas_model extends Model
         }
         if (!empty($q)) {
             $builder->groupStart();
-
-            $builder->like('tareas.tarea_id', $q);
-            $builder->orLike('tareas.proyecto_id', $q);
-            $builder->orLike('tareas.titulo', $q);
-            $builder->orLike('tareas.descripcion', $q);
-            $builder->orLike('tareas.fechaobjetivo', $q);
-            $builder->orLike('tareas.fechaestimada', $q);
-            $builder->orLike('tareas.horasestimadas', $q);
-            $builder->orLike('tareas.fechacomienzo', $q);
-            $builder->orLike('tareas.fecharealcierre', $q);
-            $builder->orLike('tareas.horasreales', $q);
-            $builder->orLike('tareas.estado', $q);
+            $builder->Like('tareas.titulo', $q);
             $builder->groupEnd();
         }
 
