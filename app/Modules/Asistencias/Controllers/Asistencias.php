@@ -115,7 +115,23 @@ class Asistencias extends BaseController
             'salida_verano_tarde' => 'trim',
         );
     }
-    public function view($modal = false, $quien = null, $fecha = null)
+    public function view($modal = false, $quien = null, $fecha = date('Y-m-d'))
+    {
+        $user = $this->ionAuth->user()->row();
+        $data['user'] = $user;
+        $data['quien'] = $quien;
+        $data['fecha'] = $fecha;
+        $data['modal'] = $modal;
+        $data['titulo'] = 'Asistencias';
+        $data['element'] = 'Asistencias';
+        $data['subtitulo'] = 'Ver asistencias';
+        if (session()->get('message')) {
+            $data['message'] = session()->get('message');
+            session()->remove('message');
+        }
+        $data['main'] = 'App\Modules\Asistencias\Views\asistencias_view';
+        return view($data['main'], $data);
+    }
     {
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
@@ -239,10 +255,8 @@ class Asistencias extends BaseController
         } else if ($modal != null && $quien != null) {
             $accion = site_url('asistencias/view/' . $modal . '/' . $quien);
         }
+        $accion .= '/' . $fecha;
 
-        if($fecha == null) {
-            $accion .= '/' . $fecha;
-        }
         $data = array(
             'accion' =>  $accion,
             'group_id' => $group_id,
