@@ -147,6 +147,11 @@ class Tareas extends BaseController
         } else if (count($group_id) == 2) {
             $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter, null);
             $tareas = $this->Tareas_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, null);
+        } else if (count($group_id) == 2 && $quien == 1) {
+            $config['total_rows'] = $this->Tareas_model->total_rows($q, $tab, $filter, $user_id);
+            $tareas = $this->Tareas_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, $user_id);
+        }
+
         }
 
         $pager = \Config\Services::pager();
