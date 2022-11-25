@@ -235,6 +235,7 @@ class Asistencias extends BaseController
             'fichado' => $fichado,
             'asistencias_data' => $asistencias,
             'totalhoras' => $totalhoras,
+            'elemento' => '0/',
             'q' => $q,
             'p' => $p,
             'tab' => $tab,
