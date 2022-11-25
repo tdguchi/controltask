@@ -16,7 +16,7 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title"><?= $titulo ?> <?= $element . ' del ' ?> <?= $p != null ? date('d-m-Y',strtotime($p)) : date('d-m-Y') ?></h5>
                                 <div class="flex-shrink-0">
-                                    <form id="search-box" class="input-group" action="<?= $accion ?>" method="post">
+                                    <form id="date-box" class="input-group" action="<?= $accion ?>" method="post">
                                         <input class="form-control" id="p" name="p" type="date" value="<?= $p != null ? $p : date('Y-m-d') ?>" />
                                         <button type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
                                     </form>
