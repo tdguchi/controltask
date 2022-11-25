@@ -51,7 +51,7 @@
                                                 </th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('usuario_id', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Operador <span class="block-sort"><i class="bx <?= $orden_campo == "usuario_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('asistenciatipo_id', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Tipo De Asistencia <span class="block-sort"><i class="bx <?= $orden_campo == "asistenciatipo_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechahora', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;"><?= $q ? 'Fecha y hora' : 'Hora'?> <span class="block-sort"><i class="bx <?= $orden_campo == "fechahora" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechahora', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;"><?= $q ? 'Fecha/hora' : 'Hora'?> <span class="block-sort"><i class="bx <?= $orden_campo == "fechahora" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('comentario', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Comentario <span class="block-sort"><i class="bx <?= $orden_campo == "comentario" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                             </tr>
                                         </thead>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="mb-0 flex-grow-1">
-                                        <?= $total_rows > count($asistencias_data) ? (count($asistencias_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : ""?> . <?='Tu jornada para este dia ha sido de: ' .  gmdate("H:i:s", $totalhoras) ?>
+                                        <?= $total_rows > count($asistencias_data) ? (count($asistencias_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : ""?> . <?= $q || $quien == 2 ? '' :'Tu jornada para este dia ha sido de: ' .  gmdate("H:i:s", $totalhoras) ?>
                                     </div>
                                     <?php if ($total_rows > count($asistencias_data)) : ?>
                                         <div class="flex-shrink-0 pagination-wrap hstack gap-2">
