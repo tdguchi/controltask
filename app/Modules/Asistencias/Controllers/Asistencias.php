@@ -120,14 +120,15 @@ class Asistencias extends BaseController
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
         $pagelength = $modal ? 10 : 50;
-        $p = $this->request->getPost('p');
+
         if (intval($page) <= 0) {
             $page = 1;
         }
         if (count($_POST) > 0)
             session()->set(array('asistencias.q' => $this->request->getPost('q')));
-
-        $q = session()->get('asistencias.q');
+            session()->set(array('asistencias.p' => $this->request->getPost('p')));
+            $p = session()->get('asistencias.p');
+            $q = session()->get('asistencias.q');
 
         $filter_get = urldecode($this->request->getGet('filter'));
         if ($filter_get == '') {
