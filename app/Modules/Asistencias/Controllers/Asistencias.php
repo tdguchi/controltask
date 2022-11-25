@@ -115,7 +115,7 @@ class Asistencias extends BaseController
             'salida_verano_tarde' => 'trim',
         );
     }
-    public function view($modal = false, $quien = 1)
+    public function view($modal = false, $quien = null)
     {
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
