@@ -102,7 +102,6 @@ class Asistencias_model extends Model
 
         if (!empty($q)) {
             $builder->groupStart();
-            $builder->like('ion_users.first_name', $q);
             $builder->orLike('asistencias.comentario', $q);
             $builder->groupEnd();
         }
