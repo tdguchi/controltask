@@ -42,6 +42,13 @@ class Tareas extends BaseController
                 'fechainicio' => date('Y-m-d H:i:s'),
             );
             $this->Worklog_model->insert($data2);
+            $tarea = $this->Tareas_model->get_by_id($tarea_id);
+            if ($tarea->fechacomienzo == null) {
+                $data3 = array(
+                    'fechacomienzo' => date('Y-m-d H:i:s'),
+                );
+                $this->Tareas_model->where('tarea_id', $tarea_id)->set($data3)->update();
+            }
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();
         } else if ($_POST['accion'] == 1) {
             $data = array(
@@ -56,6 +63,7 @@ class Tareas extends BaseController
             log_message("error", "horas: " . $horas->diferencia/60);
             $data3 = array(
                 'horasreales' => $horas->diferencia/60,
+                'fecharealcierre' => date('Y-m-d H:i:s'),
             );
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data3)->update();
         } else if ($_POST['accion'] == 2) {
