@@ -13,7 +13,6 @@
 
                     </div>
                 </div>
-                <input type="hidden" name="asistencia_id" value="<?php echo $data_fields['asistencia_id']; ?>" />
             </div>
         </div>
     </div>
