@@ -38,7 +38,7 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="comentario">Comentario</label>
+                                                            <label for="comentario">Comentario (opcional)</label>
                                                             <input type="text" class="form-control" name="<?= 'comentario' ?>" id="<?= 'comentario' ?>" value="<?= $data_fields['comentario'] ?>" />
                                                         </div>
                                                     </div>
