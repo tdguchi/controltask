@@ -115,7 +115,7 @@ class Asistencias extends BaseController
             'salida_verano_tarde' => 'trim',
         );
     }
-    public function view($modal = false, $quien = null, $fechabuscar = null)
+    public function view($modal = 0, $quien = 1, $fechabuscar = null)
     {
         if ($fechabuscar == null) {
             $fechabuscar = date('Y-m-d');
