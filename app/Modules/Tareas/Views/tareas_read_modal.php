@@ -27,7 +27,7 @@
 			</tr>
 			<tr>
 				<th scope="row" class="font-weight-bold">Estado</th>
-				<td><?= $data_fields['estado'] ?></td>
+				<td><?= $data_fields['texto_estado'] ?></td>
 			</tr>
 			<tr>
 				<th scope="row" class="font-weight-bold">Fecha Objetivo</th>
