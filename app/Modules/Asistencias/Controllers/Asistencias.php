@@ -129,7 +129,7 @@ class Asistencias extends BaseController
         }
         if (count($_POST) > 0) {
             session()->set(array('asistencias.q' => $this->request->getPost('q')));
-            session()->set(array('asistencias.p' => 
+            session()->set(array('asistencias.p' => $this->request->getPost('p')));
         }
         $q = session()->get('asistencias.q');
         $p = session()->get('asistencias.p');
