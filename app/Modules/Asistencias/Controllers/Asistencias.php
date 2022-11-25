@@ -186,9 +186,10 @@ class Asistencias extends BaseController
             $config['per_page'] = $pagelength;
             session()->set(array('asistencias.nr' => $pagelength));
         }
-
+        if ($quien != null) {
+            $filter = null;
+        }
         $config['total_rows'] = $this->Asistencias_model->total_rows($p, $q, $tab, $filter);
-
         $start = $config['per_page'] * ($page - 1);
         $pager = \Config\Services::pager();
 
