@@ -13,6 +13,7 @@ class Home extends BaseController
     public function index()
     {
         $user_id = $this->ionAuth->user()->row();
+        $ultima = $this->Asistencias_model->get_last_asistencia($user_id->id, date('Y-m-d'));
         $data = array(
             'button' => 'Añadir',
             'fun' => 'create',
@@ -26,6 +27,7 @@ class Home extends BaseController
                 'usuario_id' => "",
                 'comentario' => ""
             ),
+            'ultima' => $ultima,
             'main' => 'App\Modules\Asistencias\Views\asistencias_form'
             );
             $data['titulo'] = 'Registrar asistencia';
