@@ -72,7 +72,7 @@ class Asistencias_model extends Model
         }
         if (!empty($q)) {
             $builder->groupStart();
-            $builder->like('asistencias.usuario_id', $q);
+            $builder->like('ion_users.first_name', $q);
             $builder->orLike('asistencias.comentario', $q);
             $builder->groupEnd();
         }
@@ -102,7 +102,7 @@ class Asistencias_model extends Model
 
         if (!empty($q)) {
             $builder->groupStart();
-            $builder->like('asistencias.usuario_id', $q);
+            $builder->like('ion_users.first_name', $q);
             $builder->orLike('asistencias.comentario', $q);
             $builder->groupEnd();
         }
