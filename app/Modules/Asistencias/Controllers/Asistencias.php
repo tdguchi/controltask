@@ -129,10 +129,10 @@ class Asistencias extends BaseController
         }
         if (count($_POST) > 0) {
             session()->set(array('asistencias.q' => $this->request->getPost('q')));
+            session()->set(array('asistencias.p' => $this->request->getPost('p')));
         }
-        session()->set(array('asistencias.p' => $this->request->getPost('p')));
         $q = session()->get('asistencias.q');
-        $p = $this->request->getPost('p');
+        $p = session()->get('asistencias.p');
         log_message("error", "p: " . $p);
         $filter_get = urldecode($this->request->getGet('filter'));
         if ($filter_get == '') {
@@ -193,6 +193,9 @@ class Asistencias extends BaseController
         }
         if ($quien != null) {
             $q = null;
+        }
+        if ($p == null) {
+            $p = $fechabuscar;
         }
         $config['total_rows'] = $this->Asistencias_model->total_rows($p, $q, $tab, $filter);
         $start = $config['per_page'] * ($page - 1);
