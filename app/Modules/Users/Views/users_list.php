@@ -34,11 +34,6 @@
                                     <table class="table align-middle table-nowrap">
                                         <thead class="table-light">
                                             <tr>
-                                                <th scope="col" style="width: 50px;">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                    </div>
-                                                </th>
                                                 <th class="text-capitalize"><a href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('username', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Nombre de usuario <span class="block-sort"><i class="bx <?= $orden_campo == "first_name" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="text-capitalize"><a href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('first_name', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Nombre <span class="block-sort"><i class="bx <?= $orden_campo == "first_name" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="text-capitalize"><a href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('last_name', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Apellidos <span class="block-sort"><i class="bx <?= $orden_campo == "last_name" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
@@ -50,11 +45,6 @@
                                         <tbody class="list form-check-all">
                                             <? foreach ($users_data as $row) { ?>
                                                 <tr>
-                                                    <th scope="row">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->id ?>">
-                                                        </div>
-                                                    </th>
                                                     <td class=" text-left">
                                                         <div class>
                                                             <div class="flex-grow-1 tasks_name">

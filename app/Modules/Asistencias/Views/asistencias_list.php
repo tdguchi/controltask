@@ -40,11 +40,6 @@
                                     <table class="table align-middle table-nowrap">
                                         <thead class="table-light">
                                             <tr>
-                                                <th scope="col" style="width: 50px;">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                    </div>
-                                                </th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('usuario_id', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Operador <span class="block-sort"><i class="bx <?= $orden_campo == "usuario_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('asistenciatipo_id', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Tipo De Asistencia <span class="block-sort"><i class="bx <?= $orden_campo == "asistenciatipo_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechahora', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;"><?= $q ? 'Fecha/hora' : 'Hora' ?> <span class="block-sort"><i class="bx <?= $orden_campo == "fechahora" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
@@ -58,11 +53,6 @@
                                         <tbody class="list form-check-all">
                                             <? foreach ($asistencias_data as $row) { ?>
                                                 <tr>
-                                                    <th scope="row">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->asistencia_id ?>">
-                                                        </div>
-                                                    </th>
                                                     <td class=" text-right "><?= $row->nombre ?></td>
                                                     <td class=" text-right ">
                                                         <? if ($row->asistenciatipo_id == 0) { ?>
