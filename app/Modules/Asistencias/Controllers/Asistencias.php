@@ -115,7 +115,7 @@ class Asistencias extends BaseController
             'salida_verano_tarde' => 'trim',
         );
     }
-    public function view($modal = false, $quien = null)
+    public function view($modal = false, $quien = 1)
     {
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
@@ -228,6 +228,7 @@ class Asistencias extends BaseController
             $totalhoras = 0;
         }
         $data = array(
+            'quien' => $quien,
             'group_id' => $group_id,
             'fichado' => $fichado,
             'asistencias_data' => $asistencias,
