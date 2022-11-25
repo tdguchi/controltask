@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col text-center">
                     <h4>Actualmente has registrado una: <?= $fichado ? "Entrada" : "Salida" ?></h4>
-                    <a href="#" onclick="loadModalContent('<?= site_url('asistencias/fichar/1') ?>');" data-bs-toggle="modal" data-bs-target="#ajax" class="btn btn-warning btn-lg text-dark">Fichar</a>
+                    <a href="#" onclick="loadModalContent('<?= site_url('asistencias/fichar/1') ?>');" data-bs-toggle="modal" data-bs-target="#ajax" class="btn btn-warning btn-lg text-dark">Fichar  <?= $fichado ? "Salida" : "Entrada" ?></a>
                 </div>
             </div><br>
             <?php if (isset($message)) : ?>
