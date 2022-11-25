@@ -71,7 +71,7 @@
                                                             <span style="color:red"><i class='bx bx-exit bx-rotate-180'></i> <?= $row->tipo ?> </span>
                                                         <? } ?>
                                                     </td>
-                                                    <td class=" text-left "><?= $q ? date("d-m-Y a las H:i:s", strtotime($row->fechahora)) : date("H:i:s", strtotime($row->fechahora)) ?></td>
+                                                    <td class=" text-left "><?= $q ? date("d-m-Y",  strtotime($row->fechahora)) . ' a las ' . date("H:i:s",strtotime($row->fechahora) ) : date("H:i:s", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->comentario ?></td>
                                                 </tr>
                                             <? } ?>
