@@ -191,7 +191,7 @@ class Asistencias extends BaseController
             $config['per_page'] = $pagelength;
             session()->set(array('asistencias.nr' => $pagelength));
         }
-        if ($quien != null) {
+        if ($quien != 2) {
             $q = null;
         }
         if ($p == null) {
