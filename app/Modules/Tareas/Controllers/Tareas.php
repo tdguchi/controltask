@@ -78,6 +78,7 @@ class Tareas extends BaseController
             session()->set(array('tareas.q' => $this->request->getPost('q')));
 
         $q = session()->get('tareas.q');
+        session()->set(array('tareas.q' => null));
 
         $filter_get = urldecode($this->request->getGet('filter'));
         if ($filter_get == '') {
