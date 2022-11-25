@@ -43,6 +43,11 @@ class Tareas extends BaseController
             );
             $this->Worklog_model->insert($data2);
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();
+            $horas = $this->Worklog_model->calculahoras($tarea_id);
+            $data3 = array(
+                'horas' => $horas->diferencia,
+            );
+            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data3)->update();
         } else if ($_POST['accion'] == 1) {
             $data = array(
                 'estado' => 0,
@@ -66,7 +71,6 @@ class Tareas extends BaseController
     }
     public function view($modal = 0, $quien = '1')
     {
-
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
         $pagelength = $modal ? 10 : 50;
