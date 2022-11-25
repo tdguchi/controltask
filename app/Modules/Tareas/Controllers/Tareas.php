@@ -45,7 +45,7 @@ class Tareas extends BaseController
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();
             $horas = $this->Worklog_model->calculahoras($tarea_id);
             $data3 = array(
-                'horas' => $horas->diferencia,
+                'horasreales' => $horas->diferencia,
             );
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data3)->update();
         } else if ($_POST['accion'] == 1) {
