@@ -207,23 +207,26 @@ class Asistencias extends BaseController
         } else {
             $fichado = true;
         }
-        $jornada = $this->Asistencias_model->get_jornada($p, $user_id);
-        if ($jornada != null && count($jornada) != 1) {
-            $totalhoras = $jornada[1]->total - $jornada[0]->total;
+        if ($quien == 1) {
+            $jornada = $this->Asistencias_model->get_jornada($p, $user_id);
+            if ($jornada != null && count($jornada) != 1) {
+                $totalhoras = $jornada[1]->total - $jornada[0]->total;
+            } else {
+                $totalhoras = 0;
+            }
+            if ($config['total_rows'] % 2 != 0 && count($jornada) != 1) {
+                $fecha = date('Y-m-d H:i:s');
+                $time = Time::parse($fecha);
+                $totalhoras = $totalhoras + $time->timestamp;
+            }
+            if (count($jornada) == 1) {
+                $fecha = date('Y-m-d H:i:s');
+                $time = Time::parse($fecha);
+                $totalhoras = $time->timestamp - $jornada[0]->total;
+            }
         } else {
             $totalhoras = 0;
         }
-        if ($config['total_rows'] % 2 != 0 && count($jornada) != 1) {
-            $fecha = date('Y-m-d H:i:s');
-            $time = Time::parse($fecha);
-            $totalhoras = $totalhoras + $time->timestamp;
-        }
-        if (count($jornada) == 1) {
-            $fecha = date('Y-m-d H:i:s');
-            $time = Time::parse($fecha);
-            $totalhoras = $time->timestamp - $jornada[0]->total;
-        }
-
         $data = array(
             'group_id' => $group_id,
             'fichado' => $fichado,
