@@ -115,7 +115,7 @@ class Asistencias extends BaseController
             'salida_verano_tarde' => 'trim',
         );
     }
-    public function view($modal = false, $quien = null)
+    public function view($modal = false, $quien = null, $fecha = null)
     {
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
@@ -130,7 +130,9 @@ class Asistencias extends BaseController
         session()->set(array('asistencias.p' => $this->request->getPost('p')));
         $q = session()->get('asistencias.q');
         $p = session()->get('asistencias.p');
-
+        if ($p == null) {
+            $p = $fecha;
+        }
         $filter_get = urldecode($this->request->getGet('filter'));
         if ($filter_get == '') {
             $filter_get = urldecode($this->request->getPost('filter'));
@@ -236,6 +238,10 @@ class Asistencias extends BaseController
             $accion = site_url('asistencias/view');
         } else if ($modal != null && $quien != null) {
             $accion = site_url('asistencias/view/' . $modal . '/' . $quien);
+        }
+
+        if($fecha == null) {
+            $accion .= '/' . $fecha;
         }
         $data = array(
             'accion' =>  $accion,
