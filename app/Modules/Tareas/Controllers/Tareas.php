@@ -57,13 +57,12 @@ class Tareas extends BaseController
             $data2 = array(
                 'fechacierre' => date('Y-m-d H:i:s'),
             );
-            $this->Worklog_model->where('tarea_id', $tarea_id)->orderby('worklog_id','DESC')->limit(1)->set($data2)->update(); 
-            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
+            $this->Worklog_model->where('tarea_id', $tarea_id)->orderby('worklog_id', 'DESC')->limit(1)->set($data2)->update();
+            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();
             $horas = $this->Worklog_model->calculahoras($tarea_id);
-            log_message("error", "horas: " . $horas->diferencia/60);
+            log_message("error", "horas: " . $horas->diferencia / 60);
             $data3 = array(
-                'horasreales' => $horas->diferencia/60,
-                'fecharealcierre' => date('Y-m-d H:i:s'),
+                'horasreales' => $horas->diferencia / 60,
             );
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data3)->update();
         } else if ($_POST['accion'] == 2) {
@@ -73,12 +72,13 @@ class Tareas extends BaseController
             $data2 = array(
                 'fechacierre' => date('Y-m-d H:i:s'),
             );
-            $this->Worklog_model->where('tarea_id', $tarea_id)->set($data2)->update();
-            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
+            $this->Worklog_model->where('tarea_id', $tarea_id)->orderby('worklog_id', 'DESC')->limit(1)->set($data2)->update();
+            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();
             $horas = $this->Worklog_model->calculahoras($tarea_id);
-            log_message("error", "horas: " . $horas->diferencia/60);
+            log_message("error", "horas: " . $horas->diferencia / 60);
             $data3 = array(
-                'horasreales' => $horas->diferencia/60,
+                'horasreales' => $horas->diferencia / 60,
+                'fecharealcierre' => date('Y-m-d H:i:s'),
             );
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data3)->update();
         }
