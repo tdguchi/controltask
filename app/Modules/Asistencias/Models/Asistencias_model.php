@@ -29,12 +29,16 @@ class Asistencias_model extends Model
         return $builder->get()->GetRow();
     }
 
-    function get_jornada($p = null,  $usuario_id = null) {
+    function get_jornada($p = null,$q = null, $usuario_id = null) {
         $builder = $this->db->table($this->table)->select('SUM(asistencias.fechahora_timestamp) as total');
         $builder->where('usuario_id', $usuario_id);
         $builder->groupBy('asistencias.asistenciatipo_id');
+        $builder->join('ion_users', 'ion_users.id = asistencias.usuario_id', 'left');
         if ($p != null) {
             $builder->like('fechahora', $p);
+        }
+        if ($q != null) {
+            $builder->like('ion_users.first_name', $q);
         }
         return $builder->get()->GetResult();
     }
