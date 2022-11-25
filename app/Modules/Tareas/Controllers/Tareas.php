@@ -159,9 +159,17 @@ class Tareas extends BaseController
         } else {
             $fichado = true;
         }
+        if ($modal == false && $quien == null && $q == null) {
+            $accion = site_url('asistencias/view/0/1');
+        } else if ($modal != false && $quien == null && $q == null) {
+            $accion = site_url('asistencias/view/0/1');
+        } else {
+            $accion = site_url('asistencias/view/' . $modal . '/' . $quien);
+        }
         $data = array(
             'quien' => $quien,
             'group_id' => $group_id,
+            'accion' => $accion,
             'fichado' => $fichado,
             'tareas_data' => $tareas,
             'q' => $q,
