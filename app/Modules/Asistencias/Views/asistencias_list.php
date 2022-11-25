@@ -14,7 +14,7 @@
                     <div class="card card-list-soaga">
                         <div class="card-header border-0">
                             <div class="d-flex align-items-center">
-                                <h5 class="card-title mb-0 flex-grow-1 h5-title"><?= $titulo ?> <?= $element ?> <?= $q ? ' filtradas por: ' . $q : (' del ' . $p != null ? date('d-m-Y',strtotime($p)) : date('d-m-Y')) ?></h5>
+                                <h5 class="card-title mb-0 flex-grow-1 h5-title"><?= $titulo ?> <?= $element ?> <?= $q ? ' filtradas por: ' . $q : (' del ' . $p != null ? date('d-m-Y', strtotime($p)) : date('d-m-Y')) ?></h5>
                                 <div class="flex-shrink-0">
                                     <form id="date-box" class="input-group" action="<?= $accion ?>" method="post">
                                         <input class="form-control" id="p" name="p" type="date" value="<?= $p != null ? $p : date('Y-m-d') ?>" />
@@ -51,11 +51,11 @@
                                                 </th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('usuario_id', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Operador <span class="block-sort"><i class="bx <?= $orden_campo == "usuario_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('asistenciatipo_id', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Tipo De Asistencia <span class="block-sort"><i class="bx <?= $orden_campo == "asistenciatipo_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechahora', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;"><?= $q ? 'Fecha/hora' : 'Hora'?> <span class="block-sort"><i class="bx <?= $orden_campo == "fechahora" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechahora', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;"><?= $q ? 'Fecha/hora' : 'Hora' ?> <span class="block-sort"><i class="bx <?= $orden_campo == "fechahora" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('comentario', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Comentario <span class="block-sort"><i class="bx <?= $orden_campo == "comentario" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <? if (count($group_id) != 1) { ?>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('ip', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">IP <span class="block-sort"><i class="bx <?= $orden_campo == "ip" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('dispositivo', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Dispositivo <span class="block-sort"><i class="bx <?= $orden_campo == "dispositivo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                    <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('ip', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">IP <span class="block-sort"><i class="bx <?= $orden_campo == "ip" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                    <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('dispositivo', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Dispositivo <span class="block-sort"><i class="bx <?= $orden_campo == "dispositivo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <? } ?>
                                             </tr>
                                         </thead>
@@ -75,8 +75,12 @@
                                                             <span style="color:red"><i class='bx bx-exit bx-rotate-180'></i> <?= $row->tipo ?> </span>
                                                         <? } ?>
                                                     </td>
-                                                    <td class=" text-left "><?= $q ? date("d-m-Y",  strtotime($row->fechahora)) . ' a las ' . date("H:i:s",strtotime($row->fechahora) ) : date("H:i:s", strtotime($row->fechahora)) ?></td>
+                                                    <td class=" text-left "><?= $q ? date("d-m-Y",  strtotime($row->fechahora)) . ' a las ' . date("H:i:s", strtotime($row->fechahora)) : date("H:i:s", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->comentario ?></td>
+                                                    <? if (count($group_id) != 1) { ?>
+                                                        <td class=" text-left "><?= $row->ip ?></td>
+                                                        <td class=" text-left "><?= $row->dispositivo ?></td>
+                                                    <? } ?>
                                                 </tr>
                                             <? } ?>
                                         </tbody>
@@ -84,7 +88,7 @@
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="mb-0 flex-grow-1">
-                                        <?= $total_rows > count($asistencias_data) ? (count($asistencias_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : ""?> . <?= $q || $quien == 2 ? '' :'Tu jornada para este dia ha sido de: ' .  gmdate("H:i:s", $totalhoras) ?>
+                                        <?= $total_rows > count($asistencias_data) ? (count($asistencias_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : "" ?> . <?= $q || $quien == 2 ? '' : 'Tu jornada para este dia ha sido de: ' .  gmdate("H:i:s", $totalhoras) ?>
                                     </div>
                                     <?php if ($total_rows > count($asistencias_data)) : ?>
                                         <div class="flex-shrink-0 pagination-wrap hstack gap-2">
