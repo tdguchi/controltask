@@ -70,6 +70,7 @@ class Asistencias_model extends Model
         if (empty($p)) {
             $builder->like('asistencias.fechahora', date('Y-m-d'));
         }
+        $builder->join('ion_users', 'ion_users.id = asistencias.usuario_id', 'left');
         if (!empty($q)) {
             $builder->groupStart();
             $builder->like('ion_users.first_name', $q);
