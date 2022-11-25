@@ -247,6 +247,7 @@ class Asistencias extends BaseController
             'accion' =>  $accion,
             'group_id' => $group_id,
             'fichado' => $fichado,
+            'quien' => $quien,
             'asistencias_data' => $asistencias,
             'totalhoras' => $totalhoras,
             'q' => $q,
