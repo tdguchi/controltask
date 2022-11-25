@@ -117,7 +117,7 @@ class Asistencias extends BaseController
     }
     public function view($modal = false, $quien = null, $fecha = null)
     {
-        if ($fecha == null) {
+        if ($fecha == '') {
             $fecha = date('Y-m-d');
         }
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
@@ -242,7 +242,7 @@ class Asistencias extends BaseController
         } else if ($modal != null && $quien != null) {
             $accion = site_url('asistencias/view/' . $modal . '/' . $quien);
         }
-        $accion .= '/' . $fecha;
+        $accion .= '/' . $fecha;    
 
         $data = array(
             'accion' =>  $accion,
