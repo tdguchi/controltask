@@ -22,7 +22,6 @@ class Worklog_model extends Model
     {
         $builder = $this->db->table($this->table)->select('SEC_TO_TIME(SUM(TIME_TO_SEC(fechacierre) - TIME_TO_SEC(fechainicio))) AS diferencia');
         $builder->where('tarea_id', $tarea_id);
-        $builder->groupBy($tarea_id);
         return $builder->get()->getRow();
     } 
     // get all
