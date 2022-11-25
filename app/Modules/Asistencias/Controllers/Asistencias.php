@@ -124,13 +124,12 @@ class Asistencias extends BaseController
         if (intval($page) <= 0) {
             $page = 1;
         }
-        if (count($_POST) > 0)
+        if (count($_POST) > 0) {
             session()->set(array('asistencias.q' => $this->request->getPost('q')));
             session()->set(array('asistencias.p' => $this->request->getPost('p')));
             $p = session()->get('asistencias.p');
-            log_message("error", "p: " . $p);
             $q = session()->get('asistencias.q');
-
+        }
         $filter_get = urldecode($this->request->getGet('filter'));
         if ($filter_get == '') {
             $filter_get = urldecode($this->request->getPost('filter'));
