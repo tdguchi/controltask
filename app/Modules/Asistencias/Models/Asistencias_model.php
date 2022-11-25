@@ -10,7 +10,7 @@ class Asistencias_model extends Model
 
     public $table = 'asistencias';
     public $id = 'asistencia_id';
-    public $allowedFields = array('fechahora','fechahora_timestamp', 'asistenciatipo_id', 'usuario_id', 'comentario');
+    public $allowedFields = array('fechahora','fechahora_timestamp', 'asistenciatipo_id', 'usuario_id', 'comentario','ip','dispositivo');
     public $order = 'DESC';
 
     function __construct()
@@ -58,7 +58,7 @@ class Asistencias_model extends Model
     // get total rows
     function total_rows($p = NULL, $q = NULL, $tab = NULL, $filter = array(), $usuario_id = null)
     {
-        $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id');
+        $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id,ip,dispositivo');
         if (!empty($p)) {
             $builder->like('asistencias.fechahora', $p);
         }
@@ -82,7 +82,7 @@ class Asistencias_model extends Model
     // get data with limit and search
     function get_limit_data($p = null, $limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array(), $usuario_id = null)
     {
-        $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id,asistenciasnombre.nombre AS tipo,ion_users.first_name AS nombre');
+        $builder = $this->db->table($this->table)->select('asistencias.fechahora,asistencias.asistenciatipo_id,asistencias.usuario_id,asistencias.comentario,asistencias.asistencia_id,asistenciasnombre.nombre AS tipo,ion_users.first_name AS nombre ,ip,dispositivo');
 
 
         if (count($filter) == 2) {
