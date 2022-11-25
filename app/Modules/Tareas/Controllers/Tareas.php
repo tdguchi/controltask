@@ -152,8 +152,6 @@ class Tareas extends BaseController
             $tareas = $this->Tareas_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter, $user_id);
         }
 
-        }
-
         $pager = \Config\Services::pager();
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
         if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
