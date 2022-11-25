@@ -37,9 +37,10 @@ class Tareas_model extends Model
 
     function get_by_id($id)
     {
-        $builder = $this->db->table($this->table)->select('ion_users.first_name AS operador,proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.usuario_id,tareas.usuariosadicionales,tareas.titulo,tareas.descripcion,tareas.fechahoracreacion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id');
+        $builder = $this->db->table($this->table)->select('ion_users.first_name AS operador,proyectos.titulo AS proyecto_titulo,tareas.proyecto_id,tareas.usuario_id,tareas.usuariosadicionales,tareas.titulo,tareas.descripcion,tareas.fechahoracreacion,tareas.fechaobjetivo,tareas.fechaestimada,tareas.horasestimadas,tareas.fechacomienzo,tareas.fecharealcierre,tareas.horasreales,tareas.estado,tareas.tarea_id,estados_nombre.nombre AS texto_estado');
         $builder->join('proyectos', 'proyectos.proyecto_id = tareas.proyecto_id', 'left');
         $builder->join('ion_users', 'ion_users.id = tareas.usuario_id', 'left');
+        $builder->join('estados_nombr', 'estados_nombre.estado_id = tareas.estado', 'left');
         $builder->where($this->id, $id);
         return $builder->get()->getRow();
     }
