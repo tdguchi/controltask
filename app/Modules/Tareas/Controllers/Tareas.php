@@ -216,6 +216,7 @@ class Tareas extends BaseController
                     'fecharealcierre' => $row->fecharealcierre,
                     'horasreales' => $row->horasreales,
                     'estado' => $row->estado,
+                    'texto_estado' => $row->texto_estado,
                 )
             );
             $data['main'] = 'App\Modules\Tareas\Views\tareas_read';
