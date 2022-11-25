@@ -160,11 +160,11 @@ class Tareas extends BaseController
             $fichado = true;
         }
         if ($modal == false && $quien == null && $q == null) {
-            $accion = site_url('asistencias/view/0/1');
+            $accion = site_url('tareas/view/0/1');
         } else if ($modal != false && $quien == null && $q == null) {
-            $accion = site_url('asistencias/view/0/1');
+            $accion = site_url('tareas/view/0/1');
         } else {
-            $accion = site_url('asistencias/view/' . $modal . '/' . $quien);
+            $accion = site_url('tareas/view/' . $modal . '/' . $quien);
         }
         $data = array(
             'quien' => $quien,
