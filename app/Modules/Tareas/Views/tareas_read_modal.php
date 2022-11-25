@@ -45,16 +45,6 @@
 			</tr>
 
 			<tr>
-				<th scope="row" class="font-weight-bold">Fecha Comienzo</th>
-				<td><?= date("d/m/Y H:i:s", strtotime($data_fields['fechacomienzo'])) ?></td>
-			</tr>
-
-			<tr>
-				<th scope="row" class="font-weight-bold">Fecha Real Cierre</th>
-				<td><?= date("d/m/Y H:i:s", strtotime($data_fields['fecharealcierre'])) ?></td>
-			</tr>
-
-			<tr>
 				<th scope="row" class="font-weight-bold">Horas Reales</th>
 				<td><?= $data_fields['horasreales'] ?></td>
 			</tr>
