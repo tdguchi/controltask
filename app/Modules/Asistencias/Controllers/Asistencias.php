@@ -117,6 +117,9 @@ class Asistencias extends BaseController
     }
     public function view($modal = false, $quien = null, $fechabuscar = null)
     {
+        if ($fechabuscar == null) {
+            $fechabuscar = date('Y-m-d');
+        }
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
         $pagelength = $modal ? 10 : 50;
@@ -130,7 +133,7 @@ class Asistencias extends BaseController
         session()->set(array('asistencias.p' => $this->request->getPost('p')));
         $q = session()->get('asistencias.q');
         $p = session()->get('asistencias.p');
-        if ($p == null) {
+        if ($p == '') {
             $p = $fechabuscar;
         }
         $filter_get = urldecode($this->request->getGet('filter'));
