@@ -57,6 +57,11 @@ class Tareas extends BaseController
             );
             $this->Worklog_model->where('tarea_id', $tarea_id)->orderby('worklog_id','DESC')->limit(1)->set($data2)->update(); 
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
+            $horas = $this->Worklog_model->calculahoras($tarea_id);
+            $data3 = array(
+                'horasreales' => $horas->diferencia,
+            );
+            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data3)->update();
         } else if ($_POST['accion'] == 2) {
             $data = array(
                 'estado' => 2,
@@ -66,6 +71,11 @@ class Tareas extends BaseController
             );
             $this->Worklog_model->where('tarea_id', $tarea_id)->set($data2)->update();
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update(); 
+            $horas = $this->Worklog_model->calculahoras($tarea_id);
+            $data3 = array(
+                'horasreales' => $horas->diferencia,
+            );
+            $this->Tareas_model->where('tarea_id', $tarea_id)->set($data3)->update();
         }
         return redirect()->to(site_url('tareas/view'));
     }
