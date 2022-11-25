@@ -344,7 +344,7 @@ class Asistencias extends BaseController
             'usuario_id' => $user_id,
             'comentario' => $this->request->getPost('comentario'),
             'ip' => $this->request->getIPAddress(),
-            'dispositivo' => $this->request->getUserAgent(),
+            'dispositivo' => $this->request->getUserAgent()->getPlatform(),
         );
         $this->Asistencias_model->insert($data);
         session()->set('message', 'Create Record Success');
