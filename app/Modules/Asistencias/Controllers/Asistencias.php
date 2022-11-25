@@ -131,6 +131,9 @@ class Asistencias extends BaseController
             session()->set(array('asistencias.q' => $this->request->getPost('q')));
             session()->set(array('asistencias.p' => $this->request->getPost('p')));
         }
+        if (current_url() == site_url('asistencias/view')) {
+            $p = null;
+        }
         $q = session()->get('asistencias.q');
         $p = session()->get('asistencias.p');
         log_message("error", "p: " . $p);
@@ -242,10 +245,6 @@ class Asistencias extends BaseController
             $accion = site_url('asistencias/view/0/1');
         } else if ($modal != null && $quien != null) {
             $accion = site_url('asistencias/view/' . $modal . '/' . $quien);
-        }
-        if (current_url() == site_url('asistencias/view')) {
-            $accion = site_url('asistencias/view');
-            $p = null;
         }
         $data = array(
             'accion' =>  $accion,
