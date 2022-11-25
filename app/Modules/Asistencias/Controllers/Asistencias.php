@@ -230,9 +230,9 @@ class Asistencias extends BaseController
             $totalhoras = 0;
         }
         if ($modal == null && $quien == null) {
-           $accion = site_url('asistencias/view/');
+           $accion = site_url('asistencias/view');
         } else if ($modal != null && $quien == null) {
-            $accion = site_url('asistencias/view/');
+            $accion = site_url('asistencias/view');
         } else if ($modal != null && $quien != null) {
             $accion = site_url('asistencias/view/' . $modal . '/' . $quien);
         }
