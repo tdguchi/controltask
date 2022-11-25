@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col text-center">
-                    <a href="<?= site_url("asistencias/fichar") ?>" class="btn btn-warning btn-lg text-dark">Fichar</a>
+                    <a href="<?= site_url("asistencias/fichar/1") ?>" class="btn btn-warning btn-lg text-dark">Fichar</a>
                 </div>
             </div><br>
             <?php if (isset($message)) : ?>
