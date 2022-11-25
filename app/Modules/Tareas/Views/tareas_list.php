@@ -95,8 +95,10 @@
                                                     <td class=" text-left "><a href="#" onClick="$('#t1997831608').toggle()"><?= substr($row->descripcion, 0, 50) ?>...</a>
                                                         <div id="t1997831608" style="display:none"><?= $row->descripcion ?></div>
                                                     </td>
+                                                    <? if (count($group_id) == 2) { ?>
                                                     <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechaobjetivo)) ?></td>
                                                     <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechaestimada)) ?></td>
+                                                    <? } ?>
                                                     <td class=" text-right "><?= $row->horasestimadas ?></td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechacomienzo)) ?></td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fecharealcierre)) ?></td>
