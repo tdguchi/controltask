@@ -214,14 +214,17 @@ class Asistencias extends BaseController
         } else {
             $totalhoras = 0;
         }
-        if (count($jornada) == 1) {
-            $totalhoras = $jornada[0]->total;
-        }
         if ($config['total_rows'] % 2 != 0 && count($jornada) != 1) {
             $fecha = date('Y-m-d H:i:s');
             $time = Time::parse($fecha);
             $totalhoras = $totalhoras + $time->timestamp;
         }
+        if (count($jornada) == 1) {
+            $fecha = date('Y-m-d H:i:s');
+            $time = Time::parse($fecha);
+            $totalhoras = $jornada[0]->total - $time->timestamp;;
+        }
+
         $data = array(
             'group_id' => $group_id,
             'fichado' => $fichado,
