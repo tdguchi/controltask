@@ -34,11 +34,6 @@
                                     <table class="table align-middle table-nowrap">
                                         <thead class="table-light">
                                             <tr>
-                                                <th scope="col" style="width: 50px;">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                    </div>
-                                                </th>
                                                 <th class="sort text-capitalize ">
                                                     <a href="<?php echo site_url('settings/view?ob=' . sentidobusquedacrd('key', 'settings.')) . $filter . $custom_title; ?>" style="color:inherit;">Clave <span class="block-sort"><i class="bx <?= $orden_campo == "key" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a>
                                                 </th>
@@ -49,12 +44,6 @@
                                         <tbody class="list form-check-all">
                                             <? foreach ($settings_data as $row) { ?>
                                                 <tr>
-                                                    <th scope="row">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->key ?>">
-                                                        </div>
-                                                    </th>
-
                                                     <td class="text-left "><?= $row->key ?> <div class="flex-shrink-0">
                                                     <?php if ($fichado === true) { ?>
                                                             <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
