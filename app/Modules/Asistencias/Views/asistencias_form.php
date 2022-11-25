@@ -21,7 +21,7 @@
                                     <div class="mb-12">
                                     <h3 class="h1-title">Necesitas registrar una entrada para poder usar la aplicación</h3>
 
-                                        <? if ($ultima->asistenciatipo_id == 1) { ?>
+                                        <? if ($ultima->asistenciatipo_id == 0) { ?>
                                             <h3 class="h1-title">¿Quieres fichar la salida?</h3>
                                         <? } else { ?>
                                             <h3 class="h1-title">¿Quieres fichar la entrada?</h3>
