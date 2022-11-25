@@ -1,12 +1,7 @@
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
-        <div class="row">
-                <div class="col text-center">
-                    <h4>Actualmente estás  <?= $fichado ? "dentro del sistema" : "fuera del sistema" ?></h4>
-                    <a href="#" onclick="loadModalContent('<?= site_url('asistencias/fichar/1') ?>');" data-bs-toggle="modal" data-bs-target="#ajax" class="btn btn-warning btn-lg text-dark">Fichar  <?= $fichado ? "Salida" : "Entrada" ?></a>
-                </div>
-            </div><br>
+        <?= view('partials/fichar') ?>
             <?php if (isset($message)) : ?>
                 <div class="form-group mb-3 alert alert-success"><?= $message ?></div>
             <?php endif; ?>
