@@ -229,13 +229,19 @@ class Asistencias extends BaseController
         } else {
             $totalhoras = 0;
         }
+        if ($modal == null && $quien == null) {
+           $accion = site_url('asistencias/view/');
+        } else if ($modal != null && $quien == null) {
+            $accion = site_url('asistencias/view/');
+        } else if ($modal != null && $quien != null) {
+            site_url('asistencias/view/' . $modal . '/' . $quien);
+        }
         $data = array(
-            'quien' => $quien,
+            'accion' =>  $accion,
             'group_id' => $group_id,
             'fichado' => $fichado,
             'asistencias_data' => $asistencias,
             'totalhoras' => $totalhoras,
-            'elemento' => '0/',
             'q' => $q,
             'p' => $p,
             'tab' => $tab,
