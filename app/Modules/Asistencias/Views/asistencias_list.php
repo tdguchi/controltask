@@ -27,7 +27,7 @@
                                         <span class="text-capitalize"><?php echo anchor(site_url('asistencias/view/0/2'), 'Todas', 'class="btn btn-green add-btn"'); ?></span>
                                     <?php } ?>
                                     <div class="search-box-table ms-2">
-                                        <form id="search-box" class="input-group" action="<?php echo site_url('asistencias/view'); ?>" method="post">
+                                        <form id="search-box" class="input-group" action="<?= $accion ?>" method="post">
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
                                             <input type="hidden" name="title" value="<?= $custom_title == "" ? "" : explode("=", $custom_title)[1] ?>">
                                             <input type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
