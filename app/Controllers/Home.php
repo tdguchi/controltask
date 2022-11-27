@@ -17,7 +17,7 @@ class Home extends BaseController
         if ($ultima == null) {
             $ultima = new \stdClass();
             $ultima->nombre = 'Ninguna';
-            $ultima->asistenciatipo_id = 0;
+            $ultima->asistenciatipo_id = 1;
         }
         $data = array(
             'button' => 'Añadir',
