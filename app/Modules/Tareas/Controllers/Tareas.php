@@ -324,7 +324,7 @@ class Tareas extends BaseController
             $this->eventBeforeCreate();
             $this->Tareas_model->insert($data);
             $this->eventAfterCreate($this->Tareas_model->insertID());
-            session()->set('message', 'Tareas creado correctamente');
+            session()->set('message', 'Tarea creada correctamente');
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
         }
     }
@@ -405,7 +405,7 @@ class Tareas extends BaseController
             $this->eventBeforeUpdate($this->request->getPost('tarea_id'));
             $this->Tareas_model->where('tarea_id', $this->request->getPost('tarea_id'))->set($data)->update();
             $this->eventAfterUpdate($this->request->getPost('tarea_id'));
-            session()->set('message', 'Tareas modificado correctamente');
+            session()->set('message', 'Tareaa modificada correctamente');
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
         }
     }
@@ -418,7 +418,7 @@ class Tareas extends BaseController
             $this->eventBeforeDelete($id);
             $this->Tareas_model->where('tarea_id', $id)->delete();
             $this->eventAfterDelete($id);
-            session()->set('message', 'Tareas eliminado correctamente');
+            session()->set('message', 'Tarea eliminada correctamente');
             return redirect()->to(site_url('tareas'));
         } else {
             session()->set('message', 'Record Not Found');
@@ -439,7 +439,7 @@ class Tareas extends BaseController
                 $this->eventAfterDelete($id);
             }
 
-            session()->set('message', $rows . ' Tareas eliminado' . ($rows > 1 ? 's' : '') . ' correctamente');
+            session()->set('message', $rows . ' Tareaa eliminada' . ($rows > 1 ? 's' : '') . ' correctamente');
         } else {
             session()->set('message', 'No hay resultados');
         }

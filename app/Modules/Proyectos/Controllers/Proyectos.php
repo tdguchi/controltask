@@ -196,7 +196,7 @@ class Proyectos extends BaseController
             $this->eventBeforeCreate();
             $this->Proyectos_model->insert($data);
             $this->eventAfterCreate($this->Proyectos_model->insertID());
-            session()->set('message', 'Proyectos creado correctamente');
+            session()->set('message', 'Proyecto creado correctamente');
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('proyectos'));
         }
     }
@@ -222,7 +222,7 @@ class Proyectos extends BaseController
             $modal_view =  'App\Modules\Proyectos\Views\proyectos_form_modal';
 
             $data['titulo'] = 'proyectos';
-            $data['subtitulo'] = 'Modificar Proyectos';
+            $data['subtitulo'] = 'Modificar Proyecto';
             $data['modal'] = $modal;
             return view(($modal) ? $modal_view : 'template', $data);
         } else {
@@ -246,7 +246,7 @@ class Proyectos extends BaseController
             $this->eventBeforeUpdate($this->request->getPost('proyecto_id'));
             $this->Proyectos_model->where('proyecto_id', $this->request->getPost('proyecto_id'))->set($data)->update();
             $this->eventAfterUpdate($this->request->getPost('proyecto_id'));
-            session()->set('message', 'Proyectos modificado correctamente');
+            session()->set('message', 'Proyecto modificado correctamente');
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('proyectos'));
         }
     }
@@ -259,7 +259,7 @@ class Proyectos extends BaseController
             $this->eventBeforeDelete($id);
             $this->Proyectos_model->where('proyecto_id', $id)->delete();
             $this->eventAfterDelete($id);
-            session()->set('message', 'Proyectos eliminado correctamente');
+            session()->set('message', 'Proyecto eliminado correctamente');
             return redirect()->to(site_url('proyectos'));
         } else {
             session()->set('message', 'Record Not Found');
@@ -280,7 +280,7 @@ class Proyectos extends BaseController
                 $this->eventAfterDelete($id);
             }
 
-            session()->set('message', $rows . ' Proyectos eliminado' . ($rows > 1 ? 's' : '') . ' correctamente');
+            session()->set('message', $rows . ' Proyecto eliminado' . ($rows > 1 ? 's' : '') . ' correctamente');
         } else {
             session()->set('message', 'No hay resultados');
         }

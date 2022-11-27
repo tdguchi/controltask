@@ -347,7 +347,7 @@ class Asistencias extends BaseController
             'dispositivo' => $this->request->getUserAgent()->getPlatform(),
         );
         $this->Asistencias_model->insert($data);
-        session()->set('message', 'Create Record Success');
+        session()->set('message', 'Registro creado con éxito');
         return redirect()->to(site_url('asistencias'));
     }
 
