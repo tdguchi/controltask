@@ -338,21 +338,21 @@ class Asistencias extends BaseController
         }
         if ($asistencia_nueva_id == 1) {
             $tarea = $this->Tareas_model->get_all_activas($user_id);
-            log_message("error", "Tarea: " . $tarea[0]->tarea_id);
             if ($tarea != null) {
                 $tarea_id = $tarea[0]->tarea_id;
-                $data = array(
+                log_message("error", "Tarea: " . $tarea_id);
+
+                $data2 = array(
                     'fechacierre' => date('Y-m-d H:i:s'),
                 );
-                $this->Worklog_model->where('tarea_id', $tarea_id)->orderby('worklog_id', 'DESC')->limit(1)->set($data)->update();
+                $this->Worklog_model->where('tarea_id', $tarea_id)->orderby('worklog_id', 'DESC')->limit(1)->set($data2)->update();
 
                 $horas = $this->Worklog_model->calculahoras($tarea_id);
 
-                $data2 = array(
-                    'estado' => 0,
+                $data3 = array(
                     'horasreales' => $horas->diferencia / 60,
                 );
-                $this->Tareas_model->where('tarea_id', $tarea_id)->set($data2)->update();
+                $this->Tareas_model->where('tarea_id', $tarea_id)->set($data3)->update();
             }
         }
         $fecha = date('Y-m-d H:i:s');
