@@ -188,8 +188,7 @@ class Worklog extends BaseController
 
             $data['titulo'] = 'worklog';
             $data['subtitulo'] = 'Modificar worklog';
-            $data['modal'] = $modal;
-            return view(($modal) ? $modal_view : 'template', $data);
+            return view('template', $data);
     }
 
     public function update_action($from = false)
