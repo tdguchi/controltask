@@ -413,7 +413,7 @@ class Tareas extends BaseController
             $datalog = array (
                 'usuario_id' => $this->ionAuth->user()->row()->id,
                 'fechahora' => date('Y-m-d H:i:s'),
-                'cambiados' => json_encode($diff)
+                'cambiados' => $diff,
             );
             $this->Tareas_model->insert_task_log($datalog);
             session()->set('message', 'Tarea modificada correctamente');
