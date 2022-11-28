@@ -7,6 +7,7 @@
         <div class="form-soaga">
             <div class="row">
                 <div class="col-12">
+                    <h4><?= $texto ?></h4>
                     <div class="mb-3">
                         <label for="comentario">Comentario</label>
                         <input type="text" class="form-control" name="<?= 'comentario' ?>" id="<?= 'comentario' ?>" value="<?= $data_fields['comentario'] ?>" />
