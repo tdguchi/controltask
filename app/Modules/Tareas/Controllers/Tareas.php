@@ -407,7 +407,7 @@ class Tareas extends BaseController
             $this->eventBeforeUpdate($this->request->getPost('tarea_id'));
             $this->Tareas_model->where('tarea_id', $this->request->getPost('tarea_id'))->set($data)->update();
             $this->eventAfterUpdate($this->request->getPost('tarea_id'));
-            session()->set('message', 'Tareaa modificada correctamente');
+            session()->set('message', 'Tarea modificada correctamente');
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
         }
     }
