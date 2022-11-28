@@ -17,7 +17,10 @@ class Tareas_model extends Model
     {
         parent::__construct();
     }
-
+    function insert_tasklog($data)
+    {
+        $this->db->table('tasklog')->insert($data);
+    }
     // get all
     function get_all()
     {
