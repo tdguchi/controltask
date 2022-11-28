@@ -53,7 +53,7 @@
                                     </table>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <?php if ($total_rows > count($tareas_data)) : ?>
+                                    <?php if ($total_rows > count($cambios)) : ?>
                                         <div class="flex-shrink-0 pagination-wrap hstack gap-2">
                                             <?= $pagination ?>
                                         </div>
