@@ -351,6 +351,7 @@ class Asistencias extends BaseController
                 );
                 $this->Tareas_model->where('tarea_id', $tarea_id)->set($data2)->update();
             }
+        }
         $fecha = date('Y-m-d H:i:s');
         $time = Time::parse($fecha);
         $data = array(
