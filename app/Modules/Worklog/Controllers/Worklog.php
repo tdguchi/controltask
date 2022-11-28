@@ -184,6 +184,22 @@ class Worklog extends BaseController
 
     public function update_action($from = false)
     {
+        $id = $this->request->getPost('id');
+        $data = array(
+            'estado' => 0,
+        );
+        $data2 = array(
+            'fechacierre' => date('Y-m-d H:i:s'),
+            'comentario' => $this->request->getPost('comentario'),
+        );
+        $this->Worklog_model->where('tarea_id', $id)->orderby('worklog_id', 'DESC')->limit(1)->set($data2)->update();
+        $this->Tareas_model->where('tarea_id', $id)->set($data)->update();
+        $horas = $this->Worklog_model->calculahoras($id);
+        log_message("error", "horas: " . $horas->diferencia / 60);
+        $data3 = array(
+            'horasreales' => $horas->diferencia / 60,
+        );
+        $this->Tareas_model->where('tarea_id', $id)->set($data3)->update();
     }
 
     public function _rules($raction)

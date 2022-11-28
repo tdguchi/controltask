@@ -10,7 +10,7 @@
                     <div class="mb-3">
                         <label for="comentario">Comentario</label>
                         <input type="text" class="form-control" name="<?= 'comentario' ?>" id="<?= 'comentario' ?>" value="<?= $data_fields['comentario'] ?>" />
-
+                        <input type="hidden" name="id" value="<?= $data_fields['id'] ?>" />
                     </div>
                 </div>
             </div>
