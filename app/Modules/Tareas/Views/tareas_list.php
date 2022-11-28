@@ -106,12 +106,13 @@
                                                     <td class=" text-right "><?= $row->texto_estado ?></td>
                                                     <td class=" text-right ">
                                                         <? if ($quien === '1' && $fichado === true) { ?>
+                                                            <? if ($row->estado == 1) { ?>
+                                                                <button onclick="loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn" value="1"><i class="bx bx-pause fs-22"></i></button>
+                                                            <? } ?>
                                                             <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                             <? if ($row->estado == 0) { ?>
                                                                 <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn" value="0"><i class="bx bx-play fs-22"></i></button>
-                                                            <? } else if ($row->estado == 1) { ?>
-                                                                <button onclick="event.preventDefault(); loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn" value="1"><i class="bx bx-pause fs-22"></i></button>
-                                                            <? }
+                                                            <? } 
                                                             if ($row->estado != 2) { ?>
                                                                 <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn" value="2"><i class="ri-calendar-check-line"></i></button>
                                                             <? } ?>
