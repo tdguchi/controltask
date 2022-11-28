@@ -6,43 +6,6 @@
     <div class="modal-body">
         <div class="form-soaga">
             <div class="row">
-                <?php if (!($fun == "create")) : ?>
-                    <div class="col-12">
-                        <div class="mb-3">
-                            <label for="worklog_id">Worklog ID</label>
-                            <input type="text" class="form-control" name="<?= 'worklog_id' ?>" id="<?= 'worklog_id' ?>" value="<?= $data_fields['worklog_id'] ?>" readonly />
-
-                        </div>
-                    </div>
-                <?php endif; ?>
-                <div class="col-12">
-                    <div class="mb-3">
-                        <label for="tarea_id">Tarea ID</label>
-                        <input type="number" class="form-control" name="<?= 'tarea_id' ?>" id="<?= 'tarea_id' ?>" value="<?= $data_fields['tarea_id'] ?>" />
-
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mb-3">
-                        <label for="usuario_id">Operador</label>
-                        <input type="number" class="form-control" name="<?= 'usuario_id' ?>" id="<?= 'usuario_id' ?>" value="<?= $data_fields['usuario_id'] ?>" />
-
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mb-3">
-                        <label for="fechainicio">Fecha Inicio</label>
-                        <input type="text" class="form-control" name="<?= 'fechainicio' ?>" id="<?= 'fechainicio' ?>" value="<?= $data_fields['fechainicio'] ?>" />
-
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mb-3">
-                        <label for="fechacierre">Fecha Cierre</label>
-                        <input type="text" class="form-control" name="<?= 'fechacierre' ?>" id="<?= 'fechacierre' ?>" value="<?= $data_fields['fechacierre'] ?>" />
-
-                    </div>
-                </div>
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="comentario">Comentario</label>
