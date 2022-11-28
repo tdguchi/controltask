@@ -13,7 +13,7 @@
                         <div class="row">
                                 <div class="col-12">
                                     <div class="mb-12">
-                                        <h3 class="h1-title">Tu último registro hoy ha sido 2: <?= $ultima->nombre?></h3>
+                                        <h3 class="h1-title">Tu último registro hoy ha sido: <?= $ultima->nombre?></h3>
                                     </div>
                                 </div>
                             <div class="row">
