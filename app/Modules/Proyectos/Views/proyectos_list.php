@@ -64,7 +64,7 @@
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="#" onclick="loadModalContent('<?= site_url('proyectos/read/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a>
                                                                     </li>
-                                                                    <?php if ($fichado === true) { ?>
+                                                                    <?php if ($fichado === true && count($group_id) == 2) { ?>
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="#" onclick="loadModalContent('<?= site_url('proyectos/update/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Editar</a>
                                                                     </li>
