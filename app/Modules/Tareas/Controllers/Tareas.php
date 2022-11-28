@@ -391,7 +391,6 @@ class Tareas extends BaseController
             return redirect()->to(site_url('tareas/update/' . $id));
         } else {
             $row = (array) $this->Tareas_model->get_by_id($id);
-            log_message("error", print_r($row,true));
             $data = array();
             $data['proyecto_id'] = $this->request->getPost('proyecto_id');
             $data['usuario_id'] = $this->request->getPost('usuario_id');
@@ -408,9 +407,7 @@ class Tareas extends BaseController
             $this->Tareas_model->where('tarea_id', $this->request->getPost('tarea_id'))->set($data)->update();
             $this->eventAfterUpdate($this->request->getPost('tarea_id'));
             $row2 = (array) $this->Tareas_model->get_by_id($id);
-            log_message("error", print_r($row2,true));
             $diff = array_diff($row2,$row);
-            log_message("error", print_r($diff,true));
             $datalog = array (
                 'usuario_id' => $this->ionAuth->user()->row()->id,
                 'fechahora' => date('Y-m-d H:i:s'),
