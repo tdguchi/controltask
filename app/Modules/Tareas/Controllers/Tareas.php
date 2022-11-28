@@ -452,24 +452,24 @@ class Tareas extends BaseController
                     $ordendir = 'DESC';
                     break;
             }
-            session()->set(array('tareas.od' => $ordendir, 'tareas.oc' => $ordencampo));
+            session()->set(array('cambios.od' => $ordendir, 'cambios.oc' => $ordencampo));
         }
 
-        $oc = session()->get('tareas.oc');
-        $od = session()->get('tareas.od');
+        $oc = session()->get('cambios.oc');
+        $od = session()->get('cambios.od');
 
         if ($nr != '') {
             $config['per_page'] = $nr;
-            session()->set(array('tareas.nr' => $nr));
+            session()->set(array('cambios.nr' => $nr));
         }
 
-        $nr = session()->get('tareas.nr');
+        $nr = session()->get('cambios.nr');
 
         if ($nr != '') {
             $config['per_page'] = $nr;
         } else {
             $config['per_page'] = $pagelength;
-            session()->set(array('tareas.nr' => $pagelength));
+            session()->set(array('cambios.nr' => $pagelength));
         }
 
         $filter_get = urldecode($this->request->getGet('filter'));
@@ -511,7 +511,7 @@ class Tareas extends BaseController
             'orden_dir' => isset($oc) ? $od : '',
         );
                 
-        $data['titulo'] = 'tareas';
+        $data['titulo'] = 'cambios';
         $data['element'] = $title;
         if (session()->get('message')) {
             $data['message'] = session()->get('message');
