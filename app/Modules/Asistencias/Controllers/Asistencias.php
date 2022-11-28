@@ -14,7 +14,7 @@ class Asistencias extends BaseController
     {
         $this->ionAuth    = new \IonAuth\Libraries\IonAuth();
         $this->Tareas_model = model('App\Modules\Tareas\Models\Tareas_model');
-        $this->Worklog_model = model('App\Modules\Tareas\Models\Worklog_model');
+        $this->Worklog_model = model('App\Modules\Worklog\Models\Worklog_model');
         $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
         helper(['formatos', 'form']);
         $this->validation =  \Config\Services::validation();
@@ -340,19 +340,18 @@ class Asistencias extends BaseController
             $tarea = $this->Tareas_model->get_all_activas($user_id);
             if ($tarea != null) {
                 $tarea_id = $tarea[0]->tarea_id;
-                log_message("error", "Tarea: " . $tarea_id);
-
-                $data2 = array(
+                $data = array(
                     'fechacierre' => date('Y-m-d H:i:s'),
                 );
-                $this->Worklog_model->where('tarea_id', $tarea_id)->orderby('worklog_id', 'DESC')->limit(1)->set($data2)->update();
+                $this->Worklog_model->where('tarea_id', $tarea_id)->orderby('worklog_id', 'DESC')->limit(1)->set($data)->update();
 
                 $horas = $this->Worklog_model->calculahoras($tarea_id);
 
-                $data3 = array(
+                $data2 = array(
+                    'estado' => 0,
                     'horasreales' => $horas->diferencia / 60,
                 );
-                $this->Tareas_model->where('tarea_id', $tarea_id)->set($data3)->update();
+                $this->Tareas_model->where('tarea_id', $tarea_id)->set($data2)->update();
             }
         }
         $fecha = date('Y-m-d H:i:s');
