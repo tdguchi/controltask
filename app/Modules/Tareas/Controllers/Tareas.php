@@ -528,7 +528,7 @@ class Tareas extends BaseController
             session()->remove('message');
         }
 
-        $data['main'] = 'App\Modules\Tareas\Views\tareas_list';
+        $data['main'] = 'App\Modules\Tareas\Views\cambios_list';
         return view('template', $data);
     }
     public function delete($id)
