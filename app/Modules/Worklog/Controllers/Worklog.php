@@ -188,7 +188,7 @@ class Worklog extends BaseController
 
             $data['titulo'] = 'worklog';
             $data['subtitulo'] = 'Modificar worklog';
-            return view('template', $data);
+            return view($data['main'], $data);
     }
 
     public function update_action($from = false)
