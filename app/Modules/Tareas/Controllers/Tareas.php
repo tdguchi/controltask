@@ -489,6 +489,8 @@ class Tareas extends BaseController
             'cambios' => $cambios,
             'tab' => $tab,
             'fichado' => $fichado,
+            'group_id' => $group_id,
+            'accion' => site_url('tareas/cambios/' . $id),
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
             'total_rows' => $config['total_rows'],
             'start' => $start,
