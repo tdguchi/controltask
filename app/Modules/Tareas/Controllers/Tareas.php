@@ -406,15 +406,16 @@ class Tareas extends BaseController
             $data['horasreales'] = $this->request->getPost('horasreales');
             $row2 = (array) $this->Tareas_model->get_by_id($id);
             log_message("error", print_r($row2,true));
-            $diff = $result=array_diff($row2,$row);
+            $diff = array_diff($row2,$row);
             $this->eventBeforeUpdate($this->request->getPost('tarea_id'));
             $this->Tareas_model->where('tarea_id', $this->request->getPost('tarea_id'))->set($data)->update();
             $this->eventAfterUpdate($this->request->getPost('tarea_id'));
             $datalog = array (
                 'usuario_id' => $this->ionAuth->user()->row()->id,
                 'fechahora' => date('Y-m-d H:i:s'),
-                'cambiados' => $diff,
+                'cambiados' => json_encode($diff)
             );
+
             $this->Tareas_model->insert_task_log($datalog);
             session()->set('message', 'Tarea modificada correctamente');
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
