@@ -194,31 +194,6 @@ class Worklog extends BaseController
 
     public function update_action($from = false)
     {
-        $rules = $this->_rules('update');
-
-        if ($this->validate($rules) == FALSE) {
-            $id = $this->request->getPost('tarea_id');
-            return redirect()->to(site_url('tareas/update/' . $id));
-        } else {
-            $data = array();
-            $data['proyecto_id'] = $this->request->getPost('proyecto_id');
-            $data['usuario_id'] = $this->request->getPost('usuario_id');
-            $data['usuariosadicionales'] = $this->request->getPost('usuariosadicionales');
-            $data['titulo'] = $this->request->getPost('titulo');
-            $data['descripcion'] = $this->request->getPost('descripcion');
-            $data['fechaobjetivo'] = $this->request->getPost('fechaobjetivo');
-            $data['fechaestimada'] = $this->request->getPost('fechaestimada');
-            $data['horasestimadas'] = $this->request->getPost('horasestimadas');
-            $data['fechacomienzo'] = $this->request->getPost('fechacomienzo');
-            $data['fecharealcierre'] = $this->request->getPost('fecharealcierre');
-            $data['horasreales'] = $this->request->getPost('horasreales');
-
-            $this->eventBeforeUpdate($this->request->getPost('tarea_id'));
-            $this->Tareas_model->where('tarea_id', $this->request->getPost('tarea_id'))->set($data)->update();
-            $this->eventAfterUpdate($this->request->getPost('tarea_id'));
-            session()->set('message', 'Tareaa modificada correctamente');
-            return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
-        }
     }
 
     public function _rules($raction)
