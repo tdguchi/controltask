@@ -72,7 +72,9 @@ class Tareas extends BaseController
             $data2 = array(
                 'fechacierre' => date('Y-m-d H:i:s'),
             );
+            if (count($row) != 0) {
             $this->Worklog_model->where('tarea_id', $tarea_id)->orderby('worklog_id', 'DESC')->limit(1)->set($data2)->update();
+            }
             $this->Tareas_model->where('tarea_id', $tarea_id)->set($data)->update();
             $horas = $this->Worklog_model->calculahoras($tarea_id);
             log_message("error", "horas: " . $horas->diferencia / 60);
