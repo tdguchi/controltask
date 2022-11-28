@@ -81,7 +81,7 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <th scope="row" class="font-weight-bold">Horas Estimadas</th>
+                                                            <th scope="row" class="font-weight-bold">Horas Estimadas (minutos)</th>
                                                             <td><?= $data_fields['horasestimadas'] ?></td>
                                                         </tr>
 
@@ -96,7 +96,7 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <th scope="row" class="font-weight-bold">Horas Reales</th>
+                                                            <th scope="row" class="font-weight-bold">Horas Reales (minutos)</th>
                                                             <td><?= $data_fields['horasreales'] ?></td>
                                                         </tr>
                                                     </tbody>
