@@ -17,7 +17,7 @@ class Tareas_model extends Model
     {
         parent::__construct();
     }
-    function insert_tasklog($data)
+    function insert_task_log($data)
     {
         $this->db->table('tasklog')->insert($data);
     }
