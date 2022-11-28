@@ -503,7 +503,7 @@ class Tareas extends BaseController
             'tab' => $tab,
             'fichado' => $fichado,
             'group_id' => $group_id,
-            'accion' => site_url('tareas/cambios/' . $id),
+            'accion' => site_url('tareas/cambios'),
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
             'total_rows' => $config['total_rows'],
             'start' => $start,
