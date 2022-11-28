@@ -341,11 +341,13 @@ class Asistencias extends BaseController
             log_message("error", "Tarea: " . $tarea[0]->tarea_id);
             if ($tarea != null) {
                 $tarea_id = $tarea[0]->tarea_id;
-                $horas = $this->Worklog_model->calculahoras($tarea_id);
                 $data = array(
                     'fechacierre' => date('Y-m-d H:i:s'),
                 );
                 $this->Worklog_model->where('tarea_id', $tarea_id)->orderby('worklog_id', 'DESC')->limit(1)->set($data)->update();
+
+                $horas = $this->Worklog_model->calculahoras($tarea_id);
+
                 $data2 = array(
                     'estado' => 0,
                     'horasreales' => $horas->diferencia / 60,
