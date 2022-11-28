@@ -92,21 +92,21 @@ class Asistencias extends BaseController
         return array(
             'entrada_manana' => 'trim',
             'salida_manana' =>  [
-                'rules'  => 'trim|check_equal_less[' . $this->request->getPost('entrada_manana') . ']',
+                'rules'  => 'trim|check_less[' . $this->request->getPost('entrada_manana') . ']',
                 'errors' => [
-                    'check_equal_less' => 'El campo salida mañana debe ser mayor que el campo entrada mañana',
+                    'check_less' => 'El campo salida mañana debe ser mayor que el campo entrada mañana',
                 ],
             ],
             'entrada_tarde' => [
-                'rules'  => 'trim|check_equal_less[' . $this->request->getPost('salida_manana') . ']',
+                'rules'  => 'trim|check_less[' . $this->request->getPost('salida_manana') . ']',
                 'errors' => [
-                    'check_equal_less' => 'El campo entrada tarde debe ser mayor que el campo salida mañana',
+                    'check_less' => 'El campo entrada tarde debe ser mayor que el campo salida mañana',
                 ],
             ],
             'salida_tarde' => [
-                'rules'  => 'trim|check_equal_less[' . $this->request->getPost('entrada_tarde') . ']',
+                'rules'  => 'trim|check_less[' . $this->request->getPost('entrada_tarde') . ']',
                 'errors' => [
-                    'check_equal_less' => 'El campo salida tarde debe ser mayor que el campo entrada tarde',
+                    'check_less' => 'El campo salida tarde debe ser mayor que el campo entrada tarde',
                 ],
             ],
             'entrada_verano_manana' => 'trim',

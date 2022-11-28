@@ -166,6 +166,14 @@ class FormatRules
             return true;
         }
     }
+    public function check_less($second_field, $first_field)
+    {
+        if (strtotime($second_field) < strtotime($first_field)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     /**
      * Compares value against a regular expression pattern.
      */
