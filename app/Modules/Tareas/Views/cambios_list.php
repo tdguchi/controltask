@@ -19,8 +19,8 @@
                                     <table class="table align-middle table-nowrap">
                                         <thead class="table-light">
                                             <tr>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('usuario_id', 'tasklog.'); ?>" style="color:inherit;">Usuario <span class="block-sort"><i class="bx <?= $orden_campo == "usuario_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechahora', 'tasklog.'); ?>" style="color:inherit;">Fecha y Hora <span class="block-sort"><i class="bx <?= $orden_campo == "fechahora" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('usuario_id', 'tasklog.'). $filter . $custom_title; ?>" style="color:inherit;">Usuario <span class="block-sort"><i class="bx <?= $orden_campo == "usuario_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechahora', 'tasklog.'). $filter . $custom_title; ?>" style="color:inherit;">Fecha y Hora <span class="block-sort"><i class="bx <?= $orden_campo == "fechahora" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize ">Campos cambiados</th>
                                             </tr>
                                         </thead>
