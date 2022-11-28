@@ -420,7 +420,8 @@ class Tareas extends BaseController
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
         }
     }
-    public function cambios($id) {
+    public function cambios() {
+        $id = 10;
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
         $pagelength = 50;

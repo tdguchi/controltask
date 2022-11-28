@@ -87,7 +87,7 @@
                                                                             <a href="#" onclick="deleteItem('<?= $row->tarea_id ?>')" class="color-red">Eliminar</a>
                                                                         </li>
                                                                         <li class="list-inline-item fs-12">
-                                                                            <a href="<?= site_url('tareas/cambios/') . $row->tarea_id ?>" class="color-blue">Cambios</a>
+                                                                            <a href="<?= site_url('tareas/cambios/') ?>" class="color-blue">Cambios</a>
                                                                         </li>
                                                                     <?php } ?>
                                                                 </ul>
