@@ -420,8 +420,8 @@ class Tareas extends BaseController
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
         }
     }
-    public function cambios() {
-        $id = 10;
+    public function cambios($id)
+    {
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
         $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
         $pagelength = 50;
@@ -429,6 +429,11 @@ class Tareas extends BaseController
         if (intval($page) <= 0) {
             $page = 1;
         }
+        if (count($_POST) > 0)
+            session()->set(array('cambios.q' => $this->request->getPost('q')));
+
+        $q = session()->get('cambios.q');
+        session()->set(array('cambios.q' => null));
 
         $filter_get = urldecode($this->request->getGet('filter'));
         if ($filter_get == '') {
@@ -486,24 +491,28 @@ class Tareas extends BaseController
             $config['per_page'] = $pagelength;
             session()->set(array('cambios.nr' => $pagelength));
         }
+
+
         $start = $config['per_page'] * ($page - 1);
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
-        $cambios = $this->Tareas_model->get_task_log( $config['per_page'], $start, $oc, $od, $id);
+        $tareas = $this->Tareas_model->get_task_log($id, $config['per_page'], $start, $q, $filter, $oc, $od);
+        $config['total_rows'] = count($tareas);
         $pager = \Config\Services::pager();
-        $config['total_rows'] = count($cambios);
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
         if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
             $fichado = false;
         } else {
             $fichado = true;
         }
-        $data = array (
-            'cambios' => $cambios,
-            'tab' => $tab,
-            'fichado' => $fichado,
+        $accion = site_url('tareas/cambios/' . $id);
+        $data = array(
             'group_id' => $group_id,
-            'accion' => site_url('tareas/cambios'),
+            'accion' => $accion,
+            'fichado' => $fichado,
+            'tareas_data' => $tareas,
+            'q' => $q,
+            'tab' => $tab,
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
             'total_rows' => $config['total_rows'],
             'start' => $start,
@@ -512,17 +521,15 @@ class Tareas extends BaseController
             'orden_campo' => isset($oc) ? $oc : '',
             'orden_dir' => isset($oc) ? $od : '',
         );
-                
-        $data['titulo'] = 'cambios';
+        $data['titulo'] = 'tareas';
         $data['element'] = $title;
         if (session()->get('message')) {
             $data['message'] = session()->get('message');
             session()->remove('message');
         }
 
-        $data['main'] = 'App\Modules\Tareas\Views\cambios_list';
-        return view('template', $data);;
-
+        $data['main'] = 'App\Modules\Tareas\Views\tareas_list';
+        return view('template', $data);
     }
     public function delete($id)
     {
