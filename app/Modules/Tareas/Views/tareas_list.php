@@ -72,7 +72,7 @@
                                                     <td class=" text-left ">
                                                         <div class>
                                                             <div class="flex-grow-1 tasks_name">
-                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->titulo ?></a>
+                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->titulo ?></a>
                                                             </div>
                                                             <div class="flex-shrink-0">
                                                                 <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
