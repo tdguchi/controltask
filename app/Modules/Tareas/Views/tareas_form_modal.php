@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-12">
                         <div class="mb-3">
-                            <label for="horasestimadas">Horas Estimadas</label>
+                            <label for="horasestimadas">Horas Estimadas (minutos)</label>
                             <input type="number" class="form-control" name="<?= 'horasestimadas' ?>" id="<?= 'horasestimadas' ?>" value="<?= $data_fields['horasestimadas'] ?>" required />
 
                         </div>
