@@ -21,12 +21,18 @@ class Tareas_model extends Model
     {
         $this->db->table('tasklog')->insert($data);
     }
-    function get_task_log($id)
+    function get_task_log($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array(), $id = null)
     {
         $builder = $this->db->table('tasklog')->select('tasklog.*');
         $builder->where('tarea_id', $id);
-        $builder->orderBy('id', 'DESC');
+        if ($oc != '') {
+            $builder->orderBy($oc, $od);
+        } else
+            $builder->orderBy('tarea_id', 'asc');
+        $builder->limit($limit, $start);
+
         return $builder->get()->getResult();
+
     }
     // get all
     function get_all()
