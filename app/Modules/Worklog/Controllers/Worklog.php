@@ -15,15 +15,6 @@ class Worklog extends BaseController
         $this->Worklog_model = model('App\Modules\Worklog\Models\Worklog_model');
         helper(['formatos', 'form']);
         $this->validation =  \Config\Services::validation();
-
-        $config = config('App');
-        if (isset($config->authEnabled) && $config->authEnabled) {
-            $ionAuth = new \IonAuth\Libraries\IonAuth();
-            if (!$ionAuth->isAdmin()) {
-                header("Location: " . base_url());
-                die();
-            }
-        }
     }
 
     public function index()
