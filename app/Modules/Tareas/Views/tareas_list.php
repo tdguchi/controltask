@@ -86,9 +86,11 @@
                                                                         <li class="list-inline-item fs-12">
                                                                             <a href="#" onclick="deleteItem('<?= $row->tarea_id ?>')" class="color-red">Eliminar</a>
                                                                         </li>
-                                                                        <li class="list-inline-item fs-12">
+                                                                        <? if (count($group_id) == 2) { ?>
+                                                                            <li class="list-inline-item fs-12">
                                                                             <a href="<?= site_url('tareas/cambios/') . $row->tarea_id ?>" class="color-blue">Cambios</a>
                                                                         </li>
+                                                                        <? } ?>
                                                                     <?php } ?>
                                                                 </ul>
                                                             </div>
