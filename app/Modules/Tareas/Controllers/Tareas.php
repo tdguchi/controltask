@@ -428,6 +428,20 @@ class Tareas extends BaseController
         if (intval($page) <= 0) {
             $page = 1;
         }
+
+        $filter_get = urldecode($this->request->getGet('filter'));
+        if ($filter_get == '') {
+            $filter_get = urldecode($this->request->getPost('filter'));
+        }
+        $filter = array();
+        if ($filter_get != '') {
+            $filter_arr = explode(':', $filter_get);
+            if (count($filter_arr) == 2) {
+                $filter = $filter_arr;
+            }
+            $filter_get = '&filter=' . urlencode($filter_get);
+        }
+
         $title = urldecode($this->request->getGet('title'));
         if ($title == '') {
             $title = urldecode($this->request->getPost('title'));
@@ -471,20 +485,6 @@ class Tareas extends BaseController
             $config['per_page'] = $pagelength;
             session()->set(array('cambios.nr' => $pagelength));
         }
-
-        $filter_get = urldecode($this->request->getGet('filter'));
-        if ($filter_get == '') {
-            $filter_get = urldecode($this->request->getPost('filter'));
-        }
-        $filter = array();
-        if ($filter_get != '') {
-            $filter_arr = explode(':', $filter_get);
-            if (count($filter_arr) == 2) {
-                $filter = $filter_arr;
-            }
-            $filter_get = '&filter=' . urlencode($filter_get);
-        }
-
         $start = $config['per_page'] * ($page - 1);
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
