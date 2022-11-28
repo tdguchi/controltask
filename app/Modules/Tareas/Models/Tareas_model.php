@@ -23,7 +23,8 @@ class Tareas_model extends Model
     }
     function get_task_log($id = null, $limit, $start = 0,$q = null, $filter=array(), $oc = '', $od = '')
     {
-        $builder = $this->db->table('tasklog')->select('tasklog.*');
+        $builder = $this->db->table('tasklog')->select('tasklog.*, ion_users.first_name AS nombre');
+        $builder->join('ion_users', 'ion_users.id = tasklog.usuario_id', 'left');
         $builder->where('tarea_id', $id);
         if ($oc != '') {
             $builder->orderBy($oc, $od);
