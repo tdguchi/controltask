@@ -339,7 +339,7 @@ class Asistencias extends BaseController
         if ($asistencia_nueva_id == 1) {
             $tarea = $this->Tareas_model->get_all_activas($user_id);
             if ($tarea != null) {
-                $tarea_id = $tarea->tarea_id;
+                $tarea_id = $tarea[0]->tarea_id;
                 $horas = $this->Worklog_model->calculahoras($tarea_id);
                 $data = array(
                     'fechacierre' => date('Y-m-d H:i:s'),
