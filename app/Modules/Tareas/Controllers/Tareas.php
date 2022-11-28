@@ -472,11 +472,23 @@ class Tareas extends BaseController
             session()->set(array('tareas.nr' => $pagelength));
         }
 
+        $filter_get = urldecode($this->request->getGet('filter'));
+        if ($filter_get == '') {
+            $filter_get = urldecode($this->request->getPost('filter'));
+        }
+        $filter = array();
+        if ($filter_get != '') {
+            $filter_arr = explode(':', $filter_get);
+            if (count($filter_arr) == 2) {
+                $filter = $filter_arr;
+            }
+            $filter_get = '&filter=' . urlencode($filter_get);
+        }
 
         $start = $config['per_page'] * ($page - 1);
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
-        $cambios = $this->Tareas_model->get_task_log($id);
+        $cambios = $this->Tareas_model->get_task_log($id, $config['per_page'], $start, $oc, $od, $filter);
         $pager = \Config\Services::pager();
         $config['total_rows'] = count($cambios);
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
