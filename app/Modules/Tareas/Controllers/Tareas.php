@@ -407,6 +407,7 @@ class Tareas extends BaseController
             $row2 = (array) $this->Tareas_model->get_by_id($id);
             log_message("error", print_r($row2,true));
             $diff = array_diff($row2,$row);
+            log_message("error", print_r($diff,true));
             $this->eventBeforeUpdate($this->request->getPost('tarea_id'));
             $this->Tareas_model->where('tarea_id', $this->request->getPost('tarea_id'))->set($data)->update();
             $this->eventAfterUpdate($this->request->getPost('tarea_id'));
