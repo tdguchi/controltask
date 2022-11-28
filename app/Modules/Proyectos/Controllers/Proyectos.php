@@ -102,6 +102,7 @@ class Proyectos extends BaseController
         $proyectos = $this->Proyectos_model->get_limit_data($config['per_page'], $start, $q, $tab, $oc, $od, $filter);
         $pager = \Config\Services::pager();
         $user_id = $this->ionAuth->user()->row()->id;
+        $group_id = $this->Tareas_model->get_group_id($user_id);
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
         if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
             $fichado = false;
@@ -110,6 +111,7 @@ class Proyectos extends BaseController
         }
         $data = array(
             'fichado' => $fichado,
+            'group_id' => $group_id,
             'proyectos_data' => $proyectos,
             'q' => $q,
             'tab' => $tab,
