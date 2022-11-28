@@ -13,7 +13,6 @@
 
                     </div>
                 </div>
-                <input type="hidden" name="worklog_id" value="<?php echo $data_fields['worklog_id']; ?>" />
             </div>
         </div>
     </div>
