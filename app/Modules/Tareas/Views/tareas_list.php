@@ -171,7 +171,6 @@ $token_hash = csrf_hash();
 <script>
     function loadModalContent(url) {
         $.post(url, {
-            '<?= $token_name; ?>': '<?= $token_hash; ?>'
         }, function(result) {
             $("#ajax .modal-content").html(result);
         });
