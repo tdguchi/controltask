@@ -13,6 +13,7 @@ class Worklog extends BaseController
         $this->ionAuth    = new \IonAuth\Libraries\IonAuth();
         $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
         $this->Worklog_model = model('App\Modules\Worklog\Models\Worklog_model');
+        $this->Tareas_model = model('App\Modules\Tareas\Models\Tareas_model');
         helper(['formatos', 'form']);
         $this->validation =  \Config\Services::validation();
     }
