@@ -168,7 +168,7 @@ class FormatRules
     }
     public function check_less($second_field, $first_field)
     {
-        if (strtotime($second_field) > strtotime($first_field)) {
+        if (strtotime($second_field) < strtotime($first_field)) {
             return false;
         } else {
             return true;
