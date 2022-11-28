@@ -174,7 +174,16 @@ class Worklog extends BaseController
     }
     public function update($id)
     {
-            
+        $data = array(
+            'button' => 'Añadir',
+            'fun' => 'create',
+            'action' => site_url('worklog/update_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : ''),
+            'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
+            'data_fields' => array(
+                'id' => set_value('id', $id),
+                'comentario' => "",
+            )
+        );
             $data['main'] = 'App\Modules\Worklog\Views\worklog_form_modal';
 
             $data['titulo'] = 'worklog';
