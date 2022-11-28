@@ -95,7 +95,7 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="mb-3">
-                                                                <label for="horasestimadas">Horas Estimadas</label>
+                                                                <label for="horasestimadas">Horas Estimadas (minutos)</label>
                                                                 <input type="number" class="form-control" name="<?= 'horasestimadas' ?>" id="<?= 'horasestimadas' ?>" value="<?= $data_fields['horasestimadas'] ?>" required />
 
                                                             </div>
@@ -117,7 +117,7 @@
                                                             </div>
                                                             <div class="col-12">
                                                                 <div class="mb-3">
-                                                                    <label for="horasreales">Horas Reales</label>
+                                                                    <label for="horasreales">Horas Reales (minutos)</label>
                                                                     <input type="number" class="form-control" name="<?= 'horasreales' ?>" id="<?= 'horasreales' ?>" value="<?= $data_fields['horasreales'] ?>" readonly/>
                                                                 <?php endif; ?>
                                                                 </div>
