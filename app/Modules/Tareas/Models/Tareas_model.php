@@ -21,7 +21,7 @@ class Tareas_model extends Model
     {
         $this->db->table('tasklog')->insert($data);
     }
-    function get_task_log($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array(), $id = null)
+    function get_task_log($limit, $start = 0, $oc = '', $od = '', $id = null)
     {
         $builder = $this->db->table('tasklog')->select('tasklog.*');
         $builder->where('tarea_id', $id);

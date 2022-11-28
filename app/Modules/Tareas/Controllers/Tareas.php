@@ -488,7 +488,7 @@ class Tareas extends BaseController
         $start = $config['per_page'] * ($page - 1);
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
-        $cambios = $this->Tareas_model->get_task_log($id, $config['per_page'], $start, $oc, $od, $filter);
+        $cambios = $this->Tareas_model->get_task_log( $config['per_page'], $start, $oc, $od, $id);
         $pager = \Config\Services::pager();
         $config['total_rows'] = count($cambios);
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
