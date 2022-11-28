@@ -479,9 +479,16 @@ class Tareas extends BaseController
         $cambios = $this->Tareas_model->get_task_log($id);
         $pager = \Config\Services::pager();
         $config['total_rows'] = count($cambios);
+        $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
+        if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
+            $fichado = false;
+        } else {
+            $fichado = true;
+        }
         $data = array (
             'cambios' => $cambios,
             'tab' => $tab,
+            'fichado' => $fichado,
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
             'total_rows' => $config['total_rows'],
             'start' => $start,
