@@ -482,7 +482,6 @@ class Tareas extends BaseController
             'cambios' => $cambios,
             'tab' => $tab,
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
-            'total_rows' => $config['total_rows'],
             'start' => $start,
             'custom_title' => $custom_title,
             'orden_campo' => isset($oc) ? $oc : '',

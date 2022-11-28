@@ -52,13 +52,6 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="d-flex align-items-center">
-                                    <?php if ($total_rows > count($tareas_data)) : ?>
-                                        <div class="flex-shrink-0 pagination-wrap hstack gap-2">
-                                            <?= $pagination ?>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
                             </div>
                         </div>
                     </div>
