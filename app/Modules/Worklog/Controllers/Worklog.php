@@ -201,6 +201,7 @@ class Worklog extends BaseController
             'horasreales' => $horas->diferencia / 60,
         );
         $this->Tareas_model->where('tarea_id', $id)->set($data3)->update();
+        return redirect()->to(site_url('tareas'));
     }
 
     public function _rules($raction)
