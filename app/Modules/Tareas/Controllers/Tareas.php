@@ -404,7 +404,8 @@ class Tareas extends BaseController
             $data['fechacomienzo'] = $this->request->getPost('fechacomienzo');
             $data['fecharealcierre'] = $this->request->getPost('fecharealcierre');
             $data['horasreales'] = $this->request->getPost('horasreales');
-            log_message("error", print_r($data,true));
+            $row2 = $this->Tareas_model->get_by_id($id);
+            log_message("error", print_r($row2,true));
             $this->eventBeforeUpdate($this->request->getPost('tarea_id'));
             $this->Tareas_model->where('tarea_id', $this->request->getPost('tarea_id'))->set($data)->update();
             $this->eventAfterUpdate($this->request->getPost('tarea_id'));
