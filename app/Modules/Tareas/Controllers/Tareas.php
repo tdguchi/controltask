@@ -390,7 +390,7 @@ class Tareas extends BaseController
         if ($this->validate($rules) == FALSE) {
             return redirect()->to(site_url('tareas/update/' . $id));
         } else {
-            $row = $this->Tareas_model->get_by_id($id);
+            $row = (array) $this->Tareas_model->get_by_id($id);
             log_message("error", print_r($row,true));
             $data = array();
             $data['proyecto_id'] = $this->request->getPost('proyecto_id');
@@ -404,7 +404,7 @@ class Tareas extends BaseController
             $data['fechacomienzo'] = $this->request->getPost('fechacomienzo');
             $data['fecharealcierre'] = $this->request->getPost('fecharealcierre');
             $data['horasreales'] = $this->request->getPost('horasreales');
-            $row2 = $this->Tareas_model->get_by_id($id);
+            $row2 = (array) $this->Tareas_model->get_by_id($id);
             log_message("error", print_r($row2,true));
             $diff = $result=array_diff($row2,$row);
             $this->eventBeforeUpdate($this->request->getPost('tarea_id'));
