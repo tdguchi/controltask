@@ -212,7 +212,7 @@ class Tareas extends BaseController
 
         $data['main'] = 'App\Modules\Tareas\Views\tareas_list';
         $modal_view = 'App\Modules\Tareas\Views\tareas_list_modal';
-        return view(($modal) ? $modal_view : 'template', $data);;
+        return view(($modal) ? $modal_view : 'template', $data);
     }
 
     public function read($id, $modal = false)
@@ -409,6 +409,7 @@ class Tareas extends BaseController
             $row2 = (array) $this->Tareas_model->get_by_id($id);
             $diff = array_diff($row2,$row);
             $datalog = array (
+                'tarea_id' => $id,
                 'usuario_id' => $this->ionAuth->user()->row()->id,
                 'fechahora' => date('Y-m-d H:i:s'),
                 'cambiados' => json_encode($diff)
@@ -419,7 +420,86 @@ class Tareas extends BaseController
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
         }
     }
+    public function cambios($id) {
+        $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
+        $page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
+        $pagelength = 50;
 
+        if (intval($page) <= 0) {
+            $page = 1;
+        }
+        $title = urldecode($this->request->getGet('title'));
+        if ($title == '') {
+            $title = urldecode($this->request->getPost('title'));
+        }
+        if ($title != '') {
+            $custom_title = '&title=' . $title;
+        } else {
+            $custom_title = '';
+        }
+
+        $ob = urldecode($this->request->getGet('ob'));
+        $nr = urldecode($this->request->getGet('nr'));
+
+        if ($ob != '') {
+            $orddir = substr($ob, 0, 1);
+            $ordencampo = substr($ob, 1);
+            switch ($orddir) {
+                case 'a':
+                    $ordendir = 'ASC';
+                    break;
+                case 'd':
+                    $ordendir = 'DESC';
+                    break;
+            }
+            session()->set(array('tareas.od' => $ordendir, 'tareas.oc' => $ordencampo));
+        }
+
+        $oc = session()->get('tareas.oc');
+        $od = session()->get('tareas.od');
+
+        if ($nr != '') {
+            $config['per_page'] = $nr;
+            session()->set(array('tareas.nr' => $nr));
+        }
+
+        $nr = session()->get('tareas.nr');
+
+        if ($nr != '') {
+            $config['per_page'] = $nr;
+        } else {
+            $config['per_page'] = $pagelength;
+            session()->set(array('tareas.nr' => $pagelength));
+        }
+
+
+        $start = $config['per_page'] * ($page - 1);
+        $user_id = $this->ionAuth->user()->row()->id;
+        $group_id = $this->Tareas_model->get_group_id($user_id);
+        $cambios = $this->Tareas_model->get_task_log($id);
+        $pager = \Config\Services::pager();
+        $data = array (
+            'cambios' => $cambios,
+            'tab' => $tab,
+            'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
+            'total_rows' => $config['total_rows'],
+            'start' => $start,
+            'custom_title' => $custom_title,
+            'orden_campo' => isset($oc) ? $oc : '',
+            'orden_dir' => isset($oc) ? $od : '',
+        );
+                
+        $data['titulo'] = 'tareas';
+        $data['element'] = $title;
+        if (session()->get('message')) {
+            $data['message'] = session()->get('message');
+            session()->remove('message');
+        }
+
+        $data['main'] = 'App\Modules\Tareas\Views\cambios_list';
+        return view('template', $data);;
+
+    }
     public function delete($id)
     {
         $row = $this->Tareas_model->get_by_id($id);
