@@ -110,7 +110,7 @@
                                                             <? if ($row->estado == 0) { ?>
                                                                 <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn" value="0"><i class="bx bx-play fs-22"></i></button>
                                                             <? } else if ($row->estado == 1) { ?>
-                                                                <button onclick="loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>')" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn" value="1"><i class="bx bx-pause fs-22"></i></button>
+                                                                <button onclick="event.preventDefault(); loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn" value="1"><i class="bx bx-pause fs-22"></i></button>
                                                             <? }
                                                             if ($row->estado != 2) { ?>
                                                                 <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn" value="2"><i class="ri-calendar-check-line"></i></button>
@@ -169,7 +169,6 @@ $token_hash = csrf_hash();
 
 <script>
     function loadModalContent(url) {
-        event.preventDefault();
         $.post(url, {
             '<?= $token_name; ?>': '<?= $token_hash; ?>'
         }, function(result) {
