@@ -496,8 +496,8 @@ class Tareas extends BaseController
         $start = $config['per_page'] * ($page - 1);
         $user_id = $this->ionAuth->user()->row()->id;
         $group_id = $this->Tareas_model->get_group_id($user_id);
-        $tareas = $this->Tareas_model->get_task_log($id, $config['per_page'], $start, $q, $filter, $oc, $od);
-        $config['total_rows'] = count($tareas);
+        $cambios = $this->Tareas_model->get_task_log($id, $config['per_page'], $start, $q, $filter, $oc, $od);
+        $config['total_rows'] = count($cambios);
         $pager = \Config\Services::pager();
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
         if ($ultima_asistencia == null || $ultima_asistencia->asistenciatipo_id == 1 || $ultima_asistencia->asistenciatipo_id == 3) {
@@ -510,7 +510,7 @@ class Tareas extends BaseController
             'group_id' => $group_id,
             'accion' => $accion,
             'fichado' => $fichado,
-            'tareas_data' => $tareas,
+            'cambios' => $cambios,
             'q' => $q,
             'tab' => $tab,
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
