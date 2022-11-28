@@ -478,10 +478,12 @@ class Tareas extends BaseController
         $group_id = $this->Tareas_model->get_group_id($user_id);
         $cambios = $this->Tareas_model->get_task_log($id);
         $pager = \Config\Services::pager();
+        $config['total_rows'] = count($cambios);
         $data = array (
             'cambios' => $cambios,
             'tab' => $tab,
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
+            'total_rows' => $config['total_rows'],
             'start' => $start,
             'custom_title' => $custom_title,
             'orden_campo' => isset($oc) ? $oc : '',
