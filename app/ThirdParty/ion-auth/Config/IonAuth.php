@@ -144,8 +144,8 @@ class IonAuth extends \CodeIgniter\Config\BaseConfig
 	 | The library will fail for empty password or password size above 4096 bytes.
 	 | This is an arbitrary (long) value to protect against DOS attack.
 	 */
-	public $siteTitle                = 'Example.com';       // Site Title, example.com
-	public $adminEmail               = 'admin@example.com'; // Admin Email, admin@example.com
+	public $siteTitle                = 'controltask.net';       // Site Title, example.com
+	public $adminEmail               = 'info@controltask.net'; // Admin Email, admin@example.com
 	public $defaultGroup             = 'members';           // Default group, use name
 	public $adminGroup               = 'admin';             // Default administrators group, use name
 	public $identity                 = 'username';             /* You can use any unique column in your table as identity column.
