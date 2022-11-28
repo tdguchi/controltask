@@ -19,12 +19,6 @@
                                     <table class="table align-middle table-nowrap">
                                         <thead class="table-light">
                                             <tr>
-                                                <th scope="col" style="width: 50px;">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                    </div>
-                                                </th>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('tarea_id', 'tasklog.'); ?>" style="color:inherit;">Tarea <span class="block-sort"><i class="bx <?= $orden_campo == "tarea_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('usuario_id', 'tasklog.'); ?>" style="color:inherit;">Usuario <span class="block-sort"><i class="bx <?= $orden_campo == "usuario_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechahora', 'tasklog.'); ?>" style="color:inherit;">Fecha y Hora <span class="block-sort"><i class="bx <?= $orden_campo == "fechahora" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize ">Campos cambiados</th>
@@ -33,17 +27,6 @@
                                         <tbody class="list form-check-all">
                                             <? foreach ($cambios as $row) { ?>
                                                 <tr>
-                                                    <th scope="row">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->tarea_id ?>">
-                                                        </div>
-                                                    </th>
-                                                    <td class=" text-left ">
-                                                        <div class>
-                                                            <div class="flex-grow-1 tasks_name">
-                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->tarea_id ?></a>
-                                                            </div>
-                                                    </td>
                                                     <td class=" text-right "><?= $row->usuario_id ?></td>
                                                     <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->cambiados ?></td>
