@@ -506,6 +506,7 @@ class Tareas extends BaseController
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
             'total_rows' => $config['total_rows'],
             'start' => $start,
+            'filter' => $filter,
             'custom_title' => $custom_title,
             'orden_campo' => isset($oc) ? $oc : '',
             'orden_dir' => isset($oc) ? $od : '',
