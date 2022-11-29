@@ -36,7 +36,7 @@
                                                     <td class=" text-left ">
                                                         <div class>
                                                             <div class="flex-grow-1 tasks_name">
-                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('horarios/read/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->entrada_manana ?></a>
+                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('horarios/read/' . $row->horario_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->entrada_manana ?></a>
                                                             </div>
                                                         </div>
                                                     </td>
