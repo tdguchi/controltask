@@ -259,7 +259,7 @@ class Tareas extends BaseController
         if ($row) {
             $data = array(
                 'titulotarea' => $row->titulo,
-                'fechahora' => 'el dia: ' . date('d-m-Y',strtotime($row->fechahora)) . ' a las ' . date('H:i:s',strtotime($row->fechahora)),
+                'fechahora' => 'Dia: ' . date('d-m-Y',strtotime($row->fechahora)) . ' a las ' . date('H:i:s',strtotime($row->fechahora)),
                 'cambiados' => (array) json_decode($row->cambiados),
                 'originales' => (array) json_decode($row->originales),
             );
