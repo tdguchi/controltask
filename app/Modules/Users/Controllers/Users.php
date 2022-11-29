@@ -231,15 +231,6 @@ class Users extends BaseController
                 'phone'      => $this->request->getPost('phone'),
                 'dni'        => $this->request->getPost('dni'),
                 'email'      => $this->request->getPost('email'),
-                'entrada_manana'   => $this->request->getPost('entrada_manana'),
-                'salida_manana' => $this->request->getPost('salida_manana'),
-                'entrada_tarde' => $this->request->getPost('entrada_tarde'),
-                'salida_tarde' => $this->request->getPost('salida_tarde'),
-                'entrada_verano_manana' => $this->request->getPost('entrada_verano_manana'),
-                'salida_verano_manana' => $this->request->getPost('salida_verano_manana'),
-                'entrada_verano_tarde' => $this->request->getPost('entrada_verano_tarde'),
-                'salida_verano_tarde'  => $this->request->getPost('salida_verano_tarde')
-
             ];
             $user_id = $this->ionAuth->register($identity, $password, $email, $additionalData);
             if ($user_id) {
@@ -311,14 +302,6 @@ class Users extends BaseController
                     'phone' => set_value('phone', $row->phone),
                     'id' => set_value('id', $id),
                     'dni' => set_value('dni', $row->dni),
-                    'entrada_manana' => set_value('entrada_manana', $row->entrada_manana),
-                    'salida_manana' => set_value('salida_manana', $row->salida_manana),
-                    'entrada_tarde' => set_value('entrada_tarde', $row->entrada_tarde),
-                    'salida_tarde' => set_value('salida_tarde', $row->salida_tarde),
-                    'entrada_verano_manana' => set_value('entrada_verano_manana', $row->entrada_verano_manana),
-                    'salida_verano_manana' => set_value('salida_verano_manana', $row->salida_verano_manana),
-                    'entrada_verano_tarde' => set_value('entrada_verano_tarde', $row->entrada_verano_tarde),
-                    'salida_verano_tarde' => set_value('salida_verano_tarde', $row->salida_verano_tarde),
                 )
             );
 
@@ -367,14 +350,6 @@ class Users extends BaseController
                 'dni' => $this->request->getPost('dni'),
                 'email' => $this->request->getPost('email'),
                 'password' => $this->request->getPost('password'),
-                'entrada_manana' => $this->request->getPost('entrada_manana'),
-                'salida_manana' => $this->request->getPost('salida_manana'),
-                'entrada_tarde' => $this->request->getPost('entrada_tarde'),
-                'salida_tarde' => $this->request->getPost('salida_tarde'),
-                'entrada_verano_manana' => $this->request->getPost('entrada_verano_manana'),
-                'salida_verano_manana' => $this->request->getPost('salida_verano_manana'),
-                'entrada_verano_tarde' => $this->request->getPost('entrada_verano_tarde'),
-                'salida_verano_tarde' => $this->request->getPost('salida_verano_tarde')
             ];
 
             if ($this->request->getPost('password')) {
@@ -412,30 +387,6 @@ class Users extends BaseController
             'company' => 'trim',
             'phone' => 'trim',
             'dni' => 'trim|required',
-            'entrada_manana' => 'trim',
-            'salida_manana' =>  $raction == "update" ? [
-                'rules'  => 'trim|check_equal_less[' . $this->request->getPost('entrada_manana') . ']',
-                'errors' => [
-                    'check_equal_less' => 'El campo salida mañana debe ser mayor que el campo entrada mañana',
-                ],
-            ] : 'trim',
-            'entrada_tarde' => $raction == "update" ? [
-                'rules'  => 'trim|check_equal_less[' . $this->request->getPost('salida_manana') . ']',
-                'errors' => [
-                    'check_equal_less' => 'El campo entrada tarde debe ser mayor que el campo salida mañana',
-                ],
-            ] : 'trim',
-            'salida_tarde' => $raction == "update" ? [
-                'rules'  => 'trim|check_equal_less[' . $this->request->getPost('entrada_tarde') . ']',
-                'errors' => [
-                    'check_equal_less' => 'El campo salida tarde debe ser mayor que el campo entrada tarde',
-                ],
-            ] : 'trim',
-            'entrada_verano_manana' => 'trim',
-            'salida_verano_manana' => 'trim',
-            'entrada_verano_tarde' => 'trim',
-            'salida_verano_tarde' => 'trim',
-
             'id' => 'trim',
         );
     }
