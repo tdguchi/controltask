@@ -33,13 +33,7 @@
                                         <tbody class="list form-check-all">
                                             <? foreach ($horarios_data as $row) { ?>
                                                 <tr>
-                                                    <td class=" text-left ">
-                                                        <div class>
-                                                            <div class="flex-grow-1 tasks_name">
-                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('horarios/read/' . $row->id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->entrada_manana ?></a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
+                                                    <td class=" text-left "><?= $row->entrada_manana ?></td>
                                                     <td class=" text-left "><?= $row->salida_manana ?></td>
                                                     <td class=" text-left "><?= $row->entrada_tarde ?></td>
                                                     <td class=" text-left "><?= $row->salida_tarde ?></td>
