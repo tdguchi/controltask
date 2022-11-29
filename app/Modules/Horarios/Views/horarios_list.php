@@ -34,10 +34,10 @@
                                         <tbody class="list form-check-all">
                                             <? foreach ($horarios_data as $row) { ?>
                                                 <tr>
-                                                    <td class=" text-left "><?= date('H:i',strtotime($row->entrada_manana)) ?></td>
-                                                    <td class=" text-left "><?= date('H:i',strtotime($row->salida_manana)) ?></td>
-                                                    <td class=" text-left "><?= date('H:i',strtotime($row->entrada_tarde)) ?></td>
-                                                    <td class=" text-left "><?= date('H:i',strtotime($row->salida_tarde)) ?></td>
+                                                    <td class=" text-center "><?= date('H:i',strtotime($row->entrada_manana)) ?></td>
+                                                    <td class=" text-center "><?= date('H:i',strtotime($row->salida_manana)) ?></td>
+                                                    <td class=" text-center "><?= date('H:i',strtotime($row->entrada_tarde)) ?></td>
+                                                    <td class=" text-center "><?= date('H:i',strtotime($row->salida_tarde)) ?></td>
                                                 <? if ($fichado === true && count($group_id) == 2) { ?>
                                                     <td class=" text-center ">
                                                         <a href="#" class="btn btn-primary btn-sm">Verano</a>
