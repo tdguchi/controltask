@@ -9,6 +9,9 @@
 				<h4>Cambios realizados a la tarea: <?= $titulotarea ?></h4>
 			</tr>
 			<tr>
+				<h4><?= $fechahora ?></h4>
+			</tr>
+			<tr>
 				<th scope="row" class="font-weight-bold">Campo modificado</th>
 				<th scope="row" class="font-weight-bold">Valor anterior</th>
 				<th scope="row" class="font-weight-bold">Valor nuevo</th>
