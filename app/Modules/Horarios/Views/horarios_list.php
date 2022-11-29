@@ -1,7 +1,7 @@
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
-        <?= view('partials/fichar') ?>
+            <?= view('partials/fichar') ?>
             <?php if (isset($message)) : ?>
                 <div class="form-group mb-3 alert alert-success"><?= $message ?></div>
             <?php endif; ?>
@@ -12,8 +12,8 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
-                                <?php if ($fichado === true && count($group_id) == 2) { ?>
-                                    <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('horarios/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
+                                    <?php if ($fichado === true && count($group_id) == 2) { ?>
+                                        <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('horarios/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -38,18 +38,21 @@
                                                     <td class=" text-left "><?= $row->entrada_tarde ?></td>
                                                     <td class=" text-left "><?= $row->salida_tarde ?></td>
                                                     <td style="overflow:visible" class="text-center">
-                                                    <? if ($fichado === true && count($group_id) == 2) { ?>
-                                                            <div class="dropdown">
-                                                                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="bx bx-dots"></i>
-                                                                </a>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#"><i class="bx bx-sun fs-22"></i>Horario de invierno</a>
-                                                                    <a class="dropdown-item" href="#"><i class="bx bx-cloud-snow fs-22"></i>Horario de verano</a>
-                                                                </div>
-                                                            </div>
-                                                    <?php } ?>
+                                                <? if ($fichado === true && count($group_id) == 2) { ?>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                                                                <span class="caret"></span>
+                                                                <span class="sr-only">Toggle Dropdown</span>
+                                                            </button>
+                                                            <ul class="dropdown-menu" role="menu">
+                                                                <li><a href="#">Horario verano</a></li>
+                                                                <li><a href="#">Horario invierno</a></li>
+                                                            </ul>
+                                                        </div>
                                                     </td>
+                                                <?php } ?>
+                                                </td>
                                                 </tr>
                                             <? } ?>
                                         </tbody>
@@ -74,7 +77,7 @@
     </div>
 </div>
 
-<?php 
+<?php
 $token_name = csrf_token();
 $token_hash = csrf_hash();
 ?>
@@ -102,7 +105,9 @@ $token_hash = csrf_hash();
 
 <script>
     function loadModalContent(url) {
-        $.post(url, {'<?= $token_name; ?>':'<?= $token_hash; ?>'}, function(result) {
+        $.post(url, {
+            '<?= $token_name; ?>': '<?= $token_hash; ?>'
+        }, function(result) {
             $("#ajax .modal-content").html(result);
         });
         $('#ajax').on('hidden.bs.modal', function(e) {
