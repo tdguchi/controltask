@@ -142,7 +142,7 @@ class Horarios extends BaseController
             $data = array(
                 'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
                 'data_fields' => array(
-                    'proyecto_id' => $row->proyecto_id,
+                    'horario_id' => $row->horario_id,
                     'titulo' => $row->titulo,
                     'descripcion' => $row->descripcion,
                 )
@@ -199,7 +199,7 @@ class Horarios extends BaseController
             $this->eventBeforeCreate();
             $this->Horarios_model->insert($data);
             $this->eventAfterCreate($this->Horarios_model->insertID());
-            session()->set('message', 'Proyecto creado correctamente');
+            session()->set('message', 'Horario creado correctamente');
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('horarios'));
     }
 
@@ -216,7 +216,7 @@ class Horarios extends BaseController
                 'data_fields' => array(
                     'titulo' => set_value('titulo', $row->titulo),
                     'descripcion' => set_value('descripcion', $row->descripcion),
-                    'proyecto_id' => set_value('proyecto_id', $row->proyecto_id),
+                    'horario_id' => set_value('horario_id', $row->horario_id),
                 )
             );
 
@@ -224,7 +224,7 @@ class Horarios extends BaseController
             $modal_view =  'App\Modules\Horarios\Views\horarios_form_modal';
 
             $data['titulo'] = 'horarios';
-            $data['subtitulo'] = 'Modificar Proyecto';
+            $data['subtitulo'] = 'Modificar Horario';
             $data['modal'] = $modal;
             return view(($modal) ? $modal_view : 'template', $data);
         } else {
@@ -238,17 +238,17 @@ class Horarios extends BaseController
         $rules = $this->_rules('update');
 
         if ($this->validate($rules) == FALSE) {
-            $id = $this->request->getPost('proyecto_id');
+            $id = $this->request->getPost('horario_id');
             return redirect()->to(site_url('horarios/update/' . $id));
         } else {
             $data = array();
             $data['titulo'] = $this->request->getPost('titulo');
             $data['descripcion'] = $this->request->getPost('descripcion');
 
-            $this->eventBeforeUpdate($this->request->getPost('proyecto_id'));
-            $this->Horarios_model->where('proyecto_id', $this->request->getPost('proyecto_id'))->set($data)->update();
-            $this->eventAfterUpdate($this->request->getPost('proyecto_id'));
-            session()->set('message', 'Proyecto modificado correctamente');
+            $this->eventBeforeUpdate($this->request->getPost('horario_id'));
+            $this->Horarios_model->where('horario_id', $this->request->getPost('horario_id'))->set($data)->update();
+            $this->eventAfterUpdate($this->request->getPost('horario_id'));
+            session()->set('message', 'Horario modificado correctamente');
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('horarios'));
         }
     }
@@ -259,9 +259,9 @@ class Horarios extends BaseController
 
         if ($row) {
             $this->eventBeforeDelete($id);
-            $this->Horarios_model->where('proyecto_id', $id)->delete();
+            $this->Horarios_model->where('horario_id', $id)->delete();
             $this->eventAfterDelete($id);
-            session()->set('message', 'Proyecto eliminado correctamente');
+            session()->set('message', 'Horario eliminado correctamente');
             return redirect()->to(site_url('horarios'));
         } else {
             session()->set('message', 'Record Not Found');
@@ -271,18 +271,18 @@ class Horarios extends BaseController
 
     public function bulk_delete(...$ids)
     {
-        $rows = $this->Horarios_model->whereIn('proyecto_id', $ids)->countAllResults();
+        $rows = $this->Horarios_model->whereIn('horario_id', $ids)->countAllResults();
 
         if ($rows > 0) {
             foreach ($ids as $id) {
                 $this->eventBeforeDelete($id);
             }
-            $this->Horarios_model->whereIn('proyecto_id', $ids)->delete();
+            $this->Horarios_model->whereIn('horario_id', $ids)->delete();
             foreach ($ids as $id) {
                 $this->eventAfterDelete($id);
             }
 
-            session()->set('message', $rows . ' Proyecto eliminado' . ($rows > 1 ? 's' : '') . ' correctamente');
+            session()->set('message', $rows . ' Horario eliminado' . ($rows > 1 ? 's' : '') . ' correctamente');
         } else {
             session()->set('message', 'No hay resultados');
         }
@@ -295,7 +295,7 @@ class Horarios extends BaseController
             'titulo' => 'trim|required',
             'descripcion' => 'trim|required',
 
-            'proyecto_id' => 'trim',
+            'horario_id' => 'trim',
         );
     }
 
