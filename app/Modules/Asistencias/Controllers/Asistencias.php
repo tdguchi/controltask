@@ -377,7 +377,7 @@ class Asistencias extends BaseController
         );
         $this->Asistencias_model->insert($data);
         session()->set('message', 'Registro creado con éxito');
-        return redirect()->to(site_url('asistencias'));
+        return redirect()->to(site_url('tareas'));
     }
 
 
