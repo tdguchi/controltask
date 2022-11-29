@@ -1,32 +1,37 @@
 <form id="edit-form" action="<?php echo $action; ?>" method="post">
 <?= csrf_field() ?>
     <div class="modal-header">
-        <h5 class="h5-title"><?= isset($subtitulo) ? $subtitulo : '' ?><span style="color:#ffffff"><?= isset($data_fields['nombre']) ? $data_fields['nombre'] : "" ?></span></h5>
+        <h5 class="h5-title"><span style="color:#ffffff"></span></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
         <div class="form-soaga">
             <div class="row">
-                <?php if (!($fun == "create")) : ?>
-                    <div class="col-12">
-                        <div class="mb-3">
-                            <label for="horario_id">Horario ID</label>
-                            <input type="text" class="form-control" name="<?= 'horario_id' ?>" id="<?= 'horario_id' ?>" value="<?= $data_fields['horario_id'] ?>" readonly />
-
-                        </div>
-                    </div>
-                <?php endif; ?>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="titulo">Titulo</label>
-                        <input type="text" class="form-control" name="<?= 'titulo' ?>" id="<?= 'titulo' ?>" value="<?= $data_fields['titulo'] ?>" required />
+                        <label for="titulo">Entrada Mañana</label>
+                        <input type="time" class="form-control" name="<?= 'entrada_manana' ?>" id="<?= 'entrada_manana' ?>" value="<?= $data_fields['entrada_manana'] ?>" required />
 
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="descripcion">Descripcion</label>
-                        <textarea class="form-control" rows="7" name="<?= 'descripcion' ?>" id="<?= 'descripcion' ?>" required><?= $data_fields['descripcion'] ?></textarea>
+                        <label for="titulo">Salida Mañana</label>
+                        <input type="time" class="form-control" name="<?= 'salida_manana' ?>" id="<?= 'salida_manana' ?>" value="<?= $data_fields['salida_manana'] ?>" required />
+
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label for="titulo">Entrada Tarde</label>
+                        <input type="time" class="form-control" name="<?= 'entrada_tarde' ?>" id="<?= 'entrada_tarde' ?>" value="<?= $data_fields['entrada_tarde'] ?>" required />
+
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label for="titulo">Salida Tarde</label>
+                        <input type="time" class="form-control" name="<?= 'salida_tarde' ?>" id="<?= 'salida_tarde' ?>" value="<?= $data_fields['salida_tarde'] ?>" required />
 
                     </div>
                 </div>

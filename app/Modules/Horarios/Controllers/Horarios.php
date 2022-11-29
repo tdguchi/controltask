@@ -169,9 +169,10 @@ class Horarios extends BaseController
             'action' => site_url('horarios/create_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : ''),
             'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
             'data_fields' => array(
-                'titulo' => set_value('titulo'),
-                'descripcion' => set_value('descripcion'),
-                'proyecto_id' => set_value('proyecto_id'),
+                'entrada_manana' => set_value('entrada_manana'),
+                'salida_manana' => set_value('salida_manana'),
+                'entrada_tarde' => set_value('entrada_tarde'),
+                'salida_tarde' => set_value('salida_tarde'),
             )
         );
         $data['main'] = 'App\Modules\Horarios\Views\horarios_form';
@@ -187,20 +188,18 @@ class Horarios extends BaseController
     public function create_action($from = false)
     {
         $rules = $this->_rules('create');
-
-        if ($this->validate($rules) == FALSE) {
-            return redirect()->to(site_url('horarios/create'));
-        } else {
-            $data = array();
-            $data['titulo'] = $this->request->getPost('titulo');
-            $data['descripcion'] = $this->request->getPost('descripcion');;
+            $data = array(
+                'entrada_manana' => $this->request->getPost('entrada_manana'),
+                'salida_manana' => $this->request->getPost('salida_manana'),
+                'entrada_tarde' => $this->request->getPost('entrada_tarde'),
+                'salida_tarde' => $this->request->getPost('salida_tarde'),
+            );
 
             $this->eventBeforeCreate();
             $this->Horarios_model->insert($data);
             $this->eventAfterCreate($this->Horarios_model->insertID());
             session()->set('message', 'Proyecto creado correctamente');
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('horarios'));
-        }
     }
 
 
