@@ -38,17 +38,9 @@
                                                     <td class=" text-left "><?= $row->entrada_tarde ?></td>
                                                     <td class=" text-left "><?= $row->salida_tarde ?></td>
                                                 <? if ($fichado === true && count($group_id) == 2) { ?>
-                                                    <td>
-                                                        <div class="btn-group">
-                                                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                                                <span class="caret"></span>
-                                                                <span class="sr-only">Toggle Dropdown</span>
-                                                            </button>
-                                                            <ul class="dropdown-menu" role="menu">
-                                                                <li><a href="#">Horario verano</a></li>
-                                                                <li><a href="#">Horario invierno</a></li>
-                                                            </ul>
-                                                        </div>
+                                                    <td class=" text-center ">
+                                                        <a href="#" onclick="loadModalContent('<?= site_url('horarios/edit/' . $row->id) ?>');" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-pencil-line align-middle"></i></a>
+                                                        <a href="#" onclick="loadModalContent('<?= site_url('horarios/delete/' . $row->id) ?>');" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-delete-bin-line align-middle"></i></a>
                                                     </td>
                                                 <?php } ?>
                                                 </tr>
