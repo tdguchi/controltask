@@ -6,7 +6,7 @@
 	<table class="table align-middle table-nowrap table-vista mb-0">
 		<tbody>
 			<tr>
-				<h4>Cambios realizados a la tarea: <?= $titulo ?></h4>
+				<h4>Cambios realizados a la tarea: <?= $titulotarea ?></h4>
 			</tr>
 			<tr>
 				<th scope="row" class="font-weight-bold">Campo modificado</th>
