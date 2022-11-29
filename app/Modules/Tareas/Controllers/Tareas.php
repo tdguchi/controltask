@@ -258,6 +258,7 @@ class Tareas extends BaseController
         $row = $this->Tareas_model->get_task_log_by_id($id);
         if ($row) {
             $data = array(
+                'titulo' => $row->titulo,
                 'cambiados' => (array) json_decode($row->cambiados),
                 'originales' => (array) json_decode($row->originales),
             );
