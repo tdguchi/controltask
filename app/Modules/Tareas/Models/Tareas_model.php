@@ -38,7 +38,7 @@ class Tareas_model extends Model
 
     function get_task_log_by_id($id)
     {
-        $builder = $this->db->table('tasklog')->select('tasklog.cambiados');
+        $builder = $this->db->table('tasklog')->select('tasklog.cambiados,tasklog.originales');
         $builder->where('id', $id);
         return $builder->get()->getRow();
     }
