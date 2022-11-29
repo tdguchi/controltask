@@ -28,7 +28,7 @@
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('salida_manana', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Salida mañana<span class="block-sort"><i class="bx <?= $orden_campo == "salida_manana" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('entrada_tarde', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Entrada tarde<span class="block-sort"><i class="bx <?= $orden_campo == "entrada_tarde" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('salida_tarde', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Salida tarde<span class="block-sort"><i class="bx <?= $orden_campo == "salida_tarde" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th>Configurar</th>
+                                                <th class=" text-center ">Configurar</th>
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
