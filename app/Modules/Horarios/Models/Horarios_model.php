@@ -10,6 +10,7 @@ class Horarios_model extends Model
 
     public $table = 'horarios';
     public $id = 'id';
+    public $allowedFields = array('entrada_manana', 'salida_manana', 'entrada_tarde', 'salida_tarde');
     public $order = 'DESC';
 
     function __construct()
