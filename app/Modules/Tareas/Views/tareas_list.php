@@ -100,6 +100,11 @@
                                                     <td class=" text-left "><a href="#" onClick="$('#t1997831608').toggle()"><?= substr($row->descripcion, 0, 50) ?>...</a>
                                                         <div id="t1997831608" style="display:none"><?= $row->descripcion ?></div>
                                                     </td>
+
+
+
+
+                                                    
                                                     <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechaobjetivo)) ?></td>
                                                     <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechaestimada)) ?></td>
                                                     <td class=" text-right "><?=date('H:i:s',$row->horasestimadas) ?></td>
