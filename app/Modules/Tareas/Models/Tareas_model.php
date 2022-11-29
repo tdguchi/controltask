@@ -118,7 +118,7 @@ class Tareas_model extends Model
         if ($oc != '') {
             $builder->orderBy($oc, $od);
         } else
-            $builder->orderBy('estados_nombre.nombre', 'asc');
+            $builder->orderBy('texto_estado', 'asc');
         $builder->limit($limit, $start);
         return $builder->get()->getResult();
     }
