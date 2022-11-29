@@ -14,7 +14,6 @@
                                 <div class="flex-shrink-0">
                                 <?php if ($fichado === true && count($group_id) == 2) { ?>
                                     <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('horarios/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
-                                    <button type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -25,48 +24,26 @@
                                     <table class="table align-middle table-nowrap">
                                         <thead class="table-light">
                                             <tr>
-                                                <th scope="col" style="width: 50px;">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                    </div>
-                                                </th>   
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('titulo', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Titulo <span class="block-sort"><i class="bx <?= $orden_campo == "titulo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('descripcion', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Descripcion <span class="block-sort"><i class="bx <?= $orden_campo == "descripcion" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('entrada_manana', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Entrada mañana<span class="block-sort"><i class="bx <?= $orden_campo == "entrada_manana" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('salida_manana', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Salida mañana<span class="block-sort"><i class="bx <?= $orden_campo == "salida_manana" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('entrada_tarde', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Entrada tarde<span class="block-sort"><i class="bx <?= $orden_campo == "entrada_tarde" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('salida_tarde', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Salida tarde<span class="block-sort"><i class="bx <?= $orden_campo == "salida_tarde" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
                                             <? foreach ($horarios_data as $row) { ?>
                                                 <tr>
-                                                    <th scope="row">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->proyecto_id ?>">
-                                                        </div>
-                                                    </th>
                                                     <td class=" text-left ">
                                                         <div class>
                                                             <div class="flex-grow-1 tasks_name">
-                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('horarios/read/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->titulo ?></a>
+                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('horarios/read/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->entrada_manana ?></a>
                                                             </div>
-                                                            <div class="flex-shrink-0">
-                                                                <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
-                                                                    <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="loadModalContent('<?= site_url('horarios/read/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a>
-                                                                    </li>
-                                                                    <?php if ($fichado === true && count($group_id) == 2) { ?>
-                                                                    <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="loadModalContent('<?= site_url('horarios/update/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Editar</a>
-                                                                    </li>
-                                                                    <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="deleteItem('<?= $row->proyecto_id ?>')" class="color-red">Eliminar</a>
-                                                                    </li>
-                                                                    <?php } ?>
-                                                                </ul>
-                                                            </div>
-                                                            <div>
+                                                        </div>
                                                     </td>
-                                                    <td class=" text-left "><a href="#" onClick="$('#t698460462').toggle()"><?= substr($row->descripcion, 0, 50) ?>...</a>
-                                                        <div id="t698460462" style="display:none"><?= $row->descripcion ?></div>
-                                                    </td>
+                                                    <td class=" text-left "><?= $row->salida_manana ?></td>
+                                                    <td class=" text-left "><?= $row->entrada_tarde ?></td>
+                                                    <td class=" text-left "><?= $row->salida_tarde ?></td>
+
                                                 </tr>
                                             <? } ?>
                                         </tbody>
