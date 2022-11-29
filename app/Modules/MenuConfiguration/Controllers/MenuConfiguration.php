@@ -228,9 +228,9 @@ class MenuConfiguration extends BaseController
             $data['parent'] = $this->request->getPost('parent');
             $data['position'] = $this->request->getPost('position');
             $data['icon'] = $this->request->getPost('icon');
-            $data['show_in_menu'] = $this->request->getPost('show_in_menu');
-            $data['show_in_dashboard'] = $this->request->getPost('show_in_dashboard');
-            $data['admin_only'] = $this->request->getPost('admin_only');
+            $data['show_in_menu'] = $this->request->getPost('show_in_menu') ? 1 : 0;
+            $data['show_in_dashboard'] = $this->request->getPost('show_in_dashboard') ? 1 : 0;
+            $data['admin_only'] = $this->request->getPost('admin_only') ? 1 : 0;
             $data['dashboard_description'] = $this->request->getPost('dashboard_description');;
 
             $this->eventBeforeCreate();
