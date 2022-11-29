@@ -48,7 +48,6 @@
                                                 </th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('titulo', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Titulo <span class="block-sort"><i class="bx <?= $orden_campo == "titulo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('proyecto_id', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Proyecto <span class="block-sort"><i class="bx <?= $orden_campo == "proyecto_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechaobjetivo', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Fecha Objetivo <span class="block-sort"><i class="bx <?= $orden_campo == "fechaobjetivo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechaestimada', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Fecha Estimada <span class="block-sort"><i class="bx <?= $orden_campo == "fechaestimada" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('horasestimadas', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">HE <span class="block-sort"><i class="bx <?= $orden_campo == "horasestimadas" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <? if (count($group_id) == 2) { ?>
@@ -96,7 +95,6 @@
                                                             <div>
                                                     </td>
                                                     <td class=" text-right "><?= $row->proyecto_titulo ?></td>
-                                                    <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechaobjetivo)) ?></td>
                                                     <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechaestimada)) ?></td>
                                                     <td class=" text-right "><?= minutosdesplegado($row->horasestimadas) ?></td>
                                                     <? if (count($group_id) == 2) { ?>

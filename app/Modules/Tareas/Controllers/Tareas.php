@@ -230,7 +230,6 @@ class Tareas extends BaseController
                     'usuariosadicionales' => $row->usuariosadicionales,
                     'titulo' => $row->titulo,
                     'descripcion' => $row->descripcion,
-                    'fechaobjetivo' => $row->fechaobjetivo,
                     'fechaestimada' => $row->fechaestimada,
                     'horasestimadas' => $row->horasestimadas,
                     'fechacomienzo' => $row->fechacomienzo,
@@ -297,7 +296,6 @@ class Tareas extends BaseController
                 'usuariosadicionales' => set_value('usuariosadicionales'),
                 'titulo' => set_value('titulo'),
                 'descripcion' => set_value('descripcion'),
-                'fechaobjetivo' => set_value('fechaobjetivo'),
                 'fechaestimada' => set_value('fechaestimada'),
                 'horasestimadas' => set_value('horasestimadas'),
                 'fechacomienzo' => set_value('fechacomienzo'),
@@ -338,7 +336,6 @@ class Tareas extends BaseController
             $data['usuariosadicionales'] = $this->request->getPost('usuariosadicionales');
             $data['titulo'] = $this->request->getPost('titulo');
             $data['descripcion'] = $this->request->getPost('descripcion');
-            $data['fechaobjetivo'] = $this->request->getPost('fechaobjetivo');
             $data['fechaestimada'] = $this->request->getPost('fechaestimada');
             $data['horasestimadas'] = $this->request->getPost('horasestimadas');
             $data['fechacomienzo'] = $this->request->getPost('fechacomienzo');
@@ -379,7 +376,6 @@ class Tareas extends BaseController
                     'usuariosadicionales' => set_value('usuariosadicionales', $row->usuariosadicionales),
                     'titulo' => set_value('titulo', $row->titulo),
                     'descripcion' => set_value('descripcion', $row->descripcion),
-                    'fechaobjetivo' => set_value('fechaobjetivo', $row->fechaobjetivo),
                     'fechaestimada' => set_value('fechaestimada', $row->fechaestimada),
                     'horasestimadas' => set_value('horasestimadas', $row->horasestimadas),
                     'fechacomienzo' => set_value('fechacomienzo', $row->fechacomienzo),
@@ -418,7 +414,6 @@ class Tareas extends BaseController
             $data['usuariosadicionales'] = $this->request->getPost('usuariosadicionales');
             $data['titulo'] = $this->request->getPost('titulo');
             $data['descripcion'] = $this->request->getPost('descripcion');
-            $data['fechaobjetivo'] = $this->request->getPost('fechaobjetivo');
             $data['fechaestimada'] = $this->request->getPost('fechaestimada');
             $data['horasestimadas'] = $this->request->getPost('horasestimadas');
             $data['fechacomienzo'] = $this->request->getPost('fechacomienzo');
@@ -598,12 +593,6 @@ class Tareas extends BaseController
             'usuariosadicionales' => 'trim',
             'titulo' => 'trim|required',
             'descripcion' => 'trim|required',
-            'fechaobjetivo' => [
-                'rules'  => 'trim|required|check_less[' . date_create()->format('Y-m-d') . ']',
-                'errors' => [
-                    'check_less' => 'El campo fecha objetivo debe ser mayor que la fecha actual',
-                ],
-            ],
             'fechaestimada' => [
                 'rules'  => 'trim|required|check_less[' . date_create()->format('Y-m-d') . ']',
                 'errors' => [
@@ -666,7 +655,6 @@ class Tareas extends BaseController
             xlsWriteLabel($tablebody, $kolombody++, $data->usuariosadicionales);
             xlsWriteLabel($tablebody, $kolombody++, $data->titulo);
             xlsWriteLabel($tablebody, $kolombody++, $data->descripcion);
-            xlsWriteLabel($tablebody, $kolombody++, $data->fechaobjetivo);
             xlsWriteLabel($tablebody, $kolombody++, $data->fechaestimada);
             xlsWriteNumber($tablebody, $kolombody++, $data->horasestimadas);
             xlsWriteLabel($tablebody, $kolombody++, $data->fechacomienzo);
