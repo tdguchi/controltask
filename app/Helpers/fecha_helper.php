@@ -14,6 +14,9 @@ function minutosdesplegado($minutos) {
     if ($minutos > 0) {
         $cadena .= $minutos . "m ";
     }
+    if ($cadena == "") {
+        $cadena = "-";
+    }
     return $cadena;
 }
 ?>
