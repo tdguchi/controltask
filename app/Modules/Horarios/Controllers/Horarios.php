@@ -169,6 +169,7 @@ class Horarios extends BaseController
             'action' => site_url('horarios/create_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : ''),
             'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
             'data_fields' => array(
+                'horario_id' => set_value('horario_id'),
                 'entrada_manana' => set_value('entrada_manana'),
                 'salida_manana' => set_value('salida_manana'),
                 'entrada_tarde' => set_value('entrada_tarde'),
