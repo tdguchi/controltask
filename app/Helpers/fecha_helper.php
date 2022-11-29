@@ -4,6 +4,14 @@ function minutosdesplegado($minutos) {
     $dias = floor($segundos/86400);
     $horas = floor(($segundos - $dias*86400) / 3600);
     $minutos = floor(($segundos / 60) % 60);
-    return $dias . "d " . $horas . "h " . $minutos . "m";
+    if ($dias == 0) {
+        if ($horas == 0) {
+            return $minutos . " min";
+        } else {
+            return $horas . "h " . $minutos . "m";
+        }
+    } else {    
+        return $dias . "d " . $horas . "h " . $minutos . "m";
+    }
 }
 ?>
