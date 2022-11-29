@@ -21,7 +21,7 @@
                         <div class="card-body">
                             <div>
                                 <div class="table-responsive table-card mb-1">
-                                    <table class="table align-middle table-nowrap">
+                                    <table class="table align-middle table-nowrap table-striped">
                                         <thead class="table-light">
                                             <tr>
                                                 <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('entrada_manana', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Entrada mañana<span class="block-sort"><i class="bx <?= $orden_campo == "entrada_manana" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
