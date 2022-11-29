@@ -258,7 +258,6 @@ class Tareas extends BaseController
         $row = $this->Tareas_model->get_task_log_by_id($id);
         if ($row) {
             $data = array(
-                'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
                 'cambiados' => $row->cambiados,
             );
             $modal_view = 'App\Modules\Tareas\Views\cambios_read_modal';

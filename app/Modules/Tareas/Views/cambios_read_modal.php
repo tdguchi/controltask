@@ -11,7 +11,7 @@
 			</tr>
 			<tr>
 				<th scope="row" class="font-weight-bold">Cambios</th>
-				<td></td>
+				<td><?= $cambiados ?></td>
 			</tr>
 		</tbody>
 	</table>
