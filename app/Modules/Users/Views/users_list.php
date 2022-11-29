@@ -56,6 +56,9 @@
                                                                     <li class="list-inline-item fs-12">
                                                                         <a href="<?= site_url('users/update/' . $row->id) ?>">Editar</a>
                                                                     </li>
+                                                                    <li class="list-inline-item fs-12">
+                                                                        <a href="<?= site_url('horarios/view' . $row->id) ?>">Horarios</a>
+                                                                    </li>
                                                                 <?php } ?>
                                                                 </ul>
                                                             </div>

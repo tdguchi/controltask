@@ -25,7 +25,7 @@ class Horarios extends BaseController
     }
 
 
-    public function view($modal = false)
+    public function view($id = null, $modal = false)
     {
 
         $tab = $this->request->getGet('tab') ? $this->request->getGet('tab') : '';
