@@ -10,6 +10,10 @@
 				<td></td>
 			</tr>
 			<tr>
+				<th scope="row" class="font-weight-bold">Originales</th>
+				<td><?= $originales ?></td>
+			</tr>
+			<tr>
 				<th scope="row" class="font-weight-bold">Cambios</th>
 				<td><?= $cambiados ?></td>
 			</tr>
