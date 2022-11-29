@@ -34,13 +34,13 @@
 			</tr>
 
 			<tr>
-				<th scope="row" class="font-weight-bold">Horas Estimadas (minutos)</th>
-				<td><?= $data_fields['horasestimadas'] ?></td>
+				<th scope="row" class="font-weight-bold">Tiempo estimado</th>
+				<td><?= minutosdesplegado($data_fields['horasestimadas']) ?></td>
 			</tr>
 
 			<tr>
-				<th scope="row" class="font-weight-bold">Horas Reales (minutos)</th>
-				<td><?= $data_fields['horasreales'] ?></td>
+				<th scope="row" class="font-weight-bold">Tiempo dedicado</th>
+				<td><?= minutosdesplegado($data_fields['horasreales']) ?></td>
 			</tr>
 		</tbody>
 	</table>
