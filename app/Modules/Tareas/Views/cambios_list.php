@@ -29,7 +29,7 @@
                                                 <tr>
                                                     <td class=" text-right "><?= $row->nombre ?></td>
                                                     <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechahora)) ?></td>
-                                                    <td class=" text-left "><?= $row->cambiados ?></td>
+                                                    <td class=" text-left "><a href="#" onclick="loadModalContent('<?= site_url('tareas/cambiosver/' . $row->id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a></td>
                                                 </tr>
                                             <? } ?>
                                         </tbody>

@@ -253,6 +253,27 @@ class Tareas extends BaseController
         }
     }
 
+    public function cambiosver($id, $modal = false)
+    {
+        $row = $this->Tareas_model->get_task_log_by_id($id);
+        if ($row) {
+            $data = array(
+                'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
+                'data_fields' => array(
+                    'cambiados' => $row->cambiados,
+                )
+            );
+            $modal_view = 'App\Modules\Tareas\Views\cambios_read_modal';
+
+            $data['titulo'] = 'cambios';
+            $data['subtitulo'] = 'Ver cambios';
+            return view($modal_view,$data);
+        } else {
+            session()->set('message', 'Record Not Found');
+            return redirect()->to(site_url('tareas'));
+        }
+    }
+
 
     public function create($modal = false)
     {
