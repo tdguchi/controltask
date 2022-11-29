@@ -17,7 +17,7 @@
 			<?
 			array_map(function($key, $v1, $v2){
 				echo '<tr>';
-				echo '<td></td>';
+				echo '<td>' . $key . '</td>';
 				echo '<td>' . $v1 . '</td>';
 				echo '<td>' . $v2 . '</td>';
 				echo '</tr>';
