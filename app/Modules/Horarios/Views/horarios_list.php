@@ -37,7 +37,20 @@
                                                     <td class=" text-left "><?= $row->salida_manana ?></td>
                                                     <td class=" text-left "><?= $row->entrada_tarde ?></td>
                                                     <td class=" text-left "><?= $row->salida_tarde ?></td>
-
+                                                    <? // write td with dropdown with two options
+                                                    if ($fichado === true && count($group_id) == 2) { ?>
+                                                        <td class="text-center">
+                                                            <div class="dropdown">
+                                                                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="bx bx-dots"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#"><i class="ri-pencil-line"></i>Horario de invierno</a>
+                                                                    <a class="dropdown-item" href="#"><i class="ri-delete-bin-line"></i>Horario de verano</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    <?php } ?>
                                                 </tr>
                                             <? } ?>
                                         </tbody>
