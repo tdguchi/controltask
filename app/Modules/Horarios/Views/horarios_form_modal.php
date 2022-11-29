@@ -1,7 +1,7 @@
 <form id="edit-form" action="<?php echo $action; ?>" method="post">
 <?= csrf_field() ?>
     <div class="modal-header">
-        <h5 class="h5-title"><span style="color:#ffffff"></span></h5>
+        <h5 class="h5-title"><span style="color:#ffffff">Añadir un nuevo horario</span></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
