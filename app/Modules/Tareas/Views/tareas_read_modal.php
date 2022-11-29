@@ -12,8 +12,7 @@
 
 			<tr>
 				<th scope="row" class="font-weight-bold">Descripción</th>
-				<td style="word-wrap: break-word;"><a href="#" onClick="$('#t225686307').toggle()"><?= substr($data_fields['descripcion'], 0, 50) ?>...</a>
-					<div style="word-wrap: break-word;" id="t225686307" style="display:none"><?= $data_fields['descripcion'] ?></div>
+				<td style="word-wrap: break-word;"><?= $data_fields['descripcion'] ?>
 				</td>
 			</tr>
 			<tr>
