@@ -107,7 +107,7 @@
                                                         <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechacomienzo)) ?></td>
                                                         <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fecharealcierre)) ?></td>
                                                     <? } ?>
-                                                    <td class=" text-right "><?= $minutosdesplegado($row->horasreales) ?></td>
+                                                    <td class=" text-right "><?= minutosdesplegado($row->horasreales) ?></td>
                                                     <td class=" text-right "><?= $row->texto_estado ?></td>
                                                     <td class=" text-right ">
                                                         <? if ($quien === '1' && $fichado === true) { ?>
