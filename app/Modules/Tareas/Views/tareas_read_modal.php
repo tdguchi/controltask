@@ -10,10 +10,9 @@
 				<td><?= $data_fields['titulo'] ?></td>
 			</tr>
 
-			<tr>
+			<tr style="word-wrap: break-word;">
 				<th scope="row" class="font-weight-bold">Descripción</th>
-				<td style="word-wrap: break-word;"><?= $data_fields['descripcion'] ?>
-				</td>
+				<td><?= $data_fields['descripcion'] ?></td>
 			</tr>
 			<tr>
 				<th scope="row" class="font-weight-bold">Operador</th>
