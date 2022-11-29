@@ -118,7 +118,7 @@ class Tareas_model extends Model
         if ($oc != '') {
             $builder->orderBy($oc, $od);
         } else
-            $builder->orderBy('tarea_id', 'asc');
+            $builder->orderBy('estados_nombre', 'asc');
         $builder->limit($limit, $start);
         return $builder->get()->getResult();
     }
