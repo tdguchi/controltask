@@ -426,6 +426,11 @@ class Tareas extends BaseController
             $this->eventAfterUpdate($this->request->getPost('tarea_id'));
             $row2 = (array) $this->Tareas_model->get_by_id($id);
             $diff = array_diff($row2,$row);
+            //get array with old and new values for each field with differences on two arrays given
+            $diff = array_map(function($a, $b) {
+                return array('old' => $a, 'new' => $b);
+            }, $row, $row2);
+            log_message('error', 'Tarea modificada: ' . json_encode($diff));
             $datalog = array (
                 'tarea_id' => $id,
                 'usuario_id' => $this->ionAuth->user()->row()->id,
