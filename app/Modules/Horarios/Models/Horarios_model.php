@@ -10,7 +10,6 @@ class Horarios_model extends Model
 
     public $table = 'horarios';
     public $id = 'id';
-    public $allowedFields = array('titulo', 'descripcion');
     public $order = 'DESC';
 
     function __construct()
@@ -21,7 +20,7 @@ class Horarios_model extends Model
     // get all
     function get_all()
     {
-        $builder = $this->db->table($this->table)->select('horarios.titulo,horarios.descripcion,horarios.proyecto_id');
+        $builder = $this->db->table($this->table)->select('horarios.*');
         $builder->orderBy($this->id, $this->order);
         return $builder->get()->getResult();
     }
@@ -37,16 +36,13 @@ class Horarios_model extends Model
     // get total rows
     function total_rows($q = NULL, $tab = NULL, $filter = array())
     {
-        $builder = $this->db->table($this->table)->select('horarios.titulo,horarios.descripcion,horarios.proyecto_id');
+        $builder = $this->db->table($this->table)->select('horarios.*');
 
         if (count($filter) == 2) {
             $builder->where('horarios.' . $filter[0], $filter[1]);
         }
         if (!empty($q)) {
             $builder->groupStart();
-            $builder->like('proyecto_id', $q);
-            $builder->orLike('horarios.titulo', $q);
-            $builder->orLike('horarios.descripcion', $q);
             $builder->groupEnd();
         }
         return $builder->countAllResults();
@@ -55,7 +51,7 @@ class Horarios_model extends Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array())
     {
-        $builder = $this->db->table($this->table)->select('horarios.titulo,horarios.descripcion,horarios.proyecto_id');
+        $builder = $this->db->table($this->table)->select('horarios.*');
 
 
         if (count($filter) == 2) {
@@ -63,17 +59,13 @@ class Horarios_model extends Model
         }
         if (!empty($q)) {
             $builder->groupStart();
-
-            $builder->like('horarios.proyecto_id', $q);
-            $builder->orLike('horarios.titulo', $q);
-            $builder->orLike('horarios.descripcion', $q);
             $builder->groupEnd();
         }
 
         if ($oc != '') {
             $builder->orderBy($oc, $od);
         } else
-            $builder->orderBy('proyecto_id', 'asc');
+            $builder->orderBy('id', 'asc');
         $builder->limit($limit, $start);
         return $builder->get()->getResult();
     }
