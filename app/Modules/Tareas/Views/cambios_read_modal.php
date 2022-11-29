@@ -6,8 +6,7 @@
 	<table class="table align-middle table-nowrap table-vista mb-0">
 		<tbody>
 			<tr>
-				<th scope="row" class="font-weight-bold">Titulo</th>
-				<td></td>
+				
 			</tr>
 			<tr>
 				<th scope="row" class="font-weight-bold">Campo modificado</th>
