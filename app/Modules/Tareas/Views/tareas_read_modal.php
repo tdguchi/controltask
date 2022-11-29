@@ -3,7 +3,7 @@
 	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-	<table class="table align-middle table-nowrap table-vista mb-0">
+	<table class="table align-middle table-wrap table-vista mb-0">
 		<tbody>
 			<tr>
 				<th scope="row" class="font-weight-bold">Titulo</th>
