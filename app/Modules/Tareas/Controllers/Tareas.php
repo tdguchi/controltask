@@ -18,7 +18,7 @@ class Tareas extends BaseController
         $this->Proyectos_model = model('App\Modules\Proyectos\Models\Proyectos_model');
         $this->Worklog_model = model('App\Modules\Worklog\Models\Worklog_model');
         $this->Users_model = model('App\Modules\Users\Models\Users_model');
-        helper(['formatos', 'form']);
+        helper(['formatos', 'form', 'fecha']);
         $this->validation =  \Config\Services::validation();
     }
 
