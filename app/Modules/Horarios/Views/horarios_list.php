@@ -14,7 +14,6 @@
                                 <div class="flex-shrink-0">
                                 <?php if ($fichado === true && count($group_id) == 2) { ?>
                                     <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('horarios/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
-                                    <span class="text-capitalize"><?php echo anchor(site_url('horarios/excel'), 'Exportar Excel', 'class="btn btn-green add-btn"'); ?></span>
                                     <button type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
                                     <?php } ?>
                                 </div>
