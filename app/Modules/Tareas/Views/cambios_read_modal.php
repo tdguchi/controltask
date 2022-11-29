@@ -10,13 +10,22 @@
 				<td></td>
 			</tr>
 			<tr>
-				<th scope="row" class="font-weight-bold">Originales</th>
-				<td><?= $originales ?></td>
+				<th scope="row" class="font-weight-bold">Campo modificado</th>
+				<th scope="row" class="font-weight-bold">Valor anterior</th>
+				<th scope="row" class="font-weight-bold">Valor nuevo</th>
 			</tr>
-			<tr>
-				<th scope="row" class="font-weight-bold">Cambios</th>
-				<td><?= $cambiados ?></td>
-			</tr>
+			<?
+			array_map(function($v1, $v2){
+				echo '<tr>';
+				echo '<td></td>';
+				echo '<td>' . $v1 . '</td>';
+				echo '<td>' . $v2 . '</td>';
+				echo '</tr>';
+			}, $originales, $cambiados);
+			 ?>
+
+
+			
 		</tbody>
 	</table>
 </div>
