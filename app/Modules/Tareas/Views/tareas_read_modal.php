@@ -25,7 +25,7 @@
 			</tr>
 			<tr>
 				<th scope="row" class="font-weight-bold">Estado</th>
-				<td <?= ($data_fields['estado'] == 1) ? 'bgcolor="#A7FFFE"' : (($data_fields['estado'] == 2) ? 'bgcolor="#D8FAE0"' : 'bgcolor=#FFD28E' ) ?>><?= $data_fields['texto_estado'] ?></td>
+				<td style="background-color:<?= ($data_fields['estado'] == 1) ? '#A7FFFE"' : (($data_fields['estado'] == 2) ? '#D8FAE0"' : '#FFD28E"' ) ?>><?= $data_fields['texto_estado'] ?></td>
 			</tr>
 
 			<tr>
