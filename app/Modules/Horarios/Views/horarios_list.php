@@ -40,8 +40,8 @@
                                                     <td class=" text-left "><?= $row->salida_tarde ?></td>
                                                 <? if ($fichado === true && count($group_id) == 2) { ?>
                                                     <td class=" text-center ">
-                                                        <a href="#" onclick="loadModalContent('<?= site_url('horarios/edit/' . $row->id) ?>');" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ajax">Verano</a>
-                                                        <a href="#" onclick="loadModalContent('<?= site_url('horarios/delete/' . $row->id) ?>');" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ajax">Invierno</a>
+                                                        <a href="#" class="btn btn-primary btn-sm">Verano</a>
+                                                        <a href="#" class="btn btn-danger btn-sm">Invierno</a>
                                                     </td>
                                                 <?php } ?>
                                                 </tr>
