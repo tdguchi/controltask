@@ -29,10 +29,6 @@
 				<th scope="row" class="font-weight-bold">Estado</th>
 				<td><?= $data_fields['texto_estado'] ?></td>
 			</tr>
-			<tr>
-				<th scope="row" class="font-weight-bold">Fecha Objetivo</th>
-				<td><?= date("d/m/Y", strtotime($data_fields['fechaobjetivo'])) ?></td>
-			</tr>
 
 			<tr>
 				<th scope="row" class="font-weight-bold">Fecha Estimada</th>

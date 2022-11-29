@@ -69,12 +69,6 @@
                                                                 <div id="t969417540" style="display:none"><?= $data_fields['descripcion'] ?></div>
                                                             </td>
                                                         </tr>
-
-                                                        <tr>
-                                                            <th scope="row" class="font-weight-bold">Fecha Objetivo</th>
-                                                            <td><?= date("d/m/Y", strtotime($data_fields['fechaobjetivo'])) ?></td>
-                                                        </tr>
-
                                                         <tr>
                                                             <th scope="row" class="font-weight-bold">Fecha Estimada</th>
                                                             <td><?= date("d/m/Y", strtotime($data_fields['fechaestimada'])) ?></td>
