@@ -97,7 +97,7 @@
                                                             <div>
                                                     </td>
                                                     <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;" class=" text-right "><?= $row->proyecto_titulo ?></td>
-                                                    <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;" class=" text-left "><a href="#" onClick="$('#t1997831608').toggle()"><?= substr($row->descripcion, 0, 50) ?>...</a>
+                                                    <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;" class=" text-left "><a href="#" onClick="$('#t1997831608').toggle()"><?= substr($row->descripcion, 0, 20) ?>...</a>
                                                         <div id="t1997831608" style="display:none"><?= $row->descripcion ?></div>
                                                     </td>
                                                     <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechaobjetivo)) ?></td>
