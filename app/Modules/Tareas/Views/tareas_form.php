@@ -81,13 +81,6 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="mb-3">
-                                                                <label for="fechaobjetivo">Fecha Objetivo</label>
-                                                                <input type="date" class="form-control" name="<?= 'fechaobjetivo' ?>" id="<?= 'fechaobjetivo' ?>" value="<?= date_create()->format('Y-m-d') ?>" required />
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
                                                                 <label for="fechaestimada">Fecha Estimada</label>
                                                                 <input type="date" class="form-control" name="<?= 'fechaestimada' ?>" id="<?= 'fechaestimada' ?>" value="<?= date_create()->format('Y-m-d') ?>" required />
 
