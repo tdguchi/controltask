@@ -61,7 +61,7 @@
                                         </thead>
                                         <tbody class="list form-check-all">
                                             <? foreach ($tareas_data as $row) { ?>
-                                                <tr>
+                                                <tr <?= ($row->estado == 1)? 'style=background:D8FAE0;':'style=background:FF8F8E' ?>>
                                                     <th scope="row">
                                                         <div class="form-check">
                                                             <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->tarea_id ?>">
