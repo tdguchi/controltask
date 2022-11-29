@@ -37,7 +37,6 @@
                                                     <td class=" text-left "><?= $row->salida_manana ?></td>
                                                     <td class=" text-left "><?= $row->entrada_tarde ?></td>
                                                     <td class=" text-left "><?= $row->salida_tarde ?></td>
-                                                    <td style="overflow:visible" class="text-center">
                                                 <? if ($fichado === true && count($group_id) == 2) { ?>
                                                     <td>
                                                         <div class="btn-group">
@@ -52,7 +51,6 @@
                                                         </div>
                                                     </td>
                                                 <?php } ?>
-                                                </td>
                                                 </tr>
                                             <? } ?>
                                         </tbody>
