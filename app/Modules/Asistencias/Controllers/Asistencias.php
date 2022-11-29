@@ -305,7 +305,7 @@ class Asistencias extends BaseController
         $user_id = $this->ionAuth->user()->row()->id;
         $ultima_asistencia = $this->Asistencias_model->get_last_asistencia($user_id, date('Y-m-d'));
         $texto = '';
-        if ($ultima_asistencia->asistenciatipo_id != 1 or $ultima_asistencia == null) {
+        if ($ultima_asistencia->asistenciatipo_id != 1 or count($ultima_asistencia) == 0) {
             $texto = "Al registrar una salida se pausará la tarea en la que estás trabajando";
         }
         $data = array(
