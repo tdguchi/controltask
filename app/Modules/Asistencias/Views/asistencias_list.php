@@ -17,7 +17,6 @@
                                         <button type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
                                     </form>
                                 </div>
-                                <? echo time('2022-11-29 14:08:28')?>
                                 <div class="flex-shrink-0">
                                     <?php if (count($group_id) == 2) { ?>
                                         <span class="text-capitalize"><?php echo anchor(site_url('asistencias/view/0/1'), 'Propias', 'class="btn btn-green add-btn"'); ?></span>
