@@ -36,7 +36,7 @@ class Horarios_model extends Model
     // get data by user_id and tipo
     function get_actual($user_id,$tipo)
     {
-        $builder = $this->db->table('users_horario');
+        $builder = $this->db->table('users_horarios');
         $builder->where('user_id', $user_id);
         $builder->where('tipo', $tipo);
         $builder->orderBy('id','DESC');
