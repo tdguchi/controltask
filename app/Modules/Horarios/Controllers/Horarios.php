@@ -110,8 +110,8 @@ class Horarios extends BaseController
         } else {
             $fichado = true;
         }
-        $horario_verano = $this->Horarios_model->get_actual($user_id,1);
-        $horario_invierno = $this->Horarios_model->get_actual($user_id,0);
+        $horario_verano = $this->Horarios_model->get_actual($id,1);
+        $horario_invierno = $this->Horarios_model->get_actual($id,0);
         $nombre = $this->Users_model->get_by_id($id)->first_name;
         $data = array(
             'fichado' => $fichado,
