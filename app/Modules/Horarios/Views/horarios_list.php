@@ -10,7 +10,9 @@
                     <div class="card card-list-soaga">
                         <div class="card-header border-0">
                             <div class="d-flex align-items-center">
-                                <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
+                                <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?><?= " para " . $username ?> </h5>
+                                <h4>Horario de invierno actual: </h4>
+                                <h4>Horario de verano actual: </h4>
                                 <div class="flex-shrink-0">
                                     <?php if ($fichado === true && count($group_id) == 2) { ?>
                                         <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('horarios/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>

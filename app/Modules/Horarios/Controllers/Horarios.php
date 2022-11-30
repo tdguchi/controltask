@@ -12,6 +12,7 @@ class Horarios extends BaseController
     {
         $this->ionAuth    = new \IonAuth\Libraries\IonAuth();
         $this->Tareas_model = model('App\Modules\Tareas\Models\Tareas_model');
+        $this->Users_model = model('App\Modules\Users\Models\Users_model');
         $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
         $this->Horarios_model = model('App\Modules\Horarios\Models\Horarios_model');
         helper(['formatos', 'form']);
@@ -109,10 +110,12 @@ class Horarios extends BaseController
         } else {
             $fichado = true;
         }
+        $nombre = $this->Users_model->get_by_id($id)->first_name;
         $data = array(
             'fichado' => $fichado,
             'group_id' => $group_id,
             'user_id' => $user_id,
+            'username' => $nombre,
             'horarios_data' => $horarios,
             'q' => $q,
             'tab' => $tab,
