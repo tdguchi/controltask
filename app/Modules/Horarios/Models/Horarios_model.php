@@ -10,7 +10,7 @@ class Horarios_model extends Model
 
     public $table = 'horarios';
     public $id = 'id';
-    public $allowedFields = array('entrada_manana', 'salida_manana', 'entrada_tarde', 'salida_tarde');
+    public $allowedFields = array('entrada_manana', 'salida_manana', 'entrada_tarde', 'salida_tarde','users_horarios.tipo','users_horarios.user_id','users_horarios.horario_id');
     public $order = 'DESC';
 
     function __construct()
@@ -48,7 +48,11 @@ class Horarios_model extends Model
         }
         return $builder->countAllResults();
     }
-
+    function asignar_horario($user_id, $horario_id, $tipo)
+    {
+        $builder = $this->db->table('users_horarios');
+        $builder->insert(['user_id' => $user_id, 'horario_id' => $horario_id, 'tipo' => $tipo]);
+    }
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $tab = NULL, $oc = '', $od = '', $filter = array())
     {

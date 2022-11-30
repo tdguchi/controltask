@@ -112,6 +112,7 @@ class Horarios extends BaseController
         $data = array(
             'fichado' => $fichado,
             'group_id' => $group_id,
+            'user_id' => $user_id,
             'horarios_data' => $horarios,
             'q' => $q,
             'tab' => $tab,
@@ -159,7 +160,10 @@ class Horarios extends BaseController
             return redirect()->to(site_url('horarios'));
         }
     }
-
+    //write function to asign horario
+    public function asignar($horario = 1, $tipo = 1, $usuario=null) {
+        $this->Horarios_model->asignar_horario($usuario, $horario, $tipo);
+    }
 
     public function create($modal = false)
     {
