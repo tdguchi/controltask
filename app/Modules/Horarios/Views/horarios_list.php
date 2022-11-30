@@ -34,11 +34,11 @@
                                         <tbody class="list form-check-all">
                                         <tr></tr>
                                             <? foreach ($horarios_data as $row) { ?>
-                                                <? if (count($verano) != 0 && count($invierno) !=0 ) { ?>
+                                                <? if ($verano != null && $invierno != null ) { ?>
                                                 <tr style="background-color:<?= ($row->id == $verano->horario_id) ? '#FFD28E;' : (($row->id == $invierno->horario_id) ? '#A7FFFE;' : '#D9D9D9;' )?>">
-                                                <? } else if (count($verano) == 0 && count($invierno) != 0) { ?>
+                                                <? } else if ($verano == null && $invierno != null) { ?>
                                                 <tr style="background-color:<?= ($row->id == $invierno->horario_id) ? '#A7FFFE;' : '#D9D9D9;' ?>">
-                                                <? } else if (count($verano) != 0 && count($invierno) == 0) { ?>
+                                                <? } else if ($verano != null && $invierno  == null) { ?>
                                                 <tr style="background-color:<?= ($row->id == $verano->horario_id) ? '#FFD28E;' : '#D9D9D9;' ?>">
                                                 <? } ?>
                                                     <td class=" text-center "><?= date('H:i',strtotime($row->entrada_manana)) ?></td>
