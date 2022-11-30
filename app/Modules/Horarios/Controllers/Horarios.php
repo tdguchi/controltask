@@ -163,7 +163,7 @@ class Horarios extends BaseController
     //write function to asign horario
     public function asignar($horario = 1, $tipo = 1, $usuario=null) {
         $this->Horarios_model->asignar_horario($usuario, $horario, $tipo);
-        return redirect()->to(site_url('horarios'));
+        return redirect()->to(site_url('horarios/view/' . $usuario));
     }
 
     public function create($modal = false)
