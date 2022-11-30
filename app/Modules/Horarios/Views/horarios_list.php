@@ -47,8 +47,8 @@
                                                     <td class=" text-center "><?= date('H:i',strtotime($row->salida_tarde)) ?></td>
                                                 <? if ($fichado === true && count($group_id) == 2) { ?>
                                                     <td class=" text-center ">
-                                                        <a href="<? echo site_url('horarios/asignar/') . $row->id . '/0/' . $id ?>" class="btn btn-primary btn-sm">Verano</a>
-                                                        <a href="<? echo site_url('horarios/asignar/') . $row->id . '/1/' . $id ?>" class="btn btn-danger btn-sm">Invierno</a>
+                                                        <a href="<? echo site_url('horarios/asignar/') . $row->id . '/0/' . $id ?>" class="btn btn-danger btn-sm">Verano</a>
+                                                        <a href="<? echo site_url('horarios/asignar/') . $row->id . '/1/' . $id ?>" class="btn btn-primary btn-sm">Invierno</a>
                                                     </td>
                                                 <?php } ?>
                                                 </tr>
