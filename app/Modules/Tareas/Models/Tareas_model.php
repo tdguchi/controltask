@@ -10,7 +10,7 @@ class Tareas_model extends Model
 
     public $table = 'tareas';
     public $id = 'tarea_id';
-    public $allowedFields = array('estados_nombre.nombre','proyecto_titulo','proyecto_id', 'usuario_id','fechahoracreacion', 'usuariosadicionales', 'titulo', 'descripcion', 'fechaestimada', 'horasestimadas', 'fechacomienzo', 'fecharealcierre', 'horasreales','estado');
+    public $allowedFields = array('estados_nombre.nombre','tasklog.originales','tasklog.cambiados','proyecto_titulo','proyecto_id', 'usuario_id','fechahoracreacion', 'usuariosadicionales', 'titulo', 'descripcion', 'fechaestimada', 'horasestimadas', 'fechacomienzo', 'fecharealcierre', 'horasreales','estado');
     public $order = 'DESC';
 
     function __construct()
