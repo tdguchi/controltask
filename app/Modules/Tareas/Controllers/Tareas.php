@@ -435,6 +435,7 @@ class Tareas extends BaseController
             if (count($diff) > 0) {
                 $this->Tareas_model->insert_task_log($datalog);
                 session()->set('message', 'Tarea modificada correctamente');
+                return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
             } else {
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
             }
