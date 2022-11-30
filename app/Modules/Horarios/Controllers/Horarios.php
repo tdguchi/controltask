@@ -173,12 +173,12 @@ class Horarios extends BaseController
         return redirect()->to(site_url('horarios/view/' . $usuario));
     }
 
-    public function create($modal = false)
+    public function create($modal = false, $id=null)
     {
         $data = array(
             'button' => 'Añadir',
             'fun' => 'create',
-            'action' => site_url('horarios/create_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : ''),
+            'action' => site_url('horarios/create_action') . ($this->request->getGet('from') ? ('/' . urlencode($this->request->getGet('from'))) : '/0/' . $id),
             'from' => $this->request->getGet('from') ? $this->request->getGet('from') : NULL,
             'data_fields' => array(
                 'horario_id' => set_value('horario_id'),
@@ -198,7 +198,7 @@ class Horarios extends BaseController
     }
 
 
-    public function create_action($from = false)
+    public function create_action($from = false, $id=null)
     {
         $rules = $this->_rules('create');
             $data = array(
@@ -212,7 +212,7 @@ class Horarios extends BaseController
             $this->Horarios_model->insert($data);
             $this->eventAfterCreate($this->Horarios_model->insertID());
             session()->set('message', 'Horario creado correctamente');
-            return redirect()->to($from ? site_url(urldecode($from)) : site_url('horarios'));
+            return redirect()->to($from ? site_url(urldecode($from)) : site_url('horarios/view/' . $id));
     }
 
 
