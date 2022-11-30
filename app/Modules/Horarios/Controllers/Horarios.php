@@ -114,6 +114,7 @@ class Horarios extends BaseController
         $horario_invierno = $this->Horarios_model->get_actual($id,'1');
         $nombre = $this->Users_model->get_by_id($id)->first_name;
         $data = array(
+            'id' => $id,
             'fichado' => $fichado,
             'group_id' => $group_id,
             'user_id' => $user_id,
