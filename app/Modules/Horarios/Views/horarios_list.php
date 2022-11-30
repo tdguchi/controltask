@@ -34,7 +34,7 @@
                                         <tbody class="list form-check-all">
                                         <tr></tr>
                                             <? foreach ($horarios_data as $row) { ?>
-                                                <tr style="background-color:<?= ($tipo == $verano) ? '#FFD28E"' : (($tipo == $invierno) ? '#A7FFFE"' : '#D9D9D9"' )?>>
+                                                <tr style="background-color:<?= ($row->id == $verano->tipo) ? '#FFD28E"' : (($row->id == $invierno->tipo) ? '#A7FFFE"' : '#D9D9D9"' )?>>
                                                     <td class=" text-center "><?= date('H:i',strtotime($row->entrada_manana)) ?></td>
                                                     <td class=" text-center "><?= date('H:i',strtotime($row->salida_manana)) ?></td>
                                                     <td class=" text-center "><?= date('H:i',strtotime($row->entrada_tarde)) ?></td>
