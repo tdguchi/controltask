@@ -13,7 +13,7 @@
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?><?= " para " . $username ?> </h5>
                                 <div class="flex-shrink-0">
                                     <?php if ($fichado === true && count($group_id) == 2) { ?>
-                                        <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('horarios/create/1/' . $user_id) ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
+                                        <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('horarios/create/1/' . $id) ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -47,8 +47,8 @@
                                                     <td class=" text-center "><?= date('H:i',strtotime($row->salida_tarde)) ?></td>
                                                 <? if ($fichado === true && count($group_id) == 2) { ?>
                                                     <td class=" text-center ">
-                                                        <a href="<? echo site_url('horarios/asignar/') . $row->id . '/0/' . $user_id ?>" class="btn btn-primary btn-sm">Verano</a>
-                                                        <a href="<? echo site_url('horarios/asignar/') . $row->id . '/1/' . $user_id ?>" class="btn btn-danger btn-sm">Invierno</a>
+                                                        <a href="<? echo site_url('horarios/asignar/') . $row->id . '/0/' . $id ?>" class="btn btn-primary btn-sm">Verano</a>
+                                                        <a href="<? echo site_url('horarios/asignar/') . $row->id . '/1/' . $id ?>" class="btn btn-danger btn-sm">Invierno</a>
                                                     </td>
                                                 <?php } ?>
                                                 </tr>
