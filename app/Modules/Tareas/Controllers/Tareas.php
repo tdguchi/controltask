@@ -432,10 +432,12 @@ class Tareas extends BaseController
                 'originales' => json_encode($diff2),
                 'cambiados' => json_encode($diff)
             );
-
-            $this->Tareas_model->insert_task_log($datalog);
-            session()->set('message', 'Tarea modificada correctamente');
+            if (count($diff) > 0) {
+                $this->Tareas_model->insert_task_log($datalog);
+                session()->set('message', 'Tarea modificada correctamente');
+            } else {
             return redirect()->to($from ? site_url(urldecode($from)) : site_url('tareas'));
+            }
         }
     }
     public function cambios($id)
