@@ -33,6 +33,16 @@ class Horarios_model extends Model
         $builder->where($this->id, $id);
         return $builder->get()->getRow();
     }
+    // get data by user_id and tipo
+    function get_actual($user_id,$tipo)
+    {
+        $builder = $this->db->table('users_horario');
+        $builder->where('user_id', $user_id);
+        $builder->where('tipo', $tipo);
+        $builder->orderBy('id','DESC');
+        $builder->limit(1);
+        return $builder->get()->getRow();
+    }
 
     // get total rows
     function total_rows($q = NULL, $tab = NULL, $filter = array())

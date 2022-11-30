@@ -110,6 +110,8 @@ class Horarios extends BaseController
         } else {
             $fichado = true;
         }
+        $horario_verano = $this->Horarios_model->get_actual($user_id,1);
+        $horario_invierno = $this->Horarios_model->get_actual($user_id,0);
         $nombre = $this->Users_model->get_by_id($id)->first_name;
         $data = array(
             'fichado' => $fichado,
@@ -117,6 +119,8 @@ class Horarios extends BaseController
             'user_id' => $user_id,
             'username' => $nombre,
             'horarios_data' => $horarios,
+            'verano' => $horario_verano,
+            'invierno' => $horario_invierno,
             'q' => $q,
             'tab' => $tab,
             'pagination' => $pager->makeLinks($page, $config['per_page'], $config['total_rows']),
