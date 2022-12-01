@@ -249,13 +249,13 @@ function daFormatoEdit($valor, $nombre, $label, $tipo, $formato, $required, $max
                 $type = 'text';
             } else
                 $type = 'date';
-            return '<input type="' . $type . '" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '"  value="' . date('Y-m-d', strtotime($valor)) . '" ' . $required . '/>';
+            return '<input  title="Fecha"  type="' . $type . '" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '"  value="' . date('Y-m-d', strtotime($valor)) . '" ' . $required . '/>';
             break;
         case 'datetime':
-            return '<input type="text" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '"  value="' . $valor . '" ' . $required . '/>';
+            return '<input  title="Fechahora" type="text" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '"  value="' . $valor . '" ' . $required . '/>';
             break;
         case 'int':
-            return '<input type="number" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '"  value="' . $valor . '" ' . $required . '/>';
+            return '<input  title="numero" type="number" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '"  value="' . $valor . '" ' . $required . '/>';
             break;
         case 'decimal':
         case 'float':
@@ -263,10 +263,10 @@ function daFormatoEdit($valor, $nombre, $label, $tipo, $formato, $required, $max
             break;
         case 'email':
         case 'email_ver':
-            return '<input type="email" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '"  value="' . $valor . '" ' . $required . ' />';
+            return '<input  title="Email" type="email" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '"  value="' . $valor . '" ' . $required . ' />';
             break;
         case 'password':
-            return '<input type="password" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '" ' . $required . ' ' . $maxlength . ' />';
+            return '<input title="Contraseña" type="password" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '" ' . $required . ' ' . $maxlength . ' />';
             break;
         case 'color':
             return '<input type="color" class="' . $class . '" name="' . $nombre . '" id="' . $nombre . '"  value="' . $valor . '" ' . $required . ' />';

@@ -13,11 +13,11 @@
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title"><?= isset($subtitulo) ? $subtitulo : '' ?><?php echo daFormato(isset($data_fields['nombre']) ? $data_fields['nombre'] : "", 'varchar', '0-#ffffff', '') ?></h5>
                                 <div class="flex-shrink-0">
                                     <!-- Botón para cancelar -->
-                                    <a href="<?php echo site_url('users') ?>" class="btn btn-outline-black waves-effect waves-light me-3">
+                                    <a title="Cancelar" href="<?php echo site_url('users') ?>" class="btn btn-outline-black waves-effect waves-light me-3">
                                         Cancelar
                                     </a>
                                     <!-- Botón para guardar -->
-                                    <button type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
+                                    <button title="Guardar" type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                                                             <?php if (($fun == "create")) : ?>
                                                                 <?= daFormatoEdit($data_fields['username'], 'username', 'Identity', 'varchar', 'varchar', 1, 0); ?>
                                                             <?php else : ?>
-                                                                <input type="text" class="form-control" disabled value="<?= $data_fields['username'] ?>">
+                                                                <input title="Nombre de usuario" type="text" class="form-control" disabled value="<?= $data_fields['username'] ?>">
                                                             <?php endif; ?>
                                                         </div>
                                                     </div>
@@ -60,7 +60,7 @@
                                                             <?php foreach ($groups as $g) : ?>
                                                                 <div class="col-12">
                                                                     <div class="mb-3">
-                                                                        <input type="checkbox" id="group_<?= $g->id ?>" name="groups[]" value="<?= $g->id ?>" <?= in_array($g->id, $active_groups) ? "checked" : "" ?>>
+                                                                        <input title="checkbox grupos" type="checkbox" id="group_<?= $g->id ?>" name="groups[]" value="<?= $g->id ?>" <?= in_array($g->id, $active_groups) ? "checked" : "" ?>>
                                                                         <label for="group_<?= $g->id ?>"><?= $g->name ?></label>
                                                                     </div>
                                                                 </div>
@@ -85,7 +85,7 @@
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label for="dni">Dni</label>
-                                                            <input type="text" class="form-control" name="<?= 'dni' ?>" id="<?= 'dni' ?>" value="<?= $data_fields['dni'] ?>" required />
+                                                            <input title="DNI" type="text" class="form-control" name="<?= 'dni' ?>" id="<?= 'dni' ?>" value="<?= $data_fields['dni'] ?>" required />
 
                                                         </div>
                                                     </div>
@@ -120,11 +120,11 @@
                                 <div class="d-flex justify-content-end">
                                     <div class="flex-shrink-0">
                                         <!-- Botón para cancelar -->
-                                        <a href="<?php echo site_url('users') ?>" class="btn btn-outline-black waves-effect waves-light me-3">
+                                        <a title="Cancelar" href="<?php echo site_url('users') ?>" class="btn btn-outline-black waves-effect waves-light me-3">
                                             Cancelar
                                         </a>
                                         <!-- Botón para guardar -->
-                                        <button type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
+                                        <button title="Guardar" type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
                                     </div>
                                 </div>
                             </div>

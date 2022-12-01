@@ -10,19 +10,19 @@
                     <div class="card card-list-soaga">
                         <div class="card-header border-0">
                             <div class="d-flex align-items-center">
-                                <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize">Usuarios</h5>
+                                <h5 title="Usuarios" class="card-title mb-0 flex-grow-1 h5-title text-capitalize">Usuarios</h5>
                                 <div class="flex-shrink-0">
                                 <?php if ($fichado === true) { ?>
                                     <span class="text-capitalize"><?php echo anchor(site_url('users/create'), '<i class="ri-add-line align-bottom me-1"></i> Añadir Nuevo Usuario', 'class="btn btn-green add-btn"'); ?></span>
-                                    <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('users/create_group') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir Nuevo Grupo</a></span>
+                                    <span class="text-capitalize"><a title="Añadir operador" href="#" onclick="loadModalContent('<?= site_url('users/create_group') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir Nuevo Grupo</a></span>
                                 <?php } ?>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('users/view'); ?>" method="post">
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
                                             <input type="hidden" name="title" value="<?= $custom_title == "" ? "" : explode("=", $custom_title)[1] ?>">
-                                            <input type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
-                                            <button type="button" onclick="resetSearch();" class="btn btn-ghost-dark waves-effect waves-light"><i class="ri-close-line "></i></button>
-                                            <button type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
+                                            <input title="Input buscar" type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
+                                            <button title="Botón resetear búsqueda" type="button" onclick="resetSearch();" class="btn btn-ghost-dark waves-effect waves-light"><i class="ri-close-line "></i></button>
+                                            <button title="Botón realizar búsqueda" type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -34,12 +34,12 @@
                                     <table class="table align-middle table-nowrap">
                                         <thead class="table-light">
                                             <tr>
-                                                <th class="text-capitalize"><a href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('username', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Nombre de usuario <span class="block-sort"><i class="bx <?= $orden_campo == "first_name" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="text-capitalize"><a href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('first_name', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Nombre <span class="block-sort"><i class="bx <?= $orden_campo == "first_name" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="text-capitalize"><a href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('last_name', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Apellidos <span class="block-sort"><i class="bx <?= $orden_campo == "last_name" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="text-capitalize"><a href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('email', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Email <span class="block-sort"><i class="bx <?= $orden_campo == "email" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="text-capitalize">Grupos</th>
-                                                <th class="text-capitalize"><a href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('active', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Estado <span class="block-sort"><i class="bx <?= $orden_campo == "active" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="text-capitalize"><a title="nombre de usuario" href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('username', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Nombre de usuario <span class="block-sort"><i class="bx <?= $orden_campo == "first_name" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="text-capitalize"><a title="nombre" href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('first_name', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Nombre <span class="block-sort"><i class="bx <?= $orden_campo == "first_name" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="text-capitalize"><a title="apellidos" href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('last_name', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Apellidos <span class="block-sort"><i class="bx <?= $orden_campo == "last_name" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="text-capitalize"><a title="email" href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('email', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Email <span class="block-sort"><i class="bx <?= $orden_campo == "email" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th title="grupos" class="text-capitalize">Grupos</th>
+                                                <th class="text-capitalize"><a title="estado" href="<?php echo site_url('users/view?ob=' . sentidobusquedacrd('active', 'users.')) . $filter . $custom_title; ?>" style="color:inherit;">Estado <span class="block-sort"><i class="bx <?= $orden_campo == "active" ? ($orden_dir == "ASC" ? "bx-caret-down active" : "bx-caret-up active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
@@ -90,7 +90,7 @@
                                     </table>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <div class="mb-0 flex-grow-1">
+                                    <div title="total filas" class="mb-0 flex-grow-1">
                                         <?= $total_rows > count($users_data) ? (count($users_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : "" ?>.
                                     </div>
                                     <?php if ($total_rows > count($users_data)) : ?>
