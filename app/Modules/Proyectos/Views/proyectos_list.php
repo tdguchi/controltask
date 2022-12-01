@@ -13,9 +13,9 @@
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
                                 <?php if ($fichado === true && count($group_id) == 2) { ?>
-                                    <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('proyectos/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
+                                    <span title="Añadir proyecto" class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('proyectos/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
                                     <span class="text-capitalize"><?php echo anchor(site_url('proyectos/excel'), 'Exportar Excel', 'class="btn btn-green add-btn"'); ?></span>
-                                    <button type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
+                                    <button title="Borrar seleccionados" type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
                                     <?php } ?>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('proyectos/view'); ?>" method="post">
@@ -23,9 +23,9 @@
 
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
                                             <input type="hidden" name="title" value="<?= $custom_title == "" ? "" : explode("=", $custom_title)[1] ?>">
-                                            <input type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
-                                            <button type="button" onclick="resetSearch();" class="btn btn-ghost-dark waves-effect waves-light"><i class="ri-close-line "></i></button>
-                                            <button type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
+                                            <input title="Campo buscar" type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
+                                            <button title="Boton resetear busqueda" type="button" onclick="resetSearch();" class="btn btn-ghost-dark waves-effect waves-light"><i class="ri-close-line "></i></button>
+                                            <button title="Botón realizar búsqueda" type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -39,11 +39,11 @@
                                             <tr>
                                                 <th scope="col" style="width: 50px;">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option">
+                                                        <input title="checkbox" class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>   
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('proyectos/view?ob=' . sentidobusquedacrd('titulo', 'proyectos.')) . $filter . $custom_title; ?>" style="color:inherit;">Titulo <span class="block-sort"><i class="bx <?= $orden_campo == "titulo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('proyectos/view?ob=' . sentidobusquedacrd('descripcion', 'proyectos.')) . $filter . $custom_title; ?>" style="color:inherit;">Descripcion <span class="block-sort"><i class="bx <?= $orden_campo == "descripcion" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="titulo" href="<?php echo site_url('proyectos/view?ob=' . sentidobusquedacrd('titulo', 'proyectos.')) . $filter . $custom_title; ?>" style="color:inherit;">Titulo <span class="block-sort"><i class="bx <?= $orden_campo == "titulo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="descripción" href="<?php echo site_url('proyectos/view?ob=' . sentidobusquedacrd('descripcion', 'proyectos.')) . $filter . $custom_title; ?>" style="color:inherit;">Descripcion <span class="block-sort"><i class="bx <?= $orden_campo == "descripcion" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
@@ -51,25 +51,25 @@
                                                 <tr>
                                                     <th scope="row">
                                                         <div class="form-check">
-                                                            <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->proyecto_id ?>">
+                                                            <input title="checkbox" class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->proyecto_id ?>">
                                                         </div>
                                                     </th>
                                                     <td class=" text-left ">
                                                         <div class>
                                                             <div class="flex-grow-1 tasks_name">
-                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('proyectos/read/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->titulo ?></a>
+                                                                <a title="ver" class="link-strong" href="#" onclick="loadModalContent('<?= site_url('proyectos/read/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->titulo ?></a>
                                                             </div>
                                                             <div class="flex-shrink-0">
                                                                 <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
                                                                     <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="loadModalContent('<?= site_url('proyectos/read/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a>
+                                                                        <a title="ver" href="#" onclick="loadModalContent('<?= site_url('proyectos/read/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a>
                                                                     </li>
                                                                     <?php if ($fichado === true && count($group_id) == 2) { ?>
                                                                     <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="loadModalContent('<?= site_url('proyectos/update/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Editar</a>
+                                                                        <a title="editar" href="#" onclick="loadModalContent('<?= site_url('proyectos/update/' . $row->proyecto_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Editar</a>
                                                                     </li>
                                                                     <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="deleteItem('<?= $row->proyecto_id ?>')" class="color-red">Eliminar</a>
+                                                                        <a title="eliminar" href="#" onclick="deleteItem('<?= $row->proyecto_id ?>')" class="color-red">Eliminar</a>
                                                                     </li>
                                                                     <?php } ?>
                                                                 </ul>
@@ -85,7 +85,7 @@
                                     </table>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <div class="mb-0 flex-grow-1">
+                                    <div title="total proyectos" class="mb-0 flex-grow-1">
                                         <?= $total_rows > count($proyectos_data) ? (count($proyectos_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : "" ?>.
                                     </div>
                                     <?php if ($total_rows > count($proyectos_data)) : ?>

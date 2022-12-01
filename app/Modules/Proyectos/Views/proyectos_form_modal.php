@@ -18,15 +18,15 @@
                 <?php endif; ?>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="titulo">Titulo</label>
-                        <input type="text" class="form-control" name="<?= 'titulo' ?>" id="<?= 'titulo' ?>" value="<?= $data_fields['titulo'] ?>" required />
+                        <label title="Etiqueta titulo" for="titulo">Titulo</label>
+                        <input title="Input titulo" type="text" class="form-control" name="<?= 'titulo' ?>" id="<?= 'titulo' ?>" value="<?= $data_fields['titulo'] ?>" required />
 
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="descripcion">Descripcion</label>
-                        <textarea class="form-control" rows="7" name="<?= 'descripcion' ?>" id="<?= 'descripcion' ?>" required><?= $data_fields['descripcion'] ?></textarea>
+                        <label title="Etiqueta descripción" for="descripcion">Descripcion</label>
+                        <textarea title="Textarea descripción" class="form-control" rows="7" name="<?= 'descripcion' ?>" id="<?= 'descripcion' ?>" required><?= $data_fields['descripcion'] ?></textarea>
 
                     </div>
                 </div>
@@ -35,8 +35,8 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#" data-bs-dismiss="modal" class="btn btn-outline-black waves-effect waves-light me-3">Cancelar</a>
-        <button type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
+        <a title="Cancelar" href="#" data-bs-dismiss="modal" class="btn btn-outline-black waves-effect waves-light me-3">Cancelar</a>
+        <button title="Guardar" type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
     </div>
 </form>
 

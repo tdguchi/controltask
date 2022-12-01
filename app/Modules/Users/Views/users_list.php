@@ -54,10 +54,10 @@
                                                                 <?php if ($fichado === true) { ?>
 
                                                                     <li class="list-inline-item fs-12">
-                                                                        <a href="<?= site_url('users/update/' . $row->id) ?>">Editar</a>
+                                                                        <a title="Editar operador" href="<?= site_url('users/update/' . $row->id) ?>">Editar</a>
                                                                     </li>
                                                                     <li class="list-inline-item fs-12">
-                                                                        <a href="<?= site_url('horarios/view/' . $row->id) ?>">Horarios</a>
+                                                                        <a title="Ver horarios operador" href="<?= site_url('horarios/view/' . $row->id) ?>">Horarios</a>
                                                                     </li>
                                                                 <?php } ?>
                                                                 </ul>
