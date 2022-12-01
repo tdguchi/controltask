@@ -18,29 +18,29 @@
                 <?php endif; ?>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="text">Texto</label>
-                        <input type="text" class="form-control" name="<?= 'text' ?>" id="<?= 'text' ?>" value="<?= $data_fields['text'] ?>" />
+                        <label title="Etiqueta texto" for="text">Texto</label>
+                        <input title="Campo texto" type="text" class="form-control" name="<?= 'text' ?>" id="<?= 'text' ?>" value="<?= $data_fields['text'] ?>" />
 
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="url">URL</label>
-                        <input type="text" class="form-control" name="<?= 'url' ?>" id="<?= 'url' ?>" value="<?= $data_fields['url'] ?>" />
+                        <label title="Etiqueta URL" for="url">URL</label>
+                        <input title="Campo URL" type="text" class="form-control" name="<?= 'url' ?>" id="<?= 'url' ?>" value="<?= $data_fields['url'] ?>" />
 
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="position">Posición</label>
-                        <input type="number" class="form-control" name="<?= 'position' ?>" id="<?= 'position' ?>" value="<?= $data_fields['position'] ?>" />
+                        <label title="Etiqueta posición" for="position">Posición</label>
+                        <input title="Campo posición" type="number" class="form-control" name="<?= 'position' ?>" id="<?= 'position' ?>" value="<?= $data_fields['position'] ?>" />
 
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="parent">Parent</label>
-                        <select class="form-control" name="parent" id="parent">
+                        <label title="Etiqueta parent" for="parent">Parent</label>
+                        <select title="Seleccionar parent" class="form-control" name="parent" id="parent">
                             <option value=''>Seleccionar Parent</option><? foreach ($s_parent as $c) {
                                                                         ?>
                                 <option value="<?= $c->menu_id ?>" <?= $c->menu_id == $data_fields['parent'] ? 'selected="selected"' : '' ?>><?= $c->text ?></option>
@@ -51,36 +51,36 @@
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="icon">Icono</label>
-                        <input type="text" class="form-control" name="<?= 'icon' ?>" id="<?= 'icon' ?>" value="<?= $data_fields['icon'] ?>" />
+                        <label title="Etiqueta icono" for="icon">Icono</label>
+                        <input title="Campo icono" type="text" class="form-control" name="<?= 'icon' ?>" id="<?= 'icon' ?>" value="<?= $data_fields['icon'] ?>" />
 
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="show_in_menu">¿Menú?</label>
-                        <input type="checkbox" name="<?= 'show_in_menu' ?>" id="<?= 'show_in_menu' ?>" value="1" <?= $data_fields['show_in_menu'] == "1" ? "checked" : "" ?>>
+                        <label title="Etiqueta presencia menú" for="show_in_menu">¿Menú?</label>
+                        <input title="checkbox presencia menú" type="checkbox" name="<?= 'show_in_menu' ?>" id="<?= 'show_in_menu' ?>" value="1" <?= $data_fields['show_in_menu'] == "1" ? "checked" : "" ?>>
 
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="show_in_dashboard">¿Dashboard?</label>
-                        <input type="checkbox" name="<?= 'show_in_dashboard' ?>" id="<?= 'show_in_dashboard' ?>" value="1" <?= $data_fields['show_in_dashboard'] == "1" ? "checked" : "" ?>>
+                        <label title="Etiqueta presencia dashboard for="show_in_dashboard">¿Dashboard?</label>
+                        <input title="checkbox presencia dashboard" type="checkbox" name="<?= 'show_in_dashboard' ?>" id="<?= 'show_in_dashboard' ?>" value="1" <?= $data_fields['show_in_dashboard'] == "1" ? "checked" : "" ?>>
 
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="dashboard_description">Descripción</label>
-                        <textarea class="form-control" rows="7" name="<?= 'dashboard_description' ?>" id="<?= 'dashboard_description' ?>"><?= $data_fields['dashboard_description'] ?></textarea>
+                        <label title="Etiqueta descripción" for="dashboard_description">Descripción</label>
+                        <textarea title="Textarea descripción" class="form-control" rows="7" name="<?= 'dashboard_description' ?>" id="<?= 'dashboard_description' ?>"><?= $data_fields['dashboard_description'] ?></textarea>
 
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="admin_only">Solo Administrador</label>
-                        <input type="checkbox" name="<?= 'admin_only' ?>" id="<?= 'admin_only' ?>" value="1" <?= $data_fields['admin_only'] == "1" ? "checked" : "" ?>>
+                        <label title="Etiqueta solo admin?" for="admin_only">Solo Administrador</label>
+                        <input title="checkbox solo admin?" type="checkbox" name="<?= 'admin_only' ?>" id="<?= 'admin_only' ?>" value="1" <?= $data_fields['admin_only'] == "1" ? "checked" : "" ?>>
 
                     </div>
                 </div>
@@ -89,8 +89,8 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#" data-bs-dismiss="modal" class="btn btn-outline-black waves-effect waves-light me-3">Cancelar</a>
-        <button type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
+        <a title="Cancelar" href="#" data-bs-dismiss="modal" class="btn btn-outline-black waves-effect waves-light me-3">Cancelar</a>
+        <button title="Guardar" type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
     </div>
 </form>
 
