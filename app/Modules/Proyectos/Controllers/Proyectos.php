@@ -11,6 +11,7 @@ class Proyectos extends BaseController
     function __construct()
     {
         $this->ionAuth    = new \IonAuth\Libraries\IonAuth();
+        
         $this->Tareas_model = model('App\Modules\Tareas\Models\Tareas_model');
         $this->Asistencias_model = model('App\Modules\Asistencias\Models\Asistencias_model');
         $this->Proyectos_model = model('App\Modules\Proyectos\Models\Proyectos_model');
