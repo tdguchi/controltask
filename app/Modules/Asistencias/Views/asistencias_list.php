@@ -41,7 +41,6 @@
                                         <thead class="table-light">
                                             <tr>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('usuario_id', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Operador <span class="block-sort"><i class="bx <?= $orden_campo == "usuario_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('asistenciatipo_id', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Tipo De Asistencia <span class="block-sort"><i class="bx <?= $orden_campo == "asistenciatipo_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechahora', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;"><?= $q ? 'Fecha/hora' : 'Hora' ?> <span class="block-sort"><i class="bx <?= $orden_campo == "fechahora" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('comentario', 'asistencias.') . $filter . $custom_title; ?>" style="color:inherit;">Comentario <span class="block-sort"><i class="bx <?= $orden_campo == "comentario" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <? if (count($group_id) != 1) { ?>
@@ -52,14 +51,9 @@
                                         </thead>
                                         <tbody class="list form-check-all">
                                             <? foreach ($asistencias_data as $row) { ?>
-                                                <tr>
+                                                <tr style="background-color:<?= $row->asistenciatipo_id == 0 ? '#D8FAE0' : '#FFB6B6' ?>">
                                                     <td class=" text-right "><?= $row->nombre ?></td>
                                                     <td class=" text-right ">
-                                                        <? if ($row->asistenciatipo_id == 0) { ?>
-                                                            <span style="color:green"><i class='bx bx-exit'></i> <?= $row->tipo ?> </span>
-                                                        <? } else { ?>
-                                                            <span style="color:red"><i class='bx bx-exit bx-rotate-180'></i> <?= $row->tipo ?> </span>
-                                                        <? } ?>
                                                     </td>
                                                     <td class=" text-left "><?= $q ? date("d-m-Y",  strtotime($row->fechahora)) . ' a las ' . date("H:i:s", strtotime($row->fechahora)) : date("H:i:s", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->comentario ?></td>
