@@ -10,23 +10,23 @@
                 <?php if (!($fun == "create")) : ?>
                     <div class="col-12">
                         <div class="mb-3">
-                            <label for="key">Clave</label>
-                            <input type="text" class="form-control" name="<?= 'key' ?>" id="<?= 'key' ?>" value="<?= $data_fields['key'] ?>" readonly />
+                            <label title="Etiqueta clave" for="key">Clave</label>
+                            <input title="Campo clave" type="text" class="form-control" name="<?= 'key' ?>" id="<?= 'key' ?>" value="<?= $data_fields['key'] ?>" readonly />
 
                         </div>
                     </div>
                 <?php endif; ?>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="value">Valor</label>
-                        <input type="text" class="form-control" name="<?= 'value' ?>" id="<?= 'value' ?>" value="<?= $data_fields['value'] ?>" />
+                        <label title="Etiqueta valor" for="value">Valor</label>
+                        <input title="Campo valor" type="text" class="form-control" name="<?= 'value' ?>" id="<?= 'value' ?>" value="<?= $data_fields['value'] ?>" />
 
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="description">Descripción</label>
-                        <input type="text" class="form-control" name="<?= 'description' ?>" id="<?= 'description' ?>" value="<?= $data_fields['description'] ?>" />
+                        <label title="Etiqueta descripcion" for="description">Descripción</label>
+                        <input title="Campo descripcion" type="text" class="form-control" name="<?= 'description' ?>" id="<?= 'description' ?>" value="<?= $data_fields['description'] ?>" />
 
                     </div>
                 </div>
@@ -35,8 +35,8 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#" data-bs-dismiss="modal" class="btn btn-outline-black waves-effect waves-light me-3">Cancelar</a>
-        <button type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
+        <a title="Cancelar" href="#" data-bs-dismiss="modal" class="btn btn-outline-black waves-effect waves-light me-3">Cancelar</a>
+        <button title="Guardar" type="submit" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Guardar</button>
     </div>
 </form>
 
