@@ -13,8 +13,8 @@
                                 <h5 title="Usuarios" class="card-title mb-0 flex-grow-1 h5-title text-capitalize">Usuarios</h5>
                                 <div class="flex-shrink-0">
                                 <?php if ($fichado === true) { ?>
-                                    <span class="text-capitalize"><?php echo anchor(site_url('users/create'), '<i class="ri-add-line align-bottom me-1"></i> Añadir Nuevo Usuario', 'class="btn btn-green add-btn"'); ?></span>
-                                    <span class="text-capitalize"><a title="Añadir operador" href="#" onclick="loadModalContent('<?= site_url('users/create_group') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir Nuevo Grupo</a></span>
+                                    <span title="Añadir operador" class="text-capitalize"><?php echo anchor(site_url('users/create'), '<i class="ri-add-line align-bottom me-1"></i> Añadir Nuevo Usuario', 'class="btn btn-green add-btn"'); ?></span>
+                                    <span class="text-capitalize"><a title="Añadir grupo" href="#" onclick="loadModalContent('<?= site_url('users/create_group') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir Nuevo Grupo</a></span>
                                 <?php } ?>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('users/view'); ?>" method="post">
