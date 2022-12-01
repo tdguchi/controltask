@@ -10,7 +10,7 @@ $menuElement = $cur_url ? $menuModel->get_by_url($cur_url) : false;
 $parentElement = $menuElement ? $menuModel->get_by_id($menuElement->parent) : '';
 ?>
 
-<a href="<?= base_url() ?>"><i class="ri-home-3-fill"></i></a>
+<a title="Ir a principal" href="<?= base_url() ?>"><i class="ri-home-3-fill"></i></a>
 
 <?php if ($parentElement) : ?>
     / <?= $parentElement->text ?>
