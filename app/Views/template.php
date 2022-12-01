@@ -37,7 +37,7 @@
         <div class="layout-width">
             <div class="navbar-header">
                 <div class="d-flex align-items-center">
-                    <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn" id="toggle-menu">
+                    <button title="esconder o mostrar el menú" type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn" id="toggle-menu">
                         <i class="bx bx-menu"></i>
                     </button>
                     <?= view('partials/breadcrumb') ?>
@@ -52,7 +52,7 @@
     <div class="app-menu navbar-menu">
         <div style="height:61px;text-align:center;border-bottom:1px solid #dee2e6;display:flex;justify-content:center;align-items:center;">
             <a href="<?= base_url() ?>">
-                <img src="<?= base_url() ?>/assets/images/logo-light.png" alt="" height="22">
+                <img alt="logo controltask" src="<?= base_url() ?>/assets/images/logo-light.png" alt="" height="22">
             </a>
         </div>
         <?= view('partials/menu'); ?>

@@ -29,7 +29,7 @@ function in_url($link_url)
                 ?>
                 <li class="nav-item">
                     <?php if (count($item['children']) > 0) : ?>
-                        <a class="nav-link menu-link <?= $active ?>" href="#sidebar<?= $item['id'] ?>" data-bs-toggle="collapse" role="button" aria-expanded="<?= $expanded ?>" aria-controls="sidebar<?= $item['id'] ?>">
+                        <a title="<?= $item['text'] ?>" class="nav-link menu-link <?= $active ?>" href="#sidebar<?= $item['id'] ?>" data-bs-toggle="collapse" role="button" aria-expanded="<?= $expanded ?>" aria-controls="sidebar<?= $item['id'] ?>">
                             <i class="<?= $item['icon'] ?>"></i><span><?= $item['text'] ?></span>
                         </a>
                         <div class="<?= $collapse ?> menu-dropdown" id="sidebar<?= $item['id'] ?>">
@@ -38,7 +38,7 @@ function in_url($link_url)
                                     <?php
                                     $activechild = ($child['url'] && in_url($child['url']) !== false) ? 'active' : '';
                                     ?>
-                                    <li class="nav-item">
+                                    <li class="nav-item">´
                                         <a href="<?= base_url($child['url']) ?>" class="nav-link <?= $activechild ?>"> <?= $child['text'] ?> <i class="<?= $child['icon'] ?>"></i></a>
                                     </li>
                                 <?php endforeach; ?>
