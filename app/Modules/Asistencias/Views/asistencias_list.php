@@ -53,8 +53,6 @@
                                             <? foreach ($asistencias_data as $row) { ?>
                                                 <tr style="background-color:<?= $row->asistenciatipo_id == 0 ? '#D8FAE0' : '#FFB6B6' ?>">
                                                     <td class=" text-right "><?= $row->nombre ?></td>
-                                                    <td class=" text-right ">
-                                                    </td>
                                                     <td class=" text-left "><?= $q ? date("d-m-Y",  strtotime($row->fechahora)) . ' a las ' . date("H:i:s", strtotime($row->fechahora)) : date("H:i:s", strtotime($row->fechahora)) ?></td>
                                                     <td class=" text-left "><?= $row->comentario ?></td>
                                                     <? if (count($group_id) != 1) { ?>
