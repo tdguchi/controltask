@@ -6,14 +6,14 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex align-items-center">
-                                <h5 class="card-title mb-0 flex-grow-1 h5-title"><?= isset($subtitulo) ? $subtitulo : '' ?><span style="color:#ffffff"><?= isset($data_fields['nombre']) ? $data_fields['nombre'] : "" ?></span></h5>
+                                <h5 title="<?= isset($data_fields['nombre']) ? $data_fields['nombre'] : "" ?>" class="card-title mb-0 flex-grow-1 h5-title"><?= isset($subtitulo) ? $subtitulo : '' ?><span style="color:#ffffff"><?= isset($data_fields['nombre']) ? $data_fields['nombre'] : "" ?></span></h5>
                             </div>
                         </div>
                         <div class="card-body">
                         <div class="row">
                                 <div class="col-12">
                                     <div class="mb-12">
-                                        <h3 class="h1-title">Tu último registro hoy ha sido: <?= $ultima->nombre?></h3>
+                                        <h3 title="Ultimo registro <?= $ultima->nombre?>" class="h1-title">Tu último registro hoy ha sido: <?= $ultima->nombre?></h3>
                                     </div>
                                 </div>
                             <div class="row">
@@ -22,9 +22,9 @@
                                     <h3 class="h1-title">Necesitas registrar una entrada para poder usar la aplicación</h3>
 
                                         <? if ($ultima->asistenciatipo_id == 0 ) { ?>
-                                            <h3 class="h1-title">¿Quieres fichar la salida?</h3>
+                                            <h3 title="Texto fichar salida" class="h1-title">¿Quieres fichar la salida?</h3>
                                         <? } else { ?>
-                                            <h3 class="h1-title">¿Quieres fichar la entrada?</h3>
+                                            <h3 title="Texto fichar entrada" class="h1-title">¿Quieres fichar la entrada?</h3>
                                         <?}?>
                                     </div>
                                 </div>
@@ -38,8 +38,8 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="comentario">Comentario (opcional)</label>
-                                                            <input type="text" class="form-control" name="<?= 'comentario' ?>" id="<?= 'comentario' ?>" value="<?= $data_fields['comentario'] ?>" />
+                                                            <label title="Label comentario" for="comentario">Comentario (opcional)</label>
+                                                            <input title="Input comentario" type="text" class="form-control" name="<?= 'comentario' ?>" id="<?= 'comentario' ?>" value="<?= $data_fields['comentario'] ?>" />
                                                         </div>
                                                     </div>
                                                     <input type="hidden" name="asistencia_id" value="<?php echo $data_fields['asistencia_id']; ?>" />
@@ -54,11 +54,11 @@
                             <div class="d-flex justify-content-end">
                                 <div class="flex-shrink-0">
                                     <!-- Botón para cancelar -->
-                                    <a href="<?= $from ? site_url($from) : site_url('asistencias') ?>" class="btn btn-outline-black waves-effect waves-light me-3">
+                                    <a title="Cancelar" href="<?= $from ? site_url($from) : site_url('asistencias') ?>" class="btn btn-outline-black waves-effect waves-light me-3">
                                         Cancelar
                                     </a>
                                     <!-- Botón para guardar -->
-                                    <button type="submit" onclick="javascript: $('.add-btn').prop('disabled', true);$('#edit-form').submit();" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Registrar</button>
+                                    <button title="Registrar" type="submit" onclick="javascript: $('.add-btn').prop('disabled', true);$('#edit-form').submit();" class="btn btn-green add-btn"><i class="ri-save-line align-bottom ms-2"></i> Registrar</button>
                                 </div>
                             </div>
                         </div>
