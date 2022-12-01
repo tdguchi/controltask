@@ -13,8 +13,8 @@
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?></h5>
                                 <div class="flex-shrink-0">
                                 <?php if ($fichado === true) { ?>
-                                    <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('menuconfiguration/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
-                                    <button type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
+                                    <span class="text-capitalize"><a title="Añadir elemento menú" href="#" onclick="loadModalContent('<?= site_url('menuconfiguration/create/1') ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
+                                    <button title="Eliminar seleccionados" type="button" id="delete-selected" onclick="deleteSelected();" class="btn btn-outline-red waves-effect waves-light ms-2 d-none bulk-actions">Eliminar Seleccionados</button>
                                     <?php } ?>
                                     <div class="search-box-table ms-2">
                                         <form id="search-box" class="input-group" action="<?php echo site_url('menuconfiguration/view'); ?>" method="post">
@@ -22,9 +22,9 @@
 
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
                                             <input type="hidden" name="title" value="<?= $custom_title == "" ? "" : explode("=", $custom_title)[1] ?>">
-                                            <input type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
-                                            <button type="button" onclick="resetSearch();" class="btn btn-ghost-dark waves-effect waves-light"><i class="ri-close-line "></i></button>
-                                            <button type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
+                                            <input title="texto buscar" type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
+                                            <button title="resetear texto buscar" type="button" onclick="resetSearch();" class="btn btn-ghost-dark waves-effect waves-light"><i class="ri-close-line "></i></button>
+                                            <button  title="boton buscar" type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -38,21 +38,21 @@
                                             <tr>
                                                 <th scope="col" style="width: 50px;">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option">
+                                                        <input title="checkbox" class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>
                                                 <th class="sort text-capitalize ">
                                                     <a href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('menu_id', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;"># <span class="block-sort"><i class="bx <?= $orden_campo == "menu_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a>
                                                 </th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('text', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Texto <span class="block-sort"><i class="bx <?= $orden_campo == "text" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('url', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">URL <span class="block-sort"><i class="bx <?= $orden_campo == "url" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('position', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Posición <span class="block-sort"><i class="bx <?= $orden_campo == "position" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('parent', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Parent <span class="block-sort"><i class="bx <?= $orden_campo == "parent" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('icon', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Icono <span class="block-sort"><i class="bx <?= $orden_campo == "icon" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('show_in_menu', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">¿Menú? <span class="block-sort"><i class="bx <?= $orden_campo == "show_in_menu" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('show_in_dashboard', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">¿Dashboard? <span class="block-sort"><i class="bx <?= $orden_campo == "show_in_dashboard" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('dashboard_description', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Descripción <span class="block-sort"><i class="bx <?= $orden_campo == "dashboard_description" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('admin_only', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Solo Administrador <span class="block-sort"><i class="bx <?= $orden_campo == "admin_only" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="text" href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('text', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Texto <span class="block-sort"><i class="bx <?= $orden_campo == "text" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="url" href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('url', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">URL <span class="block-sort"><i class="bx <?= $orden_campo == "url" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="posicion" href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('position', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Posición <span class="block-sort"><i class="bx <?= $orden_campo == "position" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="parent" href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('parent', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Parent <span class="block-sort"><i class="bx <?= $orden_campo == "parent" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="icono" href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('icon', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Icono <span class="block-sort"><i class="bx <?= $orden_campo == "icon" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="mostrar en menú" href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('show_in_menu', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">¿Menú? <span class="block-sort"><i class="bx <?= $orden_campo == "show_in_menu" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="mostrar en dashboard" href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('show_in_dashboard', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">¿Dashboard? <span class="block-sort"><i class="bx <?= $orden_campo == "show_in_dashboard" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="Descripción"href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('dashboard_description', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Descripción <span class="block-sort"><i class="bx <?= $orden_campo == "dashboard_description" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="mostrar solo admin" href="<?php echo site_url('menuconfiguration/view?ob=' . sentidobusquedacrd('admin_only', 'menuconfiguration.')) . $filter . $custom_title; ?>" style="color:inherit;">Solo Administrador <span class="block-sort"><i class="bx <?= $orden_campo == "admin_only" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
@@ -60,7 +60,7 @@
                                                 <tr>
                                                     <th scope="row">
                                                         <div class="form-check">
-                                                            <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->menu_id ?>">
+                                                            <input title="checkbox" class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->menu_id ?>">
                                                         </div>
                                                     </th>
 
@@ -73,10 +73,10 @@
                                                             <?php if ($fichado === true) { ?>
                                                                 <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
                                                                     <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="loadModalContent('<?= site_url('menuconfiguration/update/' . $row->menu_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Editar</a>
+                                                                        <a title="editar" href="#" onclick="loadModalContent('<?= site_url('menuconfiguration/update/' . $row->menu_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Editar</a>
                                                                     </li>
                                                                     <li class="list-inline-item fs-12">
-                                                                        <a href="#" onclick="deleteItem('<?= $row->menu_id ?>')" class="color-red">Eliminar</a>
+                                                                        <a title="eliminar" href="#" onclick="deleteItem('<?= $row->menu_id ?>')" class="color-red">Eliminar</a>
                                                                     </li>
                                                                 </ul>
                                                             <?php } ?>
@@ -99,7 +99,7 @@
                                     </table>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <div class="mb-0 flex-grow-1">
+                                    <div title="total filas" class="mb-0 flex-grow-1">
                                         <?= $total_rows > count($menuconfiguration_data) ? (count($menuconfiguration_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : "" ?>.
                                     </div>
                                     <?php if ($total_rows > count($menuconfiguration_data)) : ?>
