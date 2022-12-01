@@ -110,7 +110,7 @@ class Asistencias_model extends Model
         if ($oc != '') {
             $builder->orderBy($oc, $od);
         } else
-            $builder->orderBy('usuario_id', 'asc');
+            $builder->orderBy('asistencias.fechahora', 'asc');
         $builder->limit($limit, $start);
         return $builder->get()->getResult();
     }
