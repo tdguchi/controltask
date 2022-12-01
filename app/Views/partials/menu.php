@@ -27,9 +27,9 @@ function in_url($link_url)
                     }
                 }
                 ?>
-                <li class="nav-item">
+                <li title="<?= $item['text'] ?>" class="nav-item">
                     <?php if (count($item['children']) > 0) : ?>
-                        <a title="<?= $item['text'] ?>" class="nav-link menu-link <?= $active ?>" href="#sidebar<?= $item['id'] ?>" data-bs-toggle="collapse" role="button" aria-expanded="<?= $expanded ?>" aria-controls="sidebar<?= $item['id'] ?>">
+                        <a  class="nav-link menu-link <?= $active ?>" href="#sidebar<?= $item['id'] ?>" data-bs-toggle="collapse" role="button" aria-expanded="<?= $expanded ?>" aria-controls="sidebar<?= $item['id'] ?>">
                             <i class="<?= $item['icon'] ?>"></i><span><?= $item['text'] ?></span>
                         </a>
                         <div class="<?= $collapse ?> menu-dropdown" id="sidebar<?= $item['id'] ?>">
