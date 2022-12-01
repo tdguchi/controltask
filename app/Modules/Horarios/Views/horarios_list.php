@@ -13,7 +13,7 @@
                                 <h5 class="card-title mb-0 flex-grow-1 h5-title text-capitalize"><?= $titulo ?> <?= $element ?><?= " para " . $username ?> </h5>
                                 <div class="flex-shrink-0">
                                     <?php if ($fichado === true && count($group_id) == 2) { ?>
-                                        <span class="text-capitalize"><a href="#" onclick="loadModalContent('<?= site_url('horarios/create/1/' . $id) ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
+                                        <span class="text-capitalize"><a title="Añadir horario" href="#" onclick="loadModalContent('<?= site_url('horarios/create/1/' . $id) ?>');" class="btn btn-green add-btn" data-bs-toggle="modal" data-bs-target="#ajax"><i class="ri-add-line align-bottom me-1"></i> Añadir <?= $titulo ?></a></span>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -24,11 +24,11 @@
                                     <table class="table align-middle table-nowrap table-striped">
                                         <thead class="table-light">
                                             <tr>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('entrada_manana', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Entrada mañana<span class="block-sort"><i class="bx <?= $orden_campo == "entrada_manana" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('salida_manana', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Salida mañana<span class="block-sort"><i class="bx <?= $orden_campo == "salida_manana" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('entrada_tarde', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Entrada tarde<span class="block-sort"><i class="bx <?= $orden_campo == "entrada_tarde" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('salida_tarde', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Salida tarde<span class="block-sort"><i class="bx <?= $orden_campo == "salida_tarde" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class=" text-center ">Configurar</th>
+                                                <th class="sort text-capitalize "><a title="entrada_mañana" href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('entrada_manana', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Entrada mañana<span class="block-sort"><i class="bx <?= $orden_campo == "entrada_manana" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="salida_mañana" href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('salida_manana', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Salida mañana<span class="block-sort"><i class="bx <?= $orden_campo == "salida_manana" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="entrada_tarde" href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('entrada_tarde', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Entrada tarde<span class="block-sort"><i class="bx <?= $orden_campo == "entrada_tarde" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="salida_tarde" href="<?php echo site_url('horarios/view?ob=' . sentidobusquedacrd('salida_tarde', 'horarios.')) . $filter . $custom_title; ?>" style="color:inherit;">Salida tarde<span class="block-sort"><i class="bx <?= $orden_campo == "salida_tarde" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th title="configurar" class=" text-center ">Configurar</th>
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
@@ -47,8 +47,8 @@
                                                     <td class=" text-center "><?= date('H:i',strtotime($row->salida_tarde)) ?></td>
                                                 <? if ($fichado === true && count($group_id) == 2) { ?>
                                                     <td class=" text-center ">
-                                                        <a href="<? echo site_url('horarios/asignar/') . $row->id . '/0/' . $id ?>" class="btn btn-danger btn-sm">Verano</a>
-                                                        <a href="<? echo site_url('horarios/asignar/') . $row->id . '/1/' . $id ?>" class="btn btn-primary btn-sm">Invierno</a>
+                                                        <a title="verano" href="<? echo site_url('horarios/asignar/') . $row->id . '/0/' . $id ?>" class="btn btn-danger btn-sm">Verano</a>
+                                                        <a title="invierno" href="<? echo site_url('horarios/asignar/') . $row->id . '/1/' . $id ?>" class="btn btn-primary btn-sm">Invierno</a>
                                                     </td>
                                                 <?php } ?>
                                                 </tr>
@@ -57,7 +57,7 @@
                                     </table>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <div class="mb-0 flex-grow-1">
+                                    <div title="filas totales" class="mb-0 flex-grow-1">
                                         <?= $total_rows > count($horarios_data) ? (count($horarios_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : "" ?>.
                                     </div>
                                     <?php if ($total_rows > count($horarios_data)) : ?>
