@@ -17,9 +17,9 @@
                                         <form id="search-box" class="input-group" action="<?php echo site_url('worklog/view'); ?>" method="post">
                                             <input type="hidden" name="filter" value="<?= $filter == "" ? "" : explode("=", $filter)[1] ?>">
                                             <input type="hidden" name="title" value="<?= $custom_title == "" ? "" : explode("=", $custom_title)[1] ?>">
-                                            <input type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
-                                            <button type="button" onclick="resetSearch();" class="btn btn-ghost-dark waves-effect waves-light"><i class="ri-close-line "></i></button>
-                                            <button type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
+                                            <input title="texto buscar" type="text" class="form-control search-c border-black" placeholder="Buscar..." id="q" name="q" value="<?= $q ?>">
+                                            <button title="resetear texto buscar" type="button" onclick="resetSearch();" class="btn btn-ghost-dark waves-effect waves-light"><i class="ri-close-line "></i></button>
+                                            <button title="realizar búsqueda" type="submit" class="btn btn-outline-dark"><i class="ri-search-line search-icon"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -31,11 +31,11 @@
                                     <table class="table align-middle table-nowrap">
                                         <thead class="table-light">
                                             <tr>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('tarea_id', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Tarea <span class="block-sort"><i class="bx <?= $orden_campo == "tarea_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('usuario_id', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Operador <span class="block-sort"><i class="bx <?= $orden_campo == "usuario_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('fechainicio', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Fecha Inicio <span class="block-sort"><i class="bx <?= $orden_campo == "fechainicio" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('fechacierre', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Fecha Cierre <span class="block-sort"><i class="bx <?= $orden_campo == "fechacierre" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
-                                                <th class="sort text-capitalize "><a href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('comentario', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Comentario <span class="block-sort"><i class="bx <?= $orden_campo == "comentario" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="tarea" href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('tarea_id', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Tarea <span class="block-sort"><i class="bx <?= $orden_campo == "tarea_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="operador" href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('usuario_id', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Operador <span class="block-sort"><i class="bx <?= $orden_campo == "usuario_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="fecha inicio" href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('fechainicio', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Fecha Inicio <span class="block-sort"><i class="bx <?= $orden_campo == "fechainicio" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="fecha cierre" href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('fechacierre', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Fecha Cierre <span class="block-sort"><i class="bx <?= $orden_campo == "fechacierre" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a title="comentario" href="<?php echo site_url('worklog/view?ob=' . sentidobusquedacrd('comentario', 'worklog.')) . $filter . $custom_title; ?>" style="color:inherit;">Comentario <span class="block-sort"><i class="bx <?= $orden_campo == "comentario" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
@@ -52,7 +52,7 @@
                                     </table>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <div class="mb-0 flex-grow-1">
+                                    <div title="worklogs totales" class="mb-0 flex-grow-1">
                                         <?= $total_rows > count($worklog_data) ? (count($worklog_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : "" ?>.
                                     </div>
                                     <?php if ($total_rows > count($worklog_data)) : ?>
