@@ -62,7 +62,7 @@ class Users_model extends Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL, $oc = '', $od = '', $filter = array())
     {
-        $builder = $this->db->table($this->table)->select('ion_users.username,ion_users.email,ion_users.active,ion_users.first_name,ion_users.last_name,id, ion_users.dni, ion_users.entrada_manana, ion_users.salida_manana, ion_users.entrada_tarde, ion_users.salida_tarde, ion_users.entrada_verano_manana, ion_users.salida_verano_manana, ion_users.entrada_verano_tarde, ion_users.salida_verano_tarde');
+        $builder = $this->db->table($this->table)->select('ion_users.username,ion_users.email,ion_users.active,ion_users.first_name,ion_users.last_name,id, ion_users.dni');
 
 
         if (count($filter) == 2) {
