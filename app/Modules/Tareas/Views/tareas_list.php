@@ -36,116 +36,49 @@
                             </div>
                         </div>
                         <div class="card-body">
-    <ul class="list-group accordion" id="accordionExample">
-      <li class="list-group-item accordion-item bg-info bg-opacity-25 mb-2">
-        <div class="d-flex justify-content-between">
-          <div>
-            <h5>Poner como una lista</h5>
-            <h6>Crear ControlTask</h6>
-          </div>
-          <div class="btn-group">
-            <button class="btn btn-primary"><i class="fa fa-play"></i></button>
-            <button class="btn btn-danger"><i class="fa fa-stop"></i></button>
-            <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-              aria-expanded="true" aria-controls="collapseOne"><i class='bx bx-chevron-down'></i></button>
-          </div>
-        </div>
-        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-          data-bs-parent="#accordionExample">
-          <div class="accordion-body d-flex justify-content-between">
-            <div>
-              <p>Operador: Pablo</p>
-              <p>Fecha: 28/12/2020</p>
-              <p>Estado: En proceso</p>
-              <p>Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-            </div>
-            <div>
-              <h3>00:34:43</h3>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item accordion-item bg-warning bg-opacity-25 mb-2">
-        <div class="d-flex justify-content-between">
-          <div>
-            <h5>Añadir multiempresa</h5>
-            <h6>Crear ControlTask</h6>
-          </div>
-          <div class="btn-group">
-            <button class="btn btn-warning"><i class="fa fa-pause"></i></button>
-            <button class="btn btn-danger"><i class="fa fa-stop"></i></button>
-            <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-              aria-expanded="true" aria-controls="collapseTwo"><i class='bx bx-chevron-down'></i></button>
-          </div>
-        </div>
-        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-          data-bs-parent="#accordionExample">
-          <div class="accordion-body d-flex justify-content-between">
-            <div>
-
-              <p>Operador: Pablo</p>
-              <p>Fecha: 26/12/2020</p>
-              <p>Estado: En pausa</p>
-              <p>Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-            </div>
-            <div>
-              <h3>00:14:23</h3>
-            </div>
-          </div>
-      </li>
-      <li class="list-group-item accordion-item bg-success bg-opacity-25 mb-2">
-        <div class="d-flex justify-content-between">
-          <div>
-            <h5>Crear el CRUD</h5>
-            <h6>Crear la base de ControlTask</h6>
-          </div>
-          <div class="btn-group">
-            <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapseThird"
-              aria-expanded="true" aria-controls="collapseThird"><i class='bx bx-chevron-down'></i></button>
-          </div>
-        </div>
-        <div id="collapseThird" class="accordion-collapse collapse" aria-labelledby="headingThird"
-          data-bs-parent="#accordionExample">
-          <div class="accordion-body d-flex justify-content-between">
-            <div>
-              <p>Operador: Pablo</p>
-              <p>Fecha: 01/12/2020</p>
-              <p>Estado: Finalizada</p>
-              <p>Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-            </div>
-            <div>
-              <h3>04:44:22</h3>
-            </div>
-          </div>
-      </li>
-      <li class="list-group-item accordion-item bg-success bg-opacity-25 mb-2">
-        <div class="d-flex justify-content-between">
-          <div>
-            <h5>Crear BBDD</h5>
-            <h6>Crear la base de ControlTask</h6>
-          </div>
-          <div class="btn-group">
-            <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapsefour"
-              aria-expanded="true" aria-controls="collapsefour"><i class='bx bx-chevron-down'></i></button>
-          </div>
-        </div>
-        <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour"
-          data-bs-parent="#accordionExample">
-          <div class="accordion-body d-flex justify-content-between">
-            <div>
-              <p>Operador: Pablo</p>
-              <p>Fecha: 01/12/2020</p>
-              <p>Estado: Finalizada</p>
-              <p>Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-            </div>
-            <div>
-              <h3>02:17:28</h3>
-            </div>
-          </div>
-      </li>
-    </ul>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                            <ul class="list-group accordion" id="accordionExample">
+                                <? foreach ($tareas_data as $row) { ?>
+                                    <li style="background-color:<?= ($row->estado == 1) ? '#A7FFFE"' : (($row->estado == 2) ? '#D8FAE0"' : '#FFD28E"') ?> class=" list-group-item accordion-item bg-opacity-25 mb-2">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h5><?= $row->titulo ?></h5>
+                                                <h6><?= $row->proyecto_titulo ?></h6>
+                                            </div>
+                                            <div class="btn-group">
+                                                <? if ($quien === '1' && $fichado === true) { ?>
+                                                    <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
+                                                    <? if ($row->estado == 0) { ?>
+                                                        <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn" value="0"><i class="bx bx-play fs-22"></i></button>
+                                                    <? }
+                                                    if ($row->estado == 1) { ?>
+                                                        <a href="#" onclick="event.preventDefault(); loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn" value="1"><i class="bx bx-pause fs-22"></i></a>
+                                                    <? }
+                                                    if ($row->estado != 2) { ?>
+                                                        <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn" value="2"><i class="ri-calendar-check-line"></i></button>
+                                                    <? } ?>
+                                                    <?= form_close() ?>
+                                                <? } ?>
+                                                <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class='bx bx-chevron-down'></i></button>
+                                            </div>
+                                        </div>
+                                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body d-flex justify-content-between">
+                                                <div>
+                                                    <p>Operador: Pablo</p>
+                                                    <p>Fecha: <?= date("d/m/Y", strtotime($row->fechaestimada)) ?></p>
+                                                    <p>Estado: <?= $row->texto_estado ?></p>
+                                                    <p>Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                                                </div>
+                                                <div>
+                                                    <h3><?= minutosdesplegado($row->horasreales) ?></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <? } ?>
+                            </ul>
+                            <!-- Optional JavaScript -->
+                            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
                         </div>
                     </div>
                 </div>
@@ -181,8 +114,7 @@ $token_hash = csrf_hash();
 
 <script>
     function loadModalContent(url) {
-        $.post(url, {
-        }, function(result) {
+        $.post(url, {}, function(result) {
             $("#ajax .modal-content").html(result);
         });
         $('#ajax').on('hidden.bs.modal', function(e) {
@@ -254,18 +186,18 @@ $token_hash = csrf_hash();
         })
     })
 </script>
-  <script>
+<script>
     function updateElementClass(elemento) {
-      var i = elemento.querySelector("i");
-      if (elemento.classList.contains("show")) {
-        elemento.classList.remove("show");
-        i.classList.remove("bx-chevron-up");
-        i.classList.add("bx-chevron-down");
-      } else {
-        elemento.classList.add("show");
-        i.classList.remove("bx-chevron-down");
-        i.classList.add("bx-chevron-up");        
+        var i = elemento.querySelector("i");
+        if (elemento.classList.contains("show")) {
+            elemento.classList.remove("show");
+            i.classList.remove("bx-chevron-up");
+            i.classList.add("bx-chevron-down");
+        } else {
+            elemento.classList.add("show");
+            i.classList.remove("bx-chevron-down");
+            i.classList.add("bx-chevron-up");
 
-      }
+        }
     }
-  </script>
+</script>
