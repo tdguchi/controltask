@@ -36,7 +36,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-                        <div class="container mt-3">
     <ul class="list-group accordion" id="accordionExample">
       <li class="list-group-item accordion-item bg-info bg-opacity-25 mb-2">
         <div class="d-flex justify-content-between">
@@ -145,7 +144,6 @@
           </div>
       </li>
     </ul>
-  </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
                         </div>
