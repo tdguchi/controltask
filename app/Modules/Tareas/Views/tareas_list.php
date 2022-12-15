@@ -64,10 +64,10 @@
                                         <div id="collapse<?=$row->tarea_id?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                             <div class="accordion-body d-flex justify-content-between">
                                                 <div>
-                                                    <p>Operador: Pablo</p>
+                                                    <p>Operador: <?=$row->operador?></p>
                                                     <p>Fecha: <?= date("d/m/Y", strtotime($row->fechaestimada)) ?></p>
                                                     <p>Estado: <?= $row->texto_estado ?></p>
-                                                    <p>Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                                                    <p>Descripción: <?= $row->descripcion ?> </p>
                                                 </div>
                                                 <div>
                                                     <h3><?= minutosdesplegado($row->horasreales) ?></h3>
