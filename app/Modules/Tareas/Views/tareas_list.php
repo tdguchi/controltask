@@ -44,20 +44,20 @@
                                                 <h5><?= $row->titulo ?></h5>
                                                 <h6><?= $row->proyecto_titulo ?></h6>
                                             </div>
-                                            <div class="align-middle">
+                                            <div">
                                                 <? if ($quien === '1' && $fichado === true) { ?>
                                                     <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                     <? if ($row->estado == 0) { ?>
-                                                        <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn btn-primary" value="0"><i class="fa fa-play"></i></button>
+                                                        <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn btn-primary align-middle" value="0"><i class="fa fa-play"></i></button>
                                                     <? }
                                                     if ($row->estado == 1) { ?>
-                                                        <a href="#" onclick="event.preventDefault(); loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn btn-warning" value="1"><i class="fa fa-pause"></i></a>
+                                                        <a href="#" onclick="event.preventDefault(); loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn btn-warning align-middle" value="1"><i class="fa fa-pause"></i></a>
                                                     <? }
                                                     if ($row->estado != 2) { ?>
                                                         <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn btn-danger" value="2"><i class="fa fa-stop"></i></button>
                                                     <? } ?>
                                                     <? } ?>
-                                                <button type="button" class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapse<?=$row->tarea_id?>" aria-expanded="true" aria-controls="collapse<?=$row->tarea_id?>"><i class='bx bx-chevron-down fs-22'></i></button>
+                                                <button type="button" class="btn btn-secondary align-middle" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapse<?=$row->tarea_id?>" aria-expanded="true" aria-controls="collapse<?=$row->tarea_id?>"><i class='bx bx-chevron-down fs-22'></i></button>
                                                 <?= form_close() ?>
                                                 
                                             </div>
