@@ -38,7 +38,7 @@
                         <div class="card-body">
                             <ul class="list-group accordion" id="accordionExample">
                                 <? foreach ($tareas_data as $row) { ?>
-                                    <li style="background-color:<?= ($row->estado == 1) ? '#A7FFFE"' : (($row->estado == 2) ? '#D8FAE0"' : '#FFD28E"') ?> class=" list-group-item accordion-item bg-opacity-25 mb-2">
+                                    <li style="background-color:<?= ($row->estado == 1) ? '#A7FFFE"' : (($row->estado == 2) ? '#D8FAE0"' : '#FFD28E"') ?>" class="list-group-item accordion-item bg-opacity-25 mb-2">
                                         <div class="d-flex justify-content-between">
                                             <div>
                                                 <h5><?= $row->titulo ?></h5>
