@@ -69,7 +69,7 @@
                                                     <p>Estado: <?= $row->texto_estado ?></p>
                                                     <p>Descripción: <?= $row->descripcion ?> </p>
                                                 </div>
-                                                <div class="d-flex justify-content-center">
+                                                <div>
                                                     <h4>Tiempo estimado: <?= minutosdesplegado($row->horasestimadas) ?></h4>
                                                     <h4>Tiempo real: <?= minutosdesplegado($row->horasreales) ?></h4>
                                                 </div>
