@@ -45,8 +45,8 @@
                                                 <h6><?= $row->proyecto_titulo ?></h6>
                                             </div>
                                             <div">
+                                            <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                 <? if ($quien === '1' && $fichado === true) { ?>
-                                                    <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                     <? if ($row->estado == 0) { ?>
                                                         <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn btn-primary" value="0"><i class="fa fa-play"></i></button>
                                                     <? }
@@ -56,10 +56,9 @@
                                                     if ($row->estado != 2) { ?>
                                                         <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn btn-danger" value="2"><i class="fa fa-stop"></i></button>
                                                     <? } ?>
-                                                    <? } ?>
+                                                <? } ?>
                                                 <button type="button" class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapse<?=$row->tarea_id?>" aria-expanded="true" aria-controls="collapse<?=$row->tarea_id?>"><i class='bx bx-chevron-down fs-22'></i></button>
                                                 <?= form_close() ?>
-                                                
                                             </div>
                                         </div>
                                         <div id="collapse<?=$row->tarea_id?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
