@@ -44,7 +44,7 @@
                                                 <h5><?= $row->titulo ?></h5>
                                                 <h6><?= $row->proyecto_titulo ?></h6>
                                             </div>
-                                            <div class="btn-group" role="group">
+                                            <div>
                                                 <? if ($quien === '1' && $fichado === true) { ?>
                                                     <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                     <? if ($row->estado == 0) { ?>
