@@ -56,9 +56,10 @@
                                                     if ($row->estado != 2) { ?>
                                                         <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn btn-danger" value="2"><i class="fa fa-stop"></i></button>
                                                     <? } ?>
-                                                    <?= form_close() ?>
-                                                <? } ?>
+                                                    
                                                 <button type="button" class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapse<?=$row->tarea_id?>" aria-expanded="true" aria-controls="collapse<?=$row->tarea_id?>"><i class='bx bx-chevron-down fs-22'></i></button>
+                                                <?= form_close() ?>
+                                                <? } ?>
                                             </div>
                                         </div>
                                         <div id="collapse<?=$row->tarea_id?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
