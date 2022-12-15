@@ -48,13 +48,13 @@
                                                 <? if ($quien === '1' && $fichado === true) { ?>
                                                     <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                     <? if ($row->estado == 0) { ?>
-                                                        <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn btn-primary" value="0"><i class="fa fa-play fs-22"></i></button>
+                                                        <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn btn-primary" value="0"><i class="fa fa-play"></i></button>
                                                     <? }
                                                     if ($row->estado == 1) { ?>
-                                                        <a href="#" onclick="event.preventDefault(); loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn btn-warning" value="1"><i class="bx bx-pause fs-22"></i></a>
+                                                        <a href="#" onclick="event.preventDefault(); loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn btn-warning" value="1"><i class="fa fa-pause"></i></a>
                                                     <? }
                                                     if ($row->estado != 2) { ?>
-                                                        <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn btn-danger" value="2"><i class="ri-calendar-check-line"></i></button>
+                                                        <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn btn-danger" value="2"><i class="fa fa-stop"></i></button>
                                                     <? } ?>
                                                     <?= form_close() ?>
                                                 <? } ?>
