@@ -58,7 +58,7 @@
                                                     <? } ?>
                                                     <?= form_close() ?>
                                                 <? } ?>
-                                                <button type="button" class="btn btn-secondary btn-sm" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapse<?=$row->tarea_id?>" aria-expanded="true" aria-controls="collapse<?=$row->tarea_id?>"><i class='bx bx-chevron-down fs-22'></i></button>
+                                                <button type="button" class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapse<?=$row->tarea_id?>" aria-expanded="true" aria-controls="collapse<?=$row->tarea_id?>"><i class='bx bx-chevron-down fs-22'></i></button>
                                             </div>
                                         </div>
                                         <div id="collapse<?=$row->tarea_id?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
