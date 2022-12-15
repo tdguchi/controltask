@@ -36,6 +36,118 @@
                             </div>
                         </div>
                         <div class="card-body">
+                        <div class="container mt-3">
+    <ul class="list-group accordion" id="accordionExample">
+      <li class="list-group-item accordion-item bg-info bg-opacity-25 mb-2">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h5>Poner como una lista</h5>
+            <h6>Crear ControlTask</h6>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-primary"><i class="fa fa-play"></i></button>
+            <button class="btn btn-danger"><i class="fa fa-stop"></i></button>
+            <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne"><i class='bx bx-chevron-down'></i></button>
+          </div>
+        </div>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body d-flex justify-content-between">
+            <div>
+              <p>Operador: Pablo</p>
+              <p>Fecha: 28/12/2020</p>
+              <p>Estado: En proceso</p>
+              <p>Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+            </div>
+            <div>
+              <h3>00:34:43</h3>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item accordion-item bg-warning bg-opacity-25 mb-2">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h5>Añadir multiempresa</h5>
+            <h6>Crear ControlTask</h6>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-warning"><i class="fa fa-pause"></i></button>
+            <button class="btn btn-danger"><i class="fa fa-stop"></i></button>
+            <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+              aria-expanded="true" aria-controls="collapseTwo"><i class='bx bx-chevron-down'></i></button>
+          </div>
+        </div>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body d-flex justify-content-between">
+            <div>
+
+              <p>Operador: Pablo</p>
+              <p>Fecha: 26/12/2020</p>
+              <p>Estado: En pausa</p>
+              <p>Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+            </div>
+            <div>
+              <h3>00:14:23</h3>
+            </div>
+          </div>
+      </li>
+      <li class="list-group-item accordion-item bg-success bg-opacity-25 mb-2">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h5>Crear el CRUD</h5>
+            <h6>Crear la base de ControlTask</h6>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapseThird"
+              aria-expanded="true" aria-controls="collapseThird"><i class='bx bx-chevron-down'></i></button>
+          </div>
+        </div>
+        <div id="collapseThird" class="accordion-collapse collapse" aria-labelledby="headingThird"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body d-flex justify-content-between">
+            <div>
+              <p>Operador: Pablo</p>
+              <p>Fecha: 01/12/2020</p>
+              <p>Estado: Finalizada</p>
+              <p>Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+            </div>
+            <div>
+              <h3>04:44:22</h3>
+            </div>
+          </div>
+      </li>
+      <li class="list-group-item accordion-item bg-success bg-opacity-25 mb-2">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h5>Crear BBDD</h5>
+            <h6>Crear la base de ControlTask</h6>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapsefour"
+              aria-expanded="true" aria-controls="collapsefour"><i class='bx bx-chevron-down'></i></button>
+          </div>
+        </div>
+        <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body d-flex justify-content-between">
+            <div>
+              <p>Operador: Pablo</p>
+              <p>Fecha: 01/12/2020</p>
+              <p>Estado: Finalizada</p>
+              <p>Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+            </div>
+            <div>
+              <h3>02:17:28</h3>
+            </div>
+          </div>
+      </li>
+    </ul>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
                         </div>
                     </div>
                 </div>
@@ -144,3 +256,23 @@ $token_hash = csrf_hash();
         })
     })
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script>
+    function updateElementClass(elemento) {
+      var i = elemento.querySelector("i");
+      if (elemento.classList.contains("show")) {
+        elemento.classList.remove("show");
+        i.classList.remove("bx-chevron-up");
+        i.classList.add("bx-chevron-down");
+      } else {
+        elemento.classList.add("show");
+        i.classList.remove("bx-chevron-down");
+        i.classList.add("bx-chevron-up");        
+
+      }
+    }
+  </script>
