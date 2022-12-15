@@ -58,10 +58,10 @@
                                                     <? } ?>
                                                     <?= form_close() ?>
                                                 <? } ?>
-                                                <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class='bx bx-chevron-down'></i></button>
+                                                <button class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapse <?=$row->tarea_id?>" aria-expanded="true" aria-controls="collapse<?=$row->tarea_id?>"><i class='bx bx-chevron-down'></i></button>
                                             </div>
                                         </div>
-                                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div id="collapse<?=$row->tarea_id?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                             <div class="accordion-body d-flex justify-content-between">
                                                 <div>
                                                     <p>Operador: Pablo</p>
