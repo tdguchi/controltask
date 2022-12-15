@@ -70,7 +70,7 @@
                                                     <p>Descripción: <?= $row->descripcion ?> </p>
                                                 </div>
                                                 <div>
-                                                    <h3><?= minutosdesplegado($row->horasreales) ?></h3>
+                                                    <h3>Tiempo real: <?= minutosdesplegado($row->horasreales) ?></h3>
                                                 </div>
                                             </div>
                                         </div>
