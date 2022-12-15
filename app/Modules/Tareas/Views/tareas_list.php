@@ -36,50 +36,104 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <ul class="list-group accordion" id="accordionExample">
-                                <? foreach ($tareas_data as $row) { ?>
-                                    <li style="background-color:<?= ($row->estado == 1) ? '#A7FFFE"' : (($row->estado == 2) ? '#D8FAE0"' : '#FFD28E"') ?>" class="list-group-item accordion-item bg-opacity-25 mb-2">
-                                        <div class="d-flex justify-content-between">
-                                            <div>
-                                                <h5><?= $row->titulo ?></h5>
-                                                <h6><?= $row->proyecto_titulo ?></h6>
-                                            </div>
-                                            <div>
-                                            <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
-                                                <? if ($quien === '1' && $fichado === true) { ?>
-                                                    <? if ($row->estado == 0) { ?>
-                                                        <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn btn-primary" value="0"><i class="fa fa-play"></i></button>
-                                                    <? }
-                                                    if ($row->estado == 1) { ?>
-                                                        <a href="#" onclick="event.preventDefault(); loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn btn-warning" value="1"><i class="fa fa-pause"></i></a>
-                                                    <? }
-                                                    if ($row->estado != 2) { ?>
-                                                        <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn btn-danger" value="2"><i class="fa fa-stop"></i></button>
-                                                    <? } ?>
+                            <div>
+                                <div class="table-responsive table-card mb-1">
+                                    <table class="table align-middle table-nowrap">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col" style="width: 50px;">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option">
+                                                    </div>
+                                                </th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('titulo', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Titulo <span class="block-sort"><i class="bx <?= $orden_campo == "titulo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('proyecto_id', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Proyecto <span class="block-sort"><i class="bx <?= $orden_campo == "proyecto_id" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechaestimada', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Fecha Estimada <span class="block-sort"><i class="bx <?= $orden_campo == "fechaestimada" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('horasestimadas', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;"><i class='bx bx-timer fs-15'></i> Estimado <span class="block-sort"><i class="bx <?= $orden_campo == "horasestimadas" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('horasreales', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;"><i class='bx bx-timer fs-15'></i> Dedicado <span class="block-sort"><i class="bx <?= $orden_campo == "horasreales" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <? if (count($group_id) == 2) { ?>
+                                                    <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fechacomienzo', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Fecha Comienzo <span class="block-sort"><i class="bx <?= $orden_campo == "fechacomienzo" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                    <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('fecharealcierre', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Fecha Real Cierre <span class="block-sort"><i class="bx <?= $orden_campo == "fecharealcierre" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
                                                 <? } ?>
-                                                <button type="button" class="btn btn-secondary" onclick="updateElementClass(this)" data-bs-toggle="collapse" data-bs-target="#collapse<?=$row->tarea_id?>" aria-expanded="true" aria-controls="collapse<?=$row->tarea_id?>"><i class='bx bx-chevron-down'></i></button>
-                                                <?= form_close() ?>
-                                            </div>
+                                                <th class="sort text-capitalize "><a href="<?php echo $accion . '?ob=' . sentidobusquedacrd('texto_estado', 'tareas.') . $filter . $custom_title; ?>" style="color:inherit;">Estado <span class="block-sort"><i class="bx <?= $orden_campo == "texto_estado" ? ($orden_dir == "ASC" ? "bx-caret-up active" : "bx-caret-down active") : "bxs-sort-alt" ?>"></i></span></a></th>
+                                                <th> Acciones </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list form-check-all">
+                                            <? foreach ($tareas_data as $row) { ?>
+                                                <tr style="background-color:<?= ($row->estado == 1) ? '#A7FFFE"' : (($row->estado == 2) ? '#D8FAE0"' : '#FFD28E"' ) ?>>
+                                                    <th scope="row">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input check-selection" type="checkbox" name="checkAll" value="<?= $row->tarea_id ?>">
+                                                        </div>
+                                                    </th>
+                                                    <td class=" text-left ">
+                                                        <div class>
+                                                            <div class="flex-grow-1 tasks_name">
+                                                                <a class="link-strong" href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax"><?= $row->titulo ?></a>
+                                                            </div>
+                                                            <div class="flex-shrink-0">
+                                                                <ul class="list-inline list-inline-dashed tasks-list-menu mb-0">
+                                                                    <li class="list-inline-item fs-12">
+                                                                        <a href="#" onclick="loadModalContent('<?= site_url('tareas/read/' . $row->tarea_id) ?>/1')" data-bs-toggle="modal" data-bs-target="#ajax">Ver</a>
+                                                                    </li>
+                                                                    <?php if ($fichado === true && $row->estado != 2) { ?>
+                                                                        <li class="list-inline-item fs-12">
+                                                                            <a href="<?= site_url('tareas/update/' . $row->tarea_id) ?>">Editar</a>
+                                                                        </li>
+                                                                        <li class="list-inline-item fs-12">
+                                                                            <a href="#" onclick="deleteItem('<?= $row->tarea_id ?>')" class="color-red">Eliminar</a>
+                                                                        </li>
+                                                                        <? if (count($group_id) == 2) { ?>
+                                                                            <li class="list-inline-item fs-12">
+                                                                            <a href="<?= site_url('tareas/cambios/') . $row->tarea_id ?>" class="color-blue">Cambios</a>
+                                                                        </li>
+                                                                        <? } ?>
+                                                                    <?php } ?>
+                                                                </ul>
+                                                            </div>
+                                                            <div>
+                                                    </td>
+                                                    <td class=" text-right "><?= $row->proyecto_titulo ?></td>
+                                                    <td class=" text-left "><?= date("d/m/Y", strtotime($row->fechaestimada)) ?></td>
+                                                    <td class=" text-right "><?= minutosdesplegado($row->horasestimadas) ?></td>
+                                                    <td class=" text-right "><?= minutosdesplegado($row->horasreales) ?></td>
+                                                    <? if (count($group_id) == 2) { ?>
+                                                        <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fechacomienzo)) ?></td>
+                                                        <td class=" text-left "><?= date("d/m/Y H:i:s", strtotime($row->fecharealcierre)) ?></td>
+                                                    <? } ?>
+                                                    <td class=" text-right "><?= $row->texto_estado ?></td>
+                                                    <td class=" text-right ">
+                                                        <? if ($quien === '1' && $fichado === true) { ?>
+                                                            <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
+                                                            <? if ($row->estado == 0) { ?>
+                                                                <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn" value="0"><i class="bx bx-play fs-22"></i></button>
+                                                            <? }
+                                                             if ($row->estado == 1) { ?>
+                                                                <a href="#" onclick="event.preventDefault(); loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn" value="1"><i class="bx bx-pause fs-22"></i></a>
+                                                            <? }
+                                                            if ($row->estado != 2) { ?>
+                                                                <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn" value="2"><i class="ri-calendar-check-line"></i></button>
+                                                            <? } ?>
+                                                            <?= form_close() ?>
+                                                        <? } ?>
+                                                    </td>
+                                                </tr>
+                                            <? } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="mb-0 flex-grow-1">
+                                        <?= $total_rows > count($tareas_data) ? (count($tareas_data) . " de ") : "" ?><?= $total_rows ?> registro<?= $total_rows != 1 ? "s" : "" ?>.
+                                    </div>
+                                    <?php if ($total_rows > count($tareas_data)) : ?>
+                                        <div class="flex-shrink-0 pagination-wrap hstack gap-2">
+                                            <?= $pagination ?>
                                         </div>
-                                        <div id="collapse<?=$row->tarea_id?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body d-flex justify-content-between">
-                                                <div>
-                                                    <p>Operador: <?=$row->operador?></p>
-                                                    <p>Fecha: <?= date("d/m/Y", strtotime($row->fechaestimada)) ?></p>
-                                                    <p>Estado: <?= $row->texto_estado ?></p>
-                                                    <p>Descripción: <?= $row->descripcion ?> </p>
-                                                </div>
-                                                <div>
-                                                    <h4>Tiempo estimado: <?= minutosdesplegado($row->horasestimadas) ?></h4>
-                                                    <h4>Tiempo real: <?= minutosdesplegado($row->horasreales) ?></h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                <? } ?>
-                            </ul>
-                            <!-- Optional JavaScript -->
-                            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -115,7 +169,8 @@ $token_hash = csrf_hash();
 
 <script>
     function loadModalContent(url) {
-        $.post(url, {}, function(result) {
+        $.post(url, {
+        }, function(result) {
             $("#ajax .modal-content").html(result);
         });
         $('#ajax').on('hidden.bs.modal', function(e) {
@@ -186,19 +241,4 @@ $token_hash = csrf_hash();
             }
         })
     })
-</script>
-<script>
-    function updateElementClass(elemento) {
-        var i = elemento.querySelector("i");
-        if (elemento.classList.contains("show")) {
-            elemento.classList.remove("show");
-            i.classList.remove("bx-chevron-up");
-            i.classList.add("bx-chevron-down");
-        } else {
-            elemento.classList.add("show");
-            i.classList.remove("bx-chevron-down");
-            i.classList.add("bx-chevron-up");
-
-        }
-    }
 </script>
