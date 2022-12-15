@@ -45,7 +45,7 @@
                                                 <h6><?= $row->proyecto_titulo ?></h6>
                                             </div>
                                             <div>
-                                            <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '" class="align-middle"') ?>
+                                            <?= form_open('tareas/acciones/' . $row->tarea_id, 'id="actionForm' . $row->tarea_id . '"') ?>
                                                 <? if ($quien === '1' && $fichado === true) { ?>
                                                     <? if ($row->estado == 0) { ?>
                                                         <button type="submit" id="0" name="accion" title="Iniciar tarea" class="btn btn-primary" value="0"><i class="fa fa-play"></i></button>
