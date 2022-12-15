@@ -70,8 +70,8 @@
                                                     <p>Descripción: <?= $row->descripcion ?> </p>
                                                 </div>
                                                 <div>
-                                                    <h3>Tiempo estimado: <?= minutosdesplegado($row->horasestimadas) ?></h3>
-                                                    <h3>Tiempo real: <?= minutosdesplegado($row->horasreales) ?></h3>
+                                                    <h4>Tiempo estimado: <?= minutosdesplegado($row->horasestimadas) ?></h4>
+                                                    <h4>Tiempo real: <?= minutosdesplegado($row->horasreales) ?></h4>
                                                 </div>
                                             </div>
                                         </div>
