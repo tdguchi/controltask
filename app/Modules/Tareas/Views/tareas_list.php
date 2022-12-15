@@ -54,7 +54,7 @@
                                                         <a href="#" onclick="event.preventDefault(); loadModalContent('<?= site_url('worklog/update/') . $row->tarea_id ?>');" data-bs-toggle="modal" data-bs-target="#ajax" id="1" title="Pausar tarea" class="btn btn-warning" value="1"><i class="bx bx-pause fs-22"></i></a>
                                                     <? }
                                                     if ($row->estado != 2) { ?>
-                                                        <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn btn-stop" value="2"><i class="ri-calendar-check-line"></i></button>
+                                                        <button type="submit" id="2" name="accion" title="Tarea acabada" class="btn btn-danger" value="2"><i class="ri-calendar-check-line"></i></button>
                                                     <? } ?>
                                                     <?= form_close() ?>
                                                 <? } ?>
