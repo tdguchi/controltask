@@ -1,0 +1,126 @@
+CRITICAL - 2022-12-23 19:33:58 --> The framework needs the following extension(s) installed and loaded: curl, intl, mbstring, xml.
+in SYSTEMPATH/CodeIgniter.php on line 219.
+ 1 SYSTEMPATH/CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+ 2 SYSTEMPATH/CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH/index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2022-12-23 19:34:52 --> La extensión xml no está cargada.
+in SYSTEMPATH/CodeIgniter.php on line 219.
+ 1 SYSTEMPATH/CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+ 2 SYSTEMPATH/CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH/index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2022-12-23 19:34:52 --> La extensión xml no está cargada.
+in SYSTEMPATH/CodeIgniter.php on line 219.
+ 1 SYSTEMPATH/CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+ 2 SYSTEMPATH/CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH/index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2022-12-23 20:35:22 --> Creation of dynamic property IonAuth\Libraries\IonAuth::$session is deprecated
+in APPPATH/ThirdParty/ion-auth/Libraries/IonAuth.php on line 66.
+ 1 APPPATH/ThirdParty/ion-auth/Libraries/IonAuth.php(66): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(9): IonAuth\Libraries\IonAuth->__construct()
+ 3 SYSTEMPATH/CodeIgniter.php(869): App\Controllers\Home->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(448): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-23 20:39:22 --> Use of undefined constant MYSQLI_STORE_RESULT - assumed 'MYSQLI_STORE_RESULT' (this will throw an Error in a future version of PHP)
+in SYSTEMPATH/Database/Database.php on line 136.
+ 1 SYSTEMPATH/Database/Database.php(136): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Database/Database.php(56): CodeIgniter\Database\Database->initDriver()
+ 3 SYSTEMPATH/Database/Config.php(78): CodeIgniter\Database\Database->load()
+ 4 APPPATH/ThirdParty/ion-auth/Models/IonAuthModel.php(218): CodeIgniter\Database\Config::connect()
+ 5 APPPATH/ThirdParty/ion-auth/Libraries/IonAuth.php(68): IonAuth\Models\IonAuthModel->__construct()
+ 6 APPPATH/Controllers/Home.php(9): IonAuth\Libraries\IonAuth->__construct()
+ 7 SYSTEMPATH/CodeIgniter.php(869): App\Controllers\Home->__construct()
+ 8 SYSTEMPATH/CodeIgniter.php(448): CodeIgniter\CodeIgniter->createController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-23 20:50:03 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'controltask_user'@'localhost' in /var/www/html/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /var/www/html/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /var/www/html/system/Database/BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 /var/www/html/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/app/ThirdParty/ion-auth/Models/IonAuthModel.php(850): CodeIgniter\Database\BaseBuilder->get()
+#5 [internal function]: IonAuth\Models\IonAuthModel->login()
+#6 /var/www/html/app/ThirdParty/ion-auth/Libraries/IonAuth.php(101): call_user_func_array()
+#7 /var/www/html/app/Controllers/Auth.php(132): IonAuth\Libraries\IonAuth->__call()
+#8 /var/www/html/system/CodeIgniter.php(907): App\Controllers\Auth->login()
+#9 /var/www/html/system/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/html/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/html/index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /var/www/html/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /var/www/html/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /var/www/html/system/Database/BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/html/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /var/www/html/app/ThirdParty/ion-auth/Models/IonAuthModel.php(850): CodeIgniter\Database\BaseBuilder->get()
+#4 [internal function]: IonAuth\Models\IonAuthModel->login()
+#5 /var/www/html/app/ThirdParty/ion-auth/Libraries/IonAuth.php(101): call_user_func_array()
+#6 /var/www/html/app/Controllers/Auth.php(132): IonAuth\Libraries\IonAuth->__call()
+#7 /var/www/html/system/CodeIgniter.php(907): App\Controllers\Auth->login()
+#8 /var/www/html/system/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/html/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/html/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-23 20:50:03 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 APPPATH/ThirdParty/ion-auth/Models/IonAuthModel.php(850): CodeIgniter\Database\BaseBuilder->get()
+ 4 [internal function]: IonAuth\Models\IonAuthModel->login()
+ 5 APPPATH/ThirdParty/ion-auth/Libraries/IonAuth.php(101): call_user_func_array()
+ 6 APPPATH/Controllers/Auth.php(132): IonAuth\Libraries\IonAuth->__call()
+ 7 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Auth->login()
+ 8 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-23 20:59:49 --> Undefined variable: active
+in APPPATH/Views/partials/menu.php on line 48.
+ 1 APPPATH/Views/partials/menu.php(48): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/partials/menu.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/template.php(63): view()
+ 6 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/template.php')
+ 7 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(40): view()
+10 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Home->index()
+11 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-23 21:00:26 --> Undefined variable: active
+in APPPATH/Views/partials/menu.php on line 48.
+ 1 APPPATH/Views/partials/menu.php(48): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/partials/menu.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/template.php(63): view()
+ 6 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/template.php')
+ 7 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(40): view()
+10 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Home->index()
+11 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-23 21:01:21 --> Undefined variable: active
+in APPPATH/Views/partials/menu.php on line 48.
+ 1 APPPATH/Views/partials/menu.php(48): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/partials/menu.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/template.php(63): view()
+ 6 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/template.php')
+ 7 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(40): view()
+10 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Home->index()
+11 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-23 21:01:43 --> p: 
+ERROR - 2022-12-23 21:01:58 --> ultima_asistencia: 
+ERROR - 2022-12-23 21:02:08 --> p: 

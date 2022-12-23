@@ -4,7 +4,7 @@
 
 # Disable directory browsing
 Options All -Indexes
-
+php_flag short_open_tag on
 # ----------------------------------------------------------------------
 # Rewrite engine
 # ----------------------------------------------------------------------

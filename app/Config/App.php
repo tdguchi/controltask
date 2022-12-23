@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'https://controltask.net/';
+    public $baseURL = 'https://tdguchi.me/';
 
     /**
      * --------------------------------------------------------------------------
