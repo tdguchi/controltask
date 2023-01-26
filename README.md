@@ -7,3 +7,9 @@ Se puede crear usuarios, asignarles un rol
 Una vez creados los usuarios, podrán crear proyectos y asignar tareas a dichos proyectos
 
 La finalidad de la aplicación es llevar un conteo del tiempo dedicado a cada tarea, así como del tiempo efectivo de la jornada laboral del trabajador
+
+
+
+
+
+Github se ha usado mas que como una herramienta de control de versiones, como un apoyo para git-ftp.
